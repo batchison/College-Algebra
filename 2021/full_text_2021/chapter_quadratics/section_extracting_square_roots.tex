@@ -1,0 +1,210 @@
+\documentclass[12pt]{book}
+\raggedbottom
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=0.25in]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem,tikzpagenodes}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0in}
+\setlist{itemsep=0in}
+\setlength{\parskip}{0.1in}
+\setcounter{secnumdepth}{0}
+\input{lesson_order}
+
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+
+\begin{document}
+\section{The Method of Extracting Square Roots}
+\subsection{Solve by Square Roots (L\arabic{lesson_solve_by_square_roots})}
+{\bf Objective: Solve quadratic equations of the form $ax^2+c=0$ by introducing a square root.}\par
+Up until now, when attempting to solve an equation such as $x^2-4=0$, we have had no choice but to factor the expression on the left and set each factor equal to zero.  
+\begin{example}~~~Solve the given equation for all possible values of $x$.
+\begin{eqnarray*}
+x^2-4=0 & & \text{Factor,~difference~of~two~squares}\\
+(x-2)(x+2)=0 & & \text{Use~Zero~Factor~Property}\\
+x-2=0 \text{~or~} x+2=0 & & \text{Solve}\\
+x=2 \text{~~or~~} -2 & & \text{Our~solution}
+\end{eqnarray*}
+\end{example}
+As an alternative method, in this subsection, we will look at solving the expression $ax^2+c=0$ using an alternative method.  Instead of attempting to factor the expression, we will introduce a square root, when solving for $x$.  In each case, when faced with such an expression, our solution can be reached by applying the following three stops, in the specified order.
+\begin{center}
+Solve $ax^2+c=0$.\par
+\begin{tabular}{lc}
+Step & Equation\\
+1. Subtract $c$. & $ax^2=-c$\\
+& \\
+2. Divide by $a$. & $x^2=-\dfrac{c}{a}$\\
+& \\
+3. Take a square root. & $x=\pm\sqrt{-\dfrac{c}{a}}$
+\end{tabular}
+\end{center}
+\begin{example}~~~Solve the given equation for all possible values of $x$.
+\begin{eqnarray*}
+x^2-4=0 & & \text{Add \ 4}\\
+x^2=4 & & \text{Take \ a \ square \ root}\\
+x=\pm 2 & & \text{Our \ solution}
+\end{eqnarray*}
+\end{example}
+Recall that the values $x=2$ and $x=-2$ are known as the {\it zeros} or {\it roots} of the equation $y=x^2-4$.  Observe that the graphical interpretation of a zero is an $x-$intercept (when $y=0$).  In this case, the $x-$intercepts of the resulting parabola are at $(2,0)$ and $(-2,0)$.
+\begin{example}~~~Solve the given equation for all possible values of $x$.
+\begin{eqnarray*}
+5x^2+60=0 & & \text{Subtract \ 60}\\
+5x^2=-60 & & \text{Divide \ by \ 5}\\
+x^2=-12 & & \text{Take \ a \ square \ root}\\
+x=\pm \sqrt{-12} & & \text{Imaginary \ roots; Simplify}\\
+x=\pm 2\sqrt{3}i & & \text{Our \ solution}
+\end{eqnarray*}
+\end{example}
+In this example, we see that our two solutions, $x=2\sqrt{3}i$ and $x=-2\sqrt{3}i$ are not real.  Hence, the corresponding parabola for $y=5x^2+60$ will have no $x-$intercepts.\par
+In what follows, we will refer to the more general form of this method as {\it extracting square roots}.
+\subsection{Extracting Square Roots (L\arabic{lesson_extracting_square_roots})}
+{\bf Objective: Solve quadratic equations using the method of extracting square roots.}\par
+
+We will now introduce a new technique for identifying the zeros of a quadratic equation, known as the method of {\it extracting square roots}.  The method of extracting square roots will only be employed once we have identified the vertex form for a given quadratic, $y=a(x-h)^2+k$.  The general steps for the method are shown below, and the requirement of the vertex form will be essential.
+
+\begin{example}~~~Determine the zeros of the quadratic equation $y=ax^2+bx+c$, where $a\neq 0$.\\
+First obtain the vertex form:  $h=-\dfrac{b}{2a}$, set $x=h$ to find $k$.
+\begin{eqnarray*}
+a(x-h)^2+k=0~~~ & &\text{Vertex~form}\\
+\tmmathbf{\underline{-k~~-k}} & & \text{Subtract~} k \text{~from~both~sides}\\
+a(x-h)^2=-k & &\\
+\tmmathbf{\overline{~a~}~~~~~~~~\overline{~a~}} & &  \text{Divide~both~sides~by~} a\\
+(x-h)^2=-\frac{k}{a}& &\\
+\sqrt{(x-h)^2}=\pm\sqrt{-\frac{k}{a}}& &\text{Take~square~root~of~both~sides}\\
+& & ~~~\text{to~extract~radicand,~} x-h\\
+x-h=\pm\sqrt{-\frac{k}{a}} & & \\
+\tmmathbf{\underline{+h}~~~~~~~~~\underline{+h}} & & \text{Add~} h \text{~to~both~sides}\\
+x=h\pm\sqrt{-\frac{k}{a}} & & \text{Our~solution}
+\end{eqnarray*}
+\end{example}
+
+In the previous example, there are two important points to consider.  First is the introduction of the square root into the equation.  This step is the reason behind the name of the method, and its success hinges upon the fact that the vertex form contains a single instance of the variable $x$.  Unlike with the vertex form, if we were to introduce a square root directly to the equation $ax^2+bx+c=0$ (using the standard form), we would immediately reach a dead end, and be unable to simplify the resulting equation.  This is primarily because we cannot combine the ``unlike'' terms $ax^2$ and $bx$, and we cannot split up sums (and differences) of terms underneath a square root.\par
+Additionally, it is critical that we include a `$\pm$' on the right side of the equation once the square root has been introduced.  The justification for this follows from the fact that there are always two values (one positive and one negative) that will equal the value underneath a square root (assuming that value is nonzero, since $\sqrt{0}=0$).  For example, $\sqrt{4}=\pm 2$ and $\sqrt{-9}=\pm 3i$.\par
+We now present a few examples that demonstrate the method, as well as some of the possibilities for the number of zeros, and consequently, the number of $x-$intercepts of the corresponding graph.
+\newpage
+\begin{example}~~~Use the method of extracting square roots to find the zeros of the equation $y = (x+4)^2-9$.
+\begin{multicols}{2}
+\begin{center}
+\begin{tikzpicture}[xscale=0.45,yscale=0.45]
+	\draw [<->](-8.5,0) -- coordinate (x axis mid) (0.5,0) node[below right] {$x$};
+	\draw [<->](0,-9.5) -- coordinate (x axis mid) (0,2) node[above right] {$y$};
+	\draw [<->] plot [domain=-7.25:-0.75, samples=100] (\x,{(\x+4)^2-9});
+	\foreach \x in {-7,-5,...,-1}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \y in {-1,-3,...,-9}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=west] {\scriptsize \y}; 
+	\foreach \y in {1}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=west] {\scriptsize \y}; 
+ \draw[fill] (-4,-9) ellipse (0.1 and 0.1);
+ \draw[fill] (-1,0) ellipse (0.1 and 0.1);
+ \draw[fill] (-7,0) ellipse (0.1 and 0.1);
+\end{tikzpicture}
+\end{center}
+
+\columnbreak
+
+\begin{eqnarray*}
+    \ 0 = (x+4)^2-9 &  &  \tmop{Set} \tmop{equal} \tmop{to} \tmop{zero~and~solve}\\
+    \ \tmmathbf{\underline{+9}~~~~~~~~~~~~~~~\underline{+9}}   & & \tmop{Isolate} \tmop{the} \tmop{square} 	 \\
+    \ 9=(x+4)^2~~~~~ & & \\
+		\pm\sqrt{9} = \sqrt{(x+4)^2}~~ & & \tmop{Square} \tmop{root} \tmop{both} \tmop{sides} \\
+		\ \pm3 = x + 4~~~~~~~~~  & &  \tmop{Solve} \tmop{for~} x\\
+		\ \tmmathbf{\underline{-4}~~~~~~\underline{-4}}~~~~~~~~~  & &  \tmop{Subtract~} 4\\
+		\ x=\pm3 - 4~~~~~~~ & & \tmop{Two} \tmop{solutions} \\
+		\ x=3 - 4~~ \Rightarrow x = -1   & & \tmop{One} \tmop{solution}\\
+		\ x=-3 - 4 \Rightarrow x = -7  & & \tmop{The} \tmop{other} \tmop{solution}
+  \end{eqnarray*}
+\end{multicols}
+Our zeros are $x=-7$ and $-1$.  The corresponding $x-$intercepts are at $(-7,0)$ and $(-1,0)$.
+\end{example}
+
+\begin{example}~~~Use the method of extracting square roots to find the zeros of the equation $y = -3(x-1)^2+12$.
+\end{example}
+\begin{multicols}{2}
+\begin{center}
+\begin{tikzpicture}[xscale=1.2,yscale=0.4]
+	\draw [<->](-1.5,0) -- coordinate (x axis mid) (3.5,0) node[below right] {$x$};
+	\draw [<->](0,-1) -- coordinate (x axis mid) (0,13) node[above right] {$y$};
+	\draw [<->] plot [domain=-1.1:3.1, samples=100] (\x,{-3*(\x-1)^2+12});
+	\foreach \x in {-1}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \x in {1,2,3}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \y in {2,4,...,12}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=east] {\scriptsize \y}; 
+	%\foreach \y in {}
+		%\draw (2pt,\y) -- (-2pt,\y)	node[anchor=east] {\scriptsize \y}; 
+ \draw[fill] (1,12) ellipse (0.04 and 0.1);
+ \draw[fill] (0,9) ellipse (0.04 and 0.12);
+ \draw[fill] (-1,0) ellipse (0.04 and 0.1);
+ \draw[fill] (3,0) ellipse (0.04 and 0.1);
+\end{tikzpicture}
+\end{center}
+
+\columnbreak
+
+\begin{eqnarray*}
+    \ 0 = -3(x-1)^2+12 &  &  \tmop{Set} \tmop{equal} \tmop{to} \tmop{zero~and~solve}\\
+    \ \tmmathbf{\underline{-12}~~~~~~~~~~~~~~~~~~~\underline{-12}}    & & \tmop{Subtract~}12\\
+		\ -12 = -3(x-1)^2~~~~~~~ & &  \text{Isolate~the~square,}\\
+		\ \tmmathbf{\overline{-3}~~~~~~~~~~\overline{-3}}~~~~~~~~~~~ & & ~~~\tmop{divide} \tmop{both} \tmop{sides} \tmop{by~}-3\\
+		\ 4 = (x-1)^2~~~~~~~~~~~ & &\\
+		\ \pm\sqrt{4} = \sqrt{(x-1)^2}~~~~~~~~ & & \tmop{Square} \tmop{root} \tmop{both} \tmop{sides}\\
+		\ \pm2 = x - 1~~~~~~~~~~~~~~~  & &  \tmop{Solve} \tmop{for~} x\\
+		\ \tmmathbf{\underline{+1}~~~~~~\underline{+1}}~~~~~~~~~~~~~~~  & &  \tmop{Add~}1\\
+		\ x=\pm2 +1~~~~~~~~~~~~~ & & \tmop{Two} \tmop{solutions} \\
+		\ x=1 - 2 \Rightarrow x = -1  & & \tmop{One} \tmop{solution}\\
+		\ x=1 + 2 \Rightarrow x = 3~~  & & \tmop{The} \tmop{other} \tmop{solution}
+  \end{eqnarray*}
+\end{multicols}
+\begin{center}
+Our two zeros are $x=-1$ and $x=3$.
+\end{center}
+
+In some cases, the introduction of a square root results in an imaginary number.  This scenario coincides with our corresponding parabola having no $x-$intercepts.  In the previous example, if we were to change the sign of $k$ from $+12$ to $-12$, the corresponding parabola would still open downwards, while having a vertex at $(1,-12)$, located below the $x-$axis.  This will result in the appearance of a $\sqrt{-4}=2i$, rather than a $\sqrt{4}$, in our solution.  Consequently, there will be no real zeros for the equation and no $x-$intercepts on its graph.\par
+We conclude this section with a final example, which will also result in no real zeros.
+
+\begin{example}~~~Use the method of extracting square roots to find the zeros of the equation $y = -1(x-1)^2-4$.
+\begin{multicols}{2}
+\ \par
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=0.75]
+	\draw [<->](-1.5,0) -- coordinate (x axis mid) (3.5,0) node[below right] {$x$};
+	\draw [<->](0,-7.5) -- coordinate (x axis mid) (0,0.5) node[above right] {$y$};
+	\draw [<->] plot [domain=-0.8:2.8, samples=100] (\x,{-1*(\x-1)^2-4});
+	\foreach \x in {-1}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \x in {1,2,3}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \y in {-1,-2,...,-7}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=east] {\scriptsize \y}; 
+ \draw[fill] (1,-4) ellipse (0.06 and 0.08);
+ \draw[fill] (0,-5) ellipse (0.06 and 0.08);
+\end{tikzpicture}
+\end{center}
+
+\columnbreak
+
+\begin{eqnarray*}
+    \ 0 = -1(x-1)^2-4 &  &  \tmop{Set} \tmop{equal} \tmop{to} \tmop{zero~and~solve}\\
+    \ \tmmathbf{\underline{+4}~~~~~~~~~~~~~~~~~~~\underline{+4}}   & & \tmop{Add~}4\\
+		\ 4 = -1(x-1)^2~~~~~ & &  \tmop{Isolate} \tmop{the} \tmop{square,}\\
+		\ \tmmathbf{\overline{-1}~~~~~~~~~\overline{-1}}~~~~~~~~~~ & & ~~~\text{divide~both~sides~by~}-1\\
+		-4 = (x-1)^2~~~~~&&\\
+    \ \pm\sqrt{-4} = \sqrt{(x-1)^2}~~ & & \tmop{Square} \tmop{root} \tmop{both} \tmop{sides}\\
+		\ \pm2i = x - 1~~~~~~~~~& &  \tmop{Solve} \tmop{for~}x\\
+		\ \tmmathbf{\underline{+1}~~~~~~~\underline{+1}}~~~~~~~~~  & &  \tmop{Add~}1\\
+		\ x=\pm2i +1~~~~~~~ & & \tmop{Two} \tmop{solutions} \\
+		\ x=1 - 2i~~~~~~~~~ & & \tmop{One} \tmop{solution}\\
+		\ x=1 + 2i~~~~~~~~~ & & \tmop{The} \tmop{other} \tmop{solution}
+  \end{eqnarray*}
+\end{multicols}
+\end{example}
+Once again, the negative appearing under the square root results in two complex zeros (no real zeros).  Graphically, the function never touches or crosses the $x-$axis.
+\end{document}

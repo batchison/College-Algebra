@@ -1,0 +1,248 @@
+\documentclass[12pt]{book}
+\raggedbottom
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=0.25in]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem,tikzpagenodes}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0in}
+\setlist{itemsep=0in}
+\setlength{\parskip}{0.1in}
+\setcounter{secnumdepth}{0}
+\input{lesson_order}
+
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+
+\begin{document}
+\section{Local Behavior (L\arabic{lesson_local_behavior_polynomials})}
+{\bf Objective: Identify all real roots and their corresponding multiplicities for a polynomial function that is easily factorable.}\par
+In College Algebra and Precalculus, when we refer to the {\it local behavior} of a function $f,$ we will be concerned with anything of interest in the interior of the graph of $f,$ and not its end behavior.  For polynomials, this is the $x-$ and $y-$intercepts of the graph.  These points coincide with when $f(x)=0$ for any $x-$intercepts, and when $x=0$ in the case of the $y-$intercept.  In Calculus, local behavior will also include points where the graph changes inflection or achieves a local maximum or minimum value. 
+\par
+Since we should be very familiar with finding a $y-$intercept at this point, we will start with a simple example.
+\begin{example}
+Find the $y-$intercept for each of the following polynomials.
+\begin{multicols}{2}
+\begin{enumerate}
+\item $f(x)=5x^3-\frac{1}{2}x^2+6x-18$
+\item $g(x)=\frac{1}{2}(x-2)^2(x+5)(x-3)$
+\end{enumerate}
+\end{multicols}
+\begin{enumerate}
+\item $f(0)=-18.$  Hence, the graph of $f$ has a $y-$intercept at $(0,-18)$.
+\item In the case of $g,$ we have to identify the constant term $a_0$ in the expanded form of the polynomial. Recalling Example \ref{poly_end_beh_1} from our last section, we can easily obtain this value without the need to expand $g$ in its entirety.
+\begin{equation*}
+\begin{split}
+g(0) & =\frac{1}{2}(0-2)^2(0+5)(0-3)\\
+&= \frac{1}{2}(-2)^2(5)(-3)\\
+&= \frac{1}{2}(4)(-15)\\
+&= 2(-15)\\
+&= -30
+\end{split}
+\end{equation*}
+Hence, our $y-$intercept for the graph of $g$ is $(0,-30)$.
+\end{enumerate}
+\end{example}
+Although it is certainly important to identify the $y-$intercept of any polynomial, the primary objective of this section will be finding the roots of a polynomial and classifying the respective $x-$intercepts of its graph.  Since roots/$x-$intercepts coincide with when a function equals zero, $f(x)=0,$ this section will depend heavily on working with a polynomial that is either in factored form or for which a complete factorization is easily obtainable.  In a subsequent section of this chapter, we will see more a more advanced technique for finding a complete factorization of a polynomial, using polynomial division and the Rational Root Theorem.
+\par
+We begin our exploration of $x-$intercepts by revisiting a past example.
+\begin{example}
+Find all roots of the polynomial function $h(x)=(x+2)^2(3x-1)(5-x),$ and graph $h$ using \Desmos \ or another graphing utility.  For each root, identify whether the graph of $h$ crosses over or turns around at the corresponding $x-$intercept.
+\par
+For this example, we will first recall the work done Example \ref{sign_diag_poly_2}, where we identified the roots of $h$ to be $x=-2,\frac{1}{3},$ and $5,$ as well as the following sign diagram.
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\draw [<->](-4.25,0) -- coordinate (x axis mid) (7.25,0) node[below right] {$x$};
+	\draw [-](-2,1) -- coordinate (y axis mid) (-2,-0.25) node[below] {$-2$};
+	\draw [-](0.5,1) -- coordinate (y axis mid) (0.5,-0.25) node[below] {$\frac{1}{3}$};
+	\draw [-](5,1) -- coordinate (y axis mid) (5,-0.25) node[below] {$5$};
+	\draw (-3,-1) node {$x=-3$};
+	\draw (-0.75,-1) node {$x=0$};
+	\draw (2.75,-1) node {$x=1$};
+	\draw (6,-1) node {$x=6$};
+	\draw (-3,0.5) node {$-$};
+	\draw (-0.75,0.5) node {$-$};
+	\draw (2.75,0.5) node {$+$};
+	\draw (6,0.5) node {$-$};
+\end{tikzpicture}
+\end{center}
+
+Our graph of $h$ is shown below.
+
+\begin{center}
+\begin{tikzpicture}[xscale=0.75,yscale=0.015]
+	\draw [<->](-8.25,0) -- coordinate (x axis mid) (8.25,0) node[below right] {$x$};
+	\draw [<->](0,-250) -- coordinate (y axis mid) (0,450) node[above right] {$y$};
+	%\draw [dashed, <->](1.5,-6.25) -- coordinate (y axis mid) (1.5,6.25) node[above right] {};
+	\draw [<->] plot [domain=-3.513:5.285, samples=100] (\x,{(\x+2)^2*(3*\x-1)*(5-\x)});
+	\foreach \x in {2,4,...,8}
+		\draw (\x,25pt) -- (\x,-25pt)	node[anchor=south] {\scriptsize \x};
+	\foreach \x in {-8,-6,...,-2}
+		\draw (\x,25pt) -- (\x,-25pt)	node[anchor=south] {\scriptsize \x};
+	\foreach \x in {1,3,...,8}
+		\draw (\x,50pt) -- (\x,-50pt)	node[anchor=south] {};
+	\foreach \x in {-8,-7,...,-1}
+		\draw (\x,50pt) -- (\x,-50pt)	node[anchor=south] {};
+	\foreach \y in {100,200,...,400}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=east] {\scriptsize \y}; 
+	\foreach \y in {10,20,...,440}
+		\draw (1pt,\y) -- (-1pt,\y)	node[anchor=east] {}; 
+	\foreach \y in {-200,-100}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=west] {\scriptsize \y}; 
+	\foreach \y in {-240,-230,...,-10}
+		\draw (1pt,\y) -- (-1pt,\y)	node[anchor=west] {}; 
+\end{tikzpicture}
+\end{center}
+Based upon our picture, we see that the graph of $h$ crosses over the $x-$axis at $x=\frac{1}{3}$ and $x=5$.  The graph turns around at $x=-2$.  \end{example}
+In our last example, we have included our sign diagram to point out a connection.  Our diagram confirms the nature of each $x-$intercept without the need to graph $h$, since both sides of our {\it turnaround point} $x=-2$ show the {\it same} sign (either $+|+$ or $-|-$).  Similarly, the signs {\it change} from either positive to negative ($+|-$) or negative to positive ($-|+$) for each of our {\it crossover points}.
+\par
+In fact, this idea of turnaround and crossover points can be parsed down to one basic concept, known as the {\it multiplicity} of a root.  We define the multiplicity of a root below, followed immediately by an example for clarification.
+\par
+Suppose $f$ is a polynomial function with real root $x=c$.  For some positive integer $k,$ if $(x-c)^{k}$ is a factor of $f$ but $(x-c)^{k+1}$ is not, then we say $x=c$ is a root of $f$ having associated multiplicity $k$.
+\begin{example}
+Determine the set of roots and corresponding multiplicities for the following functions.
+\begin{multicols}{2}
+\begin{enumerate}
+	\item $f(x)=x^6-2x^5-15x^4$
+	\item $g(x)=(x-6)^5(x+2)^2(x^2+1)$
+\end{enumerate}
+\end{multicols}
+\begin{enumerate}
+	\item Factoring $f$ gives us the following.
+	\begin{equation*}
+	\begin{split}
+		f(x)&=x^6-2x^5-15x^4\\
+		&=x^4(x^2-2x-15)\\
+		&=x^4(x-5)(x+3)
+	\end{split}
+	\end{equation*}
+We then can easily see that $f$ has a root at $x=0$ with multiplicity four, and roots at $x=5$ and $x=-3,$ each with multiplicity one.
+\item Since $g$ is already factored, we see that $x=6$ is a root having multiplicity five, and $x=-2$ is a root having multiplicity two.  The factor of $x^2+1$ is meant to throw us off, since its roots are the imaginary numbers $\pm i$.
+\end{enumerate}
+\end{example}
+Another way of describing the multiplicity $k$ of a root $x=c$ is that $k$ represents the maximum number of factors of $(x-c)$ that divide the polynomial $f$ (with a remainder of $0$).  That is,
+$$f(x)=(x-c)^k\cdot q(x),$$
+where $(x-c)$ is {\it not} a factor of the quotient $q(x)$.
+\par
+If we apply this idea to $g$ in our last example, we see that although $(x-6)^4$ divides our polynomial,
+$$g(x)=(x-6)^4\cdot \underbrace{(x-6)(x+2)^2(x^2+1)}_{q(x)},$$
+the value of four does not represent the {\it maximum} number of factors of $(x-6)$ that divide $g$: 
+$$g(x)=(x-6)^5\cdot \underbrace{(x+2)^2(x^2+1)}_{q(x)}.$$
+At this point, we are ready to highlight the importance of multiplicities in graphing polynomials.
+\begin{center}
+\framebox{
+\begin{minipage}{1\linewidth}
+Let $f$ be a polynomial function with a real root at $x=c$ having multiplicity $k$.
+	\begin{itemize}
+		\item If $k$ is {\it even}, the corresponding $x-$intercept $(c,0)$ is a {\it turnaround point}.  In other words, the graph of $f$ touches and rebounds from the $x$-axis at $(c,0)$, leaving the $y-$values to maintain the same sign on either side of the root $x=c$.
+		\item If $k$ is {\it odd}, the corresponding $x-$intercept $(c,0)$ is a {\it crossover point}.  In other words, the graph of $f$ crosses through the $x$-axis at $(c,0)$, leaving the $y-$values to change signs on either side of the root $x=c$.
+	\end{itemize}
+\end{minipage}
+}
+\end{center}
+Combining this new notion about multiplicities of roots with all that we have already learned about polynomials will enable us to quickly identify all important aspects of a particular polynomial function, culminating in a sketch of its graph.  We capitalize on this in our next example.
+\begin{example}
+Construct a sign diagram for the factored polynomial\\ $f(x)=-(x-3)^2(x+1)(x+5)^2$.
+\par
+The dividers for our sign diagram come from the set of roots of $f,$ namely $\{-5,-1,3\}$.  
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\draw [<->](-7.25,0) -- coordinate (x axis mid) (5.25,0) node[below right] {$x$};
+	\draw [-](-5,1) -- coordinate (y axis mid) (-5,-0.25) node[below] {$-5$};
+	\draw [-](-1,1) -- coordinate (y axis mid) (-1,-0.25) node[below] {$-1$};
+	\draw [-](3,1) -- coordinate (y axis mid) (3,-0.25) node[below] {$3$};
+\end{tikzpicture}
+\end{center}
+Instead of assigning test values, however, we will use both multiplicities and end behavior to determine our various signs.
+\par
+First, we identify the leading term of $f$.
+$$a_nx^n=-(x)^2(x)(x)^2=-x^5$$
+Since $a_n<0$ and $n=5$ is odd, our end behavior follows case IV:
+\begin{center}
+As $x\rightarrow -\infty, \ f(x)\rightarrow\infty.$ \hspace{1in} As $x\rightarrow\infty, \ f(x)\rightarrow -\infty.$
+\end{center}
+This tells us that our diagram will begin with a positive sign and end with a negative sign.
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\draw [<->](-7.25,0) -- coordinate (x axis mid) (5.25,0) node[below right] {$x$};
+	\draw [-](-5,1) -- coordinate (y axis mid) (-5,-0.25) node[below] {$-5$};
+	\draw [-](-1,1) -- coordinate (y axis mid) (-1,-0.25) node[below] {$-1$};
+	\draw [-](3,1) -- coordinate (y axis mid) (3,-0.25) node[below] {$3$};
+	\draw (-6,0.5) node {$+$};
+	\draw (4,0.5) node {$-$};
+\end{tikzpicture}
+\end{center}
+Furthermore, the multiplicity of the root $x=-5$ is two, which is even.  So, our diagram must contain the same signs on either side of $x=-5,$ namely two positive signs.
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\draw [<->](-7.25,0) -- coordinate (x axis mid) (5.25,0) node[below right] {$x$};
+	\draw [-](-5,1) -- coordinate (y axis mid) (-5,-0.25) node[below] {$-5$};
+	\draw [-](-1,1) -- coordinate (y axis mid) (-1,-0.25) node[below] {$-1$};
+	\draw [-](3,1) -- coordinate (y axis mid) (3,-0.25) node[below] {$3$};
+	\draw (-6,0.5) node {$+$};
+	\draw (-3,0.5) node {$+$};
+	\draw (4,0.5) node {$-$};
+\end{tikzpicture}
+\end{center}
+Applying this same idea to both of our remaining roots, we get the following diagram, and are done!
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\draw [<->](-7.25,0) -- coordinate (x axis mid) (5.25,0) node[below right] {$x$};
+	\draw [-](-5,1) -- coordinate (y axis mid) (-5,-0.25) node[below] {$-5$};
+	\draw [-](-1,1) -- coordinate (y axis mid) (-1,-0.25) node[below] {$-1$};
+	\draw [-](3,1) -- coordinate (y axis mid) (3,-0.25) node[below] {$3$};
+	\draw (-6,0.5) node {$+$};
+	\draw (-3,0.5) node {$+$};
+	\draw (1,0.5) node {$-$};
+	\draw (4,0.5) node {$-$};
+\end{tikzpicture}
+\end{center}
+\end{example}
+In fact, we can take this last example further, and easily sketch a graph of our polynomial.  All that remains is to identify the $y-$intercept.
+\begin{example}
+Sketch a graph of the factored polynomial $f(x)=-(x-3)^2(x+1)(x+5)^2,$ making sure to identify a clearly defined scale and any $x-$ and $y-$intercepts.
+\par
+Since the roots, $x=3$ and $x=-5$ have even multiplicities, their corresponding $x-$intercepts will be turnaround points.  Our sign diagram confirms this, and further shows that the intercept at $x=-5$ will be a local minimum ($+|+$), whereas the intercept at $x=3$ will be a local maximum ($-|-$).  On the other hand, the root at $x=-1$ has an odd multiplicity, and the $x-$intercept at $x=-1$ will be a crossover point.
+\par
+For a $y-$intercept, we evaluate the function at $x=0$.
+\begin{equation*}
+\begin{split}
+f(0)&=-(0-3)^2(0+1)(0+5)^2\\
+&=-(9)(1)(25)\\
+&=-225
+\end{split}
+\end{equation*}
+Since our $y-$intercept is a large negative value, we will have to shrink our scale for the $y-$axis accordingly.
+\begin{center}
+\begin{tikzpicture}[xscale=0.75,yscale=0.012]
+	\draw [<->](-8.25,0) -- coordinate (x axis mid) (8.25,0) node[below right] {$x$};
+	\draw [<->](0,-350) -- coordinate (y axis mid) (0,350) node[above right] {$y$};
+	\draw [<->] plot [domain=-5.913:3.913, samples=100] (\x,{(-1)*(\x+5)^2*(\x+1)*(\x-3)^2});
+	\foreach \x in {2,4,...,8}
+		\draw (\x,25pt) -- (\x,-25pt)	node[anchor=south] {\scriptsize \x};
+	\foreach \x in {-8,-6,...,-2}
+		\draw (\x,25pt) -- (\x,-25pt)	node[anchor=south] {\scriptsize \x};
+	\foreach \x in {1,2,...,8}
+		\draw (\x,50pt) -- (\x,-50pt)	node[anchor=south] {};
+	\foreach \x in {-8,-7,...,-1}
+		\draw (\x,50pt) -- (\x,-50pt)	node[anchor=south] {};
+	\foreach \y in {100,200,...,300}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=east] {\scriptsize \y}; 
+	\foreach \y in {25,50,...,325}
+		\draw (1pt,\y) -- (-1pt,\y)	node[anchor=east] {}; 
+	\foreach \y in {-300,-200,...,-100}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=west] {\scriptsize \y}; 
+	\foreach \y in {-325,-300,...,-25}
+		\draw (1pt,\y) -- (-1pt,\y)	node[anchor=west] {}; 
+\end{tikzpicture}
+\end{center}
+\end{example}
+This last example achieves what we have sought after since beginning the chapter.  In it, we have identified the end behavior and all intercepts of a completely factored polynomial.  We have further used both a sign diagram and a multiplicity argument in order to graph the given function.
+\par
+What remains is to take a closer look at more challenging polynomials, for which a factorization may not be given or even easily identifiable.
+\end{document}

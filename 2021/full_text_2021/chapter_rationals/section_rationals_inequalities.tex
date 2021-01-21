@@ -1,0 +1,305 @@
+\documentclass[12pt]{book}
+\raggedbottom
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=0.25in]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem,tikzpagenodes}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0in}
+\setlist{itemsep=0in}
+\setlength{\parskip}{0.1in}
+\setcounter{secnumdepth}{0}
+\input{lesson_order}
+
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+
+\begin{document}
+\section{Rational Inequalities %(L\arabic{lesson_rational_inequalities})
+}
+{\bf Objective: Solve a rational inequality by constructing a sign diagram.}\par
+Identifying the solution of a rational inequality is one very practical application of the sign diagram and graph of a rational function.  For example, if we are asked to identify when a function $f(x)$ is greater (or less) than zero, we know that this answer will correspond to those values of $x$ such that the point $(x,f(x))$ is above (or below) the $x-$axis.  We see this at work at the end of Example \ref{rat_ineq_1}, where we concluded that the function $$f(x)=\dfrac{x^3-16x}{3x^2-6x-24}=\dfrac{x(x+4)(x-4)}{3(x+4)(x-6)}$$ is positive for all $x$ in the set $(0,4)\cup(6,\infty)$ and negative for all $x$ in the set $(-\infty,-4)\cup(-4,0)\cup(4,6)$.
+\par
+Similarly, we can use the graph for Example \ref{rat_ineq_2} to determine when the function $f(x)>0$.  This example is a good starting place, since we were not initially given the expression for $f,$ and had to find it.
+\begin{example}Determine when the given graph is positive, i.e., when $f(x)>0$.  Express your answer using interval notation.
+\begin{center}
+\begin{tikzpicture}[xscale=0.4,yscale=0.6]
+	\draw [<->](-15.5,0) -- coordinate (x axis mid) (15.5,0) node[below right] {$x$};
+	\draw [<->](0,-7) -- coordinate (x axis mid) (0,7) node[above right] {$y$};
+	\draw [<->,dashed](-6,-7) -- (-6,7) node[below] {};
+	\draw [<->,dashed](1,-7) -- (1,7) node[below] {};
+	\draw [<->,dashed](-15.5,-0.667) -- (15.5,-0.667) node[below] {};
+	\draw [<->] plot [domain=-15.5:-6.57, samples=100] (\x,{(-2*(\x+3)*(\x-3)^2)/(3*(\x+6)*(\x-1)^2)});
+	\draw [<->] plot [domain=-5.56:0.39, samples=100] (\x,{(-2*(\x+3)*(\x-3)^2)/(3*(\x+6)*(\x-1)^2)});
+	\draw [<->] plot [domain=1.395:15.5, samples=100] (\x,{(-2*(\x+3)*(\x-3)^2)/(3*(\x+6)*(\x-1)^2)});
+	\foreach \x in {1,2,...,15}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=south] {};
+	\foreach \x in {-15,-14,...,-1}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=south] {};
+	\foreach \y in {1,2,...,6}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=east] {}; 
+	\foreach \y in {-6,-5,...,-1}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=east] {}; 
+	\foreach \x in {3,6,...,15}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=south] {\scriptsize \x};
+	\foreach \x in {-15,-12,...,-3}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=south] {\scriptsize \x};
+	\foreach \y in {1,2,...,6}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=east] {\scriptsize \y}; 
+	\foreach \y in {-6,-5,...,-1}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=east] {\scriptsize \y}; 
+	\draw[fill] (3,0) ellipse (0.15 and 0.10);
+	\draw[fill] (-3,0) ellipse (0.15 and 0.10);
+	\draw[fill] (0,-3) ellipse (0.15 and 0.10);
+	\draw (13,-1.5) node {$y=\frac{-2}{3}$};
+  \coordinate (v) at (11,-1.5,0);
+	\coordinate (w) at (9,-1,0);
+	\draw [->] (v) to (w);
+\end{tikzpicture}
+\end{center}
+To answer this question, we need only identify those values of $x$ that correspond to points lying {\it above} the $x-$axis.  Our answer is the single interval $(-6,-3)$.
+\end{example}
+Note that if we were asked to find when $f(x)\geq 0$ in the previous example, we would need to include the two $x-$intercepts at $x=\pm3$.  Hence, $f(x)\geq 0$ for all $x$ in the set $(-6,-3]\cup\{3\}$.  Recall that since $x=3$ is a single value, rather than an entire interval of values, we use braces to denote its inclusion in our answer.
+\par
+Looking at our last example from another angle, let's suppose that we were starting out with a {\it function}, rather than a graph.  We seek to answer the question of when $f(x)>0$ without the benefit of this visual aide, and will do this using a sign diagram.
+\begin{example}Solve the inequality $f(x)>0$ for the function
+$$f(x)=\dfrac{-2x^3+6x^2+18x-54}{3x^3+12x^2-33x+18}$$
+Recall that the given function is that obtained from our graph in the previous example, so we know that our answer should be $(-6,-3)$.
+\par
+In every problem from here on out, we will need to find a factored form for $f$ so that we can construct a sign diagram.  Since this function is a carry-over from a previous example, we know its factorization,
+$$f(x)=\frac{-2(x+3)(x-3)^2}{3(x+6)(x-1)^2}.$$
+Had we not known this information, factoring $f$ could take a considerable amount of work, since, for example, our denominator $3x^3+12x^2-33x+18$ is not easily factorable.
+\par
+To find the sign diagram for $f,$ we need to identify our $x-$intercepts, as well as those $x$ not in the domain.  From our factorization, we see that this is the set $x=\{-6,-3,1,3\},$ with $x\pm3$ being our intercepts.  Our diagram is shown below.
+\par
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\draw [<->](-8.25,0) -- coordinate (x axis mid) (5.25,0) node[below right] {$x$};
+	\draw [-, dashed](-6,1) -- coordinate (y axis mid) (-6,-0.25) node[below] {$-6$};
+	\draw [-](-3,1) -- coordinate (y axis mid) (-3,-0.25) node[below] {$-3$};
+	\draw [-](3,1) -- coordinate (y axis mid) (3,-0.25) node[below] {$3$};
+	\draw [-, dashed](1,1) -- coordinate (y axis mid) (1,-0.25) node[below] {$1$};
+	\draw (-7,-1) node {$x=-7$};
+	\draw (-4.5,-1) node {$x=-5$};
+	\draw (-1,-1) node {$x=0$};
+	\draw (2,-1) node {$x=2$};
+	\draw (4,-1) node {$x=4$};
+	\draw (-7,0.5) node {$-$};
+	\draw (-4.5,0.5) node {$+$};
+	\draw (-1,0.5) node {$-$};
+	\draw (2,0.5) node {$-$};
+	\draw (4,0.5) node {$-$};
+	\draw (-7,-1.75) node {\footnotesize $\dfrac{(-)(-)}{(+)(-)}$};
+	\draw (-4.5,-1.75) node {\footnotesize $\dfrac{(-)(-)}{(+)(+)}$};
+	\draw (-1,-1.75) node {\footnotesize $\dfrac{(-)(+)}{(+)(+)}$};
+	\draw (2,-1.75) node {\footnotesize $\dfrac{(-)(+)}{(+)(+)}$};
+	\draw (4,-1.75) node {\footnotesize $\dfrac{(-)(+)}{(+)(+)}$};
+\end{tikzpicture}
+\end{center}
+One important observation in our diagram is in the calculation of each sign.  For each test value, we have excluded the {\it squared} factors in the numerator and denominator, since both $(x-3)^2$ and $(x-1)^2$ will always contribute a positive sign and not affect the end result.  For example, when $x=0,$ we get $$\dfrac{(-)(+)(-)^2}{(+)(+)(-)^2},$$ which reduces to the result that we see above.  Similarly, we could have excluded the $(+)$ that appears in the denominator of each test value's sign calculation, since the constant multiplier of $3$ will have no impact on sign.
+\par
+At this point we are essentially done, since the factorization and construction of our diagram has done the bulk of the work for us.  Since we are asked to find all $x$ such that $f(x)>0,$ we see that this equals to the union of all intervals that correspond to a $+$ sign.  This gives us our anticipated answer of $(-6,-3)$.
+\par
+Recalling our discussion of the last example, if we wished to answer the follow-up question of when $f(x)\geq 0,$ we would just need to include all boundary values in our diagram that correspond to $x-$intercepts (when $f(x)=0$).  From our diagram, this would be any value of $x$ that has a {\it solid} divider, remembering that dashed dividers correspond to values not in our domain.  In this case, the function $f(x)\geq 0$ for all $x$ in the set $(-6,-3]\cup\{3\}$.
+\end{example}
+In each example where we are asked to find when a rational expression or function $f$ is positive, negative, $\geq 0$, or $\leq 0,$ we can take this same approach:
+\begin{enumerate}
+	\item Identify a complete factorization of the expression.
+	\item Construct a sign diagram.
+	\item Find all intervals that correspond to the desired inequality.
+	\item In the case of $\geq$ or $\leq,$ make sure to include any $x-$intercepts.
+\end{enumerate}
+\begin{example} Solve the inequality $$\dfrac{4x^2-4x+1}{x^3-x^2-17x-15}\leq 0.$$
+As with our last example, we will require some additional information for factoring our denominator.  In this case, we will include the fact that $x=-1$ is a root of the denominator, and apply polynomial division below.  Note that if we did not know this information, we would need to use the Rational Root Theorem to factor the denominator completely.
+\begin{multicols}{2}
+\[
+\polylongdiv{x^3-x^2-17x-15}{x+1}
+\]
+
+\columnbreak
+
+Our denominator factors as follows.
+\begin{center}
+$x^3-x^2-17x-15$\\
+$=(x+1)(x^2-2x-15)$\\
+$=(x+1)(x+3)(x-5)$
+\end{center}
+\end{multicols}
+A complete factorization of our expression is $\dfrac{(2x-1)^2}{(x+1)(x+3)(x-5)},$ with critical values at $x=-3,-1,\frac{1}{2},$ and $5$.
+\par
+This corresponds to the following diagram.
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\draw [<->](-5.75,0) -- coordinate (x axis mid) (7.25,0) node[below right] {$x$};
+	\draw [-, dashed](-3.5,1) -- coordinate (y axis mid) (-3.5,-0.25) node[below] {$-3$};
+	\draw [-, dashed](-1,1) -- coordinate (y axis mid) (-1,-0.25) node[below] {$-1$};
+	\draw [-, dashed](5,1) -- coordinate (y axis mid) (5,-0.25) node[below] {$5$};
+	\draw [-](1,1) -- coordinate (y axis mid) (1,-0.25) node[below] {$\frac{1}{2}$};
+	\draw (-4.5,-1) node {$x=-\frac{9}{2}$};
+	\draw (-2.25,-1) node {$x=-2$};
+	\draw (0,-1) node {$x=0$};
+	\draw (3,-1) node {$x=1$};
+	\draw (6,-1) node {$x=6$};
+	\draw (-4.5,0.5) node {$-$};
+	\draw (-2.25,0.5) node {$+$};
+	\draw (0,0.5) node {$-$};
+	\draw (3,0.5) node {$-$};
+	\draw (6,0.5) node {$+$};
+	\draw (-4.5,-1.75) node {\footnotesize $\dfrac{+}{(-)(-)(-)}$};
+	\draw (-2.25,-1.75) node {\footnotesize $\dfrac{+}{(-)(+)(-)}$};
+	\draw (0,-1.75) node {\footnotesize $\dfrac{+}{(+)(+)(-)}$};
+	\draw (3,-1.75) node {\footnotesize $\dfrac{+}{(+)(+)(-)}$};
+	\draw (6,-1.75) node {\footnotesize $\dfrac{+}{(+)(+)(+)}$};
+\end{tikzpicture}
+\end{center}
+Our answer will correspond to all ``negative'' intervals in the diagram above (intervals with a $-$).  Since the inequality we are asked to solve is not strict (it includes when the expression equals zero), we can combine the two intervals with endpoints at $x=\frac{1}{2}$ into one.
+\begin{center}
+We conclude that $\dfrac{4x^2-4x+1}{x^3-x^2-17x-15}\leq 0$ for all $x$ in the set $(-\infty,-3)\cup(-1,5)$.
+\end{center}
+\end{example}
+Next, how might we handle solving an equation or inequality that does not compare an expression to zero, but some other number or another expression?  For example, $$\frac{x(x-3)}{x+2}<4.$$
+Since each of our previous answers required us to use a sign diagram in order to determine whether an expression was positive or negative, it should seem logical to set one side of the given equation or inequality equal to zero, and proceed as before.
+All that remains is to obtain a common denominator so that we have one rational expression on the non-zero side.  Our next example demonstrates this.
+\begin{example} Solve the inequality $\dfrac{x(x-3)}{x+2}<4.$
+\begin{multicols}{2}
+\begin{equation*}
+\begin{split}
+\dfrac{x(x-3)}{x+2}&<4\\
+\dfrac{x(x-3)}{x+2}-4&<\cancel{4}-\cancel{4}\\
+\dfrac{x(x-3)}{x+2}-4\cdot\frac{x+2}{x+2}&<0
+\end{split}
+\end{equation*}
+
+\columnbreak
+
+\begin{equation*}
+\begin{split}
+%\dfrac{x(x-3)}{x+2}+\frac{-4x-8}{x+2}&<0\\
+\dfrac{x^2-3x-4x-8}{x+2}&<0\\
+\dfrac{x^2-7x-8}{x+2}&<0\\
+\dfrac{(x-8)(x+1)}{x+2}&<0
+\end{split}
+\end{equation*}
+\end{multicols}
+A sign diagram for the expression $\dfrac{(x-8)(x+1)}{x+2}$ is shown below.
+\end{example}
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\draw [<->](-4.25,0) -- coordinate (x axis mid) (8.25,0) node[below right] {$x$};
+	\draw [-, dashed](-2,1) -- coordinate (y axis mid) (-2,-0.25) node[below] {$-2$};
+	\draw [-](1,1) -- coordinate (y axis mid) (1,-0.25) node[below] {$-1$};
+	\draw [-](6,1) -- coordinate (y axis mid) (6,-0.25) node[below] {$8$};
+	\draw (-3,-1) node {$x=-3$};
+	\draw (-0.5,-1) node {$x=\frac{-3}{2}$};
+	\draw (3.5,-1) node {$x=0$};
+	\draw (7,-1) node {$x=9$};
+	\draw (-3,0.5) node {$-$};
+	\draw (-0.5,0.5) node {$+$};
+	\draw (3.5,0.5) node {$-$};
+	\draw (7,0.5) node {$+$};
+\end{tikzpicture}
+\end{center}
+Thus, our inequality holds for all $x$ in the set $(-\infty,-2)\cup(-1,8)$.
+\par
+Below, we show the graph of two functions, $f(x)=\dfrac{x(x-3)}{x+2}$ and $g(x)=\dfrac{(x-8)(x+1)}{x+2}$.  In the case of the first graph, we see that our solution set coincides with those points that lie below the line $y=4$, whereas in the case of the second graph, our solution set coincides with those points lying below the $x-$axis (the line $y=0$).  In both graphs, the points coinciding with our solution set appear in bold.
+\begin{center}
+\begin{multicols}{2}
+\begin{tikzpicture}[xscale=0.32,yscale=0.16]
+	\draw [<->](-10.5,0) -- coordinate (x axis mid) (10.5,0) node[below right] {$x$};
+	\draw [<->](0,-25) -- coordinate (x axis mid) (0,25) node[above right] {$y$};
+	\draw [<->,dashed](-2,-25) -- (-2,25) node[below] {};
+	\draw [<->](10.5,4) -- (-9,4) node[left] {$y=4$};
+	\draw [<->, line width=0.6mm] plot [domain=-10:-2.6, samples=100] (\x,{(\x*(\x-3))/(\x+2)});
+	\draw [-, line width=0.6mm] plot [domain=-1:8, samples=100] (\x,{(\x*(\x-3))/(\x+2)});
+	\draw [<->] plot [domain=-1.65:10, samples=100] (\x,{(\x*(\x-3))/(\x+2)});
+	\foreach \x in {1,2,...,10}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=south] {};
+	\foreach \x in {-10,-9,...,-1}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=south] {};
+	\foreach \x in {2,4,...,10}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=south] {\scriptsize \x};
+	\foreach \x in {-10,-8,...,-2}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=south] {\scriptsize \x};
+	\foreach \y in {5,10,...,20}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=east] {\scriptsize \y}; 
+	\foreach \y in {-20,-15,...,-5}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=east] {\scriptsize \y}; 
+	\draw[fill] (-1,4) ellipse (0.15 and 0.3);
+	\draw[fill] (8,4) ellipse (0.15 and 0.3);
+	\draw (0,-30) node {$f(x)=\dfrac{x(x-3)}{x+2}$};
+\end{tikzpicture}
+
+\columnbreak
+
+\begin{tikzpicture}[xscale=0.32,yscale=0.16]
+	\draw [<->](-10.5,0) -- coordinate (x axis mid) (10.5,0) node[below right] {$x$};
+	\draw [<->](0,-25) -- coordinate (x axis mid) (0,25) node[above right] {$y$};
+	\draw [<->,dashed](-2,-25) -- (-2,25) node[below] {};
+	\draw [<->, line width=0.6mm] plot [domain=-10:-2.7, samples=100] (\x,{((\x-8)*(\x+1))/(\x+2)});
+	\draw [-, line width=0.6mm] plot [domain=-1:8, samples=100] (\x,{((\x-8)*(\x+1))/(\x+2)});
+	\draw [<->] plot [domain=-1.65:10, samples=100] (\x,{((\x-8)*(\x+1))/(\x+2)});
+	\foreach \x in {1,2,...,10}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=south] {};
+	\foreach \x in {-10,-9,...,-1}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=south] {};
+	\foreach \x in {2,4,...,10}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=south] {\scriptsize \x};
+	\foreach \x in {-10,-8,...,-2}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=south] {\scriptsize \x};
+	\foreach \y in {5,10,...,20}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=east] {\scriptsize \y}; 
+	\foreach \y in {-20,-15,...,-5}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=east] {\scriptsize \y}; 
+	\draw[fill] (-1,0) ellipse (0.15 and 0.3);
+	\draw[fill] (8,0) ellipse (0.15 and 0.3);
+	\draw (0,-30) node {$g(x)=\dfrac{(x-8)(x+1)}{x+2}$};
+\end{tikzpicture}
+\end{multicols}
+\end{center}
+This same approach of setting one side of an inequality equal to zero and constructing a sign diagram should be taken with any rational inequality.
+\newpage
+Our final example compares two basic rational expressions.
+\begin{example}
+Solve the following inequality
+$$\frac{x-6}{x}\geq\frac{-2}{x-1}$$
+\begin{equation*}
+\begin{split}
+\frac{x-6}{x}&\geq\frac{-2}{x-1}\\
+\frac{x-6}{x}+\frac{2}{x-1}&\geq \cancel{\frac{-2}{x-1}}+\cancel{\frac{2}{x-1}}\\
+\frac{x-6}{x}+\frac{2}{x-1}&\geq 0\\
+\frac{(x-6)}{x}\cdot\frac{(x-1)}{(x-1)}+\frac{2}{(x-1)}\cdot\frac{x}{x}&\geq 0\\
+\dfrac{x^2-7x+6+2x}{x(x-1)}&\geq 0\\
+\dfrac{x^2-5x+6}{x(x-1)}&\geq 0\\
+\dfrac{(x-3)(x-2)}{x(x-1)}&\geq 0
+\end{split}
+\end{equation*}
+This corresponds to the following sign diagram.
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\draw [<->](-5.25,0) -- coordinate (x axis mid) (5.25,0) node[below right] {$x$};
+	\draw [-, dashed](-3,1) -- coordinate (y axis mid) (-3,-0.25) node[below] {$0$};
+	\draw [-, dashed](-1,1) -- coordinate (y axis mid) (-1,-0.25) node[below] {$1$};
+	\draw [-](1,1) -- coordinate (y axis mid) (1,-0.25) node[below] {$2$};
+	\draw [-](3,1) -- coordinate (y axis mid) (3,-0.25) node[below] {$3$};
+	\draw (-4,-1) node {$x=-1$};
+	\draw (-2,-1) node {$x=\frac{1}{2}$};
+	\draw (0,-1) node {$x=\frac{3}{2}$};
+	\draw (2,-1) node {$x=\frac{5}{2}$};
+	\draw (4,-1) node {$x=4$};
+	\draw (-4,0.5) node {$+$};
+	\draw (-2,0.5) node {$-$};
+	\draw (0,0.5) node {$+$};
+	\draw (2,0.5) node {$-$};
+	\draw (4,0.5) node {$+$};
+\end{tikzpicture}
+\end{center}
+From our diagram, we see that $\dfrac{(x-3)(x-2)}{x(x-1)}\geq 0$, and consequently, $\dfrac{x-6}{x}\geq\dfrac{-2}{x-1}$ for all $x$ in the set $(-\infty,0)\cup(1,2]\cup[3,\infty)$.
+\par
+We leave it as an exercise to the reader to confirm our findings using \Desmos.
+\end{example}
+\end{document}

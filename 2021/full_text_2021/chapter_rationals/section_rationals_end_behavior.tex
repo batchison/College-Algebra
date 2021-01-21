@@ -1,0 +1,613 @@
+\documentclass[12pt]{book}
+\raggedbottom
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=0.25in]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem,tikzpagenodes}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0in}
+\setlist{itemsep=0in}
+\setlength{\parskip}{0.1in}
+\setcounter{secnumdepth}{0}
+\input{lesson_order}
+
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+
+\begin{document}
+\section{End Behavior}
+\subsection{Horizontal Asymptotes (L\arabic{lesson_horizontal_asymptotes})}
+{\bf Objective: Identify a horizontal asymptote in the graph of a rational function.}\par
+Next, we will look at the end (or long run) behavior of the graph of a rational function $f$, as $x\rightarrow\pm\infty$.  For clarity, we will first state the main result of this subsection.
+\begin{center}
+\framebox{
+\begin{minipage}{0.8\linewidth}
+Let $f(x)=\dfrac{p(x)}{q(x)}$ be a rational function with leading terms $a_nx^n$ and $b_mx^m$ of $p(x)$ and $q(x),$ respectively.
+	\begin{itemize}
+		\item If $n=m,$ the graph of $f$ will have a horizontal asymptote at $y=\dfrac{a_n}{b_m}$.
+		\item If $n<m,$ the graph of $f$ will have a horizontal asymptote at $y=0$.
+		\item If $n>m,$ the graph of $f$ will not have a horizontal asymptote.
+	\end{itemize}
+\end{minipage}
+}
+\end{center}
+Since any polynomial is, by definition, also a rational function, we will begin by including the possibilities that $f(x)\rightarrow\infty$ or $f(x)\rightarrow -\infty$ for either the left (as $x\rightarrow -\infty$) or right (as $x\rightarrow\infty$) end behavior of the graph of a rational function $f$.
+\begin{center}
+\begin{multicols}{2}
+\begin{tikzpicture}[xscale=0.45,yscale=0.45]
+	\draw [<->](-4,0) -- coordinate (x axis mid) (4,0) node[below right] {$x$};
+	\draw [<->](0,-4) -- coordinate (y axis mid) (0,4) node[above right] {$y$};
+	\draw [->] plot [domain=2.5:3.75, samples=100] (\x,{\x^2/4});
+	\draw [->] plot [domain=-2.5:-3.75, samples=100] (\x,{-\x^2/4});
+	\draw (0,-5) node {As $x\rightarrow\infty,\ f(x)\rightarrow\infty$};
+	\draw (0,-7) node {As $x\rightarrow -\infty,\ f(x)\rightarrow\infty$};
+\end{tikzpicture}
+
+\columnbreak
+
+\begin{tikzpicture}[xscale=0.45,yscale=0.45]
+	\draw [<->](-4,0) -- coordinate (x axis mid) (4,0) node[below right] {$x$};
+	\draw [<->](0,-4) -- coordinate (y axis mid) (0,4) node[above right] {$y$};
+	\draw [->] plot [domain=2.5:3.75, samples=100] (\x,{-\x^2/4});
+	\draw [->] plot [domain=-2.5:-3.75, samples=100] (\x,{\x^2/4});
+	\draw (0,-5) node {As $x\rightarrow\infty,\ f(x)\rightarrow -\infty$};
+	\draw (0,-7) node {As $x\rightarrow -\infty,\ f(x)\rightarrow -\infty$};
+\end{tikzpicture}
+\end{multicols}
+\end{center}
+
+\begin{center}
+\begin{multicols}{2}
+\begin{tikzpicture}[xscale=0.45,yscale=0.45]
+	\draw [<->](-4,0) -- coordinate (x axis mid) (4,0) node[below right] {$x$};
+	\draw [<->](0,-4) -- coordinate (y axis mid) (0,4) node[above right] {$y$};
+	\draw [->] plot [domain=2.5:3.75, samples=100] (\x,{\x^2/4});
+	\draw [->] plot [domain=-2.5:-3.75, samples=100] (\x,{\x^2/4});
+	\draw (0,-5) node {As $x\rightarrow\infty,\ f(x)\rightarrow \infty$};
+	\draw (0,-7) node {As $x\rightarrow -\infty,\ f(x)\rightarrow -\infty$};
+\end{tikzpicture}
+
+\columnbreak
+
+\begin{tikzpicture}[xscale=0.45,yscale=0.45]
+	\draw [<->](-4,0) -- coordinate (x axis mid) (4,0) node[below right] {$x$};
+	\draw [<->](0,-4) -- coordinate (y axis mid) (0,4) node[above right] {$y$};
+	\draw [->] plot [domain=2.5:3.75, samples=100] (\x,{-\x^2/4});
+	\draw [->] plot [domain=-2.5:-3.75, samples=100] (\x,{-\x^2/4});
+	\draw (0,-5) node {As $x\rightarrow\infty,\ f(x)\rightarrow -\infty$};
+	\draw (0,-7) node {As $x\rightarrow -\infty,\ f(x)\rightarrow \infty$};
+\end{tikzpicture}
+\end{multicols}
+\end{center}
+
+Recall that we used two aspects of a polynomial to identify the end behavior of its graph:
+\begin{enumerate}
+	\item the parity of the degree (even or odd), and
+	\item the sign of the leading coefficient (positive or negative).
+\end{enumerate}
+As with polynomials, we will use the degree and leading coefficient of both the numerator and denominator of a rational function $f$, to identify the end behavior of its graph.
+\par
+To start, let us again consider the graph of the reciprocal function $f(x)=\dfrac{1}{x}$.
+\newpage
+\begin{multicols}{2}
+\begin{tikzpicture}[xscale=0.75,yscale=0.75]
+	\draw [<->](-4.25,0) -- coordinate (x axis mid) (4.25,0) node[below right] {$x$};
+	\draw [<->](0,-4.25) -- coordinate (y axis mid) (0,4.25) node[above right] {$y$};
+	\draw [<->] plot [domain=0.25:4, samples=100] (\x,{1/\x});
+	\draw [<->] plot [domain=-4:-0.25, samples=100] (\x,{1/\x});
+	\draw [->, line width=0.75mm] plot [domain=3:4, samples=100] (\x,{1/\x});
+	\draw [<-, line width=0.75mm] plot [domain=-4:-3, samples=100] (\x,{1/\x});
+	\foreach \x in {1,...,4}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \x in {-4,...,-1}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=south] {\scriptsize \x};
+	\foreach \y in {1,...,4}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=east] {\scriptsize \y}; 
+	\foreach \y in {-4,...,-1}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=west] {\scriptsize \y}; 
+	\draw (2,2) node {$f(x)=\dfrac{1}{x}$};
+\end{tikzpicture}
+
+\columnbreak
+
+This example presents us with the first instance in which a graph does not tend towards either $\infty$ or $-\infty$, but instead ``levels off'' as the values of $x$ grow in either the positive (right) or negative (left) direction.
+$$\text{As } x\rightarrow\infty,\ f(x)\rightarrow 0^+.$$
+$$\text{As } x\rightarrow-\infty,\ f(x)\rightarrow 0^-.$$
+Here, we use a $+$ or $-$ in the exponent to further describe how the tails of the graph approach $0$, either from \textit{above} ($+$) or from \textit{below} ($-$).  These identifiers can just as easily be omitted entirely, but provide a bit more insight into the graph of the function $f$.  The tails of the graph are thickened for additional emphasis of this concept.
+\end{multicols}
+In fact, for any real number $k$, we can transform the graph above, by simply adding $k$ to the function, to produce a new rational function whose graph levels off at $k$.  The resulting graph represents a vertical shift of the graph of $\frac{1}{x}$ by $k$ units.  The shift is up when $k>0$ and down when $k<0$.  
+
+\begin{example}
+\begin{multicols}{2}
+\begin{eqnarray*}
+ g(x) & = & f(x)+k\\
+&&\\
+      & = & \dfrac{1}{x}+k\cdot\dfrac{x}{x}\\
+&&\\
+      & = & \dfrac{kx+1}{x}
+\end{eqnarray*}
+$$\text{As } x\rightarrow\infty,\ g(x)\rightarrow k^+.$$
+$$\text{As } x\rightarrow-\infty,\ g(x)\rightarrow k^-.$$
+
+\begin{tikzpicture}[xscale=0.75,yscale=0.75]
+	\draw [<->](-4.25,0) -- coordinate (x axis mid) (4.25,0) node[below right] {$x$};
+	\draw [<->](0,-2.75) -- coordinate (y axis mid) (0,5.75) node[above right] {$y$};
+	\draw [<->, dashed](-4.25,1.5) -- coordinate (x axis mid) (4.25,1.5) node[below right] {$y=k$};
+	\draw [<->] plot [domain=0.25:4, samples=100] (\x,{1/\x+1.5});
+	\draw [<->] plot [domain=-4:-0.25, samples=100] (\x,{1/\x+1.5});
+	\draw [->, line width=0.75mm] plot [domain=3:4, samples=100] (\x,{1/\x+1.5});
+	\draw [<-, line width=0.75mm] plot [domain=-4:-3, samples=100] (\x,{1/\x+1.5});
+	\foreach \x in {1,...,4}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \x in {-4,...,-1}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=south] {\scriptsize \x};
+	\draw (2.3,4.5) node {$g(x)=\dfrac{1}{x}+k,$};
+	\draw (3,3.5) node {$k>0$};
+\end{tikzpicture}
+\end{multicols}
+\end{example}
+Furthermore, if we first replace $x$ by $-x$ in $f$, and then add $k$, this will reflect the graph of $f$ about the $y-$axis and shift it vertically by $k$ units, producing a slightly different end behavior as in our previous two examples.
+\newpage
+\begin{example}
+\begin{multicols}{2}
+\begin{eqnarray*}
+ h(x) & = & f(-x)+k\\
+&&\\
+      & = & \dfrac{1}{-x}+k\\
+&&\\
+      & = & -\dfrac{1}{x}+k\cdot\dfrac{x}{x}\\
+&&\\
+      & = & \dfrac{kx-1}{x}
+\end{eqnarray*}
+$$\text{As } x\rightarrow\infty,\ h(x)\rightarrow k^-.$$
+$$\text{As } x\rightarrow-\infty,\ h(x)\rightarrow k^+.$$
+
+\columnbreak
+
+\begin{tikzpicture}[xscale=0.75,yscale=0.75]
+	\draw [<->](-4.25,0) -- coordinate (x axis mid) (4.25,0) node[below right] {$x$};
+	\draw [<->](0,-2.75) -- coordinate (y axis mid) (0,5.75) node[above right] {$y$};
+	\draw [<->, dashed](-4.25,1.5) -- coordinate (x axis mid) (4.25,1.5) node[below right] {$y=k$};
+	\draw [<->] plot [domain=0.25:4, samples=100] (\x,{-1/\x+1.5});
+	\draw [<->] plot [domain=-4:-0.25, samples=100] (\x,{-1/\x+1.5});
+	\draw [->, line width=0.75mm] plot [domain=3:4, samples=100] (\x,{-1/\x+1.5});
+	\draw [<-, line width=0.75mm] plot [domain=-4:-3, samples=100] (\x,{-1/\x+1.5});
+	\foreach \x in {1,...,4}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \x in {-4,...,-1}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=south] {\scriptsize \x};
+	\draw (2.3,4.5) node {$h(x)=\dfrac{kx-1}{x},$};
+	\draw (3,3.5) node {$k>0$};
+\end{tikzpicture}
+\end{multicols}
+\end{example}
+One of the most important takeaways from each of the above examples is that, unlike a polynomial, a rational function can possibly ``level off'' along a horizontal line $y=k$, for any real number $k$, as $x$ approaches either $\infty$ or $-\infty$.  In this case, we say that the corresponding graph has a \textit{horizontal asymptote} at $y=k$.\par
+Notice that in each of the previous two examples, when adding $k\neq 0,$ we have increased the degree of the numerator (from 0 to 1), which matches the degree of the denominator.
+\begin{center}
+$g(x)=\dfrac{kx^1+1}{1x^1}$
+\hspace{1in}
+$h(x)=\dfrac{kx^1-1}{1x^1}$
+\end{center}
+In fact, whenever the numerator and denominator of a rational function $f$ have the {\it same} degree, the corresponding graph will have a horizontal asymptote along the line $y=\dfrac{a_n}{b_m}$, where $a_n$ and $b_m$ represent the leading coefficients of the numerator and denominator of $f$, respectively.
+\par
+Stated more formally:
+\begin{center}
+\framebox{
+\begin{minipage}{0.8\linewidth}
+Let $f(x)=\dfrac{p(x)}{q(x)},$ with leading terms $a_nx^n$ and $b_mx^m$ of $p(x)$ and $q(x),$ respectively.  If $n=m,$ the graph of $f$ will have a horizontal asymptote at $y=\dfrac{a_n}{b_m}$.  In other words, when the degrees of $p$ and $q$ are equal, as $x\rightarrow\pm\infty,$ $f(x)\rightarrow \dfrac{a_n}{b_m}$.
+\end{minipage}
+}
+\end{center}
+We see this at work in Example \ref{horiz_asym_1}, where the graph of $f(x)=\dfrac{-2x+4}{x-5}$ has a horizontal asymptote at $y=\frac{-2}{1}=-2$, and again in Example \ref{horiz_asym_3}, where the graph of $h(x)=\dfrac{x^2+25}{x^2-10x+25}$
+has a horizontal asymptote at $y=\frac{1}{1}=1$.  In each of these cases, we can now easily confirm that, for example, as $x\rightarrow\pm\infty,$ $h(x)\rightarrow 1$.  To determine the precise nature of the tails or ends of the graph ($h(x)\rightarrow 1^+$ versus $h(x)\rightarrow 1^-$), however, requires further analysis.  This is aided by polynomial division and often a sign diagram, which we will see in a subsequent section.
+\par 
+We have now seen that the graph of a rational function will ``level off'' along a horizontal line $y=\dfrac{a_n}{b_m}$ when $n$ and $m$ are equal.  What remains is to determine the end behavior when $n\neq m$.  This gives us two additional cases to consider: 1) $n<m$ and 2) $n>m$.  \par
+In the case when $n<m$, we may again look to $f(x)=\dfrac{1}{x},$ which has a horizontal asymptote along the $x-$axis, i.e., the line $y=0$.  In fact, this will generally be the case when $n<m,$ since we can think of the denominator, $q(x),$ as growing much faster than the numerator, $p(x),$ whenever $x$ approaches either $\infty$ or $-\infty$.  If we look at the difference in degrees of $p$ and $q$, we can further see that the nature with which our graph approaches the $x-$axis changes.  Specifically, When $m-n$ is larger (2,3,$\ldots$), the graph will approach the $x-$axis more quickly.  We will use $f(x)=\dfrac{1}{x}$ and $g(x)=\dfrac{1}{x^2}$ to illustrate this point.  Recall that both $f$ and $g$ have numerators which have a degree of zero.
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\draw [<->](-4.25,0) -- coordinate (x axis mid) (4.25,0) node[below right] {$x$};
+	\draw [<->](0,-4.25) -- coordinate (y axis mid) (0,4.25) node[above right] {$y$};
+	\draw [<->, dashed] plot [domain=0.25:4, samples=100] (\x,{1/\x}) node[above right] {$f(x)=\dfrac{1}{x}$};
+	\draw [<->, dashed] plot [domain=-4:-0.25, samples=100] (\x,{1/\x});
+	\foreach \x in {1,...,4}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \x in {-4,...,-1}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=south] {\scriptsize \x};
+	\foreach \y in {1,...,4}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=east] {\scriptsize \y}; 
+	\foreach \y in {-4,...,-1}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=west] {\scriptsize \y}; 
+	\draw [<->, line width=0.5mm] plot [domain=4:0.5, samples=100] (\x,{1/\x^2}) node[right] {$g(x)=\dfrac{1}{x^2}$};
+	\draw [<->, line width=0.5mm] plot [domain=-4:-0.5, samples=100] (\x,{1/\x^2});
+	\foreach \x in {1,...,4}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \x in {-4,...,-1}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=south] {\scriptsize \x};
+	\foreach \y in {1,...,4}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=east] {\scriptsize \y}; 
+	\foreach \y in {-4,...,-1}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=west] {\scriptsize \y}; 
+\end{tikzpicture}
+\end{center}
+As $x$ gets large, the act of squaring causes the denominator to grow more quickly, which in turn, makes the values of $g(x)=\dfrac{1}{x^2}$ approach zero more quickly than the values of $f(x)=\dfrac{1}{x}$.  Regardless, in both cases, the horizontal asymptote is the same:
+\begin{center}
+\framebox{
+\begin{minipage}{0.8\linewidth}
+Let $f(x)=\dfrac{p(x)}{q(x)},$ with degrees $n$ and $m$ of $p(x)$ and $q(x),$ respectively.  If $n<m,$ the graph of $f$ will have a horizontal asymptote at $y=0$.  In other words, as $x\rightarrow\pm\infty,$ $f(x)\rightarrow 0$.
+\end{minipage}
+}
+\end{center}
+Revisiting Example \ref{horiz_asym_0}, the graph of $g(x)=\dfrac{-x^2-4x+45}{2x^3-5x^2-18x+45}$ will again have a horizontal asymptote at $y=0,$ since $m>n$.  In this case, we can further reason the nature of the graph of $g$ (whether it approaches 0 above or below the $x-$axis) by looking at the leading terms for both the numerator and denominator of $g$.
+$$g(x)=\dfrac{-x^2-4x+45}{2x^3-5x^2-18x+45}$$
+Since the numerator of $g$ has a negative leading coefficient and an even degree, as $x\rightarrow\infty,$ the numerator of $g$ will approach $-\infty$.  The denominator, however, has a positive leading coefficient and an odd degree.  Consequently, as $x\rightarrow\infty,$ the denominator of $g$ will approach $\infty$.  But since $m>n$ and the numerator and denominator differ in sign, as $x\rightarrow\infty,$ $g(x)\rightarrow 0^-$.  All of this means that the graph of $g$ will approach the $x-$axis from {\it below} on the right.
+\par
+Alternatively, as $x\rightarrow -\infty,$ we can see that the graph of $g$ will approach the $x-$axis from {\it above} on the left, since both the numerator and denominator of $g$ will approach $-\infty$.
+\begin{example}
+\begin{multicols}{2}
+In this example, we see the graph of $$f(x)=\dfrac{x-1}{x^2-4}.$$
+\par
+Since the degree of the denominator is greater than the degree of the numerator, we see that the graph of $f$ (again) levels off along the $x-$axis, i.e., the line $y=0$.
+\par
+We can also readily determine whether the graph approaches the $x-$axis above or below without too much difficulty.
+$$\text{As} \ x\rightarrow\infty, \ f(x)\rightarrow 0^+.$$
+$$\text{As} \ x\rightarrow-\infty, \ f(x)\rightarrow 0^-.$$
+
+\columnbreak
+
+\begin{tikzpicture}[xscale=0.8,yscale=0.8]
+	\draw [<->](-4.25,0) -- coordinate (x axis mid) (4.25,0) node[below right] {$x$};
+	\draw [<->](0,-3.25) -- coordinate (y axis mid) (0,3.25) node[above right] {$y$};
+	\draw [dashed, <->](2,-3.25) -- coordinate (y axis mid) (2,3.25) node[above right] {};
+	\draw [dashed, <->](-2,-3.25) -- coordinate (y axis mid) (-2,3.25) node[above right] {};
+	\draw [<->] plot [domain=-4:-2.25, samples=100] (\x,{(\x-1)/((\x-2)*(\x+2))});
+	\draw [<->] plot [domain=-1.75:1.90, samples=100] (\x,{(\x-1)/((\x-2)*(\x+2))});
+	\draw [<->] plot [domain=2.10:4, samples=100] (\x,{(\x-1)/((\x-2)*(\x+2))});
+	\draw [->, line width=0.75mm] plot [domain=3:4, samples=100] (\x,{(\x-1)/((\x-2)*(\x+2))});
+	\draw [<-, line width=0.75mm] plot [domain=-4:-3, samples=100] (\x,{(\x-1)/((\x-2)*(\x+2))});
+	\foreach \x in {1,...,4}
+		\draw (\x,1pt) -- (\x,-1pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \x in {-4,...,-1}
+		\draw (\x,1pt) -- (\x,-1pt)	node[anchor=south] {\scriptsize \x};
+	\foreach \y in {1,2,...,3}
+		\draw (1pt,\y) -- (-1pt,\y)	node[anchor=east] {\scriptsize \y}; 
+	\foreach \y in {-3,-2,...,-1}
+		\draw (1pt,\y) -- (-1pt,\y)	node[anchor=west] {\scriptsize \y}; 
+\end{tikzpicture}
+\end{multicols}
+In the case when $m>n$, a sign diagram can also verify whether $f(x)\rightarrow 0$ from above or below, and we have included one here.  The signs on the ends of the diagram will correspond to the nature of the tails of the graph above.
+$$f(x)=\dfrac{x-1}{x^2-4}=\dfrac{x-1}{(x-2)(x+2)}$$
+\begin{center}
+\begin{tikzpicture}[xscale=1.5,yscale=1]
+	\draw [<->](-4.25,0) -- coordinate (x axis mid) (4.25,0) node[below right] {$x$};
+	\draw [dashed, -](-2,1) -- coordinate (y axis mid) (-2,-0.25) node[below] {$-2$};
+	\draw [dashed, -](2,1) -- coordinate (y axis mid) (2,-0.25) node[below] {$2$};
+	\draw [-](1,1) -- coordinate (y axis mid) (1,-0.25) node[below] {$1$};
+	\draw (-3,-1) node {$x=-3$};
+	\draw (-0.5,-1) node {$x=0$};
+	\draw (1.5,-1) node {$x=1.5$};
+	\draw (3,-1) node {$x=3$};
+	\draw (-3,0.5) node {$-$};
+	\draw (-0.5,0.5) node {$+$};
+	\draw (1.5,0.5) node {$-$};
+	\draw (3,0.5) node {$+$};
+	\draw (-3,-1.75) node {\footnotesize $\dfrac{(-)}{(-)(-)}$};
+	\draw (-0.5,-1.75) node {\footnotesize $\dfrac{(-)}{(-)(+)}$};
+	\draw (1.5,-1.75) node {\footnotesize $\dfrac{(+)}{(-)(+)}$};
+	\draw (3,-1.75) node {\footnotesize $\dfrac{(+)}{(+)(+)}$};
+\end{tikzpicture}
+\end{center}
+\end{example}
+Our last case to consider for a rational function $f(x)$, is when the numerator has a greater degree than the denominator, $n>m$.  This case includes all polynomial functions, which represent rational functions, in which the denominator equals the constant (degree-0) function $q(x)=1$.  In this case, as $x\rightarrow\pm\infty,$ we can think of the numerator as growing faster than the denominator.  The result is a graph that has no horizontal asymptote.
+\begin{center}
+\framebox{
+\begin{minipage}{0.8\linewidth}
+Let $f(x)=\dfrac{p(x)}{q(x)},$ with degrees $n$ and $m$ of $p(x)$ and $q(x),$ respectively.  If $n>m,$ the graph of $f$ will have no horizontal asymptote.
+\end{minipage}
+}
+\end{center}
+The possibilities for the tails of the graph of $f$ ($f(x)\rightarrow\infty$ or $f(x)\rightarrow-\infty$) are, again, determined by the leading terms for both the numerator and denominator of $f$.
+\begin{example}\label{horiz_asym_5}
+Consider the function $f(x)=\dfrac{x^3}{x-4}$.  The numerator has a degree of 3, and the denominator has a degree of 1.  Hence, the graph of $f$ has no horizontal asymptotes.  As $x\rightarrow\infty,$ we can further see that both the numerator and denominator will approach $+\infty$.  Hence, we can conclude that $f(x)\rightarrow\infty$.  Alternatively, as $x\rightarrow-\infty,$ we see that both the numerator and denominator will approach $-\infty$, and so $f(x)\rightarrow\infty$.  This tells us that the tails of $f$ will both point upwards.  As in the previous example, a sign diagram confirms this. 
+\begin{center}
+\begin{multicols}{2}
+\begin{tikzpicture}[xscale=0.45,yscale=0.45]
+	\draw [<->](-4,0) -- coordinate (x axis mid) (4,0) node[below right] {$x$};
+	\draw [<->](0,-4) -- coordinate (y axis mid) (0,4) node[above right] {$y$};
+	\draw [->] plot [domain=2.85:3.75, samples=100] (\x,{\x^2/4});
+	\draw [->] plot [domain=-2.85:-3.75, samples=100] (\x,{-\x^2/4});
+	\draw (0,-5) node {As $x\rightarrow\infty,\ f(x)\rightarrow\infty$};
+	\draw (0,-7) node {As $x\rightarrow -\infty,\ f(x)\rightarrow\infty$};
+\end{tikzpicture}
+
+\columnbreak
+
+$$f(x)=\dfrac{x^3}{x-4}$$
+
+\begin{tikzpicture}[xscale=0.8,yscale=0.8]
+	\draw [<->](-4.25,0) -- coordinate (x axis mid) (4.25,0) node[below right] {$x$};
+	\draw [-](-2,1) -- coordinate (y axis mid) (-2,-0.25) node[below] {$0$};
+	\draw [dashed, -](2,1) -- coordinate (y axis mid) (2,-0.25) node[below] {$4$};
+	\draw (-3,-1) node {$x=-1$};
+	\draw (0,-1) node {$x=2$};
+	\draw (3,-1) node {$x=5$};
+	\draw (-3,0.5) node {$+$};
+	\draw (0,0.5) node {$-$};
+	\draw (3,0.5) node {$+$};
+	\draw (-3,-1.75) node {\footnotesize $\dfrac{(-)}{(-)}$};
+	\draw (0,-1.75) node {\footnotesize $\dfrac{(+)}{(-)}$};
+	\draw (3,-1.75) node {\footnotesize $\dfrac{(+)}{(+)}$};
+\end{tikzpicture}
+\end{multicols}
+\end{center}
+\end{example}
+\begin{example}\label{horiz_asym_6}
+Let $g(x)=\dfrac{x^2-x-6}{2x-3}$.  Again, the graph of $g$ will not have a horizontal asymptote, since the degree of the numerator is greater than the degree of the denominator.  We include the graph of $g$ below.
+\begin{center}
+\begin{tikzpicture}[xscale=0.65,yscale=0.65]
+	\draw [<->](-8.25,0) -- coordinate (x axis mid) (8.25,0) node[below right] {$x$};
+	\draw [<->](0,-6.25) -- coordinate (y axis mid) (0,6.25) node[above right] {$y$};
+	\draw [dashed, <->](1.5,-6.25) -- coordinate (y axis mid) (1.5,6.25) node[above right] {};
+	\draw [<->] plot [domain=-8:1, samples=100] (\x,{((\x-3)*(\x+2))/(2*\x-3)});
+	\draw [<->] plot [domain=1.865:8, samples=100] (\x,{((\x-3)*(\x+2))/(2*\x-3)});
+	\foreach \x in {1,...,8}
+		\draw (\x,1pt) -- (\x,-1pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \x in {-8,...,-1}
+		\draw (\x,1pt) -- (\x,-1pt)	node[anchor=south] {\scriptsize \x};
+	\foreach \y in {1,...,6}
+		\draw (1pt,\y) -- (-1pt,\y)	node[anchor=east] {\scriptsize \y}; 
+	\foreach \y in {-6,...,-1}
+		\draw (1pt,\y) -- (-1pt,\y)	node[anchor=west] {\scriptsize \y}; 
+\end{tikzpicture}
+\end{center}
+\end{example}
+
+Examples \ref{horiz_asym_2} and \ref{horiz_asym_4} present us with two additional rational functions whose graphs do not include a horizontal asymptote.  In each case, as $x\rightarrow\infty,$ the $y-$coordinate also approaches $\infty$.  Still, the nature in which the $y-$coordinates grow as $x$ grows is distinctly different for each function and its graph.  The same can be said for our last two examples.  This has to do with the difference between the degrees of the numerator and denominator, and we will address this next.
+\subsection{Slant Asymptotes (L\arabic{lesson_slant_and_curvilinear_asymptotes})}
+{\bf Objective: Identify a slant or curvilinear asymptote in the graph of a rational function.}\par
+For a rational function
+$$f(x)=\frac{p(x)}{q(x)}=\frac{a_{n}x^{n}+a_{n-1}x^{n-1}+\ldots+a_{1}x+a_{0}}{b_{m}x^{m}+b_{m-1}x^{m-1}+\ldots+b_1x+b_{0}},$$
+when $n>m,$ we know that the graph of $f$ will have no horizontal asymptotes.  Depending upon the difference between $n$ and $m,$ however, there is more to discover about the nature of the graph of $f,$ as $x\rightarrow\pm\infty$.
+For example, below are the graphs of Examples \ref{horiz_asym_5} and \ref{horiz_asym_6}.
+\newpage
+\begin{center}
+\begin{multicols}{2}
+\begin{tikzpicture}[xscale=0.15,yscale=0.01]
+	\draw [<->](-22,0) -- coordinate (x axis mid) (22,0) node[below right] {$x$};
+	\draw [<->](0,-200) -- coordinate (y axis mid) (0,500) node[above right] {$y$};
+	\draw [dashed, <->](4,-200) -- coordinate (y axis mid) (4,500) node[below] {};
+	\draw [<->] plot [domain=-20:3.65, samples=100] (\x,{\x^3/(\x-4)});
+	\draw [<->] plot [domain=4.35:18, samples=100] (\x,{\x^3/(\x-4)});
+	\foreach \x in {4,8,...,20}
+		\draw (\x,1pt) -- (\x,-1pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \x in {-20,-16,...,-4}
+		\draw (\x,1pt) -- (\x,-1pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \y in {100,200,...,500}
+		\draw (1pt,\y) -- (-1pt,\y)	node[anchor=east] {\scriptsize \y}; 
+	\foreach \y in {-100,-200}
+		\draw (1pt,\y) -- (-1pt,\y)	node[anchor=east] {\scriptsize \y};
+	\draw (0,-300) node {$f(x)=\dfrac{x^3}{x-4}$};
+\end{tikzpicture}
+
+\columnbreak
+
+\begin{tikzpicture}[xscale=0.45,yscale=0.45]
+	\draw [<->](-8.25,0) -- coordinate (x axis mid) (8.25,0) node[below right] {$x$};
+	\draw [<->](0,-6.25) -- coordinate (y axis mid) (0,6.25) node[above right] {$y$};
+	\draw [dashed, <->](1.5,-6.25) -- coordinate (y axis mid) (1.5,6.25) node[above right] {};
+	\draw [dashed, <->] plot [domain=-8:8, samples=100] (\x,{0.5*\x+0.25});
+	\draw [<->] plot [domain=-8:1, samples=100] (\x,{((\x-3)*(\x+2))/(2*\x-3)});
+	\draw [<->] plot [domain=1.865:8, samples=100] (\x,{((\x-3)*(\x+2))/(2*\x-3)});
+	\foreach \x in {1,...,8}
+		\draw (\x,1pt) -- (\x,-1pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \x in {-8,...,-1}
+		\draw (\x,1pt) -- (\x,-1pt)	node[anchor=south] {\scriptsize \x};
+	\foreach \y in {1,...,6}
+		\draw (1pt,\y) -- (-1pt,\y)	node[anchor=east] {\scriptsize \y}; 
+	\foreach \y in {-6,...,-1}
+		\draw (1pt,\y) -- (-1pt,\y)	node[anchor=west] {\scriptsize \y}; 
+	\draw (0,-8) node {$g(x)=\dfrac{x^2-x-6}{2x-3}$};
+\end{tikzpicture}
+\end{multicols}
+\end{center}
+In the case of $g(x)=\dfrac{x^2-x-6}{2x-3},$ we see that as $x\rightarrow\pm\infty,$ the graph of $g$ actually approaches a linear asymptote.  Whereas horizontal asymptotes are horizontal lines, having a slope of zero, this new type of linear asymptote has a non-zero slope and is consequently {\it slanted}.  Hence, we say that the graph of $g$ contains a {\it slant} or {\it oblique asymptote}.
+\par
+On the other hand, the graph of $f(x)=\dfrac{x^3}{x-4}$ does not appear to contain a slant asymptote.  In fact, as $x\rightarrow\pm\infty,$ the graph of $f$ resembles a parabola.  In cases such as these, we could say that the graph of $f$ contains a {\it curvilinear asymptote}.  In other words, the graph of $f$ approaches some identifiable non-linear curve, as $x$ approaches $\pm\infty$.
+\par 
+The central idea behind slant and curvilinear asymptotes is the same, and only requires an understanding of polynomial division.  Nevertheless, we will focus almost entirely on slant asymptotes in this section, leaving the topic of curvilinear asymptotes for our last example.
+\par
+So what causes the graph of a rational function to have such asymptotes?  We ponder this question, keeping in mind that we have already imposed the requirement that the degree of the numerator be greater than the denominator, $n>m$.  Simply stated, it is the difference between the degrees, $n-m,$ which will determine whether the corresponding graph possesses a slant or curvilinear asymptote.
+\par
+Let's look more closely at $g(x)=\dfrac{x^2-x-6}{2x-3}.$  In this case, the degree of the numerator is equal one more than the degree of the denominator, $n=m+1$ (or $n-m=1$).  This is precisely the case in which the corresponding graph will always contain a slant asymptote!
+\begin{center}
+\framebox{
+\begin{minipage}{0.8\linewidth}
+Let $f(x)=\dfrac{p(x)}{q(x)},$ with degrees $n$ and $m$ of $p(x)$ and $q(x),$ respectively.  If $n=m+1,$ the graph of $f$ will have a slant (or oblique) asymptote.  In other words, when $n=m+1$, as $x\rightarrow\pm\infty,$ the graph of $f$ will approach some line $y=cx+d,$ where $c\neq 0$.
+\end{minipage}
+}
+\end{center}
+Next comes the question of how to find the equation of our slant asymptote.  The answer comes to us by employing polynomial division.  Recall that when we divide two polynomials, we have the following result.
+$$\dfrac{D(x)}{d(x)}=q(x)+\dfrac{r(x)}{d(x)}\qquad \text{or} \qquad \dfrac{\text{Dividend}}{\text{divisor}}=\text{quotient}+\dfrac{\text{remainder}}{\text{divisor}}
+$$
+Here, we use the labels $d,D,q,r$ to represent the {\it divisor, Dividend, quotient,} and {\it remainder}, respectively.  Relabeling in terms of our rational function, $f(x)=\dfrac{p(x)}{q(x)},$ we have the following.
+$$\dfrac{p(x)}{q(x)}=h(x)+\dfrac{r(x)}{q(x)}$$
+But in the case where the degree of $p$ is one more than the degree of $q,$ the resulting quotient function, $h(x),$ will be the desired linear equation for our slant asymptote.
+$$\dfrac{p(x)}{q(x)}\ = \ \underbrace{cx+d}_{\substack{\text{slant} \\ \text{asymptote}}} \ + \ \dfrac{r(x)}{q(x)}$$
+\begin{example} Find the equation of the slant asymptote in the graph of $g(x)=\dfrac{x^2-x-6}{2x-3}.$
+\begin{multicols}{2}
+\[
+  \polylongdiv{x^2-x-6}{2x-3}
+\]
+
+\columnbreak
+
+Hence, $\dfrac{x^2-x-6}{2x-3}\ = \frac{1}{2}x+\frac{1}{4} +  \dfrac{-\frac{21}{4}}{2x-3}.$
+\par
+So, the graph of $g$ has a slant asymptote at $y=\frac{1}{2}x+\frac{1}{4}.$
+\end{multicols}
+\begin{center}
+\begin{tikzpicture}[xscale=0.65,yscale=0.65]
+	\draw [<->](-8.25,0) -- coordinate (x axis mid) (8.25,0) node[below right] {$x$};
+	\draw [<->](0,-6.25) -- coordinate (y axis mid) (0,6.25) node[above right] {$y$};
+	\draw [dashed, <->](1.5,-6.25) -- coordinate (y axis mid) (1.5,6.25) node[above right] {};
+	\draw [dashed, <->] plot [domain=-8:8, samples=100] (\x,{0.5*\x+0.25});
+	\draw [<->] plot [domain=-8:1, samples=100] (\x,{((\x-3)*(\x+2))/(2*\x-3)});
+	\draw [<->] plot [domain=1.865:8, samples=100] (\x,{((\x-3)*(\x+2))/(2*\x-3)});
+	\foreach \x in {1,...,8}
+		\draw (\x,1pt) -- (\x,-1pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \x in {-8,...,-1}
+		\draw (\x,1pt) -- (\x,-1pt)	node[anchor=south] {\scriptsize \x};
+	\foreach \y in {1,...,6}
+		\draw (1pt,\y) -- (-1pt,\y)	node[anchor=east] {\scriptsize \y}; 
+	\foreach \y in {-6,...,-1}
+		\draw (1pt,\y) -- (-1pt,\y)	node[anchor=west] {\scriptsize \y}; 
+	\draw (0,-9) node {$g(x)=\dfrac{x^2-x-6}{2x-3} \ = \ \frac{1}{2}x+\frac{1}{4} +  \dfrac{-\frac{21}{4}}{2x-3}$};
+	\draw (1.5,-7) node {$x=\dfrac{3}{2}$};
+	\draw (6,5) node {$y=\frac{1}{2}x+\frac{1}{4}$};
+  \coordinate (v) at (5,4.5,0);
+	\coordinate (w) at (4.5,3,0);
+	\draw [->] (v) to (w);
+\end{tikzpicture}
+\end{center}
+\end{example}
+It is worth noting in this last example, that the trailing expression $\dfrac{-\frac{21}{4}}{2x-3},$ involving the remainder in our polynomial division, can be extremely helpful in determine whether or not the graph of $g$ sits above or below the slant asymptote, as $x\rightarrow\pm\infty$.  In this case, when $x$ is a large positive value, our trailing expression will be negative.  Hence, as $x\rightarrow\infty$ the values of $g(x)$ on the right-side tail of our graph will lie slightly {\it below} our slant asymptote, since 
+\begin{center}
+$\dfrac{x^2-x-6}{2x-3}=\frac{1}{2}x+\frac{1}{4}$ $+$ (a small negative value).
+\end{center}
+On the other hand, as $x\rightarrow -\infty,$ the trailing expression will be positive, and so
+\begin{center}
+$\dfrac{x^2-x-6}{2x-3}=\frac{1}{2}x+\frac{1}{4}$ $+$ (a small positive value).
+\end{center}
+Hence, the left-side tail of the graph of $g$ will lie slightly {\it above} our slant asymptote.
+\newpage
+\begin{example} Find the equation of the slant asymptote in the graph of $f(x)=\dfrac{-2x^3+x^2-2x+3}{x^2+1}.$
+\par
+In this example, again, we know that the graph of $f$ will include a slant asymptote, since the degree of the numerator is one more than the degree of the denominator, $3=2+1$.
+\begin{multicols}{2}
+
+\[
+  \polylongdiv{-2x^3+x^2-2x+3}{x^2+1}
+\]
+
+\columnbreak
+
+Hence, $\dfrac{-2x^3+x^2-2x+3}{x^2+1} = -2x+1 + \dfrac{2}{x^2+1}.$
+\par
+So, the graph of $f$ has a slant asymptote at $y=-2x+1.$
+\end{multicols}
+Notice that the trailing expression above, $\dfrac{2}{x^2+1}$ is {\it positive for all} $x$.  Hence, as $x\rightarrow\pm\infty,$ the graph of $f$ will lie {\it above} the slant asymptote $y=-2x+1$.  We include the graph of $f$ below for completeness.
+\end{example}
+\begin{center}
+\begin{tikzpicture}[xscale=0.8,yscale=0.8]
+	\draw [<->](-3.5,0) -- coordinate (x axis mid) (3.5,0) node[below right] {$x$};
+	\draw [<->](0,-4.25) -- coordinate (y axis mid) (0,6.25) node[above right] {$y$};
+	\draw [dashed, <->] plot [domain=-2.5:2.5, samples=100] (\x,{-2*\x+1});
+	\draw [<->] plot [domain=-2.35:2.63, samples=100] (\x,{(-2*\x+1)+(2/(\x*\x+1))});
+	\foreach \x in {1,...,3}
+		\draw (\x,1pt) -- (\x,-1pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \x in {-3,...,-1}
+		\draw (\x,1pt) -- (\x,-1pt)	node[anchor=south] {\scriptsize \x};
+	\foreach \y in {1,...,6}
+		\draw (1pt,\y) -- (-1pt,\y)	node[anchor=east] {\scriptsize \y}; 
+	\foreach \y in {-4,...,-1}
+		\draw (1pt,\y) -- (-1pt,\y)	node[anchor=west] {\scriptsize \y}; 
+	\draw (0,-5) node {$f(x)=\dfrac{-2x^3+x^2-2x+3}{x^2+1} \ = \ -2x+1 + \dfrac{2}{x^2+1}$};
+\end{tikzpicture}
+\end{center}
+\newpage
+\begin{example} Construct a rational function $f(x)=\dfrac{p(x)}{q(x)}$ that has a domain of $x\neq 2$ and a slant asymptote along the line $y=x-3$.
+\par
+In this example, we can work backwards from what we just learned to construct the desired rational function $f$.  We will start by filling in the necessary information to the right hand side of the expression below.
+$$\dfrac{p(x)}{q(x)}\ =\ \underbrace{cx+d}_{\substack{\text{slant} \\ \text{asymptote}}} \ + \ \dfrac{r(x)}{q(x)}$$
+Since $x\neq 2,$ we may use $q(x)=x-2$ for our denominator.  Similarly, we can replace $cx+d$ with our given asymptote, $x-3$.  Since there are no other restrictions for our function, we are free to choose any polynomial expression for $r(x)$.  Since $q(x)=x-2,$ $r(x)$ will be a constant function.  For this example, we will use the identity polynomial, $r(x)=1$.
+$$\dfrac{p(x)}{x-2}=x-3+\dfrac{1}{x-2}$$
+All that remains is to obtain a common denominator on the right-hand side, in order to identify the numerator, $p(x)$.
+\begin{equation*}
+\begin{split}
+f(x) & = \dfrac{x-3}{1}\cdot\dfrac{x-2}{x-2}+\dfrac{1}{x-2} \\
+ & = \dfrac{x^2-5x+6}{x-2}+\dfrac{1}{x-2}\\
+ & = \dfrac{x^2-5x+7}{x-2}
+\end{split}
+\end{equation*}
+Our desired polynomial is $f(x)=\dfrac{x^2-5x+7}{x-2}$.
+\par
+Notice that our answer fits the criteria for a slant asymptote, since $n=m+1$.  Also, we can easily identify many other functions that satisfy this particular problem by changing the expression for $r(x)$ to another constant.
+\par
+We leave it as an exercise to the reader to determine whether there might be other possibilities for our denominator $q(x).$
+\end{example}
+\newpage
+\begin{example}
+In the case of Example \ref{horiz_asym_5}, we see that $f(x)=\dfrac{x^3}{x-4}$ does not satisfy our criteria for the existence of a slant asymptote, since $n-m\neq 1$.  This should now make perfect sense, however, since polynomial division will not produce a linear quotient expression, but rather a {\it quadratic}, as shown below.
+\begin{multicols}{2}
+
+\[
+  \polylongdiv{x^3}{x-4}
+\]
+
+\columnbreak
+
+\begin{equation*}
+\begin{split}
+f(x) & = \dfrac{x^3}{x-4} \\
+& = \underbrace{x^2+4x+16}_{\substack{\text{curvilinear} \\ \text{asymptote}}} \ + \ \dfrac{64}{x-4}
+\end{split}
+\end{equation*}
+\end{multicols}
+Consequently, as $x\rightarrow\pm\infty,$ we can indeed see that the graph of $f$ approaches the {\it curvilinear asymptote} $y=x^2+4x+16$.
+\begin{center}
+\begin{tikzpicture}[xscale=0.21,yscale=0.014]
+	\draw [<->](-22,0) -- coordinate (x axis mid) (22,0) node[below right] {$x$};
+	\draw [<->](0,-200) -- coordinate (y axis mid) (0,500) node[above right] {$y$};
+	\draw [dashed, <->](4,-200) -- coordinate (y axis mid) (4,450) node[below] {};
+	\draw [dashed, <->] plot [domain=-20:18, samples=100] (\x,{(\x)^2+4*\x+16});
+	\draw [<->] plot [domain=-20:3.65, samples=100] (\x,{\x^3/(\x-4)});
+	\draw [<->] plot [domain=4.35:18, samples=100] (\x,{\x^3/(\x-4)});
+	\foreach \x in {4,8,...,20}
+		\draw (\x,1pt) -- (\x,-1pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \x in {-20,-16,...,-4}
+		\draw (\x,1pt) -- (\x,-1pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \y in {100,200,...,500}
+		\draw (1pt,\y) -- (-1pt,\y)	node[anchor=east] {\scriptsize \y}; 
+	\foreach \y in {-100,-200}
+		\draw (1pt,\y) -- (-1pt,\y)	node[anchor=east] {\scriptsize \y};
+	\draw (0,-300) node {$f(x)=\dfrac{x^3}{x-4}\ =\ x^2+4x+16 \ + \ \dfrac{64}{x-4}$};
+	\draw (4,475) node {$x=4$};
+	\draw (20,100) node {$y=x^2+4x+16$};
+  \coordinate (v) at (12,100,0);
+	\coordinate (w) at (8,100,0);
+	\draw [->] (v) to (w);
+\end{tikzpicture}
+\end{center}
+\end{example}
+In general, for a given rational function, $f(x)=\dfrac{p(x)}{q(x)},$ with degrees $n$ and $m$ of $p(x)$ and $q(x),$ respectively, it is the difference in degrees, $n-m,$ that will dictate the nature of the associated end behavior asymptote for the graph of $f$.  Specifically, if $n-m=1,$ the tails of the graph will resemble a linear graph (having non-zero slope), if $n-m=2,$ the tails will resemble a parabola, if $n-m=3,$ the tails will resemble a cubic graph, and so on.
+We close the section on end behavior with a table that summarizes the key takeaways.
+\begin{multicols}{2}
+Applying polynomial division:
+\begin{center}
+$f(x) = \dfrac{p(x)}{q(x)} = h(x)+\dfrac{r(x)}{q(x)}$
+\par
+$n=$ degree of $p$\\
+$m=$ degree of $q$
+
+\columnbreak
+
+\begin{tabular}{c|c}
+$n-m$ & End Behavior of the Graph of $f$ \\
+\hline 
+&\\
+$<0$ & Horizontal Asymptote at $y=0$* \\
+&\\
+$0$ & Horizontal Asymptote at $y=a_n\slash b_m$*\\
+&\\
+$1$ & Slant Asymptote at $y=h(x)$\\
+&\\
+$>1$ & Curvilinear Asymptote at $y=h(x)$
+\end{tabular}
+\end{center}
+\end{multicols}
+*Note that in this case, our asymptote will actually still equal $h(x)$.
+\end{document}

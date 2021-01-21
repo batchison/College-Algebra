@@ -1,0 +1,266 @@
+\documentclass[12pt]{book}
+\raggedbottom
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=0.25in]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem,tikzpagenodes}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0in}
+\setlist{itemsep=0in}
+\setlength{\parskip}{0.1in}
+\setcounter{secnumdepth}{0}
+\input{lesson_order}
+
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+
+\begin{document}
+\section{Sign Diagrams (L\arabic{lesson_sign_diagrams_rationals})}
+{\bf Objective: Construct a sign diagram for a given rational function.}\par
+As with polynomial functions, throughout this chapter we will periodically reference the sign diagram of a rational function or expression, to both answer questions about particular functions and verify our work.  As before, there is a reliance on factorization that is needed for construction of a sign diagram, since the roots of a given expression will be used as the dividers in the corresponding sign diagram.
+\par
+We begin with an example for polynomial functions.
+\begin{example}\label{sign_diag_0}
+Construct a sign diagram for the polynomial function $f(x)=x^3-5x^2+3x+9$.  Use the fact that $f(-1)=0$.
+\par
+Since $f$ is a polynomial that has four terms, we could first try to factor $f$ by grouping.  But we quickly see that this method will fail to yield a factorization.
+\begin{equation*}
+\begin{split}
+f(x) & = x^3-5x^2+3x+9\\
+& = x^2(x-5)+3(x+3)
+\end{split}
+\end{equation*}
+$$x-5\neq x-3$$
+Instead, if we use the fact that $f(-1)=0,$ we can employ polynomial division to factor $f$ completely.
+\begin{multicols}{2}
+\[
+  \polylongdiv{x^3-5x^2+3x+9}{x+1}
+\]
+
+\columnbreak
+
+\begin{equation*}
+\begin{split}
+f(x) & = x^3-5x^2+3x+9\\
+& = (x+1)(x^2-6x+9)\\
+& = (x+1)(x-3)^2
+\end{split}
+\end{equation*}
+\begin{center}
+Roots of $f$: $x=-1,3$
+\end{center}
+\end{multicols}
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\draw [<->](-3.25,0) -- coordinate (x axis mid) (5.25,0) node[below right] {$x$};
+	\draw [-](-1,1) -- coordinate (y axis mid) (-1,-0.25) node[below] {$-1$};
+	\draw [-](3,1) -- coordinate (y axis mid) (3,-0.25) node[below] {$3$};
+	\draw (-2,-1) node {$x=-2$};
+	\draw (1,-1) node {$x=0$};
+	\draw (4,-1) node {$x=4$};
+	\draw (-2,0.5) node {$-$};
+	\draw (1,0.5) node {$+$};
+	\draw (4,0.5) node {$+$};
+	\draw (-2,-1.5) node {\footnotesize $(-)(-)^2$};
+	\draw (1,-1.5) node {\footnotesize $(+)(-)^2$};
+	\draw (4,-1.5) node {\footnotesize $(+)(+)^2$};
+\end{tikzpicture}
+\end{center}
+\end{example}
+Since a rational function includes an expression in a denominator, the only additional consideration that we need to make to construct a sign diagram is to identify the roots of both the numerator {\it and} the denominator as dividers in our diagram.  In other words, the dividers of our diagram for a rational function $f$ will consist of all roots and all values not in the domain of $f$.
+\begin{example}\label{sign_diag_1}
+Construct a sign diagram for the rational function $g(x)=\dfrac{x+1}{(x-3)^2}$.
+\par
+Since $x=-1$ is a root of $g,$ and $g(3)$ is undefined (the domain of $g$ is $x\neq 3$), we will again place dividers at $-1$ and $3$.
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\draw [<->](-3.25,0) -- coordinate (x axis mid) (5.25,0) node[below right] {$x$};
+	\draw [-](-1,1) -- coordinate (y axis mid) (-1,-0.25) node[below] {$-1$};
+	\draw [-, dashed](3,1) -- coordinate (y axis mid) (3,-0.25) node[below] {$3$};
+	\draw (-2,-1) node {$x=-2$};
+	\draw (1,-1) node {$x=0$};
+	\draw (4,-1) node {$x=4$};
+	\draw (-2,0.5) node {$-$};
+	\draw (1,0.5) node {$+$};
+	\draw (4,0.5) node {$+$};
+	\draw (-2,-1.75) node {\footnotesize $\dfrac{(-)}{(-)^2}$};
+	\draw (1,-1.75) node {\footnotesize $\dfrac{(+)}{(-)^2}$};
+	\draw (4,-1.75) node {\footnotesize $\dfrac{(+)}{(+)^2}$};
+\end{tikzpicture}
+\end{center}
+\end{example}
+In Example \ref{sign_diag_1}, since $x=3$ is not in the domain of $g,$ we have used a dashed divider to signify this fundamental difference from Example \ref{sign_diag_0}.  As we will see later, this results in different graphical implications.  In other words, the graph of $f$ behaves differently when $x=c$ is a root of $f$ versus when it is excluded from the domain.
+\begin{example}\label{sign_diag_2}
+Construct a sign diagram for the rational function $h(x)=\dfrac{x^3-5x^2+3x+9}{x-3}$.
+\par
+Since the numerator of $h$ matches $f$ from Example \ref{sign_diag_0}, we can factor $h$ as follows.
+$$h(x)=\dfrac{(x+1)(x-3)^2}{x-3}$$
+Although we might be tempted to cancel out the denominator of $h$ completely, it still remains that $h(3)$ is undefined, i.e., the domain of $h$ is $x\neq3$.  Hence, we will include a dashed divider in our sign diagram at $x=3$.
+\par
+When determining the various signs for our diagram, however, we can consider working with the simplified expression $$\dfrac{(x+1)(x-3)^{\cancel{2}}}{\cancel{x-3}}=(x+1)(x-3),$$
+since none of our test values equal $3$.
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\draw [<->](-3.25,0) -- coordinate (x axis mid) (5.25,0) node[below right] {$x$};
+	\draw [-](-1,1) -- coordinate (y axis mid) (-1,-0.25) node[below] {$-1$};
+	\draw [-, dashed](3,1) -- coordinate (y axis mid) (3,-0.25) node[below] {$3$};
+	\draw (-2,-1) node {$x=-2$};
+	\draw (1,-1) node {$x=0$};
+	\draw (4,-1) node {$x=4$};
+	\draw (-2,0.5) node {$+$};
+	\draw (1,0.5) node {$-$};
+	\draw (4,0.5) node {$+$};
+	\draw (-2,-1.75) node {\footnotesize $(-)(-)$};
+	\draw (1,-1.75) node {\footnotesize $(+)(-)$};
+	\draw (4,-1.75) node {\footnotesize $(+)(+)$};
+\end{tikzpicture}
+\end{center}
+\end{example}
+Although we are not yet ready to completely graph a rational function, let's look at the graphs of each of our last three examples, in order to see the differences at $x=3$.
+\begin{center}
+\begin{tikzpicture}[xscale=0.6,yscale=0.3]
+	\draw [<->](-5.5,0) -- coordinate (x axis mid) (5.5,0) node[below right] {$x$};
+	\draw [<->](0,-5) -- coordinate (y axis mid) (0,10) node[above right] {$y$};
+	\draw [<->] plot [domain=-1.2:4.3, samples=100] (\x,{(\x-3)*(\x-3)*(\x+1)});
+	\foreach \x in {1,...,5}
+		\draw (\x,1pt) -- (\x,-1pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \x in {-5,...,-1}
+		\draw (\x,1pt) -- (\x,-1pt)	node[anchor=south] {\scriptsize \x};
+	\foreach \y in {1,...,9}
+		\draw (1pt,\y) -- (-1pt,\y)	node[anchor=east] {\scriptsize \y}; 
+	\foreach \y in {-4,...,-1}
+		\draw (1pt,\y) -- (-1pt,\y)	node[anchor=west] {\scriptsize \y}; 
+	\draw [<->](-5.5,-8) -- coordinate (x axis mid) (5.5,-8) node[below right] {$x$};
+	\draw [-](-1,-6.5) -- coordinate (y axis mid) (-1,-8.25) node[below] {$-1$};
+	\draw [-](3,-6.5) -- coordinate (y axis mid) (3,-8.25) node[below] {$3$};
+	\draw (-2,-6.5) node {$-$};
+	\draw (1,-6.5) node {$+$};
+	\draw (4,-6.5) node {$+$};
+	\draw (0,-10.75) node {$f(x)=(x+1)(x-3)^2$};
+\end{tikzpicture}
+\end{center}
+In the case of Example \ref{sign_diag_0} above, there should be no real surprises, since we are given a cubic polynomial with positive leading coefficient.  The multiplicity of $x=-1$ being odd produces a sign change in our diagram, which results in a ``crossover point'' at our corresponding $x-$intercept.  Alternatively, the even multiplicity of $x=3$ creates a ``turnaround point'' (or bounce off) at the corresponding $x-$intercept.
+\begin{multicols}{2}
+\begin{center}
+\begin{tikzpicture}[xscale=0.4,yscale=1]
+	\draw [<->](-7.5,0) -- coordinate (x axis mid) (7.5,0) node[below right] {$x$};
+	\draw [<->](0,-0.5) -- coordinate (y axis mid) (0,4.5) node[above right] {$y$};
+	\draw [dashed, <->](3,-0.5) -- coordinate (y axis mid) (3,4.25) node[above right] {};
+	\draw [<->] plot [domain=-7.3:2.13, samples=100] (\x,{(\x+1)/((\x-3)*(\x-3))});
+	\draw [<->] plot [domain=4.1:7.3, samples=100] (\x,{(\x+1)/((\x-3)*(\x-3))});
+	\foreach \x in {1,...,4}
+		\draw (\x,1pt) -- (\x,-1pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \x in {-7,...,-1}
+		\draw (\x,1pt) -- (\x,-1pt)	node[anchor=south] {\scriptsize \x};
+	\foreach \y in {1,...,4}
+		\draw (1pt,\y) -- (-1pt,\y)	node[anchor=east] {\scriptsize \y}; 
+	\draw [<->](-7.5,-1.3) -- coordinate (x axis mid) (7.5,-1.3) node[below right] {$x$};
+	\draw [-](-1,-0.9) -- coordinate (y axis mid) (-1,-1.4) node[below] {$-1$};
+	\draw [-, dashed](3,-0.9) -- coordinate (y axis mid) (3,-1.4) node[below] {$3$};
+	\draw (-4,-1) node {$-$};
+	\draw (1,-1) node {$+$};
+	\draw (5,-1) node {$+$};
+	\draw (0,-2.65) node {$g(x)=\dfrac{x+1}{(x-3)^2}$};
+\end{tikzpicture}
+\end{center}
+
+\columnbreak
+
+\begin{center}
+\begin{tikzpicture}[xscale=0.6,yscale=0.325]
+	\draw [<->](-5.5,0) -- coordinate (x axis mid) (5.5,0) node[below right] {$x$};
+	\draw [<->](0,-5) -- coordinate (y axis mid) (0,10) node[above right] {$y$};
+	\draw [<-] plot [domain=-2.6:2.9, samples=100] (\x,{(\x-3)*(\x+1)});
+	\draw [->] plot [domain=3.1:4.6, samples=100] (\x,{(\x-3)*(\x+1)});
+	\foreach \x in {1,...,5}
+		\draw (\x,1pt) -- (\x,-1pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \x in {-5,...,-1}
+		\draw (\x,1pt) -- (\x,-1pt)	node[anchor=south] {\scriptsize \x};
+	\foreach \y in {1,...,9}
+		\draw (1pt,\y) -- (-1pt,\y)	node[anchor=east] {\scriptsize \y}; 
+	\foreach \y in {-4,...,-1}
+		\draw (1pt,\y) -- (-1pt,\y)	node[anchor=west] {\scriptsize \y}; 
+	\draw[fill, color=white] (3,0) ellipse (2mm and 4mm);
+	\draw[line width=0.3mm] (3,0) ellipse (2mm and 4mm);
+	\draw [<->](-5.5,-8) -- coordinate (x axis mid) (5.5,-8) node[below right] {$x$};
+	\draw [-](-1,-6.5) -- coordinate (y axis mid) (-1,-8.25) node[below] {$-1$};
+	\draw [-, dashed](3,-6.5) -- coordinate (y axis mid) (3,-8.25) node[below] {$3$};
+	\draw (-3,-6.5) node {$+$};
+	\draw (1,-6.5) node {$-$};
+	\draw (4.5,-6.5) node {$+$};
+	\draw (0,-12) node {$h(x)=\dfrac{(x+1)(x-3)^2}{x-3}$};
+\end{tikzpicture}
+\end{center}
+\end{multicols}
+In Examples \ref{sign_diag_1} and \ref{sign_diag_2} above, we see the same $x-$intercept at $x=-1$ as in Example \ref{sign_diag_0}.  The fundamental difference between polynomials and rational functions centers around what happens at $x=3$.  Unlike our first graph, both rational functions exhibit a break in the graph at this value of $x$, since it is not in the domain of either function.
+\par
+Still, the difference in the expressions for both $g$ and $h$ results in two distinctly different breaks in each of our graphs (a vertical asymptote in the first graph and a hole in the second graph).  We will more closely examine these differences in a later section.  For the purposes of this section, we simply wish to stress the importance of identifying the corresponding divider in each of our sign diagrams.
+\begin{example}\label{sign_diag_3}
+Construct a sign diagram for the rational function $f(x)=\dfrac{x^2-9x+20}{x^2-3x-10}$.
+\par
+A factorization of $f$ gives us the following.
+$$f(x)=\dfrac{(x-4)(x-5)}{(x+2)(x-5)}$$
+Hence, we need dividers for $x=-2,4,$ and $5$.  Since our domain is $x\neq -2,5$ we will use dashed dividers for these values, and a solid divider for the $x-$intercept at $x=4$.
+\par
+As in Example \ref{sign_diag_2}, we will use the simplified expression $\dfrac{x-4}{x+2}$ for each of our test values, since we are not testing $x=5$.
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\draw [<->](-4.25,0) -- coordinate (x axis mid) (7.25,0) node[below right] {$x$};
+	\draw [-, dashed](-2,1) -- coordinate (y axis mid) (-2,-0.25) node[below] {$-2$};
+	\draw [-](3,1) -- coordinate (y axis mid) (3,-0.25) node[below] {$4$};
+	\draw [-, dashed](5,1) -- coordinate (y axis mid) (5,-0.25) node[below] {$5$};
+	\draw (-3,-1) node {$x=-3$};
+	\draw (0.5,-1) node {$x=0$};
+	\draw (4,-1) node {$x=4.5$};
+	\draw (6,-1) node {$x=6$};
+	\draw (-3,0.5) node {$+$};
+	\draw (0.5,0.5) node {$-$};
+	\draw (4,0.5) node {$+$};
+	\draw (6,0.5) node {$+$};
+	\draw (-3,-1.75) node {\footnotesize $\dfrac{(-)}{(-)}$};
+	\draw (0.5,-1.75) node {\footnotesize $\dfrac{(-)}{(+)}$};
+	\draw (4,-1.75) node {\footnotesize $\dfrac{(+)}{(+)}$};
+	\draw (6,-1.75) node {\footnotesize $\dfrac{(+)}{(+)}$};
+\end{tikzpicture}
+\end{center}
+\end{example}
+We leave it as an exercise to the reader to graph $$f(x)=\dfrac{x^2-9x+20}{x^2-3x-10}=\dfrac{(x-4)(x-5)}{(x+2)(x-5)}$$ 
+using \Desmos, in order to see the differences near the two values excluded from our domain, $x=-2$ and $x=5$.
+\par
+We conclude this section with one final example
+\begin{example}\label{sign_diag_4}
+Identify a rational function $f$ having the following sign diagram.
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\draw [<->](-6.25,0) -- coordinate (x axis mid) (5.25,0) node[below right] {$x$};
+	\draw [-, dashed](0,1) -- coordinate (y axis mid) (0,-0.25) node[below] {$0$};
+	\draw [-, dashed](3,1) -- coordinate (y axis mid) (3,-0.25) node[below] {$3$};
+	\draw [-](-4,1) -- coordinate (y axis mid) (-4,-0.25) node[below] {$-4$};
+	\draw (-5,-1) node {$x=-5$};
+	\draw (-2,-1) node {$x=-2$};
+	\draw (1.5,-1) node {$x=1$};
+	\draw (4,-1) node {$x=4$};
+	\draw (-5,0.5) node {$-$};
+	\draw (-2,0.5) node {$-$};
+	\draw (1.5,0.5) node {$+$};
+	\draw (4,0.5) node {$-$};
+\end{tikzpicture}
+\end{center}
+We know that at each divider value $c$, our function must have a corresponding factor of $x-c$.  Furthermore, solid dividers will see our factor in the numerator, whereas dashed dividers signify that $c$ is not in our domain, and so our factor must lie in the denominator.  This gives us the following candidate for $f$.
+$$\dfrac{x+4}{x(x-3)}$$
+But also, the lack of a sign change at $x=-4$ (negative to negative) tells us that the corresponding $x-$intercept will be a turnaround point. This further tells us that the multiplicity at $x=-4$ must be even.  So we refine our candidate to the following.
+$$\dfrac{(x+4)^2}{x(x-3)}$$
+Since our signs change at $x=0$ (negative to positive) and $x=3$ (positive to negative), we will keep an odd multiplicity of $1$ for each of their respective factors in the denominator.
+\par
+A simple check of one of our test values will tell us whether our answer is correct.
+\par
+When $x=-5,$ we get $\dfrac{(-)^2}{(-)(-)}=+,$ which is not what we want.  This suggests that each of our signs will be the opposite of what we are looking for.  By multiplying our candidate by a negative, we obtain our final answer.
+$$f(x)=\dfrac{-(x+4)^2}{x(x-3)}$$
+We leave it as an exercise for the reader to check that our function does indeed match the given diagram.
+\end{example}
+\end{document}

@@ -1,0 +1,380 @@
+\documentclass[12pt]{book}
+\raggedbottom
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=0.25in]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem,tikzpagenodes}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0in}
+\setlist{itemsep=0in}
+\setlength{\parskip}{0.1in}
+\setcounter{secnumdepth}{0}
+\input{lesson_order}
+
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+
+\begin{document}
+\section{Factoring}
+\subsection{Some Special Cases (L\arabic{lesson_factoring_summary})}
+{\bf Objective: Factor a general polynomial expression using one or more factorization methods.}\par
+When factoring polynomials there are a few special products that, if we can recognize them, can be easily broken down. The first is one we have seen before, when factoring some quadratics in which there is no linear term.
+\par
+When expanding, we know that the product of a sum and difference of the same two terms results in a difference of two squares.
+\begin{center}
+\framebox{
+\begin{minipage}{0.75\linewidth}
+\begin{center}
+Difference of Two Squares: $a^2-b^2=\left(a+b\right)\left(a-b\right)$
+\end{center}
+\end{minipage}
+}
+\end{center}
+Consequently, if faced with the difference of two squares, one can conclude that such an expression will always factor as a product of the
+sum and difference of their square roots.  Our first four examples demonstrate this fact.
+\begin{example}Factor each of the given binomial expressions completely over the real numbers.
+	\begin{multicols}{4}
+	\begin{enumerate}
+		\item $x^2-16$
+		\item $9x^2-25y^2$ 
+		\item $x^2-24$
+		\item $2x^2-5$
+	\end{enumerate}
+	\end{multicols}
+	\begin{enumerate}
+	\item In this first example, we see that $a=x$ and $b=4$ for our difference of two squares.
+  \begin{equation*}
+		\begin{split}
+    x^2-16 &= \left(x\right)^2-\left(4\right)^2\\
+					 &= \left(x+4\right)\left(x-4\right)
+		\end{split}
+	\end{equation*}
+	\item Taking the square roots of $9x^2$ and $25y^2$ gives us $a=3x$ and $b=5y$ for our second expression.
+	\begin{equation*}
+		\begin{split}
+    9x^2-25y^2 &= \left(3x\right)^2-\left(5y\right)^2\\
+					 &= \left(3x+5y\right)\left(3x-5y\right)
+		\end{split}
+	\end{equation*}
+	\item Our third expression poses a bit of a challenge, since it is the first which does not present us with the difference of two {\it perfect} squares.  In this case, $a=x,$ but $b=\sqrt{24}=\sqrt{4\cdot 6}=2\sqrt{6}$.
+	\begin{equation*}
+		\begin{split}
+    x^2-24 &= \left(x\right)^2-\left(2\sqrt{6}\right)^2\\
+					 &= \left(x+2\sqrt{6}\right)\left(x-2\sqrt{6}\right)
+		\end{split}
+	\end{equation*}
+\newpage
+	\item Similarly, our final expression presents us with two terms, neither of which are perfect squares.  In this case, $a=\sqrt{2x^2}=\sqrt{2}x$ and $b=\sqrt{5}$.
+	\begin{equation*}
+		\begin{split}
+    2x^2-5 &= \left(\sqrt{2}x\right)^2-\left(\sqrt{5}\right)^2\\
+					 &= \left(\sqrt{2}x+\sqrt{5}\right)\left(\sqrt{2}x-\sqrt{5}\right)
+		\end{split}
+	\end{equation*}
+	Note that in this last case, we have $\sqrt{2}x$ (or $x\sqrt{2}$) in our factorization, and not $\sqrt{2x}$.
+	\end{enumerate}
+\end{example}
+It is important to note that, unlike differences, a {\it sum} of squares will never factor over the real numbers.  Such expressions only factor over the complex numbers.  Hence, we say that they are {\it irreducible} over the reals. This can be seen in our next example, where we will attempt to employ the $ac-$method to factor.
+\begin{example} Factor the expression $x^2+36$ completely over the real numbers and over the complex numbers.
+\par
+For the expression $x^2+36,$ $ac=36$ and $b=0,$ as we have no linear term.  So we need to identify two integers, $m$ and $n$, such that $m+n=0$ and $m\cdot n=36$.  Our choices for $m\cdot n$ are $1 \cdot 36$, $2 \cdot 18$, $3 \cdot 12$, $4 \cdot 9$ and $6 \cdot 6$.  But, since there are no combinations from these that will both multiply to 36 {\it and} add to 0, we conclude that the given expression is irreducible over the reals.
+\par
+Notice that $x^2+36$ does, however, factor over the complex numbers.
+	\begin{equation*}
+	\begin{split}
+	x^2+36 &= x^2-\left(-36\right)\\
+	&= x^2-\left(\sqrt{-36}\right)^2\\
+	&= x^2-\left(\sqrt{36}\sqrt{-1}\right)^2\\
+	&= x^2-\left(6i\right)^2\\
+	&= \left(x-6i\right)\left(x+6i\right)
+	\end{split}
+	\end{equation*}
+We can further make sense of this result by recalling the methods from the chapter on quadratics.  Since the discriminant of $x^2+36$ is 
+\begin{equation*}
+	\begin{split}
+		b^2-4ac&=0^2-4\left(1\right)\left(36\right)\\
+		&=-144\\
+		&<0,
+	\end{split}
+\end{equation*}
+we know that the given expression has no real roots.  Hence, any factorization must contain imaginary numbers.  By setting the expression equal to zero and extracting square roots, we get $x=\pm 6i,$ which further supports our factorization.
+\end{example}
+
+We present the general factorization for the sum of two squares over the complex numbers below.
+\begin{center}
+\framebox{
+\begin{minipage}{0.75\linewidth}
+\begin{center}
+Sum of Two Squares: $a^2+b^2=\left(a+bi\right)\left(a-bi\right)$
+\end{center}
+\end{minipage}
+}
+\end{center}
+\newpage
+For graphing purposes, we will primarily be concerned with factorization over the real numbers.
+\par 
+In many cases, we can also recognize an entire expression as a perfect square (or a squared binomial).
+\begin{center}
+\framebox{
+\begin{minipage}{0.75\linewidth}
+\begin{center}
+Perfect Square: $a^2+2ab+b^2=\left(a+b\right)^2$
+\end{center}
+\end{minipage}
+}
+\end{center}
+While it might seem difficult to recognize a perfect square at first glance, by employing the $ac-$method, we can see that in the case where $m=n,$ the resulting factorization will be a perfect square. In this case, we can factor by identifying the square roots of the first and last
+terms and using the sign from the middle term. This is demonstrated in the following example.
+\begin{example} Factor each of the given trinomial expressions completely over the real numbers.
+  \begin{multicols}{2}
+	\begin{enumerate}
+	\item $x^2-6x+9$
+	\item $4x^2+20xy+25y^2$
+	\end{enumerate}
+	\end{multicols}
+	\begin{enumerate}
+	\item For our first expression, $a=1, \ b=-6,$ and $c=9$.  So we must find two integers $m$ and $n$ such that $m+n=-6$ and $mn=ac=9$.  In this case, the numbers we need are $-3$ and $-3$.  Consequently, we will have a perfect square.
+	\par
+	Using the square roots of $a=1$ and $c=9$ and the negative sign from the linear term, our factorization is 
+	$$x^2-6x+9=\left(x-3\right)^2.$$
+	\item For our second expression, $a=4, \ b=20,$ and $c=25$.  So we are looking for an $m$ and $n$ such that $m+n=20$ and $mn=ac=100$.  Quickly, we see that $m=n=10,$ and again, we have a perfect square.
+	\par
+	In this case, our factorization is
+	$$4x^2+20xy+25y^2=\left(2x+5y\right)^2.$$
+	\end{enumerate}
+\end{example}
+Another factoring shortcut involves sums and differences of cubes.  Both sums and differences of cubes have very similar factorizations.
+\begin{center}
+\framebox{
+\begin{minipage}{0.75\linewidth}
+\begin{center}
+Sum of Cubes: $a^3+b^3=\left(a+b\right)\left(a^2-ab+b^2\right)$
+\par
+Difference of Cubes: $a^3-b^3=\left(a-b\right)\left(a^2+ab+b^2\right)$
+\end{center}
+\end{minipage}
+}
+\end{center}
+As with all of the formulas in this section, we can verify those for a sum and difference of cubes by expanding the right-hand side.  For example, for the difference of cubes, 
+\begin{equation*}
+\begin{split}
+\left(a-b\right)\left(a^2+ab+b^2\right)&= a\left(a^2+ab+b^2\right)-b\left(a^2+ab+b^2\right)\\
+&=a^3+\cancel{a^2b}+\bcancel{ab^2}-\cancel{a^2b}-\bcancel{ab^2}-b^3\\
+&=a^3-b^3
+\end{split}
+\end{equation*}
+\newpage
+Comparing the formulas one may notice that the only difference resides in the signs between the terms. One way to remember these two formulas is to think of ``{\bf SOAP}'':
+\begin{center}
+\begin{tabular}{cl}
+{\bf S} & The first sign in our factorization is the {\bf Same} sign as the given expression.\\
+{\bf O} & The second sign in our factorization is the {\bf Opposite} sign as the given expression.\\
+{\bf AP} & The last sign in our factorization is {\bf Always Positive}.
+\end{tabular}
+\end{center}
+\begin{example} Factor each of the given binomial expressions completely over the real numbers.
+  \begin{multicols}{2}
+		\begin{enumerate}
+			\item $m^3-27$
+			\item $125p^3+8r^3$
+		\end{enumerate}
+	\end{multicols}
+	\begin{enumerate}
+		\item In our first expression, our desired cube roots for each term are $a=m$ and $b=3$.  Using the ``Same, Opposite, Always Positive'' acronym, we have the following factorization.
+		\begin{equation*}
+			\begin{split}
+				m^3-27&=\left(m-3\right)\left(\left(m\right)^2+3m+\left(3\right)^2\right)\\
+				&=\left(m-3\right)\left(m^2+3m+9\right)
+			\end{split}
+		\end{equation*}
+		\item In second expression, our desired cube roots for each term are 
+		\begin{multicols}{2}
+			\begin{equation*}
+				\begin{split}
+					a&=\sqrt[3]{125p^3}\\
+					 &=\sqrt[3]{125}\sqrt[3]{p^3}\\
+					 &=5p
+				\end{split}
+			\end{equation*}
+
+			\columnbreak
+
+			\begin{equation*}
+				\begin{split}
+					b&=\sqrt[3]{8r^3}\\
+					 &=\sqrt[3]{8}\sqrt[3]{r^3}\\
+					 &=2r
+				\end{split}
+			\end{equation*}
+		\end{multicols}
+		Using the ``Same, Opposite, Always Positive'' acronym, we have the following factorization.
+		\begin{equation*}
+			\begin{split}
+				125p^3+8r^3&=\left(5p+2r\right)\left(\left(5p\right)^2-\left(5p\right)\left(2r\right)+\left(2r\right)^2\right)\\
+				&=\left(5p+2r\right)\left(25p^2-10pr+4r^2\right)
+			\end{split}
+		\end{equation*}
+	\end{enumerate}
+\end{example}
+The second expression in our last example illustrates an important point.  When we identify the first and last terms of the trinomial in our factorization, we must square each cube root in its entirety.  In this case, both the coefficients and variables are squared, so that $\left(5p\right)^2$ becomes $25p^2,$ and $\left(2r\right)^2$ becomes $4r^2$.
+\par
+After factoring a sum or difference of cubes, it should be natural to attempt to factor the resulting trinomial expression (our second factor). As a general rule, however, this factor should always be irreducible over the reals, with the main exception being that of a GCF in the given expression that might have been initially overlooked.
+\par
+Our last special case comes up frequently enough that we will devote the next subsection to it.
+\subsection{Quadratic Type (L\arabic{lesson_factoring_quadratic_type})}
+{\bf Objective: Recognize and factor a polynomial expression of quadratic type.}\par
+Recall that a quadratic expression in terms of a variable $x$ is an expression of the form $$ax^2+bx+c.$$
+If $y$ is any algebraic expression, we say that the expression $$ay^2+by+c$$ is an expression of {\it quadratic type}.
+\par
+In just about every case we will see, we will consider $y$ as a power of $x,$ $y=x^n,$ so that our expression of quadratic type will appear as follows.
+\begin{center}
+\framebox{
+\begin{minipage}{0.75\linewidth}
+\begin{center}
+Quadratic Type:
+$$ax^{2n}+bx^n+c \ = \ a\left[x^n\right]^2+b\left[x^n\right]+c$$
+\end{center}
+\end{minipage}
+}
+\end{center}
+If $y=x^3,$ then the expression $$ay^2+by+c=ax^6+bx^3+c$$
+would be an expression of quadratic type.
+\par
+Similarly, if $y=x^4,$ then the expression $$ay^2+by+c=ax^8+bx^4+c$$
+would be an expression of quadratic type.
+\par
+In each of these last two examples, notice the exponential pattern, where the middle term has an exponent that is half that of the leading term's.  This will always be apparent, as long as the middle coefficient $b$ is nonzero.
+\par
+By viewing certain expressions as quadratic type, we can often apply more familiar methods, such as the $ac-$method, to obtain a complete factorization.
+\par
+For example, if we let $y=x^2,$ then the difference of fourth powers $x^4-16$ can be rewritten as a difference of squares,
+$y^2-4^2,$ leading us to the complete factorization over the real numbers shown below.
+\begin{equation*}
+	\begin{split}
+		x^4-16&=\left(x^2\right)^2-4^2\\
+		&=y^2-4^2, \ \ y=x^2\\
+		&=\left(y+4\right)\left(y-4\right)\\
+		&=\left(x^2+4\right)\left(x^2-4\right)\\
+		&=\left(x^2+4\right)\left(x+2\right)\left(x-2\right)
+	\end{split}
+\end{equation*}
+\begin{example}\label{quad_type_1} Factor the trinomial expression $x^4+2x^2-24$ completely over the real numbers.
+\par
+Notice that the given trinomial exhibits quadratic type characteristics, since the degree of four is double the exponent appearing in the middle term.  Consequently, we will let $y=x^2$ and rewrite the expression in terms of $y$.
+$$y^2+2y-24$$
+Applying the $ac-$method, we see the following.
+\begin{equation*}
+\begin{split}
+y^2+2y-24 & = y^2+6y-4y-24\\
+&=y\left(y+6\right)-4\left(y+6\right)\\
+&=\left(y+6\right)\left(y-4\right)
+\end{split}
+\end{equation*}
+Substituting back for $x,$ we have $\left(x^2+6\right)\left(x^2-4\right)$.  The first factor is a sum of squares, which is irreducible over the reals.  The second factor of $x^2-4$ is a difference of perfect squares, which we know is factorable as $\left(x+2\right)\left(x-2\right)$.
+\par
+Our final factorization is
+$$x^4+2x^2-24=\left(x^2+6\right)\left(x+2\right)\left(x-2\right).$$
+\end{example}
+\begin{example} Find all real roots of the polynomial expression $x^4-12x^2+27$.
+\par
+In this example, we are not asked to factor the given expression, but instead to solve for when the expression equals zero.  Still, we can start by finding a complete factorization, again substituting $y=x^2$ and employing the $ac-$method.
+\begin{equation*}
+\begin{split}
+x^4-12x^2+27 &= y^2-12y+27\\
+&=y^2-3y-9y+27\\
+&=y\left(y-3\right)-9\left(y-3\right)\\
+&=\left(y-3\right)\left(y-9\right)\\
+&=\left(x^2-3\right)\left(x^2-9\right)\\
+&=\left(x+\sqrt{3}\right)\left(x-\sqrt{3}\right)\left(x-3\right)\left(x+3\right)
+\end{split}
+\end{equation*}
+Here, we see that after using the $ac-$method and substituting back for $x,$ we end up with two quadratic factors which can {\it both} be factored as a difference of squares.  In the case of the first factor, $x^2-3,$ our factorization requires a square root, since $3$ is not a perfect square.
+\par
+Setting each of the four factors equal to zero gives us our set of real roots, $\{\pm\sqrt{3}, \pm 3\}.$
+\end{example}
+In each of our last two examples, we have seen a degree-four polynomial having two and four real roots, respectively.  We can also easily identify degree-four polynomials having no, one, or three real roots.  The expression $x^4+x^2+1,$ for example, factors as $\left(x^2+1\right)^2,$ which has only complex roots at $\pm i$.  In general, a degree-$n$ polynomial can have as few as zero and as many as $n$ unique real roots.  This is a fact which we will more formally state in a later section, once we have discussed the {\it multiplicity} of a root.
+\par
+The following example should look familiar.
+\begin{example} Factor each of the following polynomial expressions completely over the real numbers.
+\begin{multicols}{2}
+\begin{enumerate}
+\item $x^8+2x^4-24$
+\item $x^6+2x^3-24$
+\end{enumerate}
+\end{multicols}
+Before we begin, notice that the coefficients for each of the given expressions match those in Example \ref{quad_type_1}, with the only difference being the exponents appearing in each expression.
+\begin{enumerate}
+\item Despite the fact that the first expression has a higher degree, its factorization will be simpler than the second expression's.  In this case, we will let $y=x^4,$ and apply the $ac-$method as before.
+\begin{equation*}
+\begin{split}
+x^8+2x^4-24&=\left(x^4\right)^2+2\left(x^4\right)-24\\
+&=y^2+2y-24\\
+&=\left(y+6\right)\left(y-4\right)\\
+&=\left(x^4+6\right)\left(x^4-4\right)
+\end{split}
+\end{equation*}
+Though it might not be obvious, our first factor $x^4+6$ is in fact irreducible over the real numbers.  One way we can realize this is to think of $x^4+6$ as a vertical shift of the graph of $x^4$ up six units.  The resulting graph will lie entirely in the upper-half of the $xy-$plane, and therefore will not intersect the $x-$axis.  Hence, the factor of $x^4+6$ will have no real roots, and consequently any factorization will involve the introduction of imaginary numbers.  Alternatively, one might also notice that raising any real number to the fourth power and adding six will never produce an output of zero, leading us to again conclude that the expression has no real roots.  Lastly, we could also recognize $x^4+6$ as a sum of squares, namely $\left(x^2\right)^2+\left(\sqrt{6}\right)^2,$ which we have already discussed as one expression type that is irreducible over the real numbers.
+\par
+On the other hand, we can view our second factor $x^4-4$ as a difference of two squares, and factor it as follows.
+\begin{equation*}
+\begin{split}
+x^4-4&=\left(x^2\right)^2-2^2\\
+&=\left(x^2+2\right)\left(x^2-2\right)\\
+&=\left(x^2+2\right)\left(x+\sqrt{2}\right)\left(x-\sqrt{2}\right)
+\end{split}
+\end{equation*}
+Our complete factorization over the reals is then
+$$x^8+2x^4-24=\left(x^4+6\right)\left(x^2+2\right)\left(x+\sqrt{2}\right)\left(x-\sqrt{2}\right).$$
+\item In the case of the second expression, if we let $y=x^3,$ we start out with the same two factors for $y,$ which we rewrite as $$\left(x^3+6\right)\left(x^3-4\right).$$
+Although neither $6$ nor $4$ are perfect cubes, we can still break down each of the factors above by using the formulas for the sum and difference of cubes from earlier in the section.  For our first factor, letting $a=x$ and $b=\sqrt[3]{6},$ we can write $x^3+6$ as 
+$$\left(a+b\right)\left(a^2-ab+b^2\right)=\left(x+\sqrt[3]{6}\right)\left(x^2-\sqrt[3]{6}x+\left(\sqrt[3]{6}\right)^2\right).$$
+Similarly, for the second factor, if $a=x$ and $b=\sqrt[3]{4},$ we can write $x^3-4$ as
+$$\left(a-b\right)\left(a^2+ab+b^2\right)=\left(x-\sqrt[3]{4}\right)\left(x^2+\sqrt[3]{4}x+\left(\sqrt[3]{4}\right)^2\right).$$
+Our complete factorization over the reals is then
+\begin{equation*}
+\begin{split}
+x^6+2x^3-24&=\left(x^3+6\right)\left(x^3-4\right)\\
+&=\left(x+\sqrt[3]{6}\right)\left(x^2-\sqrt[3]{6}x+\left(\sqrt[3]{6}\right)^2\right)\left(x-\sqrt[3]{4}\right)\left(x^2+\sqrt[3]{4}x+\left(\sqrt[3]{4}\right)^2\right).
+\end{split}
+\end{equation*}
+\end{enumerate}
+\end{example}
+We end the subsection on quadratic type with one final example.
+\begin{example} Factor each polynomial expression completely over the reals and find its set of real roots.
+\begin{multicols}{2}
+\begin{enumerate}
+\item $x^4-49$
+\item $x^6-4x^3-5$
+\end{enumerate}
+\end{multicols}
+\begin{enumerate}
+\item Setting $y=x^2,$ we can quickly factor our first expression as a difference of squares, breaking down one of its factors in a similar manner.
+\begin{equation*}
+\begin{split}
+x^4-49&=\left(x^2\right)^2-49\\
+&=y^2-\left(7\right)^2\\
+&=\left(y+7\right)\left(y-7\right)\\
+&=\left(x^2+7\right)\left(x^2-7\right)\\
+&=\left(x^2+7\right)\left(x+\sqrt{7}\right)\left(x-\sqrt{7}\right)
+\end{split}
+\end{equation*}
+From our two linear factors, we obtain $x=\pm 7$ as our two real roots.
+\item For our second expression, setting $y=x^3,$ we apply the $ac-$method.
+\begin{equation*}
+\begin{split}
+x^6-4x^3-5&=\left(x^3\right)^2-4\left(x^3\right)-5\\
+&=y^2-4y-5\\
+&=\left(y+1\right)\left(y-5\right)\\
+&=\left(x^2+1\right)\left(x^2-5\right)\\
+&=\left(x^2+1\right)\left(x+\sqrt{5}\right)\left(x-\sqrt{5}\right)
+\end{split}
+\end{equation*}
+Our two linear factors give us $x=\pm \sqrt{5}$ as the real roots for our given expression.
+\end{enumerate}
+\end{example}
+\end{document}

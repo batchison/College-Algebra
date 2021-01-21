@@ -1,0 +1,130 @@
+\documentclass[12pt]{book}
+\raggedbottom
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=0.25in]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem,tikzpagenodes}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0in}
+\setlist{itemsep=0in}
+\setlength{\parskip}{0.1in}
+\setcounter{secnumdepth}{0}
+\input{lesson_order}
+
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+
+\newlist{oddenumerate}{enumerate}{1}
+\setlist[oddenumerate]{start=0,label=\theoddenumeratei.}
+\makeatletter
+\renewcommand\theoddenumeratei{\@arabic{\numexpr2*\value{oddenumeratei}+1}}
+\makeatother
+
+\begin{document}
+\section{Selected Answers}
+%\subsection*{Introduction and Terminology}
+%\subsection*{Sign Diagrams}
+%\subsection*{End Behavior}
+%\subsubsection{Horizontal Asymptotes}
+%\subsubsection{Slant Asymptotes}
+%\subsection*{Local Behavior}
+%\subsubsection{Vertical Asymptotes}
+%\subsubsection{Holes}
+%\subsection*{Graphing Summary}
+%\subsection*{Constructing a Rational Function}
+%\subsection*{Rational Inequalities}
+$y-$intercept; Domain; $x-$intercept; Horizontal, Vertical, and Slant Asymptotes
+			\begin{enumerate}
+				\item $(0,2)$; $(-\infty,-2)\cup(-2,\infty)$; $(-4,0)$; HA at $y=1$, VA at $x=-2$
+				\item $(0,4)$; $(-\infty,2)\cup(2,\infty)$; $(8,0)$; HA at $y=1$, VA at $x=2$
+				\item $(0,-1)$; $(-\infty,-3)\cup(-3,\infty)$; $(\frac{3}{2},0)$; HA at $y=2$, VA at $x=-3$
+				\item $(0,0)$; $(-\infty,1)\cup(1,\infty)$; $(0,0)$; HA at $y=2$, VA at $x=1$
+				\item $(0,1)$; $(-\infty,5)\cup(5,\infty)$; $(-5,0)$; HA at $y=-1$, VA at $x=5$
+				\item $(0,-4)$; $(-\infty,\frac{1}{2})\cup(\frac{1}{2},\infty)$; $(-4,0)$; HA at $y=\frac{1}{2}$, VA at $x=\frac{1}{2}$
+				\item $(0,0)$; $(-\infty,2)\cup(2,\infty)$; $(0,0)$; HA at $y=0$, VA at $x=2$
+				\item $(0,\frac{5}{3})$; $(-\infty,3)\cup(3,\infty)$; $(-\frac{5}{3},0)$; HA at $y=-3$, VA at $x=3$
+				\item $(0,1)$; $(-\infty,\infty)$; $(-1,0)$; HA at $y=0$, No VA
+			\end{enumerate}
+			\begin{enumerate}
+			\setcounter{enumi}{9}
+				\item $(0,2)$; $(-\infty,6)\cup(6,\infty)$; $(-4,0), (3,0)$; No HA, VA at $x=6$, SA at $y=x+7$
+				\item $(0,8)$; $(-\infty,-2)\cup(-2,\infty)$; $(4,0)$; No HA, VA at $x=-2$, SA at $y=x-10$
+				\item $(0,-\frac{2}{5})$; $(-\infty,-5)\cup(-5,\infty)$; $(10,0)$; HA at $y=0$, VA at $x=-5$
+				\item $(0,5)$; $(-\infty,1)\cup(1,\infty)$; $(-5,0), (-\frac{1}{3},0)$; HA at $y=3$, VA at $x=1$
+				\item $(0,\frac{3}{4})$; $(-\infty,-2)\cup(-2,4)\cup(4,\infty)$; $(-3,0), (2,0)$; HA at $y=1$, VA at $x=-2$ and $x=4$
+				\item $(0,4)$; $(-\infty,\frac{1}{2})\cup(\frac{1}{2},\infty)$; $(-2,0), (1,0)$; HA at $y=0$, VA at $x=\frac{1}{2}$
+			\end{enumerate}
+			\begin{enumerate}
+			\setcounter{enumi}{15}
+				\begin{multicols}{2}
+				\item $f(x)=\dfrac{x-6}{x+3}$
+				\item $f(x)=\dfrac{-(x-6)}{(x+2)(x+1)}$
+				\end{multicols}
+				\item The student's graph has a vertical asymptote at $x=\frac{1}{2}$, but adding three to $\dfrac{x-2}{2x+1}$ shifts all points up three units, so the desired $x-$intercept will no longer be at $(2,0)$, since
+				$$\dfrac{x-2}{2x-1}+3=\dfrac{x-2+3(2x-1)}{2x-1}=\dfrac{7x-5}{2x-1}.$$
+				Instead, the student needs to rescale the original function by the appropriate factor.  In this case, $f(x)=\dfrac{3(x-2)}{2(2x-1)}$.
+				\item $f(x)=\dfrac{4(x^2-9)}{x^2-3}$
+			\end{enumerate}
+			\begin{enumerate}
+			\setcounter{enumi}{19}
+				\item $f(x)=\dfrac{x^2-4}{x^2-x-12}=\dfrac{(x+2)(x-2)}{(x+3)(x-4)}$
+				\par
+				$y-$int at $(0,\frac{1}{3})$\\
+				Domain: $(-\infty,-3)\cup(-3,4)\cup(4,\infty)$\\
+				$x-$int(s) at $(-2,0), (2,0)$\\
+				HA at $y=1$, VA at $x=-3$ and $x=4$
+				\item $f(x)=\dfrac{2x^2-14x+24}{x^2-6}=\dfrac{2(x-3)(x-4)}{(x+\sqrt{6})(x-\sqrt{6})}$
+				\par
+				$y-$int at $(0,-4)$\\
+				Domain: $(-\infty,-\sqrt{6})\cup(-\sqrt{6},\sqrt{6})\cup(\sqrt{6},\infty)$\\
+				$x-$int(s) at $(3,0), (4,0)$\\
+				HA at $y=2$, VA at $x=-\sqrt{6}$ and $x=\sqrt{6}$
+				\item $f(x)=\dfrac{6x^2-13x-5}{x^3-3x^2-10x}=\dfrac{(3x+1)(2x-5)}{x(x+2)(x-5)}$
+				\par
+				No $y-$int\\
+				Domain: $(-\infty,-2)\cup(-2,0)\cup(0,5)\cup(5,\infty)$\\
+				$x-$int(s) at $(-\frac{1}{3},0), (\frac{5}{2},0)$\\
+				HA at $y=0$, VA at $x=-2$, $x=0$, and $x=5$
+				\item $f(x)=\dfrac{x^2+10x+25}{x^3-5x^2+x-5}=\dfrac{(x+5)^2}{(x-5)(x^2+1)}$
+				\par
+				$y-$int at $(0,-5)$\\
+				Domain: $(-\infty,5)\cup(5,\infty)$\\
+				$x-$int(s) at $(-5,0)$\\
+				HA at $y=0$, VA at $x=5$
+				\item $f(x)=\dfrac{x^2-2x-2}{2x^2-7x-4}=\dfrac{(x-(1-\sqrt{3}))(x-(1+\sqrt{3}))}{(2x+1)(x-4)}$
+				\par
+				$y-$int at $(0,\frac{1}{2})$\\
+				Domain: $(-\infty,-\frac{1}{2})\cup(-\frac{1}{2},4)\cup(4,\infty)$\\
+				$x-$int(s) at $(1-\sqrt{3},0), (1+\sqrt{3},0)$\\
+				HA at $y=\frac{1}{2}$, VA at $x=-\frac{1}{2}$ and $x=4$
+				\item $f(x)=\dfrac{x^4-20x^2+64}{x^3+8x^2-x-8}=\dfrac{(x+2)(x-2)(x+4)(x-4)}{(x+8)(x+1)(x-1)}$
+				\par
+				$y-$int at $(0,-8)$\\
+				Domain: $(-\infty,-8)\cup(-8,-1)\cup(-1,1)\cup(1,\infty)$\\
+				$x-$int(s) at $(-4,0), (-2,0), (2,0),$ and $(4,0)$\\
+				No HA, VA at $x=-8$, $x=-1$, and $x=1$, SA at $y=x-8$
+				\item $r(x)=\dfrac{2x^3+15x^2+16x-12}{x^2+6x+9}=\dfrac{(x+6)(x+2)(2x-1)}{(x+3)^2}$
+				\par
+				$y-$int at $(0,-\frac{4}{3})$\\
+				Domain: $(-\infty,-3)\cup(-3,\infty)$\\
+				$x-$int(s) at $(-6,0), (-2,0),$ and $(\frac{1}{2},0)$\\
+				No HA, VA at $x=-3$, SA at $y=2x+3$
+				\item $r(x)=\dfrac{x^2-3x-10}{x^3+12x^2+3x+10}=\dfrac{(x+2)(x-5)}{(x+10)(x+1)^2}$
+				\par
+				$y-$int at $(0,-1)$\\
+				Domain: $(-\infty,-10)\cup(-10,-1)\cup(-1,\infty)$\\
+				$x-$int(s) at $(-2,0), (5,0)$\\
+				HA at $y=0$, VA at $x=-10$ and $x=-1$
+				\item $r(x)=\dfrac{16-x^4}{x^4+16x^3-3x^2-46x+32}=\dfrac{-(x+2)(x-2)(x^2+4)}{(x+16)(x+2)(x-1)^2}$
+				\par
+				$y-$int at $(0,\frac{1}{2})$\\
+				Domain: $(-\infty,-16)\cup(-16,-2)\cup(-2,1)\cup(1,\infty)$\\
+				$x-$int(s) at $(2,0)$ (Hole at $(-2,0)$)\\
+				HA at $y=-1$, VA at $x=-16$ and $x=1$
+			\end{enumerate}
+\end{document}
