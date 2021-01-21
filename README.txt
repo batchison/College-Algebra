@@ -1,0 +1,10 @@
+This project consists of an open source textbook and course pack for a college algebra course.  The textbook was specifically designed for MATH123 College Algebra at Framingham State University.  It began in Summer 2015 as a compilation of original content, content from Tyler Wallace's Beginning and Intermediate Algebra OERs (CC-BY), and content from Carl Stitz and Jeff Zeager's Algebra and Precalculus OERs (CC-BY-NC-SA).  Links to these resources are available in the included PDFs.  The course pack was designed for use in the Massachusetts Metrowest Scholars Early Start (dual enrollment) Program in Summer 2019.  Currently webhosting of the textbook and course pack are unavailable, but will hopefully be coming soon.  The course also has a related template online homework course in MyOpenMath (MOM).  The most current version in MOM can be found under Benjamin Atchison's list of past courses.
+
+The course pack is primarily recommended as a resource for classroom lecture/discussion, with the textbook being the primary resource for the course.  An approach that has been successful in the past is to assign readings from the textbook for homework, and use the corresponding lessons for in-class discussion.  The Demo/Discussion problems appearing in each lesson of the course pack represent a subset of "good" examples to cover together initially in class, with Practice Problems assigned for additional practice.
+
+Though largely complete, each resource is still very much a work-in-progress.  In particular, a TODO.txt file is included in full_text folder that identifies some remaining content and source code issues.  Each resource has been used for multiple semesters and should be largely free of errors.
+
+Collaborators on this project are welcome!  Please notify Ben Atchison at `batchison AT framingham DOT edu' if you have any questions, comments, recommendations, or wish to contribute.
+
+This project is maintained by Ben Atchison
+Updated 1/21/2021
