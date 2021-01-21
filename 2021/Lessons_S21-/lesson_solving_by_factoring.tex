@@ -1,0 +1,143 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+% Use the cc-by-nc-sa license for any content linked with Stitz and Zeager's text.  Otherwise, use the cc-by-sa license.
+\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+%\usepackage[type={CC},modifier={by-nc-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+\input{order}
+
+\begin{document}
+{\bf \large Lesson \arabic{lesson_solving_by_factoring}: Solving by Factoring}
+\\ CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. 
+%\\ CC attribute: \href{http://www.stitz-zeager.com}{\it{College Algebra}} by C. Stitz and J. Zeager. 
+\hfill \doclicenseImage[imagewidth=5em]\\
+\par
+{\bf Objective:} Solve polynomial equations by factoring and using the Zero Factor Property.\\
+\par
+{\bf Students will be able to:}
+\begin{itemize}
+	\item Apply the Zero Factor Property to a factored equation that has been set equal to zero.
+	\item Verify solutions by substituting into an original equation.
+\end{itemize}
+{\bf Prerequisite Knowledge:}
+\begin{itemize}
+	\item Combining like terms.
+	\item Factoring Techniques: GCF, grouping, $ac-$method for trinomials.
+	\item Evaluate polynomial expressions.
+\end{itemize}
+\hrulefill
+
+{\bf Lesson:}\\
+\ \par
+When solving linear equations such as $2 x - 5 = 21$ we can isolate the variable directly by adding 5 and dividing by 2 to get 13. When working with quadratic equations (or higher degree polynomials), however, we must factor first, before isolating the variable in this way.  One property that we will use to solve for the variable is known as the Zero Factor Property.\\
+\begin{center}
+\framebox{
+\begin{minipage}{0.8\linewidth}
+\begin{center}
+{\bf Zero Factor Property:} \ 
+If $a\cdot b = 0,$ then either $a=0$ or $b=0$.
+\end{center}
+\end{minipage}
+}
+\end{center}
+\ \par
+The Zero Factor Property tells us that if the product of two factors is zero, then one of the factors must be zero.  We can use this property to help us solve factored polynomial equations.  It is important to stress that for the Zero Factor Property to work we must first set our equation equal to zero and factor the resulting expression.\\
+\ \par
+{\bf I - Motivating Example(s):}\\
+\ \par
+{\bf Example:} Solve the given equation for all possible values of $x$.
+  \begin{eqnarray*}
+12x^2-10x-4=2x^2+3x-1 & & \text{Set right side equal to zero; combine like terms.}\\
+10x^2-13x-3=0 & & \text{Factor using the} \ ac-\text{method.}\\
+10x^2-15x+2x-3=0 & & (-15)\cdot 2=(10)\cdot(-3)=-30 \ \checkmark \ \text{and} \ -15+2=-13 \ \checkmark\\
+    (2 x - 3) (5 x + 1) = 0~~~ &  & \text{One factor must equal zero for the equation to hold.}%\\
+\end{eqnarray*}
+\begin{eqnarray*}
+    2 x - 3 = 0 \ \ \text{or} \ \ 5 x + 1 = 0~~~ &  & \text{Set each factor equal to zero and solve for} \ x.\\
+    2 x = 3 \ \ \text{or} \ \ 5 x = - 1~ &  & \text{Simplify; add, then divide.}\\
+    x = \frac{3}{2} \ \text{or} \ -\frac{1}{5}~~~~~ &  & \text{Our solution.}
+  \end{eqnarray*}
+
+{\bf II - Demo/Discussion Problems:}\\
+\ \par
+Solve each of the following equations for the given variable.
+\begin{multicols}{2}
+\begin{enumerate}
+	\item $4x^2+x-3=0$
+	\item $x^2=8x-15$
+	\item $(x-7)(x+3)=-9$
+	\item $3x^2+4x-5=7x^2+4x-14$
+\end{enumerate}
+\end{multicols}
+{\bf III - Practice Problems:}\\
+\ \par
+Solve each of the following equations for the given variable.
+ \begin{enumerate}
+	\begin{multicols}{2}
+  \item $2b^2 = 32=0$
+  \item $45 x^2 - 20=0$
+  \item $n =- 2 n^2$
+  \item $56 - 35 p=0$
+	\item $20 r^3 - 4 r^2 - 25 r + 5=0$
+  \item $9 x^3 - 72 x^2 = 4 x - 32$
+  \item $3 n^3 = 2 n^2 + 9 n - 6$
+  \item $30 p^3 + 25 p^2 - 3p - 3=2p^3+4p^2+p$
+	\item $p^2 + 17 p =- 72$
+  \item $x^2 + x - 72=0$
+  \item $n^2 - 9 n + 8=0$
+  \item $x^2 + x - 30=0$
+  \item $x^2 = 9 x + 10$
+  \item $x^2 + 13 x + 40=0$
+  \item $b^2 +32 =- 12 b$
+  \item $b^2 - 17 b + 70=0$
+  \item $x^2 + 3 x = 70$
+  \item $x^2 + 3 x - 18=0$
+  \item $n^2 - 8 n + 15=0$
+  \item $a^2 - 6 a - 27=0$
+  \item $p^2 + 15 p =- 54$
+  \item $2p^2 + 10 p - 32=p^2+3p+2$
+  \item $n^2 - 15 n + 56=0$
+  \item $4 x^2 + 52 x + 168=0$
+  \item $5 a^2 + 60 a + 100=0$
+  \item $5 n^2 - 45 n + 40=0$
+  \item $6 a^2 - 192=- 24 a $
+  \item $5 v^2 + 20 v - 25=0$
+	\item $7 x^2 - 48 x + 36=0$
+  \item $7 n^2 - 44 n + 12=0$
+  \item $7 b^2 + 15 b + 2=0$
+  \item $11 v^2 - 24 v +4=4v^2+20$
+  \item $5 a^2 - 13 a - 28=0$
+  \item $5 n^2 - 7 n - 24=0$
+  \item $2=-2x^2+5 x$
+  \item $3 r^2 - 4 r - 4=0$
+  \item $2 x^2 + 19 x + 35=0$
+  \item $7 x^2 + 29 x - 30=0$
+  \item $2 b^2 - 8=b-5$
+  \item $5 x^2 - 20 x + 10=6x-14$
+  \item $5 x^2 + 13 x + 6=0$
+  \item $3 r^2 + 16 r + 21=0$
+  \item $3 x^2 - 17 x + 20=0$
+  \item $6 x^2 - 21=39 x $
+  \item $10 a^2 - 54 a - 36=0$
+  \item $21 x^2 - 87 x - 90=0$
+  \item $21 n^2 + 45 n =54$
+  \item $14 x^2 - 60 x + 16=0$
+  \item $4 r^2 =3-r$
+  \item $6 x^2 + 29 x + 20=0$
+  \item $6 p^2 + 11 p - 7=0$
+  \item $4 x^2 - 17 x + 4=0$
+  \item $4 r^2 - 4 r +4=-7r+11$
+	\end{multicols}
+\end{enumerate}
+\newpage
+\end{document}

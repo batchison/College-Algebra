@@ -1,0 +1,203 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+% Use the cc-by-nc-sa license for any content linked with Stitz and Zeager's text.  Otherwise, use the cc-by-sa license.
+\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+%\usepackage[type={CC},modifier={by-nc-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+\input{order}
+
+\begin{document}
+{\bf \large Lesson \arabic{lesson_i_and_complex_numbers}: Complex Numbers}%\\ CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. 
+%\\ CC attribute: \href{http://www.stitz-zeager.com}{\it{College Algebra}} by C. Stitz and J. Zeager. 
+\hfill \doclicenseImage[imagewidth=5em]\\
+\par
+{\bf Objective:} Simplify expressions involving complex numbers.\\
+\par
+{\bf Students will be able to:}
+\begin{itemize}
+	\item Define the form of a complex number.
+	\item Simplify square roots with negative radicands.
+	\item Add, subtract, multiply, rationalize, and simplify expressions using complex numbers.
+\end{itemize}
+{\bf Prerequisite Knowledge:}
+\begin{itemize}
+	\item Properties of exponents.
+	\item Combining like terms.
+	\item Polynomial arithmetic.
+\end{itemize}
+\hrulefill
+
+{\bf Lesson:}\\
+\ \par
+To work with the square root of a negative number, mathematicians have defined what we now know as imaginary and complex numbers.
+\begin{eqnarray*}
+  \text{{\bf Imaginary\ Number \ }} i:~ i^2
+  = - 1~ (\text{thus\ } i = \sqrt{- 1}) &  & 
+\end{eqnarray*}
+Examples of imaginary numbers include $3 i, - 6 i, \frac{3}{5} i,$ and $3 \sqrt{5}i$. A {\it complex number} is one that contains both a real and imaginary part, such as $2 + 5 i$.
+\begin{eqnarray*}
+  \text{{\bf Complex \ Number: \ }} a+bi, \text{\ where \ } a \text{\ and \ } b \text{\ are \ real \ numbers, \ } i = \sqrt{- 1} &  & 
+\end{eqnarray*}
+With this definition, the square root of a negative number will no longer be considered undefined. We now will be able to perform basic operations with the square root of a negative number.\\
+\ \par
+First, we consider powers of the imaginary number $i$.
+As the exponents of $i^n$ increase, our simplified value for $i^n$ will cycle through the simplified values for $i,$ $i^2=- 1,$ $i^3= - i,$ $i^4=1$. As there are 4 different possible answers in this
+cycle, if we divide the exponent $n$ by 4 and consider the remainder, we can easily simplify any power of $i$ by knowing the following four values:
+
+\begin{center}
+  {\bf Cyclic Property of Powers of $i$}
+\end{center}
+\[ \begin{array}{rcc}
+     i^0 &=& 1\\
+     i^1 &=& i\\
+     i^2 &=& - 1\\
+     i^3 &=& - i\\
+		 i^4=i^0&=&1
+   \end{array} \]
+{\bf I - Motivating Example(s):}\\
+\ \par
+{\bf Example:} Write the given expression as $a+bi$, where $a$ and $b$ are real numbers.
+  \begin{eqnarray*}
+    (2 + 5 i) + (4 - 7 i) &  & \text{Combine \ like \ terms, \ } 2 + 4
+    \text{ \ and \ } 5 i - 7 i\\
+    6 - 2 i &  & \text{Our \ solution}
+  \end{eqnarray*}
+
+{\bf Example:} Write the given expression as $a+bi$, where $a$ and $b$ are real numbers.
+  \begin{eqnarray*}
+    (2 - 4 i) (3 + 5 i) &  & \text{Expand}\\
+    6 + 10 i - 12 i - 20 i^2 &  & \text{Simplify, \ } i^2 = - 1\\
+    6 + 10 i - 12 i - 20 (- 1) &  & \text{Multiply}\\
+    6 + 10 i - 12 i + 20 &  & \text{Combine \ like \ terms \ } 6 + 20
+    \text{ \ and \ } 10 i - 12 i\\
+    26 - 2 i &  & \text{Our \ solution}
+  \end{eqnarray*}
+
+{\bf Example:} Write the given expression as $a+bi$, where $a$ and $b$ are real numbers.
+  \begin{eqnarray*}
+    \frac{2 - 6 i}{4 + 8 i} &  & \text{Binomial in denominator},\\
+    & & ~~~\text{multiply by conjugate}, 4 - 8 i\\
+    \frac{2 - 6 i}{4 + 8 i} \left( \frac{4 - 8 i}{4 - 8 i} \right) &  &
+    \text{Expand the numerator},\\
+		&&~~~\text{denominator is a difference of two squares}\\
+    &  & \\
+    \frac{8 - 16 i - 24 i + 48 i^2}{16 - 64 i^2} &  & \text{Simplify \ } i^2 = -
+    1\\
+    &  & \\
+    \frac{8 - 16 i - 24 i + 48 (- 1)}{16 - 64 (- 1)} &  & \text{Multiply}\\
+    &  & \\
+    \frac{8 - 16 i - 24 i - 48}{16 + 64} &  & \text{Combine like terms}\\
+		&  & \\
+    \frac{- 40 - 40 i}{80} &  & \text{Reduce, factor out 40 and divide}\\
+    &  & \\
+    \frac{- 1 - i}{2}& & \text{Rewrite as \ } a+bi\\
+		-\dfrac{1}{2} - \dfrac{1}{2}i &  & \text{Our solution}
+  \end{eqnarray*}
+\newpage
+{\bf II - Demo/Discussion Problems:}\\
+\ \par
+Rewrite each of the following complex numbers in the form $a+bi$, where $a$ and $b$ are real numbers and $i=\sqrt{-1}$.
+\begin{multicols}{3}
+\begin{enumerate}
+	\item $\sqrt{- 16}$
+	\item $\sqrt[]{- 24}$
+	\item $\sqrt[]{- 6} ~\sqrt[]{3}$
+	\item $\dfrac{- 15 - \sqrt[]{- 200}}{20}$
+	\item $i^{35}$
+	\item $i^{124}$
+	\item $(4 - 8 i) - (3 - 5 i)$
+	\item $5 i - (3 + 8 i) + (- 4 + 7 i)$
+	\item $(3 i) (7 i)$
+	\item $5 i (3 i - 7)$
+	\item $(3 i) (6 i) (2 - 3 i)$
+	\item $(4 - 5 i)^2$
+	\item $\dfrac{7 + 3 i}{- 5 i}$
+	\end{enumerate}
+\end{multicols}
+\ \par
+{\bf III - Practice Problems:}\\
+\ \par
+Rewrite each of the following complex numbers in the form $a+bi$, where $a$ and $b$ are real numbers and $i=\sqrt{-1}$.
+\begin{enumerate}
+\begin{multicols}{4}
+  \item $\sqrt{- 81}$
+  \item $\sqrt{- 45}$
+  \item $\sqrt{- 10} \sqrt{- 2}$
+  \item $\sqrt{- 12} \sqrt{- 2}$
+\end{multicols}
+\begin{multicols}{4}
+  \item $\dfrac{3 + \sqrt{- 27}}{6}$
+  \item $\dfrac{- 4 - \sqrt{- 8}}{- 4}$
+  \item $\dfrac{8 - \sqrt{- 16}}{4}$
+  \item $\dfrac{6 + \sqrt{- 32}}{4}$
+\end{multicols}
+\begin{multicols}{4}
+  \item $i^{73}$
+  \item $i^{251}$
+  \item $i^{48}$
+  \item $i^{68}$
+  \item $i^{62}$
+  \item $i^{181}$
+  \item $i^{154}$
+  \item $i^{51}$
+\end{multicols}
+\begin{multicols}{3}
+  \item $3 - (- 8 + 4 i)$
+  \item $3 i - (7 i)$
+  \item $7 i - (3 - 2 i)$
+  \item $5 + (- 6 - 6 i)$
+  \item $- 6 i - (3 + 7 i)$
+  \item $- 8 i - 7 i - (5 - 3 i)$
+  \item $(3 - 3 i) + (- 7 - 8 i)$
+  \item $(- 4 - i) + (1 - 5 i)$
+  \item $-6+i - (2 + 3 i)$
+  \item $(5 - 4 i) + (8 - 4 i)$
+  \item $(6 i) (- 8 i)$
+  \item $(3 i) (- 8 i)$
+  \item $(- 5 i) (8 i)$
+  \item $(8 i) (- 4 i)$
+  \item $(- 7 i)^2$
+  \item $(- i) (7 i) (4 - 3 i)$
+  \item $(6 + 5 i)^2$
+  \item $(8 i) (- 2 i) (- 2 - 8 i)$
+  \item $(- 7 - 4 i) (- 8 + 6 i)$
+  \item $(3 i) (- 3 i) (4 - 4 i)$
+  \item $(- 4 + 5 i) (2 - 7 i)$
+  \item $- 8 (4 - 8 i) - 2 (- 2 - 6 i)$
+  \item $(- 8 - 6 i) (- 4 + 2 i)$
+  \item $(- 6 i) (3 - 2 i) - (7 i) (4 i)$
+  \item $(1 + 5 i) (2 + i)$
+  \item $(- 2 + i) (3 - 5 i)$
+\end{multicols}
+\begin{multicols}{4}
+  \item $\dfrac{- 9 + 5 i}{i}$
+  \item $\dfrac{- 3 + 2 i}{- 3 i}$
+  \item $\dfrac{- 10 - 9 i}{6 i}$
+  \item $\dfrac{- 4 + 2 i}{3 i}$
+  \item $\dfrac{- 3 - 6 i}{4 i}$
+  \item $\dfrac{- 5 + 9 i}{9 i}$
+  \item $\dfrac{10 - i}{- i}$
+  \item $\dfrac{10}{5 i}$
+  \item $\dfrac{4 i}{- 10 + i}$
+  \item $\dfrac{9 i}{1 - 5 i}$
+  \item $\dfrac{8}{7 - 6 i}$
+  \item $\dfrac{4}{4 + 6 i}$
+  \item $\dfrac{7}{10 - 7 i}$
+  \item $\dfrac{9}{- 8 - 6 i}$
+  \item $\dfrac{5 i}{- 6 - i}$
+  \item $\dfrac{8 i}{6 - 7 i}$
+\end{multicols}
+\end{enumerate}
+\newpage
+\ \newpage
+\end{document}

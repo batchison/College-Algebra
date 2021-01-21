@@ -1,0 +1,151 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+% Use the cc-by-nc-sa license for any content linked with Stitz and Zeager's text.  Otherwise, use the cc-by-sa license.
+%\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+\usepackage[type={CC},modifier={by-nc-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+\input{order}
+
+\begin{document}
+{\bf \large Lesson \arabic{lesson_quadratic_inequalities}: Quadratic Inequalities}
+%\\ CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. 
+\\ CC attribute: \href{http://www.stitz-zeager.com}{\it{College Algebra}} by C. Stitz and J. Zeager. 
+\hfill \doclicenseImage[imagewidth=5em]\\
+\par
+{\bf Objective:} Solve quadratic inequalities using a sign diagram.\\
+\par
+{\bf Students will be able to:}
+\begin{itemize}
+	\item Construct a sign diagram for a quadratic expression.
+	\item Solve a quadratic inequality.
+	\item Represent a solution to a quadratic inequality using interval notation.
+\end{itemize}
+{\bf Prerequisite Knowledge:}
+\begin{itemize}
+	\item Solving and factoring quadratic equations.
+	\item Finding $x-$intercepts.
+	\item Evaluating an expression for $x$.
+\end{itemize}
+\hrulefill
+
+{\bf Lesson:}\\
+\ \par
+Recall that the {\it vertex form} for a quadratic equation is $y=a(x-h)^2+k,$ where $a\neq 0$ and ($h,k$) is the {\it vertex} of the corresponding parabola.  If $a>0$, then the parabola opens upward, and if $a<0$, then the parabola opens downward.  With any quadratic equation, we know that there are three possibilities for the number of roots, namely $0,1,$ or $2$.  Assuming $a>0$, we illustrate these possibilities in the graphs below.
+
+\begin{center}
+\begin{tikzpicture}[xscale=0.75,yscale=0.75]
+	\draw [<->](-9.5,0) -- coordinate (x axis mid) (-4.5,0) node[below right] {$x$};
+	\draw [<->](-2.5,0) -- coordinate (x axis mid) (2.5,0) node[below right] {$x$};
+	\draw [<->](4.5,0) -- coordinate (x axis mid) (9.5,0) node[below right] {$x$};
+	\draw [<->](-7,-1.5) -- coordinate (x axis mid) (-7,2.5) node[above right] {$y$};
+	\draw [<->](0,-1.5) -- coordinate (x axis mid) (0,2.5) node[above right] {$y$};
+	\draw [<->](7,-1.5) -- coordinate (x axis mid) (7,2.5) node[above right] {$y$};
+	\draw [<->] plot [domain=-0.4:1.9, samples=100] (\x,{1.7*(\x-0.75)^2});
+	\draw [<->] plot [domain=6.1:8.4, samples=100] (\x,{1.7*(\x-7.25)^2-1});
+	\draw [<->] plot [domain=-6.35:-8.65, samples=100] (\x,{1.7*(\x+7.5)^2+0.5});
+	\draw[fill] (0.75,0) circle (0.05);
+	\draw[fill] (8.017,0) circle (0.05);
+	\draw[fill] (6.483,0) circle (0.05);
+ \end{tikzpicture}
+\end{center}
+
+Notice also that each of these three graphs lie above the $x$-axis over different intervals.  In the case of the parabola on the left, the entire graph lies above the $x$-axis, whereas the middle parabola lies above the $x$-axis everywhere {\it except} at its $x$-intercept (where $y=0$).  Even more interesting is the parabola on the right, which contains two {\it separate} intervals where its graph lies above the $x$-axis.\\
+\ \par
+Considering the case where $a<0$, we see three similar graphs as those appearing above, with the only major difference being the opening of each parabola downward instead of upward (when $a>0$).  When we consider again those intervals where each graph lies above the $x$-axis, each parabola exhibits a different behavior than those where $a>0$. 
+
+\begin{center}
+\begin{tikzpicture}[xscale=0.75,yscale=0.75]
+	\draw [<->](-9.5,0) -- coordinate (x axis mid) (-4.5,0) node[below right] {$x$};
+	\draw [<->](-2.5,0) -- coordinate (x axis mid) (2.5,0) node[below right] {$x$};
+	\draw [<->](4.5,0) -- coordinate (x axis mid) (9.5,0) node[below right] {$x$};
+	\draw [<->](-7,-2.5) -- coordinate (x axis mid) (-7,1.5) node[above right] {$y$};
+	\draw [<->](0,-2.5) -- coordinate (x axis mid) (0,1.5) node[above right] {$y$};
+	\draw [<->](7,-2.5) -- coordinate (x axis mid) (7,1.5) node[above right] {$y$};
+	\draw [<->] plot [domain=-0.4:1.9, samples=100] (\x,{-1.7*(\x-0.75)^2});
+	\draw [<->] plot [domain=6.1:8.4, samples=100] (\x,{-1.7*(\x-7.25)^2+1});
+	\draw [<->] plot [domain=-6.35:-8.65, samples=100] (\x,{-1.7*(\x+7.5)^2-0.5});
+	\draw[fill] (0.75,0) circle (0.05);
+	\draw[fill] (8.017,0) circle (0.05);
+	\draw[fill] (6.483,0) circle (0.05);
+ \end{tikzpicture}
+\end{center}
+
+Now, each of the first two graphs have no points that lie above the $x$-axis, whereas the last graph, on the right, lies above the $x$-axis over the interval that is between its $x$-intercepts.\\
+\ \par
+Each of these six graphs exhibit all of the various possibilities for the {\it sign} of a quadratic expression $ax^2+bx+c$, where $a\neq 0$.  We can determine the general shape of the graph of a quadratic equation (or function) through identification of its roots and construction of a sign diagram.  As a consequence, we will also use a sign diagram to solve a quadratic inequality.\\
+\ \par  
+{\bf I - Motivating Example(s):}\\
+\ \par
+{\bf Example:}  Solve the quadratic inequality $x^2-1> 0$.\\
+\ \par
+Unlike with solving linear inequalities, one should not attempt to solve for the variable $x$, but rather set the given inequality equal to zero and attempt to {\it factor} the resulting expression on the other side.  In doing this, we obtain $(x+1)(x-1)>0$.  Recalling that $x=\pm 1$ are roots of the given expression, we can therefore rule them out of our solution.  Next, we will {\it test} the expression on the left by plugging in three values for $x$: one that is less than $-1$, one that is between $-1$ and $1$, and one that is greater than $1$.
+\begin{center}
+\begin{tabular}{ccccc}
+\underline{Case} & \underline{Test Value} & \underline{Unsimplified} & \underline{Simplified} & \underline{Result}\\
+i & $x=-2$ & ($-2+1$)($-2-1$) & ($-$)$\cdot$($-$) & ($+$)\\
+ii & $x=0$ & ($0+1$)($0-1$) & ($+$)$\cdot$($-$) & ($-$)\\
+iii & $x=2$ & ($2+1$)($2-1$) & ($+$)$\cdot$($+$) & ($+$)
+\end{tabular}
+\end{center}
+Our end result can be summarized in the following {\it sign diagram}.
+
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\draw [<->](-5,0) -- coordinate (x axis mid) (5,0) node[below right] {$x$};
+	\draw [-](-2,1) -- coordinate (y axis mid) (-2,-0.25) node[below] {$-1$};
+	\draw [-](2,1) -- coordinate (y axis mid) (2,-0.25) node[below] {$1$};
+	\draw (-4,-1) node {$x=-2$};
+	\draw (0,-1) node {$x=0$};
+	\draw (4,-1) node {$x=2$};
+	\draw (-4,0.5) node {$+$};
+	\draw (0,0.5) node {$-$};
+    \draw (4,0.5) node {$+$};
+\end{tikzpicture}
+\end{center} 
+From our sign diagram, we can conclude that $x^2-1>0$ when $x<-1$ or $x>1$.  Using interval notation, our answer is $(-\infty,-1)\cup(1,\infty)$.\newpage
+{\bf II - Demo/Discussion Problems:}\\
+\ \par
+Solve each of the following inequalities.  Express your answers using interval notation.
+\begin{enumerate}
+	\item $-x^2+4x+5\geq 0$
+	\item $x^2-17x\geq -60$
+	\item $x^2+4x+1>0$
+	\item $-(x-1)^2+9\geq 0$
+\end{enumerate}
+Solve each of the following inequalities.  Express your answers using interval notation.
+\begin{enumerate}
+	\item[5.] $x^2+4x+4>0$
+	\item[6.] $x^2+4x+4\geq 0$
+	\item[7.] $x^2+4x+4<0$
+	\item[8.] $x^2+4x+4\leq 0$
+\end{enumerate}
+{\bf III - Practice Problems:}\\
+\ \par
+Solve each of the following inequalities.  Express your answers using interval notation.
+\begin{multicols}{2}
+\begin{enumerate}
+	\item $x^2-4>0$
+	\item $x^2-5x-6\leq 0$
+	\item $-(3x-2)(x+4)\geq 0$
+	\item $3x^2+2x-8>0$
+	\item $2x^2-16<0$
+	\item $-x^2-13x+30\geq 0$
+	\item $x^2-5x+6>0$
+	\item $2x^2-3x-14\leq 0$
+	\item $x^2+2x-9>0$
+	\item $-2x^2+12x-18<0$
+\end{enumerate}
+\end{multicols}
+\newpage
+\ \newpage
+\end{document}

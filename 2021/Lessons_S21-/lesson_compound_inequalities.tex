@@ -1,0 +1,186 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+% Use the cc-by-nc-sa license for any content linked with Stitz and Zeager's text.  Otherwise, use the cc-by-sa license.
+\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+%\usepackage[type={CC},modifier={by-nc-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+\input{order}
+
+\begin{document}
+{\bf \large Lesson \arabic{lesson_compound_inequalities}: Compound Inequalities}
+\\ CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. 
+%\\ CC attribute: \href{http://www.stitz-zeager.com}{\it{College Algebra}} by C. Stitz and J. Zeager. 
+\hfill \doclicenseImage[imagewidth=5em]\\
+\par
+{\bf Objective:} Solve, graph, and give interval notation to the solution
+of a compound inequality.\\
+\par
+{\bf Students will be able to:}
+\begin{itemize}
+	\item Understand the distinctions between ``OR'' and ``AND'' inequalities.
+	\item Recognize a double inequality as an ``AND'' inequality.
+	\item Represent the solution to a compound inequality using the three notations (algebraically, graphically, and using interval notation).
+\end{itemize}
+{\bf Prerequisite Knowledge:}
+\begin{itemize}
+	\item Solving linear inequalities.
+	\item Graphing on a number line.
+	\item Interval notation, including unions and intersections.
+\end{itemize}
+\hrulefill
+
+{\bf Lesson:}\\
+\ \par
+Several inequalities can be combined together to form what are called compound inequalities. There are three types of compound inequalities which we will investigate in this lesson.
+	\begin{itemize}
+		\item The first type of a compound inequality is an ``OR'' inequality. A solution for this type of inequality will produce a true statement for either one inequality OR the other inequality OR both.  Solutions to OR inequalities will often (but not always) consist of a union of two intervals, denoted by a $\cup$.
+		\item The second type of compound inequality is an ``AND'' inequality. These inequalities require {\it both} statements to be true for a given solution.  Solutions to AND inequalities equal the intersection (or overlap) of two intervals.  Intersections are denoted by a $\cap$, but can be always be simplified.
+		\item The third type of compound inequality is a special type of AND inequality.  When a variable (or expression containing the variable) is between two numbers, we can write this as a single mathematical sentence with three parts, such as $5 < x \leq 8$, to show $x$ is greater than 5 AND $x$ is less than or equal to 8. Since this sentence contains two inequalities (both always pointing in the same direction),  we refer to it as a {\it double inequality}.
+	\end{itemize}
+\newpage
+{\bf I - Motivating Example(s):}\\
+\ \par
+{\bf Example:} Solve the inequality below, graph the solution, and provide the interval notation of your solution.
+$$2 x - 5 > 3 \ \ \text{OR} \ \ 4 - x \geq 6$$
+Here, we isolate the variable for each inequality.  In the first case, adding 5 and dividing by 2 produces $x>4$.\\
+\ \par
+For the second inequality, we subtract 4 and multiply (or divide) by a $-1$, which will change the direction of our inequality.  Here, we get $x\leq -2$.\\
+$$x>4 \ \ \text{OR} \ \ x\leq-2$$
+To express our answer graphically, we will sketch three separate intervals: one for the first inequality, one for the second inequality, and one for the union of the two, which will be our answer.
+\begin{center}
+\begin{tikzpicture}[xscale=0.7,yscale=0.7]
+	\draw [<->](-6.25,2) -- coordinate (x axis mid) (6.25,2) node[right] {\ \ $x>4$};
+	\draw [->,line width=0.8mm](4,2) -- coordinate (x axis mid) (6.25,2);
+	\draw (4,2) node {{\bf (}};
+	\draw [<->](-6.25,0) -- coordinate (y axis mid) (6.25,0) node[right] {\ \ $x\leq-2$};
+	\draw [<-,line width=0.8mm](-6.25,0) -- coordinate (x axis mid) (-2,0);
+	\draw (-2,0) node {{\bf ]}};
+	\draw [<->](-6.25,-3) -- coordinate (y axis mid) (6.25,-3) node[right] {\ \ $x>4$ OR $x\leq-2$};
+	\draw [->,line width=0.8mm](4,-3) -- coordinate (x axis mid) (6.25,-3);
+	\draw [<-,line width=0.8mm](-6.25,-3) -- coordinate (x axis mid) (-2,-3);
+	\draw (4,-3) node {{\bf (}};
+	\draw (-2,-3) node {{\bf ]}};
+	\draw [-](4,0.1) -- coordinate (y axis mid) (4,-0.1) node[below] {$4$};
+	\draw [-](-2,0.1) -- coordinate (y axis mid) (-2,-0.1) node[below] {$-2$};
+	\draw [-](4,2.1) -- coordinate (y axis mid) (4,1.9) node[below] {$4$};
+	\draw [-](-2,2.1) -- coordinate (y axis mid) (-2,1.9) node[below] {$-2$};
+	\draw [-](4,-2.9) -- coordinate (y axis mid) (4,-3.1) node[below] {$4$};
+	\draw [-](-2,-2.9) -- coordinate (y axis mid) (-2,-3.1) node[below] {$-2$};
+	\draw (0,-1.5) node {$\Downarrow$};
+\end{tikzpicture}
+\end{center}
+Since our graphical answer includes two pieces, we use a union in our interval notation.
+$$(-\infty,-2]\cup(4,\infty)$$
+{\bf Example:} Solve the inequality below, graph the solution, and provide the interval notation of your solution.
+$$2x+8\geq 5x-7 \ \ \text{AND} \ \ 5x-3>3x+1$$
+Solving each inequality separately gives us the following.
+\begin{multicols}{2}
+
+\begin{eqnarray*}
+2x+8 & \geq & 5x-7\\
+2x & \geq & 5x-15\\
+-3x & \geq & -15\\
+x & \leq & 5
+\end{eqnarray*}
+
+\columnbreak
+\begin{eqnarray*}
+5x-3 & > & 3x+1\\
+5x & > & 3x+4\\
+2x & > & 4\\
+x & > & 2
+\end{eqnarray*}
+\end{multicols}
+Next, we graph the two inequalities separately, and take their intersection (overlap) for our final answer.
+\begin{center}
+\begin{tikzpicture}[xscale=0.7,yscale=0.7]
+	\draw [<->](-6.25,2) -- coordinate (x axis mid) (6.25,2) node[right] {\ \ $x\leq 5$};
+	\draw [<-,line width=0.8mm](-6.25,2) -- coordinate (x axis mid) (5,2);
+	\draw (5,2) node {{\bf ]}};
+	\draw [<->](-6.25,0) -- coordinate (y axis mid) (6.25,0) node[right] {\ \ $x>2$};
+	\draw [->,line width=0.8mm](2,0) -- coordinate (x axis mid) (6.25,0);
+	\draw (2,0) node {{\bf (}};
+	\draw [<->](-6.25,-3) -- coordinate (y axis mid) (6.25,-3) node[right] {\ \ $x\leq 5$ AND $x>2$};
+	\draw [-,line width=0.8mm](2,-3) -- coordinate (x axis mid) (5,-3);
+	\draw (2,-3) node {{\bf (}};
+	\draw (5,-3) node {{\bf ]}};
+	\draw [-](5,0.1) -- coordinate (y axis mid) (5,-0.1) node[below] {$5$};
+	\draw [-](2,0.1) -- coordinate (y axis mid) (2,-0.1) node[below] {$2$};
+	\draw [-](5,2.1) -- coordinate (y axis mid) (5,1.9) node[below] {$5$};
+	\draw [-](2,2.1) -- coordinate (y axis mid) (2,1.9) node[below] {$2$};
+	\draw [-](5,-2.9) -- coordinate (y axis mid) (5,-3.1) node[below] {$5$};
+	\draw [-](2,-2.9) -- coordinate (y axis mid) (2,-3.1) node[below] {$2$};
+	\draw (0,-1.5) node {$\Downarrow$};
+\end{tikzpicture}
+\end{center}
+Our answer, in interval notation is $(2,5]$.\\
+\ \par
+{\bf II - Demo/Discussion Problems:}\\
+\ \par
+Graph each compound inequality on a real number line and provide the corresponding interval notation.
+\begin{enumerate}
+	\item $x\leq-3 \ \ \text{OR} \ \ x<-1$
+	\item $x\geq-3 \ \ \text{OR} \ \ x<-1$
+	\item $x<-1 \ \ \text{AND} \ \ x<-2$
+	\item $x>2 \ \ \text{AND} \ \ x<-1$
+\end{enumerate}
+Solve each of the given compound inequalities. Graph each solution on a real number line and provide the corresponding interval notation.
+\begin{enumerate}
+  \item[5.] $9 + n < 2  \ \ \text{OR} \ \  5 n > 40$
+  \item[6.] $\dfrac{v}{8} > - 1  \ \ \text{AND} \ \  v - 2 < 1$
+	\item[7.] $- 6 \leq - 4 x + 2 < 2$
+	\item[8.] $- 4 < 8 - 3 m \leq 11$
+\end{enumerate}
+%\newpage
+{\bf III - Practice Problems:}\\
+\ \par
+Solve each of the given compound inequalities. Graph each solution on a real number line and provide the corresponding interval notation.
+\begin{enumerate}
+\begin{multicols}{2}
+  \item $\dfrac{n}{3} \leq - 3  \ \ \text{OR} \ \  - 5 n \leq - 10$
+  \item $6 m \geq - 24  \ \ \text{OR} \ \  m - 7 < - 12$
+  \item $x + 7 \geq 12  \ \ \text{OR} \ \  9 x < - 45$
+  \item $10 r > 0  \ \ \text{OR} \ \  r - 5 < - 12$
+  \item $x - 6 < - 13  \ \ \text{OR} \ \  6 x \leq - 60$
+  \item $- 9 x < 63  \ \ \text{AND} \ \  \dfrac{x}{4} < 1$
+  \item $- 8 + b < - 3  \ \ \text{AND} \ \  4 b < 20$
+  \item $- 6 n \leq 12  \ \ \text{AND} \ \  \dfrac{n}{3} \leq 2$
+  \item $a + 10 \geq 3  \ \ \text{AND} \ \  8 a \leq 48$
+  \item $- 6 + v \geq 0  \ \ \text{AND} \ \  2 v > 4$
+  \item $3 + 7 r > 59  \ \ \text{OR} \ \  - 6 r - 3 > 33$
+  \item $- 6 - 8 x \geq - 6  \ \ \text{OR} \ \  2 + 10 x > 82$
+\end{multicols}
+\begin{multicols}{3}
+  \item $3 \leq 9 + x \leq 7$\\
+  \item $0 \geq \dfrac{x}{9} \geq - 1$\\
+  \item $11 < 8 + k \leq 12$\\
+  \item $- 11 \leq n - 9 \leq - 5$\\
+  \item $- 3 < x - 1 < 1$\\
+  \item $- 2 < 1-3x \leq 10$\\
+  \item $1 \leq \dfrac{p}{8} \leq 0$\\
+  \item $- 22 \leq 2 n - 10 \leq - 16$\\
+  \item $\dfrac{1}{2}< 5-\dfrac{x}{3} \leq 4$\\
+	\end{multicols}
+	\item $- 5 b + 10 \leq 30  \ \ \text{AND} \ \  7 b + 2 \leq - 40$\\
+  \item $n + 10 \geq 15  \ \ \text{OR} \ \  4 n - 5 < - 1$\\
+	\item $3 x - 9 < 2 x + 10  \ \ \text{AND} \ \  5 + 7 x \leq 10 x - 10$\\
+  \item $4 n + 8 < 3 n - 6  \ \ \text{OR} \ \  10 n - 8 \geq 9 + 9 n$\\
+  \item $- 8 - 6 v \leq 8 - 8 v  \ \ \text{AND} \ \  7 v + 9 \leq 6 + 10 v$\\
+  \item $5 - 2 a \geq 2 a + 1  \ \ \text{OR} \ \  10 a - 10 \geq 9 a + 9$\\
+  \item $1 + 5 k \leq 7 k - 3  \ \ \text{OR} \ \  k - 10 > 2 k + 10$\\
+  \item $8 - 10 r \leq 8 + 4 r  \ \ \text{OR} \ \  - 6 + 8 r < 2 + 8 r$\\
+  \item $2 x + 9 \geq 10 x + 1  \ \ \text{AND} \ \  3 x - 2 < 7 x + 2$\\
+  \item $- 9 m + 2 < - 10 - 6 m  \ \ \text{OR} \ \  - m + 5 \geq 10 + 4 m$
+\end{enumerate}
+\newpage
+\end{document}

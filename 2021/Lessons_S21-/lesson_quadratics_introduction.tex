@@ -1,0 +1,178 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+% Use the cc-by-nc-sa license for any content linked with Stitz and Zeager's text.  Otherwise, use the cc-by-sa license.
+\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+%\usepackage[type={CC},modifier={by-nc-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+\input{order}
+
+\begin{document}
+{\bf \large Lesson \arabic{lesson_quadratics_introduction}: Introduction to Quadratics}
+%\\ CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. 
+%\\ CC attribute: \href{http://www.stitz-zeager.com}{\it{College Algebra}} by C. Stitz and J. Zeager. 
+\hfill \doclicenseImage[imagewidth=5em]\\
+\par
+{\bf Objective:} Recognize a quadratic equation and graphically.\\
+\par
+{\bf Students will be able to:}
+\begin{itemize}
+	\item Determine if an equation is linear or quadratic.
+	\item Determine if the corresponding graph of a quadratic is concave up or down.
+	\item Identify the $y-$intercept for the graph of a quadratic.
+	\item Recognize the vertex form of a quadratic.
+\end{itemize}
+{\bf Prerequisite Knowledge:}
+\begin{itemize}
+	\item Application of the distributive property.
+	\item Order of operations and combining like terms.
+\end{itemize}
+\hrulefill
+
+{\bf Lesson:}\\
+\ \par
+A quadratic equation is an equation of the form $$y=ax^2+bx+c,$$ where the {\it coefficients} of $a$,$b$, and $c$ are real numbers and $a\neq 0$. This form is most commonly referred to as the {\it standard form} of a quadratic.  We call $a$ the {\it leading coefficient}, $ax^2$ the {\it leading term} (also known as the {\it quadratic term}), $bx$ the {\it linear term} and $c$ the {\it constant term}.  The quadratic term $ax^2$, must have a nonzero coefficient in order for the equation to be a quadratic (otherwise $f$ would be linear, in slope-intercept form). The most fundamental quadratic equation is $y=x^2$ and its graph, like all quadratics, is known as a {\it parabola}.\\
+\ \par
+The most useful form for graphing a quadratic equation is the \textit{vertex form}.  A quadratic equation is said to be in vertex form if it is represented as $$y=a(x-h)^2+k,$$ where $h$ and $k$ are real numbers.  The vertex form, unlike the standard form, allows us to immediately identify the vertex of the resulting parabola, which will be the point ($h,k$).\\
+\newpage
+{\bf I - Motivating Example(s):}
+\begin{multicols}{2}
+{\bf Example:} $y=x^2$\\
+
+From the standard form, since $a>0$, the graph opens upwards and is said to be {\it concave up}.\\ \\
+ As a result, there is a minimum point, known as the {\it vertex}, located at the origin, $(0,0)$. \\  \\
+Notice the symmetry over the $y$-axis.
+
+\columnbreak
+
+\begin{center}
+\begin{tikzpicture}[xscale=0.75,yscale=0.75]
+	\draw [<->](-2.5,0) -- coordinate (x axis mid) (2.5,0) node[below right] {$x$};
+	\draw [<->](0,-0.5) -- coordinate (x axis mid) (0,4.5) node[above right] {$y$};
+	\draw [<->] plot [domain=-2:2, samples=100] (\x,{(\x)^2});
+	\foreach \x in {1,2}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \x in {-2,-1}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \y in {1,2,...,4}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=east] {\scriptsize \y}; 
+ \draw[fill] (0,0) ellipse (0.075 and 0.075);
+\end{tikzpicture}
+\end{center}
+\end{multicols}
+
+\begin{multicols}{2}
+{\bf Example:} $y=-x^2$\\
+\ \par
+Since $a = -1$, the graph opens downward or we say that it is {\it concave down}.\\
+\\
+Every parabola with a negative leading coefficient ($a<0$) will be concave down with a maximum value at its vertex.\\
+%\columnbreak
+
+\begin{center}
+\begin{tikzpicture}[xscale=0.75,yscale=0.75]
+	\draw [<->](-2.5,0) -- coordinate (x axis mid) (2.5,0) node[below right] {$x$};
+	\draw [<->](0,-4.5) -- coordinate (x axis mid) (0,0.5) node[above right] {$y$};
+	\draw [<->] plot [domain=-2:2, samples=100] (\x,{-1*(\x)^2});
+	\foreach \x in {1,2}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \x in {-2,-1}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \y in {-4,-3,...,-1}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=east] {\scriptsize \y}; 
+ \draw[fill] (0,0) ellipse (0.075 and 0.075);
+\end{tikzpicture}
+\end{center}
+\end{multicols}
+
+\begin{multicols}{2}
+{\bf Example:} $y = (x+3)^2-9$\\
+
+The vertex is at $(-3,-9)$ and the graph can be realized as the graph of $y=x^2$ shifted left 3 units and down 9 units from the origin.\\ \\  
+Since our graph is concave up there will be two $x$-intercepts as the curve opens upward from below the $x$-axis.
+
+\columnbreak
+
+\begin{center}
+\begin{tikzpicture}[xscale=0.667,yscale=0.333]
+	\draw [<->](-7.5,0) -- coordinate (x axis mid) (1.5,0) node[below right] {$x$};
+	\draw [<->](0,-10) -- coordinate (x axis mid) (0,2) node[above right] {$y$};
+	\draw [<->] plot [domain=-6.2:0.2, samples=100] (\x,{(\x+3)^2-9});
+	\foreach \x in {1}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=south] {\scriptsize \x};
+	\foreach \x in {-7,-6,...,-1}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=south] {\scriptsize \x};
+	\foreach \y in {1}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=west] {\scriptsize \y}; 
+	\foreach \y in {-9,-7,...,-1}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=west] {\scriptsize \y}; 
+	\draw[fill] (-3,-9) ellipse (0.075 and 0.15);
+	\draw[fill] (-6,0) ellipse (0.075 and 0.15);
+	\draw[fill] (0,0) ellipse (0.075 and 0.15);
+\end{tikzpicture}
+\end{center}
+\end{multicols}
+{\bf II - Demo/Discussion Problems:}\\
+\ \par
+Describe the following equations as either linear or quadratic.  If quadratic, identify the $y-$intercept and determine whether the corresponding graph is concave up or down.
+\begin{enumerate}
+	\item $y=x^2-4x+2x^2-3x+5$
+	\item $y=-2(x-3)(x+5)-6$
+	\item $y=-2x^2-4x+2x^2-7x+7$
+\end{enumerate}
+\newpage
+Identify the vertex, $y-$intercept, and concavity of each of the following quadratic equations.  Find the standard form for each quadratic.
+\begin{multicols}{3}
+\begin{enumerate}
+	\item[4.] $y=-3(x-1)^2+2$
+	\item[5.] $y=-\frac{1}{2}(x+2)^2$
+	\item[6.] $y=x^2+3$
+\end{enumerate}
+\end{multicols}
+{\bf III - Practice Problems:}\\
+\ \par
+Simplifying each of the following equations and classify each as linear, quadratic, or neither. If the equation is a quadratic, identify its $y-$intercept and concavity.
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $y=x^2 + 9$
+  \item $y=5-2x+x^2$
+  \item $y=x+6-3x$
+  \item $y=5x+x^2-3x-3x^2$
+  \item $y=-5x+3+2x-3x^2+6$
+  \item $y=3x^2+-x+x-3x^2+6$
+  \item $y=(x-1)(x+2)+3$
+  \item $y=(x-5)(2x+3)-2(x-3)$
+  \item $y=(x-4)(x+4)-(x+1)^2$
+  \item $y=(2x-4)(x-1)-2(x+3)^2+3x^2$
+\end{enumerate}
+\end{multicols}
+
+Identify the vertex and concavity of each of the following quadratics.
+
+\begin{multicols}{3}
+\begin{enumerate}
+\setcounter{enumi}{10}
+	\item $y=(x-3)^2+4$
+  \item $y=(x-2)^2+5$
+  \item $y=6(x+3)^2+4$
+  \item $y=-2(x-3)^2+4$
+  \item $y=-2(x-1)^2-7$
+  \item $y=-(x+1)^2$
+  \item $y=7x^2+4$
+  \item $y=-\frac{1}{2}(x-8)^2+5$
+  \item $y=x^2+4$
+  \item $y=5x^2+23$
+\end{enumerate}
+\end{multicols}
+\newpage
+\ \newpage
+\end{document}

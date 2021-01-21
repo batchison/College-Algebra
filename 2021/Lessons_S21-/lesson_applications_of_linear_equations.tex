@@ -1,0 +1,212 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+\input{order}
+
+\begin{document}
+{\bf \large Lesson \arabic{lesson_applications_of_linear_equations}: Applications of Linear Equations}\\
+CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. \hfill \doclicenseImage[imagewidth=5em]\\
+\par
+{\bf Objective:} Solve linear application problems involving consecutive integers, geometry, age, and distance, rate, and time.\\
+\par
+{\bf Students will be able to:}
+\begin{itemize}
+	\item Define variables.
+	\item Solve a variety of application problems.
+\end{itemize}
+{\bf Prerequisite Knowledge:}
+\begin{itemize}
+	\item Basic integral and geometric concepts (even/odd, perimeter, area, angle sums, etc.)
+	\item Solve linear equations.
+	\item Apply the distributive property.
+	\item Verify the accuracy of an answer by checking.
+\end{itemize}
+\hrulefill
+
+{\bf Lesson:}
+\par
+We will encounter several key phrases when solving application problems.  These include the following.
+\begin{itemize}
+  \item A {\it number,} unknown, integer value, etc. often becomes our variable ($x,y,t,\ldots$).  
+  \item {\it Is,} was, will be, are, etc. often represents equals, $=$.
+  \item {\it More than} often implies addition, and is usually built backwards, writing the second part plus the first.
+  \item {\it Less than} often implies subtraction and is usually built backwards, writing the second part minus the first.
+\end{itemize}
+{\bf Example:} An integer ($x$) is 3 less than another integer ($y$).
+$$x=y-3$$
+{\bf I - Motivating Example(s):}\\
+\par
+Solving age problems can be summarized in the following five steps. These five
+steps are guidelines to help organize the problem we are trying to solve.
+\[%\begin{table}[h]
+  \begin{array}{|c|c|c|}
+    \hline
+    & \mbox{Age~Now} & \mbox{Change}\\
+    \hline
+    \mbox{Person~1} &  & \\
+    \hline
+    \mbox{Person~2} &  & \\
+    \hline
+  \end{array} \]
+\begin{enumerate}
+\newpage
+  \item Fill in the `Age Now' column; the age of the person we know nothing about is $x$.
+  
+  \item Fill in the future/past column by adding/subtracting the change to
+  the `Age Now' column.
+  
+  \item Make an equation for the relationship in the future. This is
+  independent of the table.
+  
+  \item Replace variables in the equation with information in the future/past cells of table.
+  
+  \item Solve the equation for $x$, use the solution to answer the question.
+\end{enumerate}
+{\bf Example:} Adam is 20 years younger than Brian. In two years Brian will be twice as
+  old as Adam. How old are they now?
+    \begin{multicols}{2}
+		Let $x$ represent Brian's age now.\\
+		Then $x-20$ represent's Adam's age now.\\
+		Fill in the table accordingly.
+		
+		\columnbreak
+		
+		\begin{tabular}{|c|c|c|}
+      \hline
+      & \text{Age Now} & $+ 2$\\
+      \hline
+      \text{Adam} & $x-20$ & $(x-20)+2$\\
+      \hline
+      \text{Brian} & $x$ & $x+2$\\
+      \hline
+    \end{tabular}
+    \end{multicols}
+In two years, we know that Brian's age will be twice Adam's age.  Using our table, this gives us the following equation and solution.
+		\begin{eqnarray*}
+		B & = & 2A\\
+		x+2 & = & 2(x-18)\\
+		x+2 & = & 2x-36\\
+    2 & = & x-36\\
+    x & = & 38
+		\end{eqnarray*}
+Hence, Brian is $38$ years old, and Adam is $38-20=18$ years old.  A simple check confirms our answer.  In two years, Brian will be 40 and Adam will be 20.\\
+\par
+When solving distance, rate, and time problems we will use the relationship $r\cdot t = d$ or rate times time equals distance. For example, if a person were to travel 30 mph (miles per hour) for 4 hours, to find the total distance we would multiply the rate times time to produce a distance of $30\text{mph}\cdot 4\text{hrs} = 120\text{miles}$.  As with age problems, we use a table to keep the problem organized.
+\[%\begin{table}[h]
+  \begin{array}{|c|c|c|c|}
+    \hline
+    & \mbox{Rate} & \mbox{Time} & \mbox{Distance}\\
+    \hline
+    \mbox{Person~1} &  &  & \\
+    \hline
+    \mbox{Person~2} &  &  & \\
+    \hline
+  \end{array} 
+\]
+	
+The `Distance' column, will always be filled in by multiplying the `Rate'
+and `Time' columns together. If we are given a total distance of both persons or
+trips we will put this information below the distance column.\\
+
+{\bf Example:} Two joggers start from opposite ends of an 8 mile course running towards each other. One jogger is running at a rate of 4 mph, and the other is running at a rate of 6 mph. How long will it take for the joggers to meet?
+
+\begin{multicols}{2}
+		Let $t$ represent the time it takes for the joggers to meet.  This will be the same time for each jogger.\\
+		Fill in the table accordingly.
+		
+		\columnbreak
+		
+		\begin{tabular}{|c|c|c|c|}
+      \hline
+      & \text{Rate} & \text{Time} & \text{Distance}\\
+      \hline
+      \text{Jogger 1} & $4$ & $t$ & $4t$\\
+      \hline
+      \text{Jogger 2} & $6$ & $t$ & $6t$\\
+      \hline
+    \end{tabular}
+		\par
+		\hspace{2.15in}\textbf{8}
+    \end{multicols}
+		Since the joggers will meet, their total distance will be {\bf 8} miles.\\
+		\ \par
+		By adding down the last column, our resulting distance equation is $4t+6t=8$.\\
+		\ \par
+		Solving, we get $t=\frac{4}{5}$ hours.  In other words, it will take 48 minutes for the joggers to meet.\\
+\ \par
+{\bf II - Demo/Discussion Problems:}\\
+\ \par
+Solve each of the following application problems.
+\begin{enumerate}
+	\item Carmen is 12 years older than David.  Five years ago, the sum of their ages was 28.  How old are they now?
+	\item Mike leaves his house traveling 2 miles per hour.  Joy leaves 6 hours later to catch up with him, traveling 8 miles per hour.  How long will it take for her to catch up with him?
+	\item On a 130 mile trip, a car travels at an average speed of 55 mph, then reduces its speed to 40 mph for the remainder of the trip.  The trip takes 2.5 hours in total.  How long did the car travel at 40 mph?
+	\item Find three consecutive odd integers so that the sum of twice the first, the second, and three times the third is 152.
+\end{enumerate}
+{\bf III - Practice Problems:}\\
+\ \par
+Solve each of the following application problems.
+\begin{enumerate}
+\item A boy is 10 years older than his brother. In 4 years he will be twice as old as his brother. Find the present age of each.
+\item Fred is 4 years older than Barney. Five years ago the sum of their ages was 48. How old are they now?
+\item The sum of the ages of John and Mary is 32. Four years ago, John was twice as 
+old as Mary. Find the present age of each.
+\item Adam is now 34 years old, and Bryce is 4 years old. In how many years will Adam be twice as old as Bryce?
+\item The age of the older of two boys is twice that of the younger; 5 years ago it was three times that of the younger. Find the age of
+each.
+\item A silver coin is 28 years older than a bronze coin. In 6 years, the silver coin will be twice as old as the bronze coin. Find the
+present age of each coin.
+\item Brandon is 9 years older than Ronda. In four years the sum of their ages will be 91. How old are they now?
+29. The sum of the ages of two ships is 12 years. Two years ago, the age of the older ship was three times the age of the newer ship.
+Find the present age of each ship.
+\item A mosaic is 74 years older than the engraving. Thirty years ago, the mosaic was three times as old as the engraving. Find the
+present age of each.
+\item Nicole is 26 years old. Emma is 2 years old. In how many years will Nicole be triple Emma's age?
+\item A is 60 miles from B. An automobile at A starts for B at the rate of 20 miles an hour at the same time that an automobile at B starts
+for A at the rate of 25 miles an hour. How long will it be before the automobiles meet?
+\item A passenger and a freight train start toward each other at the same time from two points 300 miles apart. If the rate of the passenger train
+exceeds the rate of the freight train by 15 miles per hour, and they meet after 4 hours, what must the rate of each be?
+\item A boy rides away from home in an automobile at the rate of 28 miles an hour and walks back at the rate of 4 miles an hour. The round trip
+requires 2 hours. How far does he ride?
+\item Sashell, who travels 4 miles an hour starts from a certain place 2 hours in advance of Kathy, who travels 5 miles an hour in the same direction.
+How many hours must Kathy travel to overtake Sashell?
+\item A car traveling at 48 mph overtakes a cyclist who, riding at 12 mph, has had a 3 hour head start. How far from the starting point does
+the car overtake the cyclist?
+\item A motorboat leaves a harbor and travels at an average speed of 18 mph to an island. The average speed on the return trip was 12 mph. How
+far was the island from the harbor if the total trip took 5 h?
+\item As part of flight training, a student pilot was required to fly to an airport and then return. The average speed on the way to the
+airport was 100 mph, and the average speed returning was 150 mph. Find the distance between the two airports if the total
+flight time was 5 h.
+\item A bus traveling at a rate of 60 mph overtakes a car traveling at a rate of 45 mph. If the car had a 1 h head start, how far from the
+starting point does the bus overtake the car?
+\item Three campers left their campsite by canoe and paddled downstream at an average rate of 10 mph. They then turned around and paddled
+back upstream at an average rate of 5 mph to return to their campsite. How long did it take the campers to canoe downstream if the total trip took 1 hr?
+\item On a 220 mi trip, a car traveled at an average speed of 50 mph and then reduced its average speed to 35 mph for the remainder
+of the trip. The trip took a total of 5 h. How long did the car travel at each speed?
+\item When five is added to three more than a certain number, the result is 19.  What is the number?
+\item A number plus itself, plus twice itself, plus 4 times itself, is equal to $- 104$. What is the number?
+\item The sum of three consecutive integers is 108. What are the integers?
+\item The sum of three consecutive odd integers is 189. What are the integers?
+\item Two angles of a triangle are the same size. The third angle is 12 degrees smaller than the first angle. Find the measure of the
+angles.
+\item The second angle of a triangle is twice as large as the first. The measure of the third angle is 20 degrees greater than the first. How
+large are the angles?
+\item The second angle of a triangle is four times the first and the third is 5 degrees more than twice the first. Find the measures of the angles.
+\item The perimeter of a rectangle is 280 meters. The width is 26 meters less than the length. Find the length and width.
+\item A bicycle and a bicycle helmet cost $\$240$. How much did each cost, if the bicycle cost 5 times as much as the helmet?
+\item Aaron had 7 times as many sheep as Beth, and both together had 608. How many sheep had each?
+\item A 6 ft board is cut into two pieces, one twice as long as the other. How long are the pieces?
+\item The cost of a private pilot course is $\$1,275$. The flight portion costs $\$625$ more than the ground school portion. What is the cost of each?
+\end{enumerate}
+\end{document}

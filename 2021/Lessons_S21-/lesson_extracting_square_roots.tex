@@ -1,0 +1,146 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+% Use the cc-by-nc-sa license for any content linked with Stitz and Zeager's text.  Otherwise, use the cc-by-sa license.
+%\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+\usepackage[type={CC},modifier={by-nc-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+\input{order}
+
+\begin{document}
+{\bf \large Lesson \arabic{lesson_extracting_square_roots}: Solve by Extracting Square Roots}
+%\\ CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. 
+\\ CC attribute: \href{http://www.stitz-zeager.com}{\it{College Algebra}} by C. Stitz and J. Zeager. 
+\hfill \doclicenseImage[imagewidth=5em]\\
+\par
+{\bf Objective:} Solve quadratic equations using the method of extracting square roots.\\
+\par
+{\bf Students will be able to:}
+\begin{itemize}
+	\item Solve quadratic equations in vertex form as an alternative to factoring or when factoring fails.
+	\item Approximate an irrational root to a quadratic equation for the purposes of graphing.
+\end{itemize}
+{\bf Prerequisite Knowledge:}
+\begin{itemize}
+	\item Simplifying radicals.
+	\item Solving by isolating a quadratic term.
+	\item Complex numbers.
+\end{itemize}
+\hrulefill
+
+{\bf Lesson:}\\
+\ \par
+We now introduce a new technique for solving quadratic equations, known as {\it extracting square roots}.  This method will only be employed once we have identified the vertex form for a given quadratic, $y=a(x-h)^2+k$.  The general steps for extracting square roots are shown in our first example, and the requirement of the vertex form will be essential.\\
+\ \par
+{\bf I - Motivating Example(s):}\\
+\ \par
+{\bf Example:} Determine the zeros of the quadratic equation $y=ax^2+bx+c$, where $a\neq 0$.\\
+First obtain the vertex form:  $h=-\dfrac{b}{2a}$, set $x=h$ to find $k$.
+\begin{eqnarray*}
+a(x-h)^2+\cancel{k}=0~~~ & &\text{Vertex~form}\\
+\underline{-\cancel{k}}~~~\underline{-k}~ & & \text{Subtract~} k \text{~from~both~sides}\\
+\cancel{a}(x-h)^2=-k & &\\
+\overline{~~~~~\cancel{a}~~~~}~~~~~~\overline{~a~} & &  \text{Divide~both~sides~by~} a\\
+(x-h)^2=-\frac{k}{a}& &\\
+\sqrt{(x-h)^2}=\pm\sqrt{-\frac{k}{a}}& &\text{Take~square~root~of~both~sides}\\
+& & ~~~\text{to~extract~radicand,~} x-h\\
+%\end{eqnarray*}
+%\begin{eqnarray*}
+x-\cancel{h}=\pm\sqrt{-\frac{k}{a}} & & \\
+\underline{+\cancel{h}}~~~~~~~~~~\underline{+h} & & \text{Add~} h \text{~to~both~sides}\\
+x=h\pm\sqrt{-\frac{k}{a}} & & \text{Our~solution}
+\end{eqnarray*}
+
+{\bf Example:} Use the method of extracting square roots to find the zeros of the equation $y = (x+4)^2-9$.
+\begin{multicols}{2}
+\begin{center}
+\begin{tikzpicture}[xscale=0.45,yscale=0.45]
+	\draw [<->](-8.5,0) -- coordinate (x axis mid) (0.5,0) node[below right] {$x$};
+	\draw [<->](0,-9.5) -- coordinate (x axis mid) (0,2) node[above right] {$y$};
+	\draw [<->] plot [domain=-7.25:-0.75, samples=100] (\x,{(\x+4)^2-9});
+	\foreach \x in {-7,-5,...,-1}
+		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \y in {-1,-3,...,-9}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=west] {\scriptsize \y}; 
+	\foreach \y in {1}
+		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=west] {\scriptsize \y}; 
+ \draw[fill] (-4,-9) ellipse (0.1 and 0.1);
+ \draw[fill] (-1,0) ellipse (0.1 and 0.1);
+ \draw[fill] (-7,0) ellipse (0.1 and 0.1);
+\end{tikzpicture}
+\end{center}
+
+\columnbreak
+
+\begin{eqnarray*}
+%    \ y = (x+4)^2-9 &  & \tmop{A}  \tmop{quadratic} \tmop{in} \tmop{vertex} \tmop{form}\\
+    \ 0 = (x+4)^2-9 &  &  \text{Set equal to zero}\\
+    \ {\bf \underline{+9}~~~~~~~~~~~~~~~\underline{+9}}   & & \text{Isolate the square}\\
+    \ 9=(x+4)^2~~~~~ & & \text{Introduce a}\\
+		\pm\sqrt{9} = \sqrt{(x+4)^2}~~ & &  ~~\text{square root; include} \ \pm \\
+		\ \pm3 = x + 4~~~~~~~~~  & &  \text{Solve for} \ x\\
+		\ {\bf \underline{-4}~~~~~~\underline{-4}}~~~~~~~~~  & & \\
+		\ x=\pm3 - 4~~~~~~~ & & \text{Two solutions} \\
+		\ x=3 - 4~~ \Rightarrow x = -1   & & \text{First solution}\\
+		\ x=-3 - 4 \Rightarrow x = -7  & & \text{Second solution}
+\end{eqnarray*}
+\end{multicols}
+Our zeros are $x=-7$ and $-1$.  The corresponding $x-$intercepts are at $(-7,0)$ and $(-1,0)$.\\
+\ \par
+{\bf Example:} Use the method of extracting square roots to find the zeros of the equation $y = -2(x+3)^2+48$.\\
+\ \par
+We show our solution below, this time omitting each step in the overall simplification.
+\begin{eqnarray*}
+-2(x+3)^2+48 & = & 0 \\
+-2(x+3)^2&=&-48 \\
+(x+3)^2&=&24 \\
+\sqrt{(x+3)^2}&=&\pm\sqrt{24}\\
+x+3&=&\pm\sqrt{4}\sqrt{6}\\
+x&=&-3\pm2\sqrt{6}
+\end{eqnarray*}
+Note that we can approximate our two roots, by realizing that 
+$$2=\sqrt{4}<\sqrt{6}<\sqrt{9}=3.$$
+Since $\sqrt{6}\approx 2.4,$ we can say that our two roots are $x\approx -3\pm 4.8.$  This reduces to $x\approx 1.8$ and $x\approx -7.8$.  We may conclude that our $x-$intercepts are approximately located at $(1.8,0)$ and $(-7.8,0)$.
+\newpage
+{\bf II - Demo/Discussion Problems:}\\
+\ \par
+Solve each of the following equations for all possible $x$.  Classify each solution as either real or imaginary.  If your answer includes a square root, find a decimal approximation for your answer(s).
+\begin{enumerate}
+	\item $y=-3(x-1)^2+12$
+	\item $y=(x+5)^2-8$
+	\item $y=\dfrac{1}{8}(x-6)^2-5$
+	\item $y=-1(x+3)^2-4$
+	\item $y=-\dfrac{1}{4}(x+3)^2+27$
+	\end{enumerate}
+\ \par
+{\bf III - Practice Problems:}\\
+\ \par
+Solve each of the following equations for all possible $x$.  Classify each solution as either real or imaginary.  If your answer includes a square root, find a decimal approximation for your answer(s).
+\begin{multicols}{3}
+	\begin{enumerate}
+	\item $y=2(x-4)^2-200$
+  \item $y=-2(x-7)^2+50$
+  \item $y=(x-4)^2-98$
+  \item $y=(x-12)^2-5$
+  \item $y=x^2+18$
+  \item $y=(x-16)^2$
+  \item $y=-3(x-3)^2+30$
+  \item $y=-4(x-1)^2+20$
+  \item $y=-4(x+6)^2+8$
+  \item $y=\dfrac{1}{20}(x-1)^2-15$
+  \item $y=(x+2)^2+12$
+  \item $y=9(x-11)^2-81$
+	\end{enumerate}
+\end{multicols}
+\newpage
+\ \newpage
+\end{document}

@@ -1,0 +1,83 @@
+\documentclass[12pt]{book}
+\raggedbottom
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=0.25in]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem,tikzpagenodes}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+\usepackage[type={CC},modifier={by-nc-sa},version={4.0},]{doclicense}
+
+\usepackage{import}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0in}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1in}
+\setcounter{secnumdepth}{0}
+\input{lesson_order}
+
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+%\usepackage[metapost,truebbox]{mfpic,colortbl}
+
+\newlist{oddenumerate}{enumerate}{1}
+\setlist[oddenumerate]{start=0,label=\theoddenumeratei.}
+\makeatletter
+\renewcommand\theoddenumeratei{\@arabic{\numexpr2*\value{oddenumeratei}+1}}
+\makeatother
+
+\newcount\gpten % (global) power-of-ten -- tells which digit we are doing
+\countdef\rtot2 % running total -- remainder so far
+\countdef\LDscratch4 % scratch
+
+\def\longdiv#1#2{%
+ \vtop{\normalbaselines \offinterlineskip
+   \setbox\strutbox\hbox{\vrule height 2.1ex depth .5ex width0ex}%
+   \def\showdig{$\underline{\the\LDscratch\strut}$\cr\the\rtot\strut\cr
+       \noalign{\kern-.2ex}}%
+   \global\rtot=#1\relax
+   \count0=\rtot\divide\count0by#2\edef\quotient{\the\count0}%\show\quotient
+   % make list macro out of digits in quotient:
+   \def\temp##1{\ifx##1\temp\else \noexpand\dodig ##1\expandafter\temp\fi}%
+   \edef\routine{\expandafter\temp\quotient\temp}%
+   % process list to give power-of-ten:
+   \def\dodig##1{\global\multiply\gpten by10 }\global\gpten=1 \routine
+   % to display effect of one digit in quotient (zero ignored):
+   \def\dodig##1{\global\divide\gpten by10
+      \LDscratch =\gpten
+      \multiply\LDscratch  by##1%
+      \multiply\LDscratch  by#2%
+      \global\advance\rtot-\LDscratch \relax
+      \ifnum\LDscratch>0 \showdig \fi % must hide \cr in a macro to skip it
+   }%
+   \tabskip=0pt
+   \halign{\hfil##\cr % \halign for entire division problem
+     $\quotient$\strut\cr
+     #2$\,\overline{\vphantom{\big)}%
+     \hbox{\smash{\raise3.5\fontdimen8\textfont3\hbox{$\big)$}}}%
+     \mkern2mu \the\rtot}$\cr\noalign{\kern-.2ex}
+     \routine \cr % do each digit in quotient
+}}}
+
+\begin{document}
+\pagenumbering{roman}
+\input{book_cover_sheet}
+\tableofcontents
+\newpage
+\ \\
+\thispagestyle{empty}
+\ \\
+\newpage
+\input{book_measurable_outcomes}
+\pagenumbering{arabic}
+\setcounter{page}{13}
+\import{./chapter_linears/}{chapter_linears}
+\import{./chapter_systems/}{chapter_systems}
+\import{./chapter_functions_intro/}{chapter_functions_intro}
+\import{./chapter_quadratics/}{chapter_quadratics}
+\import{./chapter_functions_advanced/}{chapter_functions_advanced}
+\import{./chapter_polynomials/}{chapter_polynomials}
+\import{./chapter_rationals/}{chapter_rationals}
+\end{document}

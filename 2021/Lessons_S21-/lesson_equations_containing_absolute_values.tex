@@ -1,0 +1,101 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+% Use the cc-by-nc-sa license for any content linked with Stitz and Zeager's text.  Otherwise, use the cc-by-sa license.
+\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+%\usepackage[type={CC},modifier={by-nc-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+\input{order}
+
+\begin{document}
+{\bf \large Lesson \arabic{lesson_equations_containing_absolute_values}: Equations Containing Absolute Values}
+\\ CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. 
+%\\ CC attribute: \href{http://www.stitz-zeager.com}{\it{College Algebra}} by C. Stitz and J. Zeager. 
+\hfill \doclicenseImage[imagewidth=5em]\\
+\par
+{\bf Objective:} Solve an equation that contains one or more absolute value(s).\\
+\par
+{\bf Students will be able to:}
+\begin{itemize}
+	\item Solve and check the solutions to an equation that contains an absolute value.
+\end{itemize}
+{\bf Prerequisite Knowledge:}
+\begin{itemize}
+	\item Evaluating absolute value expressions.
+	\item Applying the distributive property.
+	\item Checking solutions to equations.
+\end{itemize}
+\hrulefill
+
+{\bf Lesson:}
+\par
+{\bf I - Motivating Example(s):}
+  \begin{eqnarray*}
+    |x| = 7 &  & \text{Absolute value can be positive or negative}\\
+    x = \pm 7 &  & \text{Our solution}
+  \end{eqnarray*}
+Notice that we have considered two possibilities, both the positive and negative. Either way, the absolute value of our number will be positive $7$.  When we have absolute values in our problem it is important to first isolate the absolute value, then remove the absolute value by considering both the positive and negative solutions.\par
+\ \par
+{\bf II - Demo/Discussion Problems:}\\
+\par
+Solve each of the following equations containing absolute values.
+\begin{enumerate}
+	\item $5|x|-4=26$\\
+	\item $2-4|2x+3|=-18$\\
+	\item $7+|2x-5|=4$\\
+	\item $|2x-7|=|4x+6|$
+\end{enumerate}
+\newpage
+{\bf III - Practice Problems:}\\
+\par
+Solve each equation.
+\par
+\begin{multicols}{3}
+  1) $| x| = 8$\\ \ \\
+  2) $| n | = 7$\\ \ \\
+  3) $| b| = 1$\\ \ \\
+  4) $| x | = 2$\\ \ \\
+  5) $| 5 + 8 a| = 53$\\ \ \\
+  6) $|9n + 8| = 46$\\ \ \\
+  7) $|3k + 8| = 2$\\ \ \\
+  8) $|3 - x| = 6$\\ \ \\
+  9) $|9 + 7 x| = 30$\\ \ \\
+  10) $|5n + 7| = 23$\\ \ \\
+  11) $|8 + 6 m| = 50$\\ \ \\
+  12) $|9p + 6| = 3$\\ \ \\ \ \\
+  13) $|6 - 2 x| = 24$\\ \ \\
+  14) $|3n - 2| = 7$\\ \ \\
+  15) $- 7| - 3 - 3 r| = - 21$\\ \ \\
+  16) $| 2 + 2 b| + 1 = 3$\\ \ \\
+  17) $7 | - 7 x - 3| = 21$\\ \ \\
+  18) $\dfrac{| - 4 - 3 n|}{4} = 2$\\ \ \\
+  19) $\dfrac{| - 4 b - 10|}{8} = 3$\\ \ \\
+  20) $8 |5p + 8| - 5 = 11$\\ \ \\
+  21) $8 | x + 7 | - 3 = 5$\\ \ \\
+  22) $3 - |6n + 7| = - 40$\\ \ \\
+  23) $5 |3 + 7 m| + 1 = 51$\\ \ \\
+  24) $4 |r + 7| + 3 = 59$\\ \ \\ \ \\
+  25) $3 + 5 |8 - 2 x| = 63$\\ \ \\
+  26) $5 + 8| - 10 n - 2| = 101$\\ \ \\
+  27) $|6b - 2| + 10 = 44$\\ \ \\
+  28) $7 |10v - 2| - 9 = 5$\\ \ \\
+  29) $- 7 + 8| - 7 x - 3| = 73$\\ \ \\
+  30) $8 |3 - 3 n| - 5 = 91$\\ \ \\
+  31) $|5x + 3| = |2x - 1|$\\ \ \\
+	32) $| 2 + 3 x| = |4 - 2 x|$\\ \ \\
+	33) $| 3 x - 4| = |2x + 3|$\\ \ \\
+	34) $\left| \dfrac{2 x - 5}{3} \right| = \left| \dfrac{3 x + 4}{2} \right|$\\ \ \\
+	35) $\left| \dfrac{4 x - 2}{5} \right| = \left| \dfrac{6 x + 3}{2} \right|$\\ \ \\
+	36) $\left| \dfrac{3 x + 2}{2} \right| = \left| \dfrac{2 x - 3}{3} \right|$\\ \ \\
+\end{multicols}
+\newpage
+\end{document}

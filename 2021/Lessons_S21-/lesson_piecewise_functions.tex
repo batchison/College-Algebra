@@ -1,0 +1,315 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+% Use the cc-by-nc-sa license for any content linked with Stitz and Zeager's text.  Otherwise, use the cc-by-sa license.
+%\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+\usepackage[type={CC},modifier={by-nc-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+\input{order}
+
+\begin{document}
+{\bf \large Lesson \arabic{lesson_piecewise_functions}: Piecewise-Defined Functions}
+%\\ CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. 
+\\ CC attribute: \href{http://www.stitz-zeager.com}{\it{College Algebra}} by C. Stitz and J. Zeager. 
+\hfill \doclicenseImage[imagewidth=5em]\\
+\par
+{\bf Objective:} Define, evaluate, and solve piecewise functions.\\
+\par
+{\bf Students will be able to:}
+\begin{itemize}
+	\item Correctly evaluate a piecewise function.
+	\item Graph piecewise functions.
+	\item Solve piecewise functions, while taking domain restrictions into account.
+\end{itemize}
+{\bf Prerequisite Knowledge:}
+\begin{itemize}
+	\item Evaluating functions.
+	\item Understanding domain both graphically and algebraically.
+	\item Graphing by making a table.
+\end{itemize}
+\hrulefill
+
+{\bf Lesson:}\\
+A {\it piecewise-defined} (or simply, a {\it piecewise}) function is a function that is defined in pieces.  More precisely, a piecewise-defined function is a function that is presented using one or more expressions, each defined over non-intersecting intervals.  An example of a piecewise-defined function is shown below.
+\[ f(x)~=~
+	\begin{cases} 
+      2x-1 & \text{if~~} x> 0\\
+			x^2-1 & \text{if~~} x\leq 0
+  \end{cases}
+\]
+To evaluate a piecewise-defined function at a particular value of the variable, we must first compare our value to the various intervals (or domains) applied to each piece, and then substitute our value into the piece that coincides with the correct domain.  For example, since $x=1$ is greater than zero, we would use the expression $2x-1$ to evaluate $f(1)$,
+$$f(1)=2(1)-1=2-1=1.$$
+Similarly, since $x=-1$ is less than zero, we would use the expression $x^2-1$ to evaluate $f(-1)$,
+$$f(-1)=(-1)^2-1=1-1=0.$$
+Next, we address the issue of solving a piecewise function.  For some constant $k$, to find all $x$ such that $f(x)=k$, we will use the strategy outlined below, which will be the same for any piecewise-defined function.
+	\begin{itemize}
+		\item Set each separate piece equal to $k$ and solve for $x$.
+		\item Compare your answers for $x$ to the domain applied to each piece.  Only keep those solutions that coincide with the specified domain.
+	\end{itemize}
+
+{\bf I - Motivating Example(s):}\\
+\ \par
+{\bf Example:} 
+Consider the piecewise function \[ f(x)~=~
+	\begin{cases} 
+      2x-1 & \text{if~~} x> 0\\
+			x^2-1 & \text{if~~} x\leq 0
+  \end{cases}
+\]
+Below is a table of points obtained from $f$. 
+
+\begin{multicols}{2}
+\begin{center}
+\begin{tabular}{c|c}
+	$x$ & $f(x)$\\
+	\hline
+	$2$ & $2(2)-1=3$\\
+	\hline
+	$1$ & $2(1)-1=1$\\
+	\hline \hline
+	$0$ & $(0)^2-1=-1$\\
+	\hline
+	$-1$ & $(-1)^2-1=0$\\
+	\hline
+	$-2$ & $(-2)^2-1=3$
+\end{tabular}
+\end{center}
+
+\columnbreak
+
+We have included an extra line between the values of $x=0$ and $x=1$ in the table above, in order to emphasize the changeover from one piece of our function ($2x-1$) to another ($x^2-1$).\\
+\ \par
+The value of $x=0$ is very important, since it is an endpoint for the two domains of our function,  $(0,\infty)$ and $(-\infty,0]$ .  
+\end{multicols}
+A common misconception among students is to evaluate $f(0)$ at both $2x-1$ and $x^2-1$ because it seems to ``straddle'' both individual domains.  And although the values for both pieces are equal at $x=0$,
+$$2(0)-1=-1=0^2-1$$ this will often not be the case.  Regardless, we must be careful to {\it always} associate $x=0$ with $x^2-1$, since it is contained in our second piece's domain ($0\leq 0$) and not in our first.\\
+\ \par
+{\bf Example:} Find the set of all zeros of \[ f(x)~=~
+	\begin{cases} 
+      2x-1 & \text{if~~} x> 0\\
+			x^2-1 & \text{if~~} x\leq 0
+  \end{cases}
+\].
+\begin{eqnarray*}
+	f(x)=0~~~~~ & &\text{Apply~to~each~piece~separately}\\
+&&\\
+	2x-1=0,~x>0 & &\text{First~piece;~solve~for~}x\\
+	x=\frac{1}{2},~x>0 & & \text{One~solution;~coincides~with~domain}\\
+	& &\\
+	x^2-1=0~,~~~x\leq 0 & &\text{Second~piece;~solve~for~}x\\
+	(x-1)(x+1)=0,~x\leq 0 & & \text{Solve~by~factoring}\\
+	x=\pm 1,~x\leq 0 & & \text{Two~potential~solutions}\\
+	x=-1,~x\leq 0 & &\text{Exclude~} x=1; \text{does~not~coincide~with~domain}\\
+	& &\\
+	f(x)=0 \text{~when~} x=-1,~ \frac{1}{2} & & \text{Our~answer}
+\end{eqnarray*}
+\newpage
+{\bf Example:}  Below are the graphs of piecewise functions $f$ and $g$.
+\begin{center}
+\begin{multicols}{2}
+$f(x)~=~
+	\begin{cases} 
+      2x-1 & \text{if~~} x> 0\\
+			x^2-1 & \text{if~~} x\leq 0
+  \end{cases}$
+
+$g(x)~=~
+	\begin{cases} 
+      2x+1 & \text{if~~} x> 0\\
+			x^2-1 & \text{if~~} x\leq 0
+  \end{cases}$
+\end{multicols}
+\end{center}
+
+\begin{center}
+\begin{multicols}{2}
+\begin{tikzpicture}[xscale=0.75,yscale=0.75]
+	\draw [<->](-4,0) -- coordinate (x axis mid) (4,0) node[below right] {$x$};
+	\draw [<->](0,-3) -- coordinate (x axis mid) (0,6) node[above right] {$y$};
+	\draw [<-] plot [domain=-2.2:0, samples=100] (\x,{(\x)^2-1});
+	\draw [->] plot [domain=0:3, samples=100] (\x,{2*\x-1});
+	\draw[fill] (-2,3) circle (0.08);
+	\draw[fill] (-1,0) circle (0.08);
+	\draw[fill] (0,-1) circle (0.08);
+	\draw[fill] (1,1) circle (0.08);
+	\draw[fill] (2,3) circle (0.08);
+	\foreach \x in {-3,...,-1}
+	\draw (\x,1pt) -- (\x,-3pt)
+	node[anchor=north] {\scriptsize $\x$};
+	\foreach \x in {1,...,3}
+	\draw (\x,1pt) -- (\x,-3pt)
+	node[anchor=north] {\scriptsize $\x$};
+	\foreach \y in {-2,...,-1}
+	\draw (1pt,\y) -- (-3pt,\y) 
+	node[anchor=west] {\scriptsize $\y$}; 
+	\foreach \y in {1,...,5}
+	\draw (1pt,\y) -- (-3pt,\y) 
+	node[anchor=east] {\scriptsize $\y$}; 
+\end{tikzpicture}
+
+\columnbreak
+
+\begin{tikzpicture}[xscale=0.75,yscale=0.75]
+	\draw [<->](-4,0) -- coordinate (x axis mid) (4,0) node[below right] {$x$};
+	\draw [<->](0,-3) -- coordinate (x axis mid) (0,6) node[above right] {$y$};
+	\draw [<-] plot [domain=-2.2:0, samples=100] (\x,{(\x)^2-1});
+	\draw [->] plot [domain=0.075:2.7, samples=100] (\x,{2*\x+1});
+	\draw[fill] (-2,3) circle (0.08);
+	\draw[fill] (-1,0) circle (0.08);
+	\draw[fill] (0,-1) circle (0.08);
+	\draw[] (0,1) circle (0.14);
+	\draw[fill] (1,3) circle (0.08);
+	\draw[fill] (2,5) circle (0.08);
+	\foreach \x in {-3,...,-1}
+	\draw (\x,1pt) -- (\x,-3pt)
+	node[anchor=north] {\scriptsize $\x$};
+	\foreach \x in {1,...,3}
+	\draw (\x,1pt) -- (\x,-3pt)
+	node[anchor=north] {\scriptsize $\x$};
+	\foreach \y in {-2,...,-1}
+	\draw (1pt,\y) -- (-3pt,\y) 
+	node[anchor=west] {\scriptsize $\y$}; 
+	\foreach \y in {1,...,5}
+	\draw (1pt,\y) -- (-3pt,\y) 
+	node[anchor=east] {\scriptsize $\y$};
+	\draw [<-](0.5,1) -- coordinate (x axis mid) (1.5,1) node[right] {\scriptsize hole at $(0,1)$}; 
+	\draw [<-](-0.25,-1.25) -- coordinate (x axis mid) (-1,-2) node[left] {\scriptsize point at $(0,-1)$}; 
+\end{tikzpicture}
+\end{multicols}
+\end{center}
+
+In this example, we see that both pieces for $g(x)$ do not ``match up'', since the values we obtain for both pieces at $x=0$ do not agree:
+\begin{center}
+$g(0)=0^2-1=-1,$ \ but \ $2(0)+1=1.$
+\end{center}
+Remember that when evaluating any function at a value of $x$ in its domain, we should always only have a {\it single value} for $g(x)$, since this is how we defined a function.  Furthermore, if we were to associate two values ($g(0)=\pm 1$) to $x=0$, our graph would consequently contain points at $(0,-1)$ and $(0,1)$, and therefore fail the Vertical Line Test.\\
+\ \par
+When we consider the graphs of both $f$ and $g$, since both pieces of $f$ seem to ``match up'' at $x=0$, we will see that the graph of $f$ will be one \textit{continuous} graph, with no breaks or separations appearing.  On the other hand, since both pieces of $g$ do not ``match up'' at $x=0$, we will see that the graph of $g$ will contain a break at $x=0$, known as a \textit{discontinuity} in the graph.  It is important that our graph also identifies the precise location of the ends of each piece.\\
+\ \par
+{\bf II - Demo/Discussion Problems:}\\
+\ \par
+\begin{enumerate}
+\item Find the set of all zeros of $g(x)~=~
+\begin{cases} 
+      2x+1 & \text{if~~} x> 0\\
+			x^2-1 & \text{if~~} x\leq 0
+  \end{cases}
+$.
+\item Make a table of values and graph the function $h(x)~=~
+	\begin{cases} 
+      ~3 & \text{if~~} x> 0\\
+			~1 & \text{if~~} x=0\\
+			~x & \text{if~~} x<0
+  \end{cases}
+$.
+\newpage
+\item Use the piecewise function below to complete the following.
+\[ f(x)~=~
+	\begin{cases} 
+      ~\frac{x}{2}-2 & \text{if~~} x\geq 3\\
+			%& \\
+			-2x^2+x+1 & \text{if~~} -2<x<2\\
+			%& \\
+			~x-8 & \text{if~~} x\leq -2
+  \end{cases}
+\]
+\begin{enumerate}
+	\item Make a table of values for $f$.
+	\item Solve when $f(x)=0$.
+	\item Sketch a complete graph of $f,$ making sure to identify both the $x-$ and $y-$coordinates for the ends of each piece of your graph.
+\end{enumerate}
+\end{enumerate}
+
+{\bf III - Practice Problems:}\\
+\ \par
+\begin{enumerate}
+\item  Let $f(x) = 	\begin{cases} 
+      ~x + 5 & \text{if~~} x \leq -3 \\
+			~\sqrt{9-x^2} & \text{if~~} -3 < x \leq 3 \\
+			~-x+5 & \text{if~~} x > 3 \\
+			\end{cases}.$\\
+Compute the following function values.
+\begin{multicols}{3}
+\begin{enumerate}
+\item $f(-4)$
+\item  $f(-3)$
+\item  $f(-3.01)$
+\item  $f(2)$
+\item  $f(3)$
+\item  $f(3.1)$
+\end{enumerate}
+\end{multicols}
+
+\item Let $f(x) = \begin{cases}
+~x^{2} & \text{if~~} x \leq -1\\
+~\sqrt{1 - x^{2}} & \text{if~~} -1 < x \leq 1\\
+~x & \text{if~~} x > 1
+\end{cases}.$\\
+Compute the following function values.
+\begin{multicols}{3}
+\begin{enumerate}
+\item $f(4)$
+\item $f(-3)$
+\item $f(1)$
+\item $f(0)$
+\item $f(-1)$
+\item $f(-0.99)$
+\end{enumerate}
+\end{multicols}
+
+For each of the following items, find all possible $x$ such that $f(x)=0$. Then sketch the graph of the given piecewise-defined function. Check your answer using \Desmos.  Use your graph to identify the domain and range of each function.
+
+\begin{multicols}{2}
+\item $f(x) = \begin{cases}
+~4-x & \text{if~~} x \leq 3 \\
+~2 & \text{if~~} x > 3
+\end{cases}$
+\item $f(x) = \begin{cases}
+~x^2 & \text{if~~} x \leq 0 \\
+~2x & \text{if~~} x > 0
+\end{cases}$
+\item $f(x) = \begin{cases}
+~-2x - 4 & \text{if~~} x < 0 \\
+~3x & \text{if~~} x \geq 0 
+\end{cases}$
+\item $f(x) = \begin{cases}
+~x-2 & \text{if~~} x \geq -2 \\
+~-x-6 & \text{if~~} x < -2 
+\end{cases}$
+\end{multicols}
+\newpage
+\begin{multicols}{2}
+\item $f(x) = \begin{cases}
+~-3 & \text{if~~} x < 0 \\
+~2x-3 & \text{if~~} 0 \leq x \leq 3 \\
+~3 & \text{if~~} x > 3
+\end{cases}$
+\item $f(x) = \begin{cases}
+~x^2 - 4 & \text{if~~} x \leq -2\\
+~4-x^2 & \text{if~~} -2 < x < 2 \\
+~x^2-4 & \text{if~~} x \geq 2 
+\end{cases}$
+\item $f(x) = \begin{cases}
+~x^{2} & \text{if~~} x \leq -2 \\
+~3 - x & \text{if~~} -2 < x < 2 \\
+~4 & \text{if~~} x \geq 2  
+\end{cases}$
+\item $f(x) = \begin{cases}
+~\dfrac{1}{x} & \text{if~~} -6 < x < -1\\
+~x & \text{if~~} -1 < x < 1 \\
+~\sqrt{x} & \text{if~~} 1 < x < 9
+\end{cases}$
+\end{multicols}
+\end{enumerate}
+\newpage
+\ \newpage
+\end{document}

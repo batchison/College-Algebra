@@ -1,0 +1,145 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+% Use the cc-by-nc-sa license for any content linked with Stitz and Zeager's text.  Otherwise, use the cc-by-sa license.
+%\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+\usepackage[type={CC},modifier={by-nc-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+\input{order}
+
+\begin{document}
+{\bf \large Lesson \arabic{lesson_synthetic_division}: Synthetic Division}
+%\\ CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. 
+\\ CC attribute: \href{http://www.stitz-zeager.com}{\it{College Algebra}} by C. Stitz and J. Zeager. 
+\hfill \doclicenseImage[imagewidth=5em]\\
+\par
+{\bf Objective:} Apply synthetic division.\\
+\par
+{\bf Students will be able to:}
+\begin{itemize}
+	\item Quickly divide polynomials by a linear factor.
+	\item Correctly label a divisor, dividend, quotient, and remainder in a polynomial division equation.
+\end{itemize}
+{\bf Prerequisite Knowledge:}
+\begin{itemize}
+	\item Polynomial definition and terminology.
+\end{itemize}
+\hrulefill
+
+{\bf Lesson:}\\
+\ \par
+Due in large part to its speed, for some students synthetic division is often the preferred method over standard long division, when dividing polynomials by expressions of the form $x-c$.  It is worth mentioning that when a polynomial (of degree at least one) is divided by $x-c$, the result will be a quotient polynomial of exactly one degree less than the original dividend.  This is a direct result of the divisor being a linear expression.\\
+\ \par
+The method of synthetic division focuses primarily on the coefficients of both the divisor and dividend.  We must also pay careful attention, however, to the values of our exponents, which will serve as placeholders throughout the process.  To start, we will write our coefficients in what we is sometimes referred to as a {\it synthetic division tableau} prior to dividing.  This is illustrated in the motivating examples.\\
+\ \par
+It is important to stress that synthetic division will {\it only} work for linear divisors with leading coefficient one.  Hence, we will need to use long division for divisors having degree larger than one.  For a more complete understanding of the relationship between long and synthetic division, students are encouraged to trace each step in synthetic division back to its corresponding long division step.\\
+\ \par
+{\bf I - Motivating Example(s):}\\
+\ \par
+
+{\bf Example:} Divide $x^3+4x^2-5x-14$ by $x-2$ using synthetic division.\\
+\ \par
+To divide $x^3+4x^2-5x-14$ by $x-2$, we first write $2$ in the place of the divisor since $2$ is zero of the factor $x-2$ and we write the coefficients of $x^3+4x^2-5x-14$ in for the dividend.  As our next step, we ``bring down'' the first coefficient of the dividend.
+We will then multiply and add repeatedly.
+
+\begin{center}
+\begin{multicols}{2}
+\polyhornerscheme[x=2,showbase=top,stage=1]{x^3+4x^2-5x-14}\\
+\polyhornerscheme[x=2,showbase=top,stage=2]{x^3+4x^2-5x-14}
+\end{multicols}
+\end{center}
+
+Next, take the $2$ from the divisor and multiply by the $1$ that was brought down to get $2$.  Write this underneath the $4$, then add to get $6$.
+
+\begin{center}
+\begin{multicols}{2}
+\polyhornerscheme[x=2,showbase=top,stage=3]{x^3+4x^2-5x-14}\\
+\polyhornerscheme[x=2,showbase=top,stage=4]{x^3+4x^2-5x-14}
+\end{multicols}
+\end{center}
+
+Now multiply the $2$ from the divisor by the $6$ to get $12$, and add it to the $-5$ to get $7$.
+
+\begin{center}
+\begin{multicols}{2}
+\polyhornerscheme[x=2,showbase=top,stage=5]{x^3+4x^2-5x-14}\\
+\polyhornerscheme[x=2,showbase=top,stage=6]{x^3+4x^2-5x-14}
+\end{multicols}
+\end{center}
+
+Finally, multiply the $2$ in the divisor by the $7$ to get $14$, and add it to the $-14$ to get $0$.
+
+\begin{center}
+\begin{multicols}{2}
+\polyhornerscheme[x=2,showbase=top,stage=7]{x^3+4x^2-5x-14}\\
+\polyhornerscheme[x=2,showbase=top,stage=8,resultstyle=\bf]{x^3+4x^2-5x-14}
+\end{multicols}
+\end{center}
+
+The first three numbers in the last row of our tableau will be the coefficients of the desired quotient polynomial.  Remember, we started with a third degree polynomial and divided by a first degree polynomial, so the quotient will be a second degree polynomial.  Hence the quotient is $x^2+6x+7$.  The number appearing in bold represents the remainder, which is zero in this case.
+$$\frac{x^3+4x^2-5x-14}{x-2}~=~x^2+6x+7$$
+
+{\bf Example:} Divide $5x^3-2x^2+1$ by $x-3$ using synthetic division.\\
+\ \par
+\begin{multicols}{2}
+Setting up and working through the tableau gives us the following result.
+
+\columnbreak
+
+\begin{center}
+\polyhornerscheme[x=3,showbase=top,resultstyle=\bf]{5x^3-2x^2+1}
+\end{center}
+\end{multicols}
+
+Since the dividend is a degree-3 polynomial, the quotient is a quadratic polynomial with coefficients $5$, $13$ and $39$.  Our quotient is then
+$q(x) = 5x^2+13x+39$ and the remainder is $r(x) = 118$.  Putting this all together, we have the following equation.
+$$\frac{5x^3 - 2x^2 + 1}{x-3}~=~5x^2+13x+39~+~\frac{118}{x-3}$$
+
+{\bf II - Demo/Discussion Problems:}\\
+\ \par
+Use synthetic division to divide and simplify each of the given expressions.  Express each answer in the form below.
+$$\frac{\text{dividend}}{\text{divisor}} \ = \ \text{quotient} \ + \ \frac{\text{remainder}}{\text{divisor}}$$
+\begin{enumerate}
+	\item $\dfrac{x^3+8}{x+2}$
+	\item $\dfrac{-12x^2-8x+4}{2x-3}$
+	\item $\dfrac{x^2 + 7 x + 15}{x + 4}$
+	\item $\dfrac{x^3 - 46 x + 22}{x + 7}$
+	\item $\dfrac{2x^3-4x+42}{x+3}$
+\end{enumerate}
+\ \par
+{\bf III - Practice Problems:}\\
+\ \par
+Use synthetic division to divide and simplify each of the given expressions.  Express each answer in the form below.
+$$\frac{\text{dividend}}{\text{divisor}} \ = \ \text{quotient} \ + \ \frac{\text{remainder}}{\text{divisor}}$$
+
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $\dfrac{x^4-4x^3+2x^2-x+1 }{x+2}$
+  \item $\dfrac{x^4-2x^3+7x^2-6x+3 }{x-2}$
+  \item $\dfrac{2x^4-2x^3-10x^2+1 }{x+2}$
+  \item $\dfrac{5x^4-2x^3+4x^2-5x }{x-1}$
+  \item $\dfrac{-x^4-x^3+x^2+x+1 }{x+5}$
+  \item $\dfrac{x^4-3x^3+2x^2-x+1 }{x-4}$
+  \item $\dfrac{12x^4-x^3+x^2-3x+1 }{x+2}$
+  \item $\dfrac{3x^4+3x^3+13x^2-4x+14 }{x+1}$
+  \item $\dfrac{1x^4-3x^3+5x^2-14x+2 }{x-2}$
+  \item $\dfrac{2x^4-2x+1 }{x+3}$
+  \item $\dfrac{x^4-3x-4 }{x-3}$
+  \item $\dfrac{x^4-4x^3+13x^2-5x+7 }{x-4}$
+\end{enumerate}
+\end{multicols}
+Use synthetic division to divide and simplify each of the given expression from Practice Problems 
+%9-41 
+\ref{polydiv_one}-\ref{polydiv_two} 
+from the previous lesson.
+\newpage
+\end{document}
