@@ -1,0 +1,394 @@
+\documentclass[12pt]{book}
+\raggedbottom
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=0.25in]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem,tikzpagenodes}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0in}
+\setlist{itemsep=0in}
+\setlength{\parskip}{0.1in}
+\setcounter{secnumdepth}{0}
+\input{lesson_order}
+
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+
+\begin{document}
+\section{Compound and Absolute Value Inequalities}
+\subsection{Compound Inequalities (L\arabic{lesson_compound_inequalities})}
+{\bf Objective: Solve, graph and give interval notation to the solution of compound inequalities and inequalities containing absolute values.}\par
+Several inequalities can be combined together to form what are called compound inequalities. There are three types of compound inequalities which we will investigate in this section.\par
+The first type of a compound inequality is an OR inequality. For this type of inequality we want a true statement from either one inequality OR the other inequality OR both. When we are graphing these type of inequalities we will graph each individual inequality above the number line, then combine them together on the number line for our graph.\par
+When we provide interval notation for our solution, if there are two different intervals to the graph we will put a $\cup$ between the two intervals. The $\cup$ symbol represents a {\it union} of the two intervals in our final answer.\par
+\begin{example}\label{Lin100} Solve each inequality, graph the solution, and provide the interval notation of your solution.
+  \begin{eqnarray*}
+    2 x - 5 > 3 \tmop{~~or~~} 4 - x \geq 6~~ &  & \tmop{Solve} \tmop{each}
+    \tmop{inequality}\\
+    \tmmathbf{\underline{+ 5 ~ + 5}} ~~~ \tmmathbf{\underline{- 4 ~~~~~~ - 4}} &  & \tmop{Add} \tmop{or}
+    \tmop{subtract} \tmop{first}\\
+    2 x > 8 \tmop{~~~~or~~~~~} - x \geq 2~~ &  & \tmop{Divide}\\
+    \tmmathbf{\overline{2} ~~~~~ \overline{2}} ~~~~~~~~~~~~ \tmmathbf{\overline{- 1} ~~~ \overline{- 1}} &  &
+    \tmop{Dividing} \tmop{by} \tmop{negative} \tmop{flips} \tmop{sign}\\
+    x > 4 \tmop{~~~~or~~~~~} x \leq - 2~~ &  & \tmop{Graph} \tmop{the}
+    \tmop{inequalities} \tmop{separately},\\
+		& & ~~~\tmop{then~combine}
+  \end{eqnarray*}
+\end{example}
+
+\begin{center}
+\begin{tikzpicture}[xscale=0.7,yscale=0.7]
+	\draw [<->](-6.25,2) -- coordinate (x axis mid) (6.25,2) node[right] {\ \ $x>4$};
+	\draw [->,line width=0.8mm](4,2) -- coordinate (x axis mid) (6.25,2);
+	\draw (4,2) node {{\bf (}};
+	\draw [<->](-6.25,0) -- coordinate (y axis mid) (6.25,0) node[right] {\ \ $x\leq-2$};
+	\draw [<-,line width=0.8mm](-6.25,0) -- coordinate (x axis mid) (-2,0);
+	\draw (-2,0) node {{\bf ]}};
+	\draw [<->](-6.25,-3) -- coordinate (y axis mid) (6.25,-3) node[right] {\ \ $x>4$ OR $x\leq-2$};
+	\draw [->,line width=0.8mm](4,-3) -- coordinate (x axis mid) (6.25,-3);
+	\draw [<-,line width=0.8mm](-6.25,-3) -- coordinate (x axis mid) (-2,-3);
+	\draw (4,-3) node {{\bf (}};
+	\draw (-2,-3) node {{\bf ]}};
+	\draw [-](4,0.1) -- coordinate (y axis mid) (4,-0.1) node[below] {$4$};
+	\draw [-](-2,0.1) -- coordinate (y axis mid) (-2,-0.1) node[below] {$-2$};
+	\draw [-](4,2.1) -- coordinate (y axis mid) (4,1.9) node[below] {$4$};
+	\draw [-](-2,2.1) -- coordinate (y axis mid) (-2,1.9) node[below] {$-2$};
+	\draw [-](4,-2.9) -- coordinate (y axis mid) (4,-3.1) node[below] {$4$};
+	\draw [-](-2,-2.9) -- coordinate (y axis mid) (-2,-3.1) node[below] {$-2$};
+	\draw (0,-1.5) node {$\Downarrow$};
+\end{tikzpicture}
+\\
+Our answer is $(-\infty,-2]\cup(4,\infty)$.
+\end{center}
+There are several different results that could result from an OR statement. The graphs could be pointing different directions, as in the graph above.  The graphs could also be pointing in the same direction, as in the graph below on the left.  Lastly, the graphs could be pointing in opposite directions, but overlapping, as in the graph below on the right. Notice how interval notation works for each of these cases.
+\begin{center}
+\begin{tikzpicture}[xscale=0.7,yscale=0.7]
+	\draw [<->](-10,2) -- coordinate (x axis mid) (-3,2);
+	\draw [<->](-10,0) -- coordinate (x axis mid) (-3,0);
+	\draw [<->](-10,-3) -- coordinate (x axis mid) (-3,-3);
+	\draw [<-,line width=0.8mm](-10,2) -- coordinate (x axis mid) (-7,2);
+	\draw [<-,line width=0.8mm](-10,0) -- coordinate (x axis mid) (-5,0);
+	\draw [<-,line width=0.8mm](-10,-3) -- coordinate (x axis mid) (-5,-3);
+	\draw (-7,2) node {{\bf ]}};
+	\draw (-5,0) node {{\bf )}};
+	\draw (-5,-3) node {{\bf )}};
+	\draw [-](-7,2.1) -- coordinate (y axis mid) (-7,1.9) node[below] {$-3$};
+	\draw [-](-5,0.1) -- coordinate (y axis mid) (-5,-0.1) node[below] {$-1$};
+	\draw [-](-5,-2.9) -- coordinate (y axis mid) (-5,-3.1) node[below] {$-1$};
+	\draw (-6.5,-1.5) node {$\Downarrow$};
+	\draw (-6.5,-4.5) node {$x\leq -3$ or $x<-1$};
+	\draw (-6.5,-5.5) node {$(-\infty,-3]\cup(-\infty,-1)=(-\infty,-1)$};
+	\draw [<->](3,2) -- coordinate (x axis mid) (10,2);
+	\draw [<->](3,0) -- coordinate (x axis mid) (10,0);
+	\draw [<->](3,-3) -- coordinate (x axis mid) (10,-3);
+	\draw [->,line width=0.8mm](5,2) -- coordinate (x axis mid) (10,2);
+	\draw [<-,line width=0.8mm](3,0) -- coordinate (x axis mid) (7,0);
+	\draw [<->,line width=0.8mm](3,-3) -- coordinate (x axis mid) (10,-3);
+	\draw (5,2) node {{\bf [}};
+	\draw (7,0) node {{\bf )}};
+	\draw [-](7,0.1) -- coordinate (y axis mid) (7,-0.1) node[below] {$-1$};
+	\draw [-](5,2.1) -- coordinate (y axis mid) (5,1.9) node[below] {$-3$};
+	\draw (6.5,-1.5) node {$\Downarrow$};
+	\draw (6.5,-4.5) node {$x\geq -3$ or $x<-1$};
+	\draw (6.5,-5.5) node {$[-3,\infty)\cup(-\infty,-1)=(-\infty,\infty)$};
+\end{tikzpicture}
+\end{center}
+
+\begin{multicols}{2}
+  As the graphs overlap, we take the\\ largest graph for our solution.\par
+  Interval notation: $(- \infty, -1)$ 
+  
+  \columnbreak
+  
+  When the graphs are combined they\\ cover the entire number line.\par
+  Interval notation: $(- \infty, \infty)$ \tmop{~or~} $\mathbb{R}$
+\end{multicols}
+
+The second type of compound inequality is an AND inequality. These inequalities require {\it both} statements to be true. If one is false, they both are false. When we graph these inequalities we can follow a similar process.  First, graph both inequalities above the number line.  This time, however, we will only consider where they overlap on the number line for our final graph.  When our solution is given in interval notation it will be expressed in a manner very similar to single inequalities.  The symbol that can be used for simplifying an AND inequality is known as an {\it intersection}, denoted by a $\cap$.  When simplifying, the $\cap$ should not be needed or expressed in our final answer.
+\begin{example}\label{Lin101} Solve each inequality, graph the solution, and provide the interval notation of your solution.
+  \begin{eqnarray*}
+    2 x + 8 \geq 5 x - 7 \tmop{~~and~~} 5 x - 3 > 3 x + 1 &  & \tmop{Move}
+    \tmop{variables} \tmop{to} \tmop{one} \tmop{side}\\
+    \tmmathbf{\underline{- 2 x ~~~~~- 2 x}} ~~~~~~~~~~~~  \tmmathbf{\underline{- 3 x ~~~~- 3 x}}~~~~  &  & \\
+    8 \geq 3 x - 7 \tmop{~~~and~~~} 2 x - 3 > 1~~~~~~ &  & \tmop{Add} 7 \tmop{~or~} 3
+    \tmop{to} \tmop{both} \tmop{sides}\\
+    \tmmathbf{\underline{+ 7 ~~~~~~+ 7}} ~~~~~~~~~~~~~~~~ \tmmathbf{\underline{+ 3 ~~+ 3}}~~~ &  & \\
+    15 \geq 3 x \tmop{~~~~~~and~~~~~~~} 2 x > 4~~~~~~~ &  & \tmop{Divide}\\
+    \tmmathbf{\overline{3} ~~~~~ \overline{3}} ~~~~~~~~~~~~~~~~~~~~ \tmmathbf{\overline{2} ~~~~~ \overline{2}}~~~~~~~ &  & \\
+    5 \geq x \tmop{~~~~~~~and~~~~~~~} x > 2~~~~~~~~~ &  & \tmop{Graph~the~inequalities~}\\
+		& & ~~~\tmop{separately,~then~combine}%x \tmop{~is}
+    %\tmop{less~than} (\tmop{or} \tmop{equal~to}) 5,\\
+		%& & \tmop{greater} \tmop{than} 2
+  \end{eqnarray*}
+\end{example}
+
+\begin{center}
+\begin{tikzpicture}[xscale=0.7,yscale=0.7]
+	\draw [<->](-6.25,2) -- coordinate (x axis mid) (6.25,2) node[right] {\ \ $x\leq 5$};
+	\draw [<-,line width=0.8mm](-6.25,2) -- coordinate (x axis mid) (5,2);
+	\draw (5,2) node {{\bf ]}};
+	\draw [<->](-6.25,0) -- coordinate (y axis mid) (6.25,0) node[right] {\ \ $x>2$};
+	\draw [->,line width=0.8mm](2,0) -- coordinate (x axis mid) (6.25,0);
+	\draw (2,0) node {{\bf (}};
+	\draw [<->](-6.25,-3) -- coordinate (y axis mid) (6.25,-3) node[right] {\ \ $x\leq 5$ AND $x>2$};
+	\draw [-,line width=0.8mm](2,-3) -- coordinate (x axis mid) (5,-3);
+	\draw (2,-3) node {{\bf (}};
+	\draw (5,-3) node {{\bf ]}};
+	\draw [-](5,0.1) -- coordinate (y axis mid) (5,-0.1) node[below] {$5$};
+	\draw [-](2,0.1) -- coordinate (y axis mid) (2,-0.1) node[below] {$2$};
+	\draw [-](5,2.1) -- coordinate (y axis mid) (5,1.9) node[below] {$5$};
+	\draw [-](2,2.1) -- coordinate (y axis mid) (2,1.9) node[below] {$2$};
+	\draw [-](5,-2.9) -- coordinate (y axis mid) (5,-3.1) node[below] {$5$};
+	\draw [-](2,-2.9) -- coordinate (y axis mid) (2,-3.1) node[below] {$2$};
+	\draw (0,-1.5) node {$\Downarrow$};
+\end{tikzpicture}
+\\
+Our answer is $(-\infty,5]\cap(2,\infty)=(2,5]$.
+\end{center}
+Again, as we graph AND inequalities, only the overlapping parts of the individual graphs makes it to the final number line.  There are three different types of possibilities we could encounter when analyzing the overlap of an AND inequality. The first is shown in the above example; both intervals have some overlap, but point in opposite directions. The second occurs when the arrows both point in the same direction, as shown below on the left. The third occurs when the arrows point in opposite directions, but do not overlap, as shown below on the right. Notice how interval notation is expressed in each case.
+\begin{center}
+\begin{tikzpicture}[xscale=0.7,yscale=0.7]
+	\draw [<->](-10,2) -- coordinate (x axis mid) (-3,2);
+	\draw [<->](-10,0) -- coordinate (x axis mid) (-3,0);
+	\draw [<->](-10,-3) -- coordinate (x axis mid) (-3,-3);
+	\draw [<-,line width=0.8mm](-10,2) -- coordinate (x axis mid) (-5,2);
+	\draw [<-,line width=0.8mm](-10,0) -- coordinate (x axis mid) (-7,0);
+	\draw [<-,line width=0.8mm](-10,-3) -- coordinate (x axis mid) (-7,-3);
+	\draw (-5,2) node {{\bf )}};
+	\draw (-7,0) node {{\bf )}};
+	\draw (-7,-3) node {{\bf )}};
+	\draw [-](-5,2.1) -- coordinate (y axis mid) (-5,1.9) node[below] {$-1$};
+	\draw [-](-7,0.1) -- coordinate (y axis mid) (-7,-0.1) node[below] {$-3$};
+	\draw [-](-7,-2.9) -- coordinate (y axis mid) (-7,-3.1) node[below] {$-3$};
+	\draw (-6.5,-1.5) node {$\Downarrow$};
+	\draw (-6.5,-4.5) node {$x< -1$ and $x<-3$};
+	\draw (-6.5,-5.5) node {$(-\infty,-1)\cap(-\infty,-3)=(-\infty,-3)$};
+	\draw [<->](3,2) -- coordinate (x axis mid) (10,2);
+	\draw [<->](3,0) -- coordinate (x axis mid) (10,0);
+	\draw [<->](3,-3) -- coordinate (x axis mid) (10,-3);
+	\draw [->,line width=0.8mm](8,2) -- coordinate (x axis mid) (10,2);
+	\draw [<-,line width=0.8mm](3,0) -- coordinate (x axis mid) (6,0);
+	\draw [<->](3,-3) -- coordinate (x axis mid) (10,-3);
+	\draw (8,2) node {{\bf (}};
+	\draw (6,0) node {{\bf )}};
+	\draw [-](6,0.1) -- coordinate (y axis mid) (6,-0.1) node[below] {$-1$};
+	\draw [-](8,2.1) -- coordinate (y axis mid) (8,1.9) node[below] {$3$};
+	\draw (6.5,-1.5) node {$\Downarrow$};
+	\draw (6.5,-4.5) node {$x> 3$ and $x<-1$};
+	\draw (6.5,-5.5) node {$(3,\infty)\cap(-\infty,-1)=\varnothing$};
+\end{tikzpicture}
+\end{center}
+
+\begin{multicols}{2}
+  In this graph, the overlap is only the\\ smaller graph ($x<-2$), so this is what\\ makes it to the final number line.\par
+  Interval notation: $(- \infty, - 2)$
+
+  \columnbreak
+  
+  In this graph there is no overlap of the parts. Because there is no overlap, no values make it to the final number line.\par
+  Interval notation: No solution or $\varnothing$
+\end{multicols}
+
+The third type of compound inequality is a special type of AND inequality, and occurs when our variable (or expression containing the variable) is between two numbers.  We can write this as a single mathematical sentence with three parts, such as $5 < x \leq 8$, to show $x$ is between 5 and 8 (or equal to 8). This type of inequality is often referred to as a {\it double inequality}, since it contains two inequalities.  When solving these types of inequalities, as there are three parts to work with, in order to stay balanced we will do the same thing to all three parts (rather than just two sides), and eventually isolate the variable in the middle.  The resulting graph will contain all values between the numbers on either side of the double inequality, with appropriate brackets or parentheses on the ends.
+\begin{example}\label{Lin102} Solve each inequality, graph the solution, and provide the interval notation of your solution.
+  \begin{eqnarray*}
+    - 6 \leq - 4 x + 2 < 2~~ &  & \tmop{Subtract} 2 \tmop{from} \tmop{all}
+    \tmop{three} \tmop{parts}\\
+    \tmmathbf{\underline{- 2} ~~~~~~~~~~\underline{- 2} ~~~\underline{- 2}} &  & \\
+    - 8 \leq - 4 x < 0~~ &  & \tmop{Divide} \tmop{all} \tmop{three}
+    \tmop{parts} \tmop{by} - 4\\
+    \tmmathbf{\overline{- 4} ~~~~ \overline{- 4} ~~~~ \overline{- 4}} &  & \tmop{Dividing}
+    \tmop{by~a} \tmop{negative} \tmop{flips} \tmop{the} \tmop{symbols}\\
+    2 \geq x > 0~~ &  & \tmop{Flip} \tmop{entire} \tmop{statement}
+    \tmop{so} \tmop{values} \tmop{get} \tmop{larger} \tmop{left} \tmop{to}
+    \tmop{right}\\
+    0 < x \leq 2~~ &  & \text{Graph~} x \text{~between~0~and~2}%\\
+%		& & ~~~\tmop{then~combine}% x \tmop{between} 0 \tmop{and} 2
+  \end{eqnarray*}
+\end{example}
+
+\begin{center}
+\begin{tikzpicture}[xscale=0.7,yscale=0.7]
+	\draw [<->](-6.25,-3) -- coordinate (y axis mid) (6.25,-3) node[right] {\ \ $0<x\leq 2$};
+	\draw [-,line width=0.8mm](2,-3) -- coordinate (x axis mid) (5,-3);
+	\draw (2,-3) node {{\bf (}};
+	\draw (5,-3) node {{\bf ]}};
+	\draw [-](5,-2.9) -- coordinate (y axis mid) (5,-3.1) node[below] {$2$};
+	\draw [-](2,-2.9) -- coordinate (y axis mid) (2,-3.1) node[below] {$0$};
+\end{tikzpicture}
+\\
+Our answer is $(0,2]$.
+\end{center}
+\subsection{Inequalities Containing Absolute Values (L\arabic{lesson_inequalities_containing_absolute_values})}
+When an inequality contains an absolute value we will look to isolate the absolute value and eventually remove it, in order to graph the solution and express it using interval notation.  The way that we treat the absolute value during this process depends on the direction of the inequality symbol.\par
+Consider $|x| < 2$.\par
+We define the absolute value as the distance from zero.  Another way to read this inequality would be {\it the distance that the variable} $x$ {\it is from zero is less than 2}. So on a number line we will shade all values of $x$ that are less than 2 units away from zero.  Alternatively stated, we will shade all values of $x$ that are within 2 units of zero.
+
+\begin{center}
+\begin{tikzpicture}[xscale=0.7,yscale=0.7]
+	\draw [<->](-6.25,-3) -- coordinate (y axis mid) (6.25,-3) node[right] {\ \ $-2<x<2$};
+	\draw [-,line width=0.8mm](-3,-3) -- coordinate (x axis mid) (3,-3);
+	\draw (-3,-3) node {{\bf (}};
+	\draw (3,-3) node {{\bf )}};
+	\draw [-](-3,-2.9) -- coordinate (y axis mid) (-3,-3.1) node[below] {$-2$};
+	\draw [-](0,-2.9) -- coordinate (y axis mid) (0,-3.1) node[below] {$0$};
+	\draw [-](3,-2.9) -- coordinate (y axis mid) (3,-3.1) node[below] {$2$};
+\end{tikzpicture}
+\\
+Our solution set is all $x$ in the interval $(-2,2)$.
+\end{center}
+This graph looks just like the graphs of the double (compound) inequalities from the previous subsection!  When an isolated absolute value is {\it less than} (or $\leq$) a number we will remove the absolute value by changing the problem to a double inequality, with the negative value on the left and the positive value on the right. So $|x| < 2$ becomes $- 2 < x < 2$, as the graph above illustrates.\par
+Consider $|x| > 2$.\par
+Similarly, another way to read this inequality would be {\it the distance that} $x$ {\it is from zero is greater than 2}. So on the number line we will shade all values of $x$ that are more than 2 units away from zero.\par
+\begin{center}
+\begin{tikzpicture}[xscale=0.7,yscale=0.7]
+	\draw [<->](-6.25,-3) -- coordinate (y axis mid) (6.25,-3) node[right] {\ \ $x<-2$ OR $x>2$};
+	\draw [<-,line width=0.8mm](-6.25,-3) -- coordinate (x axis mid) (-3,-3);
+	\draw [->,line width=0.8mm](3,-3) -- coordinate (x axis mid) (6.25,-3);
+	\draw (-3,-3) node {{\bf )}};
+	\draw (3,-3) node {{\bf (}};
+	\draw [-](-3,-2.9) -- coordinate (y axis mid) (-3,-3.1) node[below] {$-2$};
+	\draw [-](0,-2.9) -- coordinate (y axis mid) (0,-3.1) node[below] {$0$};
+	\draw [-](3,-2.9) -- coordinate (y axis mid) (3,-3.1) node[below] {$2$};
+\end{tikzpicture}
+\\
+Our solution set is all $x$ in the union $(-\infty,-2)\cup(2,\infty)$.
+\end{center}
+This graph looks just like the graphs of the OR compound inequalities from the previous subsection! When an isolated absolute value is {\it greater than} (or $\geq$) a number we will remove the absolute value by changing the problem to an OR inequality: the first
+inequality will look just like the original inequality, but with no absolute value; the second inequality will reverse the direction of the original inequality symbol, and changing the value to a negative. So $|x| > 2$ becomes $x > 2$ or $x < - 2$, as the graph above illustrates.\par
+For all absolute value inequalities we can also express our answers in interval notation, which is done the same way as for standard compound
+inequalities.\par
+We can solve absolute value inequalities much like we solved absolute value equations. Our first step will be to isolate the absolute value. Next we will remove the absolute value by either making a double inequality if the absolute value is less than a number, or making an OR inequality if the absolute value is greater than a number. Then we will solve these inequalities. Remember, if we multiply or divide by a negative number during the process, the inequality symbol(s) must switch directions!
+\begin{example}\label{Lin103} Solve, graph, and provide interval notation for the following inequality.
+  \begin{eqnarray*}
+    |4x - 5| \geq 6~~~~~~~~~~~~ &  & \tmop{Absolute} \tmop{value} \tmop{is}
+    \tmop{greater}, \tmop{use} \tmop{OR}\\
+    4 x - 5 \geq 6 \tmop{~~~~OR~~~} 4 x - 5 \leq - 6 &  & \tmop{Solve}\\
+    \tmmathbf{\underline{+ 5 ~~+ 5}} ~~~~~~~~~~~~~~ \tmmathbf{\underline{+ 5 ~~+ 5}} &  & \tmop{Add~} 5 \tmop{~to}
+    \tmop{both} \tmop{sides}\\
+    4 x \geq 11 \tmop{~~~OR~~~~~~~} 4 x \leq - 1~ &  & \\
+    \tmmathbf{\overline{4} ~~~~~ \overline{4} ~~~~~~~~~~~~~~~~~ \overline{4} ~~~~~~~ \overline{4}}~ &  & \tmop{Divide}
+    \tmop{both} \tmop{sides} \tmop{by~} 4\\
+    x \geq \frac{11}{4} \tmop{~~~OR~~~~~~~~} x \leq - \frac{1}{4}~ &  &
+    \tmop{Graph}
+  \end{eqnarray*}
+\begin{center}
+\begin{tikzpicture}[xscale=0.7,yscale=0.7]
+	\draw [<->](-6.25,-3) -- coordinate (y axis mid) (6.25,-3) node[right] {\ \ $x\leq -\frac{1}{4}$ OR $x\geq \frac{11}{4}$};
+	\draw [<-,line width=0.8mm](-6.25,-3) -- coordinate (x axis mid) (-1,-3);
+	\draw [->,line width=0.8mm](3,-3) -- coordinate (x axis mid) (6.25,-3);
+	\draw (-1,-3) node {{\bf ]}};
+	\draw (3,-3) node {{\bf [}};
+	\draw [-](-1,-2.9) -- coordinate (y axis mid) (-1,-3.1) node[below] {$-\frac{1}{4}$};
+	\draw [-](3,-2.9) -- coordinate (y axis mid) (3,-3.1) node[below] {$\frac{11}{4}$};
+\end{tikzpicture}
+\\
+Our solution set is all $x$ in the union $(-\infty,-\frac{1}{4}]\cup[\frac{11}{4},\infty)$.
+\end{center}
+\end{example}
+\begin{example}\label{Lin104} Solve, graph, and provide interval notation for the following inequality.
+  \begin{eqnarray*}
+    - 4 - 3 |x| \leq - 16 &  & \\
+    \tmmathbf{\underline{+ 4~~~~~~~~~~~~ + 4}} &  & \tmop{Add~} 4 \tmop{~to} \tmop{both}
+    \tmop{sides}\\
+    - 3 |x| \leq - 12 &  & \tmop{Divide} \tmop{both} \tmop{sides}
+    \tmop{by~} - 3\\
+    \tmmathbf{\overline{- 3} ~~~~~ \overline{- 3}}~ &  & \tmop{Dividing} \tmop{by~a}
+    \tmop{negative} \tmop{switches} \tmop{the} \tmop{inequality}\\
+    |x| \geq 4 &  & \tmop{Absolute} \tmop{value} \tmop{is}
+    \tmop{greater}, \tmop{use} \tmop{OR}\\
+    x \geq 4 \tmop{~~OR~~} x \leq - 4 &  & \tmop{Graph}
+  \end{eqnarray*}
+\begin{center}
+\begin{tikzpicture}[xscale=0.7,yscale=0.7]
+	\draw [<->](-6.25,-3) -- coordinate (y axis mid) (6.25,-3) node[right] {\ \ $x\leq -4$ OR $x\geq 4$};
+	\draw [<-,line width=0.8mm](-6.25,-3) -- coordinate (x axis mid) (-3.5,-3);
+	\draw [->,line width=0.8mm](3.5,-3) -- coordinate (x axis mid) (6.25,-3);
+	\draw (-3.5,-3) node {{\bf ]}};
+	\draw (3.5,-3) node {{\bf [}};
+	\draw [-](-3.5,-2.9) -- coordinate (y axis mid) (-3.5,-3.1) node[below] {$-4$};
+	\draw [-](3.5,-2.9) -- coordinate (y axis mid) (3.5,-3.1) node[below] {$4$};
+\end{tikzpicture}
+\\
+Our solution set is all $x$ in the union $(-\infty,-4]\cup[4,\infty)$.
+\end{center}
+\end{example}
+In the previous example, we cannot combine $- 4$ and $- 3$ because there are no like terms, the $-3$ is being multiplied by an absolute value. So we must first clear the $- 4$ by adding 4, then divide both sides by by $- 3$. The next example is similar.
+\begin{example}\label{Lin105} Solve, graph, and provide interval notation for the solution.
+  \begin{eqnarray*}
+    9 - 2 |4x + 1| > 3~~ &  &\\
+    \tmmathbf{\underline{- 9 ~~~~~~~~~~~~~~~~- 9}} &  & \tmop{Subtract~} 9 \tmop{~from} \tmop{both}
+    \tmop{sides} \\
+    - 2 |4x + 1| > - 6~ &  & \tmop{Divide} \tmop{both} \tmop{sides} \tmop{by~} -
+    2\\
+    \tmmathbf{\overline{~- 2~} ~~~~~~~ \overline{- 2}} &  & \tmop{Dividing} \tmop{by}
+    \tmop{negative} \tmop{switches} \tmop{the} \tmop{inequality}\\
+    |4x + 1| < 3~~&  & \tmop{Absolute} \tmop{value} \tmop{is} \tmop{less},
+    \tmop{use} \tmop{double} \tmop{inequality}\\
+    - 3 < 4 x + 1 < 3~~ &  & \tmop{Solve}\\
+    \tmmathbf{\underline{- 1} ~~~~~~~\underline{- 1} ~~~\underline{- 1}} &  & \tmop{Subtract~} 1 \tmop{~from} \tmop{all}
+    \tmop{three} \tmop{parts}\\
+    - 4 < 4 x < 2~~&  & \tmop{Divide} \tmop{all} \tmop{three} \tmop{parts}
+    \tmop{by~} 4\\
+    \tmmathbf{\overline{4} ~~~~~ \overline{4} ~~~~~ \overline{4}}~~ &  & \\
+    - 1 < x < \frac{1}{2}~ &  & \tmop{Graph}
+  \end{eqnarray*}
+\begin{center}
+\begin{tikzpicture}[xscale=0.7,yscale=0.7]
+	\draw [<->](-6.25,-3) -- coordinate (y axis mid) (6.25,-3) node[right] {\ \ $-1<x<\frac{1}{2}$};
+	\draw [-,line width=0.8mm](-2,-3) -- coordinate (x axis mid) (1,-3);
+	\draw (-2,-3) node {{\bf (}};
+	\draw (1,-3) node {{\bf )}};
+	\draw [-](-2,-2.9) -- coordinate (y axis mid) (-2,-3.1) node[below] {$-1$};
+	\draw [-](1,-2.9) -- coordinate (y axis mid) (1,-3.1) node[below] {$\frac{1}{2}$};
+\end{tikzpicture}
+\\
+Our solution set is all $x$ in the interval $(-1,\frac{1}{2})$.
+\end{center}
+\end{example}
+In the previous example, we cannot distribute the $- 2$ into the absolute value. In general, it is never recommended to distribute values inside or factor values outside of an absolute value. Our best way to solve is to first isolate the absolute value by clearing the values around it, then convert to the appropriate compound inequality (either a double inequality or an OR inequality) and solve.\par
+It is important to remember that as we are solving these equations, an absolute value is always positive. If we end up with an absolute value that is less than a negative number, then we will have no solution because the absolute value will always be positive, and therefore greater than a negative. Similarly, if an absolute value is greater than a negative, this will always happen. Here our answer will be all real numbers.  The next two examples demonstrate these special cases.
+\begin{example}\label{106}~~~ Solve, graph, and provide interval notation for the solution.
+  \begin{eqnarray*}
+    12 + 4 |6x - 1| < 4~~~~ &  & \tmop{Subtract~} 12 \tmop{~from} \tmop{both}
+    \tmop{sides}\\
+    \tmmathbf{\underline{- 12 ~~~~~~~~~~~~~~~~- 12}} &  & \\
+    4 |6x - 1| < - 8~~~~ &  & \tmop{Divide} \tmop{both} \tmop{sides} \tmop{by~} 4\\
+    \tmmathbf{\overline{~~4~~} ~~~~~~ \overline{~4~}}~~~~ &  & \\
+    |6x - 1| < - 2~~~~ &  & \tmop{Absolute} \tmop{value} \tmop{cannot} \tmop{be}
+    \tmop{less} \tmop{than~a} \tmop{negative}
+  \end{eqnarray*}
+\begin{center}
+\begin{tikzpicture}[xscale=0.7,yscale=0.7]
+	\draw [<->](-6.25,-3) -- coordinate (y axis mid) (6.25,-3) node[right] {\ \ $x$};
+\end{tikzpicture}
+\\
+Our solution set is {\it no solutions} or $\varnothing$.
+\end{center}
+\end{example}
+\begin{example}\label{Lin107}~~~ Solve, graph, and provide interval notation for the solution.
+  \begin{eqnarray*}
+    5 - 6 |x + 7| \leq 17~ &  &\\
+    \tmmathbf{\underline{- 5 ~~~~~~~~~~~~~~~- 5}} &  &  \tmop{Subtract~} 5 \tmop{~from} \tmop{both} \tmop{sides}\\
+    - 6 |x + 7| \leq 12~ &  & \tmop{Divide} \tmop{both} \tmop{sides}
+    \tmop{by~} - 6\\
+    \tmmathbf{\overline{- 6~} ~~~~~~ \overline{- 6}} &  & \tmop{Dividing} \tmop{by~a}
+    \tmop{negative} \tmop{flips} \tmop{the} \tmop{symbol}\\
+    |x + 7| \geq - 2~ &  & \tmop{Absolute} \tmop{value~is} \tmop{always}
+    \tmop{greater} \tmop{than~a} \tmop{negative}
+  \end{eqnarray*}
+\begin{center}
+\begin{tikzpicture}[xscale=0.7,yscale=0.7]
+	\draw [<->](-6.25,-3) -- coordinate (y axis mid) (6.25,-3) node[right] {\ \ $x$};
+	\draw [<->,line width=0.8mm](-6.25,-3) -- coordinate (x axis mid) (6.25,-3);
+\end{tikzpicture}
+\\
+Our solution set is {\it all real numbers} or $(-\infty,\infty)$.
+\end{center}
+\end{example}
+\end{document}

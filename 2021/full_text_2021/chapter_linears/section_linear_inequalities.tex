@@ -1,0 +1,289 @@
+\documentclass[12pt]{book}
+\raggedbottom
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=0.25in]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem,tikzpagenodes}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0in}
+\setlist{itemsep=0in}
+\setlength{\parskip}{0.1in}
+\setcounter{secnumdepth}{0}
+\input{lesson_order}
+
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+
+\begin{document}
+\section{Linear Inequalities and Sign Diagrams (L\arabic{lesson_linear_inequalities})}\par
+{\bf Objective: Solve, graph, and give interval notation for the solution to a linear inequality.  Create a sign diagram to identify those intervals where a linear expression is positive or negative.}
+\subsection{Linear Inequalities}
+When given a linear equation such as $x+2=5$, one can solve to obtain {\it one} solution ($x=3$).  Although the method for solving an inequality is, in general, very similar to that for solving an equation, we will see that the solution to a inequality will usually include an entire range of values.\par
+In order to solve any inequality, we must first understand the accompanying notation and respective terminology.
+\begin{center}
+\begin{tabular}{cl}
+\underline{Symbol} & \underline{Meaning}\\
+$<$ & less than\\
+$>$ & greater than\\
+$\leq$ & less than or equal to\\
+$\geq$ & greater than or equal to\\
+$\neq$ & not equal to
+\end{tabular}
+\end{center}
+For a more in-depth treatment of set notation (graphical, interval, or inequality notation) including unions and intersections, a review of the following open resource is strongly recommended: \href{http://msenux2.redwoods.edu/IntAlgText/chapter1/LogicSection.pdf}{\it{Logic and Set Notation}}\par
+Notice that the ``equals'' symbol $=$ is not listed in the table above, as we will be working with {\it inequalities}, rather than equations.  It is also worth mentioning that there are several alternate ways of describing the same symbol.  For example, the phrases ``at most'' or ``no more than'' can easily be interchanged with ``less than or equal to'', and similarly for ``at least'', ``no less than'', and ``greater than or equal to''.  Because of this, one needs to use a bit of caution, when faced with any problem that is presented verbally. \par
+$$2<5, \qquad\qquad 1>-1, \qquad\qquad 5\leq 10, \qquad\qquad 3\leq 3,$$
+$$7\geq-2, \qquad\qquad 4\geq 4, \qquad\qquad -1\neq 1$$
+The examples above, though true, do not contain a variable.  We now will work with inequalities containing one (or more) variable(s).  Following the previous sections of this chapter, we will first concern ourselves with linear inequalities, followed by compound inequalities and inequalities that contain an absolute value.  The solution to an inequality is the set of all real numbers that make the inequality true.\par
+\begin{example}\label{Lin92} Solve the linear inequality  $x+2<5$. 
+\begin{eqnarray*}
+x+2<5~~ && \\
+\tmmathbf{\underline{-2}~~~\underline{-2}} && \text{Subtract~} 2 \text{~from~both~sides} \\
+x<3~~ && \text{Our~solution}
+\end{eqnarray*}
+\end{example}
+Notice that we solve the previous inequality using the same method that one would use to solve the equation $x+2=5$.  Some differences will be seen later.\par
+When describing the solution to a given inequality, it will often be useful to graph the solution on a number line and shade the section(s) of the number line that coincide with the solution set.  The number line below illustrates our previous example.
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\draw [<->](-5,0) -- coordinate (x axis mid) (5,0) node[below right] {$x$};
+	\draw [<-,line width=1.5mm](-5,0) -- coordinate (x axis mid) (3,0);
+	\draw (3,-1) node {$3$};
+	\draw (3,0) node {\huge $)$};
+\end{tikzpicture}
+\end{center}
+Note that an open (unshaded) circle is often used in place of the parenthesis above.  In each case, this notation denotes an {\it exclusion} of the value $x=3,$ since it is {\it not} a valid solution to the given inequality.  Alternatively, a closed (shaded) circle or bracket would be used to denote {\it inclusion} of the boundary value, in the event that it {\it is} a valid solution.\par
+It is also a good idea to test a few values in order to check our work.\par
+\underline{Check}:\par
+\begin{center}
+\begin{tabular}{ccccc}
+\underline{Test Location} & \underline{Test Value} & \underline{Unsimplified} & \underline{Simplified} & \underline{Result}\\
+Shaded region & $x=1$ & $1+2<5$ & $3<5$ & True\\
+Boundary value & $x=3$ & $3+2<5$ & $5<5$ & False\\
+Unshaded region & $x=5$ & $5+2<5$ & $7<5$ & False
+\end{tabular}
+\end{center}
+A common misconception that many students have with an inequality such as $x<3$ and is worth mentioning has to do with the values between $x=2$ and $x=3$.  Although we have seen that $x$ cannot equal $3$ in the given inequality, this does not mean that the solution set has a largest value at $x=2$ (the largest \textit{integer} solution to the inequality).  In fact, there are infinitely many {\it real-number} solutions to the inequality between the integers $2$ and $3$.  For example, $2.5$, $2.7$, $2.9$, $2.99$, $2.999$, and $2.9999999999999999$ are all valid solutions to $x<3$.  Because of this, one could say that the inequality is \textit{bounded above by} $x=3$, but there is no {\it largest} solution that satisfies it.\par
+There are four primary ways of presenting the solution to an inequality:
+\begin{enumerate}
+		\item In words (verbally): ``All real numbers $x$ greater than or equal to $4$.''
+		\item Using inequality (and set-builder) notation: $\{x|x\geq 4\}$.
+		\item Using interval notation: $[4,\infty)$.
+		\item Using real-number line notation (graphically):
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\draw [<->](-5,0) -- coordinate (x axis mid) (5,0) node[below right] {$x$};
+	\draw [->,line width=1.5mm](-2,0) -- coordinate (x axis mid) (5,0);
+	\draw (-2,-1) node {$4$};
+	\draw (-2,0) node {\huge $[$};
+\end{tikzpicture}
+\end{center}
+\end{enumerate}
+In many of our examples, it will be acceptable to exclude the set-builder notation $\{x|\qquad\}$ altogether, and instead simply present the inequality $x\geq 4$.  Still, it is important that students recognize the meaning behind the notation (``The set of all real numbers $x$ such that...'').\par
+Recall that for interval notation we use brackets $[$ or $]$ to denote \textit{inclusion} of a boundary value, and parentheses $($ and $)$ to denote {\it exclusion}.  This notation can therefore be interchanged with a closed circle (inclusion) or an open circle (exclusion), when graphing a given solution set on the real-number line.  As a convention, from this point forward we will adopt brackets and parentheses instead of closed and open circles for graphical representations of solution sets, since it presents a nice connection between interval and real-number line notation.  Both notations, however, are generally accepted.  An example is shown below.
+\ \\
+\begin{center}
+\begin{multicols}{2}
+\begin{tikzpicture}[xscale=0.65,yscale=0.65]
+	\draw [<->](-5,3) -- coordinate (x axis mid) (5,3) node[below right] {$x$};
+	\draw [->,line width=1.5mm](-2,3) -- coordinate (x axis mid) (5,3);
+	\draw (-2,1.75) node {$-2$};
+	\draw[fill] (-2,3) circle (0.25);
+	\draw [<->](-5,0) -- coordinate (x axis mid) (5,0) node[below right] {$x$};
+	\draw [->,line width=1.5mm](-2,0) -- coordinate (x axis mid) (5,0);
+	\draw (-2,-1.25) node {$-2$};
+	\draw (-2,0) node {\large $[$};
+	\draw (0,-2) node {$x\geq -2$};
+\end{tikzpicture}
+
+\columnbreak
+
+\begin{tikzpicture}[xscale=0.65,yscale=0.65]
+	\draw [<->](-5,3) -- coordinate (x axis mid) (5,3) node[below right] {$x$};
+	\draw [<-,line width=1.5mm](-5,3) -- coordinate (x axis mid) (2,3);
+	\draw (2,1.5) node {$2$};
+	\draw[fill, color=white] (2,3) circle (0.25);
+	\draw[] (2,3) circle (0.25);
+	\draw [<->](-5,0) -- coordinate (x axis mid) (5,0) node[below right] {$x$};
+	\draw [<-,line width=1.5mm](-5,0) -- coordinate (x axis mid) (2,0);
+	\draw (2,-1.5) node {$2$};
+	\draw (1.9,0) node {\large $)$};
+	\draw (0,-2) node {$x<2$};
+\end{tikzpicture}
+\end{multicols}
+\end{center}
+
+Next, we will solve and present the solution to a linear equality using all four presentation methods.
+\begin{example}\label{Lin94}Solve the linear inequality  $4x-3\geq 5$. 
+\begin{eqnarray*}
+4x-3\geq 5~~~&&\\
+{\bf\underline{+3}~~~~\underline{+3}} &&  \text{Add~} 3 \text{~to~both~sides} \\
+4x\geq 8~~~ && \\
+{\bf\overline{4}~~~~\overline{4}}~~~&& \text{Divide~both~sides~by~} 4\\
+x\geq 2~~~ && \text{Our~solution}
+\end{eqnarray*}
+
+Our solution can be expressed as follows.
+
+\begin{enumerate}
+	\item Verbally: ``The set of all values of $x$ that are greater than or equal to (at least) $2$''.
+	\item Inequality: $\{x|x\geq 2\}$
+	\item Interval: $[2,\infty)$
+	\item Real-number Line (Graphically): 
+\end{enumerate}
+
+\begin{center}
+\begin{tikzpicture}[xscale=0.8,yscale=0.8]
+	\draw [<->](-5,0) -- coordinate (x axis mid) (5,0) node[below right] {$x$};
+	\draw [->,line width=1.5mm](2,0) -- coordinate (x axis mid) (5,0);
+	\draw (2,-1) node {$2$};
+	\draw (2,0) node {\huge $[$};
+\end{tikzpicture}
+\end{center}
+Note: A closed (shaded) circle at $x=2$ is also acceptable in place of a bracket.\par
+\underline{Check}:\par
+\begin{center}
+\begin{tabular}{ccccc}
+\underline{Test Location} & \underline{Test Value} & \underline{Unsimplified} & \underline{Simplified} & \underline{Result}\\
+Shaded region & $x=3$ & $4(3)-3\geq 5$ & $~9\geq 5$ & True\\
+Boundary value & $x=2$ & $4(2)-3\geq 5$ & $~5\geq 5$ & True\\
+Unshaded region & $x=0$ & $4(0)-3\geq 5$ & $-3\geq 5$ &False
+\end{tabular}
+\end{center}
+\end{example}
+Next, we would like to closely examine the impact that each of the four main operations ($+$, $-$, $\times$, $\div$) has on a given inequality.  This will shed more light on one of the fundamental differences between solving an equation and solving an inequality.  To demonstrate this, we will repeatedly use an obvious true statement, $4<10$.\par
+\underline{Original Inequality:} $4<10$
+\begin{center}
+\begin{tabular}{lcl}
+\underline{Action} & \underline{Resulting Inequality} & \underline{Outcome}\\
+Add $5$ & $9<15$ & True\\
+Subtract $5$ & $-1<5$ & True\\
+Add $-3$ & $1<7$ & True\\
+Subtract $-3$ & $7<13$ & True\\
+\end{tabular}
+\end{center}
+Note that since addition and subtraction are closely related, we see that the original inequality is also preserved when negative values are either added or subtracted.  In other words, adding (or subtracting) $-3$ will also preserve the validity of the inequality.  It is also worth noting that the action of adding $-3$ is analogous with that of subtracting $3$, so there are no surprises.  Later on, we will use the term {\it inverse} to describe the relationship between these two operations.\par
+\underline{Original Inequality:} $4<10$
+\begin{center}
+\begin{tabular}{lcl}
+\underline{Action} & \underline{Resulting Inequality} & \underline{Outcome}\\
+Multiply by $3$ & $12<30$ & True\\
+Divide by $2$ & $2<5$ & True\\
+Multiply by $-3$ & $-12<-30$ & {\bf False}\\
+Divide by $-2$ & $-2<-5$ & {\bf False}\\
+\end{tabular}
+\end{center}
+Here, we see that multiplication, and consequently division, by a negative value forces us to change the direction of the inequality ($-2<-5$ changes to $-2>-5$) in order to preserve its validity.  This is best illustrated by the following diagram.
+\begin{center}
+\begin{tikzpicture}[xscale=0.7,yscale=0.7]
+	\draw [<->](-11,0) -- coordinate (x axis mid) (-3,0) node[below right] {$x$};
+	\draw [<->](3,0) -- coordinate (x axis mid) (11,0) node[below right] {$x$};
+	\draw[fill] (-8,0) circle (0.12);
+	\draw[fill] (-9.5,0) circle (0.12);
+	\draw[fill] (8,0) circle (0.1);
+	\draw[fill] (9.5,0) circle (0.12);
+	\draw [-](-7,0.1) -- coordinate (x axis mid) (-7,-0.1) node[below] {$0$};
+	\draw [-](7,0.1) -- coordinate (x axis mid) (7,-0.1) node[below] {$0$};
+	\draw [<-] plot [domain=-2:2, samples=100] (\x,{-0.2*(\x)^2+1.5});
+	\draw (-8.1,-1) node {$-2$};
+	\draw (-8.75,-1) node {$<$};
+	\draw (-9.6,-1) node {$-5$};
+	\draw (0,-2) node {\text{Multiply by}\ $-1$};
+	\draw (8,-1) node {$2$};
+	\draw (8.75,-1) node {$<$};
+	\draw (9.5,-1) node {$5$};
+\end{tikzpicture}
+\end{center}
+Note that as with addition and subtraction, the \textit{inverse} relationship between the operations of multiplication and division is again at work, since for example, division by $-2$ is analogous to multiplication by $-1/2$.\par
+We conclude our treatment of linear inequalities with a more complicated example.  All our solution steps will be identical to those for solving a linear equation, with the only exception being those steps related to multiplication or division by a negative number.\par
+\begin{example}\label{Lin96} Solve the linear inequality  $-1-2(x-3)\leq 5x-9$. 
+\begin{eqnarray*}
+-1-2(x-3)~\leq~ 5x-9~~ && \\
+-1-2x+6~\leq~ 5x-9~~ && \text{Distribute~} -2\\
+5-2x~\leq~ 5x-9~~ && \text{Combine~like~terms}\\
+\tmmathbf{\underline{-5}~~~~~~~~~~~~~~~~\underline{-5}}~~ &&  \text{Subtract~} 5 \text{~from~both~sides}\\
+-2x~\leq~ 5x-14 && \\
+\tmmathbf{\underline{-5x}~~~~\underline{-5x}}~~~~~ && \text{Subtract~} 5x \text{~from~both~sides} \\
+-7x~\leq~ -14~~~~~ && \\
+\tmmathbf{\overline{-7}~~~~~~~\overline{-7}}~~~~~&& \text{Divide~both~sides~by~} -7\\
+x\geq 2~~~~~~~~~ && \text{Our~solution}
+\end{eqnarray*}
+\end{example}
+We leave it as an exercise to the reader to check that our solution is correct. 
+\subsection{Introduction to Sign Diagrams}
+In a later chapter we will define a {\it function}, providing several examples of $y$ as a function of $x$, and discuss in detail the processes associated with graphing certain families of functions.  As both linear and quadratic functions present the most basic examples of polynomials, we will take this opportunity to introduce a tool, called a {\it sign diagram} (or chart), that will be incredibly useful for graphing these and more complicated functions.  For the sake of the mathematics, it should be noted that the usefulness of the sign diagram for graphing is a direct consequence of the {\it continuity} of a function and the {\it Intermediate Value Theorem} (IVT).  These concepts will be studied more closely in subsequent courses (e.g. Calculus)
+\begin{example}\label{Lin97} Graph the linear equation $y=2x+3$.\par
+Our graph will have a $y$-intercept at the point ($0,3$).  By setting $y=0$, we obtain an $x$-intercept at the point $(-3/2,0)$.  We then obtain the following graph by plotting these two intercepts and connecting them.
+\begin{center}
+\begin{tikzpicture}[xscale=0.5,yscale=0.5]
+	\draw[step=1.0,gray,very thin,dotted] (-7.5,-3.5) grid (7.5,7.5);
+	\draw [<->](-7.5,0) -- coordinate (x axis mid) (7.5,0) node[below right] {$x$};
+	\draw [<->](0,-3.5) -- coordinate (x axis mid) (0,7.5) node[above right] {$y$};
+	\draw [<->] plot [domain=-3:2, samples=100] (\x,{2*\x+3});
+	\foreach \x in {1,...,7}
+	\draw (\x,2pt) -- (\x,-2pt)	node[anchor=south] {\scriptsize \x};
+	\foreach \x in {-1,...,-7}
+	\draw (\x,2pt) -- (\x,-2pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \y in {1,...,7}
+	\draw (2pt,\y) -- (-2pt,\y)	node[anchor=east] {\scriptsize \y}; 
+	\foreach \y in {-1,...,-3}
+	\draw (2pt,\y) -- (-2pt,\y)	node[anchor=east] {\scriptsize \y}; 
+	\draw[fill] (-1.5,0) circle (0.1);
+	\draw[fill] (0,3) circle (0.1);
+\end{tikzpicture}
+\end{center}
+\end{example}
+When graphing any equation, it will be of particular interest to identify any $x$-intercepts on the graph.  Though this will sometimes prove a daunting and even impossible task, as we have seen, it is relatively straightforward when faced with a linear equation.  Recall that all lines which are not horizontal will have exactly one $x$-intercept.  Horizontal lines will either have no $x$-intercepts or, in the case of the horizontal line $y=0$, will have infinitely many $x$-intercepts.  Once we know the $x$-intercept of the graph of our linear equation, we can easily determine the sign ($+$ or $-$) of the $y$-coordinate for every point to the left or right of our $x$-intercept.  Since all lines are by their nature straight, this amounts to testing our equation, by plugging in a single {\it test value} for each interval on either side of our $x$-intercept.\par
+In the case of our example, though we are free to choose any real-numbered test values we would like, we will make the more common selections of $x=-2$ and $x=0$.  Note that $x=-1$ would have been a perfectly fine value instead of $x=0$, but it is often easier to plug $x=0$ into a function than any other value.  After plugging each test value into the equation, we determine the sign of the $y$-coordinate associated with $x=-2$ is negative ($-$), since $2(-2)+3<0$, and the sign of the $y$-coordinate associated with $x=0$ is positive ($+$), since $2(0)+3>0$.  Note that here we are {\it not} concerned with the actual values of the $y$-coordinates, just their respective signs.  This point will be reiterated as we encounter more complicated mathematical expressions.  The results of our calculations are presented on the real-number line shown below.
+\begin{example}\label{Lin98} Sign Diagram for $y=2x+3$.
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\draw [<->](-5,0) -- coordinate (x axis mid) (5,0) node[below right] {$x$};
+	\draw [-](-1,1) -- coordinate (y axis mid) (-1,-0.25) node[below] {$-\frac{3}{2}$};
+	\draw (2,-1) node {$x=0$};
+	\draw (-3.5,-1) node {$x=-2$};
+	\draw (2,0.5) node {$+$};
+	\draw (-3.5,0.5) node {$-$};
+\end{tikzpicture}
+\end{center}
+\end{example} 
+Note that if constructed correctly, our sign diagram should be consistent with the graph of $y=2x+3$.  Specifically, a plus ($+$) corresponds to those points on the graph that sit {\it above} the $x$-axis, and a minus ($-$) corresponds to those points that sit {\it below} the $x$-axis.\par
+We now will summarize the steps for constructing a sign diagram for a linear equation (or function) with a nonzero slope.
+\begin{enumerate}
+	\item If not provided, put the equation in slope-intercept form.
+	\item Determine the $x$-intercept of the graph of the equation.  Mark this value (call it $x_0$) on a real-number line by placing a symbol $~|~$ directly above it that divides the line into two intervals, $(-\infty,x_0)$ and $(x_0,\infty)$.
+	\item Identify a test value for each interval.  Write your test values below their respective test intervals.
+	\item Determine the sign (either positive or negative) of the $y$-coordinate for each test value.  Mark this on the real-number line by placing either a $+$ or $-$ above the interval.
+\end{enumerate}
+\begin{example}\label{Lin99} Construct a sign diagram for the linear equation $y=-12x-50$.\par
+By setting $y=0$, we get $x=-\frac{50}{12}=-\frac{25}{6}=-4.1\overline{6}$.  For test values, we will use $x=-5$ and $x=0$.
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Test Value & Resulting $y$-coordinate & Sign\\
+\hline
+$x=-5$ & $-12(-5)-50=60-50>0$ & $+$\\
+\hline
+$x=0$ & $-12(0)-50=0-50<0$ & $-$\\
+\hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\draw [<->](-5,0) -- coordinate (x axis mid) (5,0) node[below right] {$x$};
+	\draw [-](-1.5,1) -- coordinate (y axis mid) (-1.5,-0.25) node[below] {$-\frac{25}{6}$};
+	\draw (-4,-1) node {$x=-5$};
+	\draw (1.5,-1) node {$x=0$};
+	\draw (-4,0.5) node {$+$};
+	\draw (1.5,0.5) node {$-$};
+\end{tikzpicture}
+\end{center}
+\end{example}
+Note that in the instance of a horizontal line $m=0$, our sign diagram will only require us to test a single value for the entire interval ($-\infty,\infty$).  It therefore suffices to just identify the sign of the $y$-intercept for the graph of our equation.  Lastly, if the $y$-intercept is zero, then our sign diagram will have no test intervals to check, since all points on our graph will be of the form ($x,0$).\par
+It is worth mentioning that here we have only sought to ``set the table'' for the construction of sign diagrams, using linear equations as a very basic introduction.  Once we are exposed to more complicated equations and functions, we will see how the construction of a sign diagram will become more involved.  In short, more complicated examples will include more $x$-intercepts, which will result in more test intervals to check.  The process, however, will essentially remain the same as we have outlined, and the resulting sign diagram will be critical in understanding the graph of a function and solving any related inequalities.
+\end{document}

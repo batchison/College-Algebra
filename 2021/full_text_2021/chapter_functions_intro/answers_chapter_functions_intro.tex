@@ -1,0 +1,283 @@
+\documentclass[12pt]{book}
+\raggedbottom
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=0.25in]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem,tikzpagenodes}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0in}
+\setlist{itemsep=0in}
+\setlength{\parskip}{0.1in}
+\setcounter{secnumdepth}{0}
+\input{lesson_order}
+
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+
+\begin{document}
+\section{Selected Answers}
+\subsection*{Notation and Basic Examples}
+
+\begin{multicols}{3}
+1) Function\\
+3) Function\\
+5) Not a function\\
+7) Function\\
+9) Not a function\\
+11) Function\\
+13) Function\\
+15) Function\\
+17) Not a function\\
+19) Function\\
+21) Not a function\\
+23) Function\\
+25) Function\\
+27) Function\\
+29) Function\\
+31) Not a function\\
+33) Not a function\\
+\end{multicols}
+
+\begin{multicols}{2}
+35) $f(x)=\dfrac{x+3}{2}$\\
+37) $f(x)=\sqrt{2x+3}$
+\end{multicols}
+\begin{multicols}{3}
+39) $f(x)=2\sqrt{x+3}$\\
+41) $f(x)=\dfrac{4}{\sqrt{x-13}}$\\
+43) $f(x)=\sqrt{\frac{4}{x}}-13$
+\end{multicols}
+45) $f(x)=3-4x$
+\begin{multicols}{3}
+\begin{itemize}
+\item $f(1)=-1$
+\item $f(-3)=15$
+\item $f\left(\frac{3}{2} \right)=-3$
+\end{itemize}
+\end{multicols}
+
+\begin{multicols}{3}
+\begin{itemize}
+\item  $f(4x)=3-16x$
+\item $4f(x)=12-16x$
+\item $f(-x)=3+4x$
+\end{itemize}
+\end{multicols}
+
+\begin{multicols}{3}
+\begin{itemize}
+\item  $f(x-4)=19-4x$
+\item $f(x) - 4=-1-4x$
+\item  $f\left(x^2\right)=3-4x^2$
+\end{itemize}
+\end{multicols}
+
+47) $f(x)=x^2-3x+2$
+\begin{multicols}{3}
+\begin{itemize}
+\item $f(1)=0$
+\item $f(-3)=20$
+\item $f\left(\frac{3}{2} \right)=-\frac{1}{4}$
+\end{itemize}
+\end{multicols}
+
+\begin{multicols}{3}
+\begin{itemize}
+\item  $f(4x)=16x^2-12x+2$
+\item $4f(x)=4x^2-12x+8$
+\item $f(-x)=x^2+3x+2$
+\end{itemize}
+\end{multicols}
+
+\begin{multicols}{3}
+\begin{itemize}
+\item  $f(x-4)=x^2-11x+30$
+\item $f(x) - 4=x^2-3x-2$
+\item  $f\left(x^2\right)=x^4-3x^2+2$
+\end{itemize}
+\end{multicols}
+
+49) $f(x)=\dfrac{x}{x-1}$
+\begin{multicols}{3}
+\begin{itemize}
+\item $f(1)=$undefined
+\item $f(-3)=\frac{3}{4}$
+\item $f\left(\frac{3}{2} \right)=3$
+\end{itemize}
+\end{multicols}
+
+\begin{multicols}{3}
+\begin{itemize}
+\item  $f(4x)=\dfrac{4x}{4x-1}$
+\item $4f(x)=\dfrac{4x}{x-1}$
+\item $f(-x)=\dfrac{x}{x+1}$
+\end{itemize}
+\end{multicols}
+
+\begin{multicols}{3}
+\begin{itemize}
+\item  $f(x-4)=\dfrac{x-4}{x-5}$
+\item $f(x) - 4=\dfrac{-3x+4}{x-1}$
+\item  $f\left(x^2\right)=\dfrac{x^2}{x^2-1}$
+\end{itemize}
+\end{multicols}
+
+51) $f(x)=0$
+\begin{multicols}{3}
+\begin{itemize}
+\item $f(1)=0$
+\item $f(-3)=0$
+\item $f\left(\frac{3}{2} \right)=0$
+\end{itemize}
+\end{multicols}
+
+\begin{multicols}{3}
+\begin{itemize}
+\item  $f(4x)=0$
+\item $4f(x)=0$
+\item $f(-x)=0$
+\end{itemize}
+\end{multicols}
+
+\begin{multicols}{3}
+\begin{itemize}
+\item  $f(x-4)=0$
+\item $f(x) - 4=-4$
+\item  $f\left(x^2\right)=0$
+\end{itemize}
+\end{multicols}
+
+53) $f(x)=5-2x$
+\begin{multicols}{3}
+\begin{itemize}
+\item  $f(2)=1$
+\item  $f(-2)=9$
+\item  $f(2a)=5-4a$
+\end{itemize}
+\end{multicols}
+
+\begin{multicols}{3}
+\begin{itemize}
+\item  $2 f(a)=10-4a$
+\item $f(a+2)=1-2a$
+\item $f(a) + f(2)=6-2a$
+\end{itemize}
+\end{multicols}
+
+\begin{multicols}{3}
+\begin{itemize}
+\item  $f \left( \dfrac{2}{a} \right)=\dfrac{5a-4}{a}$
+\item $\dfrac{f(a)}{2}=\dfrac{5}{2}-a$
+\item  $f(a + h)=5-2a-2h$
+\end{itemize}
+\end{multicols}
+
+55) $f(x)=3x^2+3x-2$
+\begin{multicols}{3}
+\begin{itemize}
+\item  $f(2)=16$
+\item  $f(-2)=4$
+\item  $f(2a)=12a^2+6a-2$
+\end{itemize}
+\end{multicols}
+
+\begin{multicols}{3}
+\begin{itemize}
+\item  $2 f(a)=6a^2+6a-4$
+\item $f(a+2)=3a^2+15a+16$
+\item $f(a) + f(2)=3a^2+3a+14$
+\end{itemize}
+\end{multicols}
+
+\begin{multicols}{2}
+\begin{itemize}
+\item  $f \left( \dfrac{2}{a} \right)=\dfrac{-2a^2+6a+12}{a^2}$
+\item $\dfrac{f(a)}{2}=\dfrac{3}{2}a^2+\dfrac{3}{2}a-1$
+\end{itemize}
+\end{multicols}
+
+\begin{itemize}
+\item  $f(a + h)=3a^2+6ah+3h^2+3a+3h-2$
+\end{itemize}
+
+
+57) $f(x)=1$
+\begin{multicols}{3}
+\begin{itemize}
+\item  $f(2)=1$
+\item  $f(-2)=1$
+\item  $f(2a)=1$
+\end{itemize}
+\end{multicols}
+
+\begin{multicols}{3}
+\begin{itemize}
+\item  $2 f(a)=2$
+\item $f(a+2)=1$
+\item $f(a) + f(2)=2$
+\end{itemize}
+\end{multicols}
+
+\begin{multicols}{3}
+\begin{itemize}
+\item  $f \left( \dfrac{2}{a} \right)=1$
+\item $\dfrac{f(a)}{2}=\dfrac{1}{2}$
+\item  $f(a + h)=1$
+\end{itemize}
+\end{multicols}
+
+59) $f(x)=\dfrac{2}{x}$
+\begin{multicols}{3}
+\begin{itemize}
+\item  $f(2)=1$
+\item  $f(-2)=-1$
+\item  $f(2a)=\dfrac{1}{a}$
+\end{itemize}
+\end{multicols}
+
+\begin{multicols}{3}
+\begin{itemize}
+\item  $2 f(a)=\dfrac{4}{a}$
+\item $f(a+2)=\dfrac{2}{a+2}$
+\item $f(a) + f(2)=\dfrac{2+a}{a}$
+\end{itemize}
+\end{multicols}
+
+\begin{multicols}{3}
+\begin{itemize}
+\item  $f \left( \dfrac{2}{a} \right)=a$
+\item $\dfrac{f(a)}{2}=\dfrac{1}{a}$
+\item  $f(a + h)=\dfrac{2}{a+h}$
+\end{itemize}
+\end{multicols}
+
+\begin{multicols}{2}
+61) $f(0)=3$; $f(x)=0$ for $x=15/2$\\
+63) $f(0)=-12$; $f(x)=0$ for $x=-3,4$
+\end{multicols}
+\begin{multicols}{2}
+65) $f(0)=1$; $f(x)=0$ for $x=1/2$\\
+67) $f(0)=0$; $f(x)=0$ for $x=0,4$
+\end{multicols}
+
+\subsection*{Domain and Range}
+
+\begin{tabular}{lll}
+Exercise & Domain & Range\\
+1) & $(-\infty,\infty)$ & $[1,\infty)$\\
+3) & $[2,\infty)$ & $[0,\infty)$\\
+5) & $[-5,4)$ & $[-4,4)$\\
+7) & $(-\infty,-2)\cup(-2,2)\cup(2,\infty)$ & $(-\infty,1)\cup[2,\infty)$\\
+9) & $(-\infty,-2)\cup(2,\infty)$ & $(-\infty,0)$\\
+11) & $(-\infty,0)\cup(0,\infty)$ & $(-\infty,0)$\\
+13) & $(-\infty,\infty)$ & $(-\infty,4]$\\
+15) & $[-3,3]$ & $[-2,2]$\\
+17) & $[0,3)\cup(3,5]$ & $(-4,-1]\cup(1,4]$\\
+\end{tabular}
+
+\end{document}
