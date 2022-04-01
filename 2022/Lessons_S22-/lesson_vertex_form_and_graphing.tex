@@ -1,0 +1,232 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+% Use the cc-by-nc-sa license for any content linked with Stitz and Zeager's text.  Otherwise, use the cc-by-sa license.
+%\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+\usepackage[type={CC},modifier={by-nc-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+\input{order}
+
+\begin{document}
+{\bf \large Lesson \arabic{lesson_vertex_form_and_graphing}: Vertex Form and Graphing}\phantomsection\label{les:vertex_form_and_graphing}
+%\\ CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. 
+\\ CC attribute: \href{http://www.stitz-zeager.com}{\it{College Algebra}} by C. Stitz and J. Zeager. 
+\hfill \doclicenseImage[imagewidth=5em]\\
+\par
+{\bf Objective:} Graph quadratic equations in both standard and vertex forms.\\
+\par
+{\bf Students will be able to:}
+\begin{itemize}
+	\item Find the vertex, axis of symmetry, and $x-$intercept(s) of a quadratic equation in vertex or standard form.
+\end{itemize}
+{\bf Prerequisite Knowledge:}
+\begin{itemize}
+	\item State the concavity of the graph of a quadratic equation.
+	\item Find the $y-$intercept of the graph of an equation.
+	\item Evaluate an equation and create a table of values.
+	\item Plot points on the Cartesian $xy-$coordinate plane.
+\end{itemize}
+\hrulefill
+
+{\bf Lesson:}\\
+\ \par
+Recall the two forms of a quadratic equation, shown below.  In both forms, we assume $a\neq 0$.
+\begin{center}
+\begin{tabular}{lcc}
+{\bf Standard Form}: & & $y=ax^2+bx+c$, where $a,b,$ and $c$ are real numbers\\
+&&\\
+{\bf Vertex Form}: & & $y=a(x-h)^2+k,$ where $a,h,$ and $k$ are real numbers
+\end{tabular}
+\end{center}
+Unlike the standard form, a quadratic equation written in vertex form allows for immediate recognition of the vertex ($h,k$), which will always coincide with either a maximum (if $a<0$) or a minimum (if $a>0$) on the accompanying graph, called a parabola. Additionally, using the vertex form, we can easily identify the {\it axis of symmetry} for the parabola, which is a vertical line $x=h$ that passes through the $x$-coordinate of the vertex and ``splits'' the graph into two identical halves.\\
+\ \par
+%When graphing parabolas, it will help to think of the axis of symmetry as a vertical line over which either half of the graph could be ``folded'', to produce the other half.  This will allow us to reflect (by symmetry) any point on the parabola to the other side of the axis of symmetry, and identify another point on the graph.  As a result, both points will have the same $y$-coordinate, and will be (horizontally) equidistant from the axis of symmetry.  By reflecting points about the axis of symmetry, we can graph not just one, but two points on the graph, for every single value of $x$ that we plug into the given equation.\\
+%\ \par
+If $y=ax^2+bx+c$ ($a\neq0$), we can identify the $x$-coordinate for the vertex (and consequently the equation for the axis of symmetry) using the following formula.
+$$h=-~\frac{b}{2a}$$ 
+%After identifying $h$, we can determine based upon the sign of the leading coefficient $a$ whether the vertex will be a maximum (if $a$ is negative, $a<0$) or a minimum (if $a$ is positive, $a>0$).  The equation for the vertical line $x=h$ will be our axis of symmetry.\\
+\ \par
+Consequently, the $y$-coordinate for our vertex can be found by plugging $x=h$ back into the given equation for our quadratic, and simplifying to find the $y$-coordinate, which we will relabel as $k$.\\
+\ \par
+Once we have $h$ and $k$, we can use them, along with $a$, to write the vertex form for our quadratic, $$y=a(x-h)^2+k.$$
+\ \par
+On the other hand, if we are given a quadratic equation in vertex form, we can expand it to obtain the corresponding vertex form, as shown below.
+\begin{eqnarray*}
+	y & = & a(x-h)^2+k\\
+	  & = & a(x-h)(x-h)+k\\
+		& = & a(x^2-2hx+h^2)+k\\
+		& = & ax^2-2ahx+ah^2+k
+\end{eqnarray*}
+If we set the linear coefficient $-2ah$ above equal to $b$ and solve for $h,$ we can see the connection with the formula for the vertex.\\
+\ \par
+It can be difficult to find a sufficient collection of points to determine the overall shape of our parabola.  For this reason, we will now formally identify several key points on a parabola, which will enable us to always determine a complete graph.  These points are the $y-$intercept, $x-$intercepts, and the vertex.
+
+\begin{multicols}{2}
+\begin{center}
+\begin{tikzpicture}[xscale=0.8,yscale=0.8]
+	\draw [<->](-1,0) -- coordinate (x axis mid) (7,0) node[below right] {$x$};
+	\draw [<->](0,-1.5) -- coordinate (x axis mid) (0,4) node[above right] {$y$};
+	\draw [<->] plot [domain=-0.5:6.5, samples=100] (\x,{0.3*(\x-3)^2-1});
+ \draw[fill] (3,-1) ellipse (0.075 and 0.075) node[anchor=north] {V};
+ \draw[fill] (1.174,0) ellipse (0.075 and 0.075) node[anchor=south west] {B};
+ \draw[fill] (4.826,0) ellipse (0.075 and 0.075) node[anchor=south east] {C};
+ \draw[fill] (0,1.7) ellipse (0.075 and 0.075) node[anchor=east] {A};
+\end{tikzpicture}
+\end{center}
+
+\columnbreak
+	Point $A$: $y$-intercept; where the graph crosses the vertical $y$-axis (when $x=0$).\\
+		\ \par
+  Points $B$ and $C$: $x$-intercepts; where the graph crosses the horizontal $x$-axis (when $y=0$)\\
+	  \ \par
+	Point $V$: vertex ($h,k$); The point of the minimum (or maximum) value, where the graph changes direction.
+\end{multicols}
+
+We will use the following method to find each of the key points on our parabola.
+
+\begin{center}
+  {\bf Steps for graphing a quadratic in standard form,} $y = a x^2 + b x + c$.
+\end{center}
+\begin{enumerate}
+  \item Identify and plot the vertex: $h = -\displaystyle\frac{b}{2 a}$. Plug $h$ into the equation to find $k$.  Resulting point is $(h,k)$.
+	
+	\item Identify and plot the $y$-intercept: Set $x = 0$ and solve.  The $y$-intercept will correspond to the constant term $c$.  Resulting point is $(0,c)$.
+  
+  \item Identify and plot the $x$-intercept(s): Set $y = 0$ and solve for $x$.  Depending on the expression, we will end up with zero, one or two $x-$intercepts.
+	\item After plotting these points we can connect them with a smooth curve.\\
+\end{enumerate}
+
+{\bf Important:} Up until now, we have only discussed how to solve a quadratic equation for $x$ by factoring.  If an expression is not easily factorable, we may not be able to identify the $x$-intercepts.  In our next few lessons, we will learn of two additional methods for finding $x$-intercepts, which will prove especially useful, when an equation is not easily factorable.\\
+\ \par
+{\bf I - Motivating Example(s):}\\
+\ \par
+{\bf Example:} Consider $y=-2(x+1)^2+3$.\\
+\ \par
+In this example we can see that the vertex is at $(-1,3)$. It is important that we not overlook the negative value for $h$.  The axis of symmetry, passes through the $x$-coordinate for the vertex, $x=-1$.  Expanding our vertex form gives us the corresponding standard form, shown below.
+\begin{eqnarray*}
+	y & = & -2(x+1)(x+1)+3\\
+		& = & -2(x^2+2x+1)+3\\
+		& = & -2x^2-4x+1
+\end{eqnarray*}
+The value of $c$ from our standard form gives us or $y-$intercept of $(0,1),$ which we also confirm using the vertex form.
+$$y = -2(0+1)^2+3=-2(1)+3=1$$
+
+{\bf Example:} Identify the vertex and axis of symmetry for the parabola represented by the given quadratic equation.
+\begin{eqnarray*}
+y=x^2+8x-12       &  & \text{Given an equation in standard form}\\              
+a=1,~~~b=8,~~~c=-12       &  & \text{Identify~} a,b, \text{~and~} c\\             
+h=-~\frac{b}{2a}=-~\frac{8}{2(1)}=-4 & & \text{Identify~} h\\
+x=-4 & & \text{Use~} h \text{~for~axis~of~symmetry,~a~vertical~line}\\
+k= (-4)^2+8(-4)-12   &  & \text{Plug in~} h \text{~to~find~} k\\
+k= 16-32-12= -28  &  &\text{Simplify}\\
+(-4,-28)    &  & \text{Write the vertex as an ordered pair $(h,k)$}
+\end{eqnarray*}
+{\bf II - Demo/Discussion Problems:}\\
+\ \par
+Identify the vertex and axis of symmetry for each quadratic equation below.  Write the vertex form for each equation.  Sketch a complete graph of the corresponding parabola, labeling any $x-$ and $y-$intercepts.
+\begin{multicols}{2}
+\begin{enumerate}
+	\item $y=x^2-4x+3$
+	\item $y=x^2+4x+3$
+	\item $y=-3x^2+12x-9$
+	\item $y=x^2-6x+9$
+	\item $y=-x^2+16$
+	\item $y=-x^2-25$
+	\item $y=x^2+1$
+	\item $y=-3x^2+6x-1$
+\end{enumerate}
+\end{multicols}
+\newpage
+{\bf III - Practice Problems:}\\
+\ \par
+Expand each equation below to find the corresponding standard form.  Sketch a graph of the corresponding parabola, identifying the vertex, $y-$intercept, and axis of symmetry.  If possible, identify any $x-$intercepts by factoring.
+  \begin{enumerate}
+	\begin{multicols}{2}
+		\item $y=(x-3)^2+4$
+		\item $y=(x-2)^2+5$
+		\item $y=6(x+3)^2+4$
+		\item $y=-2(x-3)^2+4$
+		\item $y=-2(x-1)^2-7$
+		\item $y=-(x+1)^2$
+		\item $y=-\dfrac{1}{5}(x+1)^2$
+	\end{multicols}
+	\end{enumerate}
+	
+Identify whether the quadratic is in vertex form, standard form, or both.  If it is in vertex form, then identify the vertex ($h,k$).
+
+\begin{enumerate}
+\begin{multicols}{3}
+\setcounter{enumi}{7}
+  \item $y=(x-12)^2+5$
+  \item $y=-3(x-3)^2+5$
+  \item $y=x^2+8$
+  \item $y=2(x-4)^2 $
+  \item $y=-4(x-1)^2+2$
+  \item $y=-5(x-7)^2$
+  \item $y=x^2+3x+4$
+  \item $y=x^2-1$
+  \item $y=x^2-3$
+  \item $y=(x-1)^2-3 $
+  \item $y=(x-1)^2$
+  \item $y=x^2$
+\end{multicols}
+\end{enumerate}
+
+Each quadratic equation below has been given in standard form.  Rewrite each equation in vertex form.
+
+\begin{enumerate}
+\begin{multicols}{3}
+\setcounter{enumi}{19}
+  \item $y=x^2+2x-1 $
+  \item $y=-3x^2-12x-5 $
+  \item $y=3x^2+12x-1$
+  \item $y=x^2+2x$
+  \item $y=x^2+6$
+  \item $y=-5x^2-40x$
+  \item $y=x^2+8x$
+  \item $y=x^2$
+  \item $y=x^2+4x-2$
+  \item $y=x^2+16x-2$
+  \item $y=4x^2+10x$
+\end{multicols}
+\end{enumerate}
+
+Find the vertex and any intercepts ($x-$ and $y-$) of the following quadratics. Use
+this information to graph the resulting parabola.  Identify the axis of symmetry on your graph, and write the corresponding vertex form.
+
+\begin{enumerate}
+\begin{multicols}{3}
+\setcounter{enumi}{30}
+  \item $y = x^2 - 2 x - 8$
+  \item $y = x^2 - 2 x - 3$
+  \item $y = 2 x^2 - 12 x + 10$
+  \item $y = 2 x^2 - 12 x + 16$
+  \item $y = - 2 x^2 + 12 x - 18$
+  \item $y = - 2 x^2 + 12 x - 10$
+  \item $y = - 3 x^2 + 24 x - 45$
+  \item $y = - 3 x^2 + 12 x - 9$
+  \item $y = - x^2 + 4 x_{} + 5$
+  \item $y = - x^2 + 4 x - 3$
+  \item $y = - x^2 + 6 x - 5$
+  \item $y = - 2 x^2 + 16 x - 30$
+  \item $y = - 2 x^2 + 16 x - 24$
+  \item $y = 2 x^2 + 4 x - 6$
+  \item $y = 3 x^2 + 12 x + 9$
+  \item $y = 5 x^2 + 30 x + 45$
+  \item $y = 5 x^2 - 40 x + 75$
+  \item $y = 5 x^2 + 20 x + 15$
+  \item $y = - 5 x^2 - 60 x - 175$
+  \item $y = - 5 x^2 + 20 x - 15$
+\end{multicols}	
+\end{enumerate}
+\newpage
+\end{document}

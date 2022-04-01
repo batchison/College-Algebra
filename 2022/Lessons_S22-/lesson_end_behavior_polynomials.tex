@@ -1,0 +1,197 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+% Use the cc-by-nc-sa license for any content linked with Stitz and Zeager's text.  Otherwise, use the cc-by-sa license.
+\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+%\usepackage[type={CC},modifier={by-nc-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+\input{order}
+
+\begin{document}
+{\bf \large Lesson \arabic{lesson_end_behavior_polynomials}: Polynomial End Behavior}\phantomsection\label{les:end_behavior_polynomials}
+%\\ CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. 
+%\\ CC attribute: \href{http://www.stitz-zeager.com}{\it{College Algebra}} by C. Stitz and J. Zeager. 
+\hfill \doclicenseImage[imagewidth=5em]\\
+\par
+{\bf Objective:} Determine the end behavior of the graph of a polynomial function.\\
+\par
+{\bf Students will be able to:}
+\begin{itemize}
+	\item Identify the degree, leading coefficient, and constant term of a factored polynomial.
+	\item Use the degree and leading coefficient of a polynomial to determine the end behavior of its graph.
+	\item Describe the end behavior of a polynomial in a mathematical sentence.
+\end{itemize}
+{\bf Prerequisite Knowledge:}
+\begin{itemize}
+	\item Definition of a polynomial and associated terminology.
+	\item Order of operations.
+\end{itemize}
+\hrulefill
+
+{\bf Lesson:}\\
+\ \par
+The {\it end behavior} of any function refers to what happens near the extreme ends of its graph.  We also often refer to these as the ``tails'' of the graph.  The ends of the graph of a function correspond to points having large positive or negative $x-$coordinates.  Because of this, we can associate the expressions
+$$x\rightarrow\infty\qquad\text{and}\qquad x\rightarrow -\infty$$
+to the end behavior of a function.  For example, the sentence
+\begin{center}
+As $x\rightarrow\infty,$ \ $f(x)\rightarrow\infty$.
+\end{center}
+describes a function for which the right-hand side of its graph, i.e. when $x\rightarrow\infty,$ points upward.  Alternatively, the sentence  
+\begin{center}
+As $x\rightarrow\infty,$ \ $f(x)\rightarrow -\infty$.
+\end{center}
+describes a function for which the right-hand side of its graph points downward.\\
+\ \par
+In each of the above mathematical statements, we are identifying both a horizontal direction and a vertical direction:
+\begin{enumerate}
+	\item  the independent variable $x$ getting large (either positively or negatively),
+	\item and the effect this has on the values of $f(x)$.
+\end{enumerate}
+\newpage
+For each algebraic function, the corresponding graph will describe two such statements: one for the left-hand side of the graph ($x\rightarrow -\infty$) and one for the right-hand side of the graph ($x\rightarrow\infty$).
+In the case of polynomials, there are only four cases for these two statements, summarized as follows.\\
+\ \par
+
+\framebox{
+\begin{minipage}{1\linewidth}
+Let $$f(x) = a_{n}x^{n} + a_{n-1}x^{n-1}+ ... + a_{2}x^2 + a_{1}x + a_{0}$$ be a polynomial function with degree $n$ and nonzero leading coefficient $a_n$.\\
+\par
+The end behavior of $f$ is described by one of the following four cases.
+
+\begin{center}
+\begin{multicols}{2}
+\begin{tikzpicture}[xscale=0.45,yscale=0.45]
+	\draw [<->](-4,0) -- coordinate (x axis mid) (4,0) node[below right] {$x$};
+	\draw [<->](0,-4) -- coordinate (y axis mid) (0,4) node[above right] {$y$};
+	\draw [->] plot [domain=2.5:3.75, samples=100] (\x,{\x^2/4});
+	\draw [->] plot [domain=-2.5:-3.75, samples=100] (\x,{-\x^2/4});
+	\draw (-4,6.5) node {I. $n$ even, $a_n>0$};
+	\draw (0,-5) node {As $x\rightarrow\infty,\ f(x)\rightarrow\infty$};
+	\draw (0,-7) node {As $x\rightarrow -\infty,\ f(x)\rightarrow\infty$};
+\end{tikzpicture}
+
+\begin{tikzpicture}[xscale=0.45,yscale=0.45]
+	\draw [<->](-4,0) -- coordinate (x axis mid) (4,0) node[below right] {$x$};
+	\draw [<->](0,-4) -- coordinate (y axis mid) (0,4) node[above right] {$y$};
+	\draw [->] plot [domain=2.5:3.75, samples=100] (\x,{-\x^2/4});
+	\draw [->] plot [domain=-2.5:-3.75, samples=100] (\x,{\x^2/4});
+	\draw (-4,6.5) node {II. $n$ even, $a_n<0$};
+	\draw (0,-5) node {As $x\rightarrow\infty,\ f(x)\rightarrow -\infty$};
+	\draw (0,-7) node {As $x\rightarrow -\infty,\ f(x)\rightarrow -\infty$};
+\end{tikzpicture}
+\end{multicols}
+\end{center}
+
+\begin{center}\begin{multicols}{2}
+\begin{tikzpicture}[xscale=0.45,yscale=0.45]
+	\draw [<->](-4,0) -- coordinate (x axis mid) (4,0) node[below right] {$x$};
+	\draw [<->](0,-4) -- coordinate (y axis mid) (0,4) node[above right] {$y$};
+	\draw [->] plot [domain=2.5:3.75, samples=100] (\x,{\x^2/4});
+	\draw [->] plot [domain=-2.5:-3.75, samples=100] (\x,{\x^2/4});
+	\draw (-4,6.5) node {III. $n$ odd, $a_n>0$};
+	\draw (0,-5) node {As $x\rightarrow\infty,\ f(x)\rightarrow \infty$};
+	\draw (0,-7) node {As $x\rightarrow -\infty,\ f(x)\rightarrow -\infty$};
+\end{tikzpicture}
+
+\begin{tikzpicture}[xscale=0.45,yscale=0.45]
+	\draw [<->](-4,0) -- coordinate (x axis mid) (4,0) node[below right] {$x$};
+	\draw [<->](0,-4) -- coordinate (y axis mid) (0,4) node[above right] {$y$};
+	\draw [->] plot [domain=2.5:3.75, samples=100] (\x,{-\x^2/4});
+	\draw [->] plot [domain=-2.5:-3.75, samples=100] (\x,{-\x^2/4});
+	\draw (-4,6.5) node {IV. $n$ odd, $a_n<0$};
+	\draw (0,-5) node {As $x\rightarrow\infty,\ f(x)\rightarrow -\infty$};
+	\draw (0,-7) node {As $x\rightarrow -\infty,\ f(x)\rightarrow \infty$};
+\end{tikzpicture}
+\end{multicols}
+\end{center}
+\end{minipage}
+}
+\pagebreak
+
+{\bf I - Motivating Example(s):}\\
+\ \par
+{\bf Example:} Find the leading and constant terms for the following function, and use them to identify the end behavior and $y-$intercept of its graph.
+$$f(x)=3(-2x+1)^2(x-2)^2(x-5)$$
+First, we boldface the contributors for the leading term.
+$$f(x)=\mathbf{3}(\mathbf{-2x}+1)^{\mathbf{2}}(\mathbf{x}-2)^{\mathbf{2}}(\mathbf{x}-5)$$
+This gives us the following.
+\begin{equation*}
+\begin{split}
+a_nx^n & =3(-2x)^{2}(x)^{2}(x)\\
+& = 3(4x^2)x^3\\
+& = 12x^5
+\end{split}
+\end{equation*}
+Next, we boldface the contributors for the constant term.
+$$f(x)=\mathbf{3}(-2x\mathbf{+1})^{\mathbf{2}}(x\mathbf{-2})^{\mathbf{2}}(x\mathbf{-5})$$
+This gives us the following.
+\begin{equation*}
+\begin{split}
+a_0 & = 3(1)^{2}(-2)^{2}(-5)\\
+& = 3(1)(4)(-5)\\
+& = -60
+\end{split}
+\end{equation*}
+Hence, we have that
+$$f(x)=12x^5+\ldots +(-60),$$
+with middle terms unknown.\\
+\ \par
+Since our degree, $n=5,$ is odd, and our leading coefficient, $a_n=12,$ is positive, we are in case III for end behavior.
+\begin{center}
+As $x\rightarrow -\infty, \ f(x)\rightarrow -\infty.$ \hspace{1in} As $x\rightarrow \infty, \ f(x)\rightarrow +\infty.$
+\end{center}
+Our constant term also tells us that the graph of $f$ has a $y-$intercept at $(0,-60)$.\\
+\ \par
+{\bf II - Demo/Discussion Problems:}\\
+\ \par
+Determine the end behavior of each of the following functions.  Write your answers as mathematical sentences.  Graph each function on \Desmos \ to check your answers.
+\begin{enumerate}
+	\item $f(x)=1-3x^4$
+	\item $g(x)=-x^3+3x-2$
+	\item $h(x)=-2x^3+10000x^2+1000$
+	\item $k(x)=x(2x-1)(x-5)^2$
+	\item $\ell(x)=-2(1-3x)^2(x+1)(x-1)(x^2+1)$
+\end{enumerate}
+\newpage
+{\bf III - Practice Problems:}\\
+\ \par
+Determine the end behavior of each of the following functions.  Write your answers as mathematical sentences.  Graph each function on \Desmos \ to check your answers.
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $f(x)=-2x^3 + 4x+1$
+	\item $g(x)=32x^5+x^2+15$
+	\item $h(x)=-3x^4+4x^2$
+	\item $k(x)=15x^4-32x^2-x-14$
+  \item $\ell(x)=x^5+40$
+  \item $m(x)=5x^5+3x^2+x+14$
+  \item $n(x)=123x^4-7x^3-5x^2-3x+1$
+	\item $p(x)=x^3-1$
+  \item $q(x)=-23x^6+x^3+x^2+x+1$
+\end{enumerate}
+\end{multicols}
+Identify the degree, leading coefficient, and constant term of each polynomial function below.  Use the degree and leading coefficient to identify the end behavior of the graph of each function.  Write your answers as mathematical sentences.  Graph each function on \Desmos \ to check your answers.
+\begin{multicols}{2}
+\begin{enumerate}
+    \item[10.] $f(x)=x^3(x-2)(x+2)$
+	\item[11.] $g(x)=(x^2+1)(1-x)$
+	\item[12.] $h(x)=x(x-3)^2(x+3)$
+	\item[13.] $k(x)=(3x-4)^3$
+    \item[14.] $\ell(x)=(x^2+2)(x^2+3)$
+    \item[15.] $m(x)=-2(x+7)^2(1-2x)^2$
+    \item[16.] $f(x)=(x^2-1)(x+4)$
+	\item[17.] $g(x)=(x^2-1)(x^2-16)$
+	\item[18.] $h(x)=-2x^3(3x-1)(2-x)$
+	\item[19.] $k(x)=(x^2-4x+1)(x+2)^2$
+\end{enumerate}
+\end{multicols}
+\newpage
+\end{document}

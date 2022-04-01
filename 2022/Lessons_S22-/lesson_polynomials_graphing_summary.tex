@@ -1,0 +1,182 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+% Use the cc-by-nc-sa license for any content linked with Stitz and Zeager's text.  Otherwise, use the cc-by-sa license.
+%\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+\usepackage[type={CC},modifier={by-nc-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+\input{order}
+
+\begin{document}
+{\bf \large Lesson \arabic{lesson_polynomials_graphing_summary}: Polynomials Graphing Summary}\phantomsection\label{les:polynomials_graphing_summary}
+%\\ CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. 
+\\ CC attribute: \href{http://www.stitz-zeager.com}{\it{College Algebra}} by C. Stitz and J. Zeager. 
+\hfill \doclicenseImage[imagewidth=5em]\\
+\par
+{\bf Objective:} Graph a polynomial function in its entirety.\\
+\par
+{\bf Students will be able to:}
+\begin{itemize}
+	\item Identify all important aspects of the graph of a polynomial function: $y-$intercept, $x-$intercepts (including their nature), and end behavior.
+	\item Sketch a complete graph of a polynomial function.
+\end{itemize}
+{\bf Prerequisite Knowledge:}
+\begin{itemize}
+	\item Evaluating a function.
+	\item Polynomial terminology and end behavior.
+	\item Factoring.
+	\item The Rational Root Theorem.
+	\item Polynomial and \slash or Synthetic Division.
+	\item Sign Diagrams.
+\end{itemize}
+\hrulefill
+
+{\bf Lesson:}\\
+\ \par
+At this point, we have addressed all key features of polynomials individually.  This lesson pulls each of these aspects together, for a detailed analysis of a polynomial, culminating in a complete sketch of its graph.  Along the way, we will need to address each of the following aspects for our polynomial $f(x)=a_nx^n+a_{n-1}x^{n-1}+\ldots+a_1x+a_0$.  It is important to note that there is no universally accepted order to this checklist.
+\begin{itemize}
+	\item Find the $y-$intercept of the graph of $f,$ $(0,f(0))=(0,a_0)$.
+	\item Use the degree $n$ and leading coefficient $a_n$ to determine the end behavior of the graph of $f$.
+	\item Identify a complete factorization of $f,$ and use it to find any $x-$intercepts of the graph of $f$.  Using multiplicities, classify each $x-$intercept as a crossover or turnaround (``bounce'') point.
+	\item Using the $x-$intercepts, construct a sign diagram for $f$.
+\end{itemize}
+In each polynomial we encounter, we will carefully examine the function, making sure not to omit any of the checklist items above and to compare each item to those that precede it along the way for accuracy.  Although the process will take some time, if we are thorough, our end result should be a complete, accurate sketch of the given polynomial.\\
+\ \par
+{\bf I - Motivating Example(s):}\\
+\ \par
+{\bf Example:}  Sketch a complete graph of $f(x)=14x^4-17x^3-6x^2+7x+2$.\\
+\ \par
+We will start with the $y-$intercept, which is $(0,2)$.\\
+\ \par
+Next, we see that $f$ has even degree and positive leading coefficient.  So, the tails of the graph of $f$ both point upwards.  In other words, as $x\rightarrow\pm\infty, f(x)\rightarrow\infty$.\\
+\ \par
+Since $f$ is degree-4, contains more than four terms, and is not of quadratic type, we will apply the Rational Root Theorem.  In this case, our set of possible rational roots is
+$$\left\{\pm 1, \pm 2, \pm \frac{1}{2}, \pm \frac{1}{7}, \pm \frac{1}{14}, \pm \frac{2}{7}\right\}$$
+Fortunately, we see that $f(1)=14-17-6+7+2=0$.  So, $x-1$ is a factor of $f$.  Dividing, we get:
+\begin{multicols}{2}
+\polylongdiv{14x^4-17x^3-6x^2+7x+2}{x-1}
+
+\columnbreak
+
+\polyhornerscheme[x=1,showbase=top,resultstyle=\bf]{14x^4-17x^3-6x^2+7x+2}
+\end{multicols}
+
+So, $f(x)=(x-1)(14x^3-3x^2-9x-2).$  Applying the Rational Root Theorem a second time, we can see that $x=1$ is also a root of the cubic factor of $f,$ since $14-3-9-2=0$.  Again, we can divide to factor $f$ further.
+
+\begin{multicols}{2}
+\polylongdiv{14x^3-3x^2-9x-2}{x-1}
+
+\columnbreak
+
+\polyhornerscheme[x=1,showbase=top,resultstyle=\bf]{14x^3-3x^2-9x-2}
+\end{multicols}
+
+So, $f(x)=(x-1)^2(14x^2+11x+2)$.  Factoring the remaining quadratic, we have\\
+$f(x)=(x-1)^2(7x+2)(2x+1),$
+with set of roots $\{1,-\frac{1}{2},-\frac{2}{7}\}$.
+\newpage
+Using multiplicities, we conclude that the $x-$intercept $(1,0)$ is a turnaround point, and the intercepts $\left(-\frac{1}{2},0\right)$ and $\left(-\frac{2}{7},0\right)$ are crossover points.\\
+\ \par
+Though not necessary for graphing, a sign diagram confirms our end and local behavior findings.
+
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\draw [<->](-6.25,0) -- coordinate (x axis mid) (4.25,0) node[below right] {$x$};
+	\draw [-](-4,1) -- coordinate (y axis mid) (-4,-0.25) node[below] {$-\frac{1}{2}$};
+	\draw [-](-1,1) -- coordinate (y axis mid) (-1,-0.25) node[below] {$-\frac{2}{7}$};
+	\draw [-](2,1) -- coordinate (y axis mid) (2,-0.25) node[below] {$1$};
+	\draw (-5.5,-1) node {$x=-1$};
+	\draw (-2.5,-1) node {$x=-\frac{3}{7}$};
+	\draw (0.5,-1) node {$x=0$};
+	\draw (3.5,-1) node {$x=2$};
+	\draw (-5.5,0.5) node {$+$};
+	\draw (-2.5,0.5) node {$-$};
+	\draw (0.5,0.5) node {$+$};
+	\draw (3.5,0.5) node {$+$};
+\end{tikzpicture}
+\end{center}
+
+Putting all of this information together results in the following graph.
+
+\begin{center}
+\begin{tikzpicture}[xscale=1.75,yscale=1]
+	\draw [<->](-2.25,0) -- coordinate (x axis mid) (2.25,0) node[below right] {$x$};
+	\draw [<->](0,-1.75) -- coordinate (y axis mid) (0,5.25) node[above right] {$y$};
+	\draw [<->] plot [domain=-0.736:1.33, samples=100] (\x,{(2*\x+1)*(7*\x+2)*(\x-1)*(\x-1)});
+	\foreach \x in {0.5,1,1.5,2}
+		\draw (\x,1pt) -- (\x,-1pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \x in {-2,-1.5,-1,-0.5}
+		\draw (\x,1pt) -- (\x,-1pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \y in {1,...,5}
+		\draw (1pt,\y) -- (-1pt,\y)	node[anchor=east] {\scriptsize \y}; 
+	\foreach \y in {-1}
+		\draw (1pt,\y) -- (-1pt,\y)	node[anchor=west] {\scriptsize \y}; 
+\end{tikzpicture}
+\end{center}
+
+
+{\bf II - Demo/Discussion Problems:}\\
+\ \par
+Factor each polynomial below, and sketch a complete graph of the function, making sure to have a clearly defined scale and label any intercepts.  Use \Desmos \ to compare your results.
+\begin{enumerate}
+%\begin{multicols}{2}
+	\item $f(x) = -x^{3} + 7x^{2} - x + 7$
+	\item $f(x) = 3x^4 - 5x^3 - 12x^2$
+	\item $f(x) = 2x^3 - 5x^2 - x$
+	\item $f(x) = -x^4-2x^2 +15$
+%\end{multicols}
+\end{enumerate}
+\newpage
+Use the Rational Root Theorem and polynomial division to get a complete factorization of each polynomial function below.  Then sketch a graph of the function, making sure to have a clearly defined scale and label any intercepts.  Use \Desmos \ to compare your results.
+\begin{enumerate}
+	\item[5.] $f(x) = x^4+4x^3-x-4$	
+	\item[6.] $f(x) = 2x^3-5x^2-52x+60$
+	\item[7.] $f(x) = -x^3-x^2+39x+45$
+	\item[8.] $f(x) = -2x^4+7x^3+17x^2-28x-36$
+	\item[9.] $f(x) = x^7-5x^6-24x^5+120x^4-25x^3+125x^2$\\
+\end{enumerate}
+{\bf III - Practice Problems:}\\
+\ \par
+Factor each polynomial below, and sketch a complete graph of the function, making sure to have a clearly defined scale and label any intercepts.  Use \Desmos \ to compare your results.
+\begin{enumerate}
+\begin{multicols}{2}
+	\item $f(x) = -17x^{3} + 5x^{2} + 34x - 10$
+	\item $f(x) = x^4-9x^2+14$
+	\item $f(x) = 3x^4-14x^2-5$
+	\item $f(x) = 2x^4-7x^2+6$
+	\item $f(x) = x^5-2x^4-x+2$
+	\item $f(x) = 2x^5+3x^4-32x-48$
+	\item $f(x) = x^6-6x^3-16$
+	\item $f(x) = 2x^6-7x^3+5$
+\end{multicols}
+\end{enumerate}
+Get a complete factorization of each polynomial below by first dividing the function by $x-1$.  Then sketch a graph of the function, making sure to have a clearly defined scale and label any intercepts.  Use \Desmos \ to compare your results.
+\begin{enumerate}
+	\item[9.] $f(x) = x^{3} - 2x^{2} - 5x + 6$
+	\item[10.] $f(x) = x^{3} + 4x^{2} - 11x + 6$
+	\item[11.] $f(x)=x^5-x^4-37x^3+37x^2+36x-36$
+	\item[12.] $f(x) = x^{4} -2x^3+ 5x^{2} - 8x + 4$
+\end{enumerate}
+Use the Rational Root Theorem and polynomial division to get a complete factorization of each polynomial function below.  Then sketch a graph of the function, making sure to have a clearly defined scale and label any intercepts.  Use \Desmos \ to compare your results.
+\begin{enumerate}
+%\begin{multicols}{2}
+	\item[13.] $f(x) = x^{4} - 9x^{2} - 4x + 12$
+	\item[14.] $f(x) = x^{4} + 2x^{3} - 12x^{2} - 40x - 32$
+	\item[15.] $f(x) = 2x^4+x^3-7x^2-3x+3$
+	\item[16.] $f(x) = 3x^{3} + 3x^{2} - 11x - 10$
+	\item[17.] $f(x) = 6x^3+19x^2-34x-40$
+	\item[18.] $f(x) = -2x^{3} + 19x^{2} - 49x + 20$
+	\item[19.] $f(x) = 36x^{4} - 12x^{3} - 11x^{2} + 2x + 1$
+%\end{multicols}
+\end{enumerate}
+\newpage
+\end{document}

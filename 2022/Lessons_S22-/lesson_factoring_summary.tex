@@ -1,0 +1,155 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+% Use the cc-by-nc-sa license for any content linked with Stitz and Zeager's text.  Otherwise, use the cc-by-sa license.
+\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+%\usepackage[type={CC},modifier={by-nc-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+\input{order}
+
+\begin{document}
+{\bf \large Lesson \arabic{lesson_factoring_summary}: Factoring Summary}\phantomsection\label{les:factoring_summary}
+\\ CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. 
+%\\ CC attribute: \href{http://www.stitz-zeager.com}{\it{College Algebra}} by C. Stitz and J. Zeager. 
+\hfill \doclicenseImage[imagewidth=5em]\\
+\par
+{\bf Objective:} Factor a general polynomial expression using one or more of factorization methods.\\
+\par
+{\bf Students will be able to:}
+\begin{itemize}
+	\item Recognize and factor sums and differences of cubes.
+	\item Apply the appropriate factorization method from those previously learned to an arbitrary polynomial expression.
+\end{itemize}
+{\bf Prerequisite Knowledge:}
+\begin{itemize}
+	\item GCF, grouping, $ac$-method, and quadratic type factorization methods.
+	\item Properties of exponents.
+	\item The distributive property.
+\end{itemize}
+\hrulefill
+
+{\bf Lesson:}\\
+\ \par
+When factoring polynomials there are a few special products that, if we can recognize them, can be easily broken down. The first is one we have seen before, when factoring a quadratic in which there is no linear term.
+\begin{center}
+\framebox{
+\begin{minipage}{0.75\linewidth}
+\begin{center}
+Difference of Two Squares: $a^2-b^2=\left(a+b\right)\left(a-b\right)$
+\end{center}
+\end{minipage}
+}
+\end{center}
+It is important to note that, unlike differences, a {\it sum} of squares will never factor over the real numbers.  Such expressions only factor over the complex numbers.  Hence, we say that they are {\it irreducible} over the reals.
+\begin{center}
+\framebox{
+\begin{minipage}{0.75\linewidth}
+\begin{center}
+Sum of Two Squares: $a^2+b^2=\left(a+bi\right)\left(a-bi\right)$
+\end{center}
+\end{minipage}
+}
+\end{center}
+In many cases, we can also recognize an entire expression as a perfect square (or a squared binomial).
+\begin{center}
+\framebox{
+\begin{minipage}{0.75\linewidth}
+\begin{center}
+Perfect Square: $a^2+2ab+b^2=\left(a+b\right)^2$
+\end{center}
+\end{minipage}
+}
+\end{center}
+While it might seem difficult to recognize a perfect square at first glance, by employing the $ac-$method, we can see that in the case where $m=n,$ the resulting factorization will be a perfect square. In this case, we can factor by identifying the square roots of the first and last
+terms and using the sign from the middle term.\\
+\ \par
+Another factoring shortcut can be applied to sums and differences of cubes, which have very similar
+factorizations.
+\begin{center}
+\framebox{
+\begin{minipage}{0.75\linewidth}
+\begin{center}
+Sum of Cubes: $a^3+b^3=\left(a+b\right)\left(a^2-ab+b^2\right)$
+\par
+Difference of Cubes: $a^3-b^3=\left(a-b\right)\left(a^2+ab+b^2\right)$
+\end{center}
+\end{minipage}
+}
+\end{center}
+Comparing the formulas for the sum and difference of cubes, one may notice that the only difference resides in the signs between the terms. One way to remember these two formulas is to think of ``{\bf SOAP}'':
+\begin{center}
+\begin{tabular}{cl}
+{\bf S} & The first sign in our factorization is the {\bf Same} sign as the given expression.\\
+{\bf O} & The second sign in our factorization is the {\bf Opposite} sign as the given expression.\\
+{\bf AP} & The last sign in our factorization is {\bf Always Positive}.
+\end{tabular}
+\end{center}
+We are now ready to summarize the many factoring methods we have seen thus far. An important part of the process for factoring any polynomial expression is the identification of the number of terms in the simplified equation.
+
+\begin{center}
+  {\bf Factoring Summary}
+\end{center}
+\begin{itemize}
+	\item {\bf GCF} - Always look for a GCF first!
+  \item {\bf 2 terms} - Sum or difference of squares or cubes.
+		\begin{itemize}
+			\item[$\bullet$] $ a^2 - b^2 = (a + b) (a - b)$
+			\item[$\bullet$] $a^2 + b^2$, Irreducible over the reals
+			\item[$\bullet$] $a^3 + b^3 = (a + b) (a^2 - a b + b^2)$ 
+			\item[$\bullet$] $a^3 - b^3 = (a - b) (a^2 + ab + b^2)$
+		\end{itemize}
+  \item {\bf 3 terms} - Factor; watch for a perfect square.
+		\begin{itemize}
+			\item[$\bullet$] $ax^2+bx+c$, Apply $ac$-method
+			\item[$\bullet$] $a^2 + 2 a b + b^2 = (a + b)^2$
+		\end{itemize}
+	\item {\bf 4 terms} - Grouping
+	\item {\bf Special case} - Quadratic type: used in cases with polynomials having even degree and containing 2 or 3 terms.
+\end{itemize}
+{\bf I - Motivating Example(s):}\\
+\ \par
+{\bf Example:} The expression $m^3 - 27$ is a difference of cubes, with cube roots of $m$ and $3$.  Using {\bf SOAP} we obtain a factorization of $$(m - 3) (m^2 + 3 m + 9).$$
+{\bf Example:} The expression $125 p^3 + 8 r^3$ is a sum of cubes, with cube roots of $5p$ and $2r$.  Using {\bf SOAP} we obtain a factorization of $$(5 p + 2 r) (25 p^2 - 10 pr + 4 r^2).$$
+\newpage
+{\bf II - Demo/Discussion Problems:}\\
+\ \par
+Completely factor each of the following polynomial expressions.
+\begin{enumerate}
+	\item $100 x^2 - 400$
+	\item $5 + 625 y^3$
+	\item $4 x^2 + 56 x y + 196 y^2$
+	\item $5 x^2 y + 15 x y - 35 x^2 - 105 x$
+	\item $108 x^3 y^2 - 39 x^2 y^2 + 3 x y^2$
+\end{enumerate}	
+\ \par
+{\bf III - Practice Problems:}\\
+\ \par
+Completely factor each of the following polynomial expressions.
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $2 x^2 - 11 x + 15$
+  \item $5 n^3 + 7 n^2 - 6 n$
+  \item $54 u^3 - 16$
+  \item $54 - 128 x^3$
+  \item $n^2 - n$
+  \item $2x^4 -21x^2-11$
+	\item $24 a z - 18 a h + 60 y z - 45 y h$
+  \item $5 u^2 - 9 u v + 4 v^2$
+  \item $16 x^2 + 48 x y + 36 y^2$
+  \item $- 2 x^3 + 128 y^3$
+  \item $20 u v - 60 u^3 - 5 x v + 15 x u^2$
+  \item $2 x^3 + 5 x^2 y + 3 y^2 x$
+  \end{enumerate}
+\end{multicols}
+\newpage
+\ \newpage
+\end{document}

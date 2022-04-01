@@ -1,0 +1,126 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+% Use the cc-by-nc-sa license for any content linked with Stitz and Zeager's text.  Otherwise, use the cc-by-sa license.
+\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+%\usepackage[type={CC},modifier={by-nc-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+\input{order}
+
+\begin{document}
+{\bf \large Lesson \arabic{lesson_sign_diagrams_polynomials}: Sign Diagrams for Polynomials}\phantomsection\label{les:sign_diagrams_polynomials}
+%\\ CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. 
+%\\ CC attribute: \href{http://www.stitz-zeager.com}{\it{College Algebra}} by C. Stitz and J. Zeager. 
+\hfill \doclicenseImage[imagewidth=5em]\\
+\par
+{\bf Objective:} Construct a sign diagram for a given polynomial expression.\\
+\par
+{\bf Students will be able to:}
+\begin{itemize}
+	\item Evaluate a factored polynomial expression at specified test values in order to determine its sign.
+\end{itemize}
+{\bf Prerequisite Knowledge:}
+\begin{itemize}
+	\item Factoring.
+	\item Identifying roots of a factored polynomial expression.
+	\item Evaluating functions.
+	\item Order of operations.
+\end{itemize}
+\hrulefill
+
+{\bf Lesson:}\\
+\ \par
+If a polynomial function or expression is completely factored, it will be beneficial to us to construct a sign diagram for the polynomial, in order to answer questions about its graph and confirm any other findings.  Therefore, we devote this lesson to the construction of a sign diagram for a factored polynomial.  Note that expanded polynomials first require us to find a complete factorization prior to constructing a sign diagram.\\
+\ \par
+Recall that the roots of a quadratic expression represent the dividers in its corresponding sign diagram.  This carries over directly to a polynomial expression.\\
+\ \par
+{\bf I - Motivating Example(s):}\\
+\ \par
+{\bf Example:} Construct a sign diagram for the polynomial function $f(x)=2x^2+3x-20$.\\
+\ \par
+Although our first example is not factored, we can apply the $ac$-method to quickly factor our function.
+\begin{equation*}
+\begin{split}
+f(x) & = 2x^2+3x-20\\
+& = 2x^2+8x-5x-20\\
+& = 2x(x+4)-5(x+4)\\
+& = (x+4)(2x-5)
+\end{split}
+\end{equation*}
+This gives us two roots, $x=-4$ and $x=\frac{5}{2}$, which serve as the dividers in our accompanying diagram.  For our three test values, we will use $x=-5, 0,$ and $3$.
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\draw [<->](-6.25,0) -- coordinate (x axis mid) (4.75,0) node[below right] {$x$};
+	\draw [-](-3.5,1) -- coordinate (y axis mid) (-3.5,-0.25) node[below] {$-4$};
+	\draw [-](2,1) -- coordinate (y axis mid) (2,-0.25) node[below] {$3$};
+	\draw (-5,-1) node {$x=-5$};
+	\draw (-0.75,-1) node {$x=0$};
+	\draw (3.5,-1) node {$x=3$};
+	\draw (-5,0.5) node {$+$};
+	\draw (-0.75,0.5) node {$-$};
+	\draw (3.5,0.5) node {$+$};
+	\draw (-5,-1.5) node {\footnotesize $(-)(-)$};
+	\draw (-0.75,-1.5) node {\footnotesize $(+)(-)$};
+	\draw (3.5,-1.5) node {\footnotesize $(+)(+)$};
+\end{tikzpicture}
+\end{center}
+
+{\bf Example:} Construct a sign diagram for the factored polynomial function $$g(x)=(x+2)(3x-1)(5-x).$$
+Our roots are $x=-2,\frac{1}{3},$ and $5$.  Consequently, the following diagram shows three dividers.
+
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\draw [<->](-4.25,0) -- coordinate (x axis mid) (7.25,0) node[below right] {$x$};
+	\draw [-](-2,1) -- coordinate (y axis mid) (-2,-0.25) node[below] {$-2$};
+	\draw [-](0.5,1) -- coordinate (y axis mid) (0.5,-0.25) node[below] {$\frac{1}{3}$};
+	\draw [-](5,1) -- coordinate (y axis mid) (5,-0.25) node[below] {$5$};
+	\draw (-3,-1) node {$x=-3$};
+	\draw (-0.75,-1) node {$x=0$};
+	\draw (2.75,-1) node {$x=1$};
+	\draw (6,-1) node {$x=6$};
+	\draw (-3,0.5) node {$+$};
+	\draw (-0.75,0.5) node {$-$};
+	\draw (2.75,0.5) node {$+$};
+	\draw (6,0.5) node {$-$};
+	\draw (-3,-1.75) node {\footnotesize $(-)(-)(+)$};
+	\draw (-0.75,-1.75) node {\footnotesize $(+)(-)(+)$};
+	\draw (2.75,-1.75) node {\footnotesize $(+)(+)(+)$};
+	\draw (6,-1.75) node {\footnotesize $(+)(+)(-)$};
+\end{tikzpicture}
+\end{center}
+{\bf II - Demo/Discussion Problems:}\\
+\ \par
+Construct a sign diagram for the factored polynomial functions below. Use \Desmos \ to graph each function and check the accuracy of your diagram.  Identify the interval(s) where the function is positive and where it is negative.
+\begin{enumerate}
+	\item $h(x)=(x+2)^2(3x-1)(5-x)$
+	\item $f(x)=x(x+1)(x-2)^2(x^2+4)$
+\end{enumerate}	
+\ \par
+{\bf III - Practice Problems:}\\
+\ \par
+Construct a sign diagram for the factored polynomial functions below. Use \Desmos \ to graph each function and check the accuracy of your diagram.  Identify the interval(s) where the function is positive and where it is negative.
+\begin{multicols}{2}
+\begin{enumerate}
+  \item $f(x)=x^3(x-2)(x+2)$
+	\item $g(x)=(x^2+1)(1-x)$
+	\item $h(x)=x(x-3)^2(x+3)$
+	\item $k(x)=(3x-4)^3$
+  \item $\ell(x)=(x^2+2)(x^2+3)$
+  \item $m(x)=-2(x+7)^2(1-2x)^2$
+  \item $f(x)=(x^2-1)(x+4)$
+	\item $g(x)=(x^2-1)(x^2-16)$
+	\item $h(x)=-2x^3(3x-1)(2-x)$
+	\item $k(x)=(x^2-4x+1)(x+2)^2$
+\end{enumerate}
+\end{multicols}
+\newpage
+\end{document}

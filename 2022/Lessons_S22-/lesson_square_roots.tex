@@ -1,0 +1,140 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+% Use the cc-by-nc-sa license for any content linked with Stitz and Zeager's text.  Otherwise, use the cc-by-sa license.
+\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+%\usepackage[type={CC},modifier={by-nc-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+\input{order}
+
+\begin{document}
+{\bf \large Lesson \arabic{lesson_square_roots}: Square Roots}\phantomsection\label{les:square_roots}
+%\\ CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. 
+%\\ CC attribute: \href{http://www.stitz-zeager.com}{\it{College Algebra}} by C. Stitz and J. Zeager. 
+\hfill \doclicenseImage[imagewidth=5em]\\
+\par
+{\bf Objective:} Simplify and evaluate expressions involving square roots.\\
+\par
+{\bf Students will be able to:}
+\begin{itemize}
+	\item Simplify square roots.
+\end{itemize}
+{\bf Prerequisite Knowledge:}
+\begin{itemize}
+	\item Prime factorization of a number.
+	\item Perfect square numbers.
+	\item Find square roots of square numbers.
+\end{itemize}
+\hrulefill
+
+{\bf Lesson:}\\
+{\bf I - Motivating Example(s):}\\
+\ \par
+{\bf Example:}
+  \[ \begin{array}{|c|c|}
+       \hline
+       \sqrt{0} = 0 & \sqrt{121} = 11\\
+       \hline
+       \sqrt{1} = 1 & \sqrt{625} = 25\\
+       \hline
+       \sqrt{4} = 2 & \sqrt{- 81} = \text{undefined}\\
+       \hline
+     \end{array} \]
+
+The final example of $\sqrt{- 81}$ is currently considered to be undefined, since the square root of a negative number does not equal a real number. This is because if we square a positive or a negative number, the answer will be positive, not to mention that $0^2=0$. Thus we can only take square roots of nonnegative numbers (positive numbers or zero).  In a future lesson, we will define a method we can use to work with and evaluate negative square roots.  For now we will simply say they are undefined.\\
+\ \par
+Not all numbers have a ``nice'' (or {\it rational}) square root. For example, if we found
+$\sqrt{8}$ on our calculator, the answer would be
+2.828427124746190097...%603377448419...
+, and even this number is a rounded approximation of the square root. To be as accurate as possible, we will never
+use the calculator to find decimal approximations of square roots. Instead we will express roots in simplest radical form. We will do this using a property known as the product rule of radicals (in this case, square roots).
+\[ {\bf Product \ Rule \ of \ Square \ Roots: \ }
+   \sqrt{a \cdot b} = \sqrt{a} \cdot \sqrt{b} \]
+More generally,
+\[ {\bf Product \ Rule \ of \ Radicals: \ }
+   \sqrt[n]{a \cdot b} = \sqrt[n]{a} \cdot \sqrt[n]{b} \]
+We can use the product rule of square roots to simplify an expression such as $\sqrt{180}=\sqrt{36 \cdot
+5}$ by splitting it into two roots, $\sqrt{36} \cdot \sqrt{5}$, and simplifying the first root, $6 \sqrt{5}$. The trick in this process is being able to recognize that an expression like $\sqrt{180}$ may be rewritten as $\sqrt{36 \cdot 5}$, since $180=36\cdot 5$. In the case of $\sqrt{8}$, we may write $\sqrt{8}=\sqrt{4}\cdot\sqrt{2}=2\sqrt{2}$.\\
+\ \par
+There are several ways of applying the product rule of square roots. The most common and, with a bit of practice, fastest method is to find perfect squares that divide nicely into the radicand (the number under the radical). This is demonstrated in the next example.\\
+\ \par
+{\bf Example:} Completely simplify the given radical.
+  \begin{eqnarray*}
+    \sqrt{75} &  & 75 \text{\ is divisible by \ } 25, 
+    \text{\ a perfect square \ }\\
+    \sqrt{25 \cdot 3} &  & \text{Split into factors}\\
+    \sqrt{25} \cdot \sqrt{3} &  & \text{Product rule, take the square root of \ } 25\\
+    5 \sqrt{3} &  & \text{Our solution}
+  \end{eqnarray*}
+{\bf II - Demo/Discussion Problems:}\\
+\ \par
+Completely simplify the given radicals.
+\begin{multicols}{4}
+\begin{enumerate}
+	\item $5\sqrt{63}$
+	\item $\sqrt{72}$
+  \item $- 5~\sqrt[]{72 x^3 y^4}$
+	\item $-5\sqrt{18x^4y^6z^{10}}$
+\end{enumerate}
+\end{multicols}
+\ \par
+{\bf III - Practice Problems:}\\
+\ \par
+Completely simplify each of the following square roots completely.
+\begin{multicols}{4}
+\begin{enumerate}
+	\item $\sqrt[]{245}$
+	\item $\sqrt[]{125}$
+  \item $\sqrt[]{36}$
+  \item $\sqrt[]{196}$
+  \item $\sqrt[]{12}$
+  \item $\sqrt[]{72}$
+  \item $3~\sqrt[]{12}$
+  \item $5~\sqrt[]{32}$
+  \item $6~\sqrt[]{128}$
+  \item $7~\sqrt[]{128}$
+  \item $- 8~\sqrt[]{392}$
+  \item $- 7~\sqrt[]{63}$
+  \item $\sqrt[]{192 n}$
+  \item $\sqrt[]{343 b}$
+  \item $\sqrt[]{196 v^2}$
+  \item $\sqrt[]{100 n^3}$
+  \item $\sqrt[]{252 x^2}$
+  \item $\sqrt[]{200 a^3}$
+  \item $-~\sqrt[]{100 k^4}$
+  \item $- 4~\sqrt[]{175 p^4}$
+  \item $- 7~\sqrt[]{64 x^4}$
+  \item $- 2~\sqrt[]{128 n}$
+  \item $- 5~\sqrt[]{36 m}$
+  \item $8~\sqrt[]{112 p^2}$
+  \item $\sqrt[]{45 x^2 y^2}$
+  \item $\sqrt[]{72 a^3 b^4}$
+  \item $\sqrt[]{16 x^3 y^3}$
+  \item $\sqrt[]{512 a^4 b^2}$
+  \item $\sqrt[]{320 x^4 y^4}$
+  \item $\sqrt[]{512 m^4 n^3}$
+  \item $6~\sqrt[]{80 x^{} y^2}$
+  \item $8~\sqrt[]{98 m n}$
+  \item $5~\sqrt[]{245 x^2 y^3}$
+  \item $2~\sqrt[]{72 x^2 y^2}$
+  \item $- 2~\sqrt[]{180 u^3 v}$
+  \item $- 5~\sqrt[]{96 x^4 y^3}$
+  \item $- 8~\sqrt[]{180 x^4 y^2 z^4}$
+  \item $6~\sqrt[]{50 a^4 b c^2}$
+  \item $2~\sqrt[]{80 h j^4 k}$
+  \item $-~\sqrt[]{32 x y^2 z^3}$
+  \item $- 4~\sqrt[]{54 m n p^2}$
+  \item $- 8~\sqrt[]{32 m^2 p^4 q}$
+\end{enumerate}
+\end{multicols}
+\newpage
+\end{document}

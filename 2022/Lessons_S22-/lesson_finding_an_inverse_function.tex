@@ -1,0 +1,139 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+\usepackage[metapost,truebbox]{mfpic}
+% Use the cc-by-nc-sa license for any content linked with Stitz and Zeager's text.  Otherwise, use the cc-by-sa license.
+%\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+\usepackage[type={CC},modifier={by-nc-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+\input{order}
+
+\begin{document}
+{\bf \large Lesson \arabic{lesson_finding_an_inverse_function}: Inverse Functions - Finding an Inverse Function, $f^{-1}$}\phantomsection\label{les:finding_an_inverse_function}
+%\\ CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. 
+\\ CC attribute: \href{http://www.stitz-zeager.com}{\it{College Algebra}} by C. Stitz and J. Zeager. 
+\hfill \doclicenseImage[imagewidth=5em]\\
+\par
+{\bf Objective:} 	Find the inverse of a given function.\\  
+\par
+{\bf Students will be able to:}
+\begin{itemize}
+	\item Find the inverse of a function algebraically.
+\end{itemize}
+{\bf Prerequisite Knowledge:}
+\begin{itemize}
+	\item Definition and properties of inverse function.
+\end{itemize}
+\hrulefill
+
+{\bf Lesson:}
+%\ \par
+\begin{center}
+\framebox{
+\begin{minipage}{0.9\linewidth}
+\centerline{\textbf{Steps for finding the Inverse of a Function}} 
+\begin{enumerate}
+\item  Rewrite $f(x)$ as $y$.
+\item  Switch $x$ and $y$.
+\item  Solve for $y$.
+\item  Rewrite $y$ as $f^{-1}(x)$.
+\end{enumerate}
+\end{minipage}
+}
+\end{center}
+
+{\bf I - Motivating Example(s):}\\
+\ \par
+{\bf Example:}  Find the inverse $f^{-1}$ of the function $f(x)=\dfrac{1-2x}{5}$.\\
+\ \par
+We replace $f(x)$ with $y$ and proceed to switch $x$ and $y$
+
+\[ \begin{array}{rcll}
+y & = &  \dfrac{1-2x}{5} & \\ [6pt]
+x & = & \dfrac{1-2y}{5} & \mbox{Switch $x$ and $y$} \\ [6pt]
+5x & = & 1 - 2y & \mbox{Solve for $y$} \\ [6pt]
+5x-1 & = & -2y & \\ 
+\dfrac{5x-1}{-2} & = & y & \\ 
+y & = & -\dfrac{5}{2} x + \dfrac{1}{2} & 
+\end{array} \]
+
+We have $f^{-1}(x) = -\dfrac{5}{2} x + \dfrac{1}{2}$.\\
+\ \par
+To verify this answer, we leave it as an exercise to the reader to check that $\left(f^{-1} \circ f \right)(x) = x $ for all $x$ in the domain of $f$, and $\left(f \circ f^{-1} \right)(x) = x$ for all $x$ in the domain of $f^{-1}$.  Note that since $f$ and $f^{-1}$ are both linear functions, the domain and range for each function is $(-\infty,\infty)$.\\
+\ \par
+{\bf Example:}  Find the inverse $g^{-1}$ of the function $g(x) = \dfrac{2x}{1-x}$.\\
+\ \par
+Notice that the domain of $g$ is $(-\infty,1) \cup (1, \infty)$.  One can verify graphically, that the range of $g$ is $(-\infty,-2) \cup (-2, \infty)$.\\
+\ \par
+To find $g^{-1}(x)$, we start by replacing $g(x)$ with $y$.
+
+\[ \begin{array}{rcll}
+y & = &  \dfrac{2x}{1-x} & \\ [7pt]
+x & = & \dfrac{2y}{1-y} & \mbox{Switch $x$ and $y$} \\ [3pt]
+x(1-y) & = & 2y & \mbox{Solve for $y$; clear denominator} \\ [3pt]
+x-xy & = & 2y & \mbox{Distribute $x$}\\ [3pt]
+x & = & xy + 2y & \mbox{Move $y$ terms to one side}\\ [3pt]
+x & = & y(x+2) & \mbox{Factor out $y$}\\ [8pt]
+y & = & \dfrac{x}{x+2} & \mbox{Divide by $x+2$}
+\end{array} \]
+
+We have $g^{-1}(x) = \dfrac{x}{x+2}$.\\
+\ \par
+Notice that the domain of $g^{-1}$ matches the range of $g$ from earlier,
+$(-\infty,-2) \cup (-2, \infty)$.  Again, we can use the graph of $g^{-1}$ to verify that the range of $g^{-1}$ also matches the domain of $g$, $(-\infty,1) \cup (1, \infty)$.\\
+\ \par
+We leave it as an exercise to show that $\left(g^{-1} \circ g \right)(x) = x$ and  $\left(g \circ g^{-1} \right)(x) = x$.\\
+\ \par
+{\bf II - Demo/Discussion Problems:}\\
+\ \par
+Find the inverse function for each of the following functions. Graph both the original function and your answer using \Desmos \ to confirm your results and compare the domains and ranges for your pair of functions.
+\begin{multicols}{2}
+\begin{enumerate}
+ \item $f(x) = 3\sqrt{x}+4$\\
+ \item $g(x)=2\sqrt{x-1}-4$\\
+ \item $h(x)=-x^2-1,$ $x\geq 0$
+ \item $k(x)=-x^2-1,$ $x\leq 0$\\
+ \item $\ell(x) = x^2+10x+15,$ where $x\geq -5$\\
+ \item $m(x) = x^2+10x+15,$ where $x\leq -5$
+\end{enumerate}
+\end{multicols}
+\newpage
+{\bf III - Practice Problems:}\\
+\ \par
+Find the inverse function for each of the following functions.  Check your answer algebraically by finding $f\circ f^{-1}$ and $f^{-1}\circ f$.  Graph both the original function and your answer using \Desmos \ to confirm your results and compare the domains and ranges for your pair of functions.
+\begin{enumerate}
+\begin{multicols}{2}
+\item $f(x) = 2-6x$\\
+\item $f(x) = \dfrac{x-2}{3} + 4$\\
+\item $f(x)  = 1 - \dfrac{4+3x}{5}$\\
+\item $f(x) = \sqrt{3x-1}+5$\\
+\item $f(x) = 2-\sqrt{x - 5}$\\
+\item $f(x) = 3\sqrt{x-1}-4$\\
+\item $f(x) = 1 - 2\sqrt{2x+5}$\\
+\item $f(x) = \sqrt[3]{3x-1}$\\
+\item $f(x) = 3-\sqrt[3]{x-2}$\\
+\item $f(x) = 8(x-2)^3$
+\item $f(x) = (x+3)^2-6, \; x \geq -3$\\
+\item $f(x) = 2(x-1)^2 + 4$, $x < 1$\\
+\item $f(x) = x^2-6x+5, \; x \leq 3$\\
+\item $f(x) = 4x^2 + 4x + 1$, $x < -1$\\
+\item $f(x) = \dfrac{3}{4-x}$\\
+\item $f(x) = \dfrac{x}{1-3x}$\\
+\item $f(x) = \dfrac{2x-1}{3x+4}$\\
+\item $f(x) = \dfrac{4x + 2}{3x - 6}$\\
+\item $f(x) = \dfrac{-3x - 2}{x + 3}$\\ 
+\item $f(x) = \dfrac{x-2}{2x-1}$
+\end{multicols}
+\end{enumerate}
+\newpage
+\ \newpage
+\end{document}

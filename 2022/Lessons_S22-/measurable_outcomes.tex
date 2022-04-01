@@ -1,0 +1,99 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+% Use the cc-by-nc-sa license for any content linked with Stitz and Zeager's text.  Otherwise, use the cc-by-sa license.
+\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+%\usepackage[type={CC},modifier={by-nc-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+
+\input{order}
+\begin{document}
+%\thispagestyle{empty}
+\pagenumbering{roman}
+\setcounter{page}{3}
+{\bf \large Measurable Outcomes}
+%\\ CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. 
+%\\ CC attribute: \href{http://www.stitz-zeager.com}{\it{College Algebra}} by C. Stitz and J. Zeager. 
+\hfill \doclicenseImage[imagewidth=5em]\\
+\par
+Below is a comprehensive list of the anticipated measurable outcomes and some essential prerequisite skills needed for successful completion of the College Algebra course.  This list is based off of the course description and exit list topics of MATH 123 College Algebra at Framingham State University.  Each outcome number aligns to its respective lesson.
+\begin{enumerate}
+	\item[\arabic{lesson_solving_linear_equations}] Solve general linear equations with variables on both sides of the equation. Page \pageref{les:solving_linear_equations}\\
+	\item[\arabic{lesson_equations_containing_absolute_values}] Solve an equation that contains one or more absolute value(s). Page \pageref{les:equations_containing_absolute_values}\\
+	\item[\arabic{lesson_graphing_lines}] Graph a linear equation by creating a table of values for $x$.\\  Identify the slope of a linear equation both graphically and algebraically. Page \pageref{les:graphing_lines}\\
+	\item[\arabic{lesson_two_forms_of_a_linear_equation}] Write the equation of a line in slope-intercept and point-slope form. Page \pageref{les:two_forms_of_a_linear_equation}\\
+	\item[\arabic{lesson_parallel_and_perpendicular_lines}] Write the equation of a line given a line parallel or perpendicular. Page \pageref{les:parallel_and_perpendicular_lines}\\
+%	\item[\arabic{lesson_}] Solve linear application problems involving consecutive integers, geometry, age, and distance, rate, and time.\\
+	\item[\arabic{lesson_linear_inequalities}] Solve, graph, and give interval notation for the solution to a linear inequality.\\  Create a sign diagram to identify those intervals where a linear expression is positive or negative. Page \pageref{les:linear_inequalities}\\
+	\item[\arabic{lesson_compound_inequalities}] Solve, graph, and give interval notation to the solution of a compound inequality. \mbox{Page \pageref{les:compound_inequalities}}\\
+	\item[\arabic{lesson_inequalities_containing_absolute_values}] Solve, graph, and give interval notation to the solution of an inequality containing absolute values. Page \pageref{les:inequalities_containing_absolute_values}\\
+	\item[\arabic{lesson_graphing_systems}] Solve linear systems by graphing. Page \pageref{les:graphing_systems}\\
+	\item[\arabic{lesson_substitution}] Solve linear systems by substitution. Page \pageref{les:substitution}\\
+	\item[\arabic{lesson_elimination}] Solve linear systems by addition and elimination. Page \pageref{les:elimination}\\
+	\item[\arabic{lesson_functions_and_relations}] Define a relation and a function; determine if a relation is a function. Page \pageref{les:functions_and_relations}\\
+	\item[\arabic{lesson_evaluating_functions}] Evaluate functions using appropriate notation. Page \pageref{les:evaluating_functions}\\
+	\item[\arabic{lesson_finding_domain_and_range_graphically}] Find the domain and range of a function from its graph. Page \pageref{les:finding_domain_and_range_graphically}
+	\newpage
+	\item[\arabic{lesson_fundamental_functions}] Graph and identify the domain, range, and intercepts of any of the ten fundamental functions. Page \pageref{les:fundamental_functions}\\
+%\thispagestyle{empty}
+	\item[\arabic{lesson_quadratics_introduction}] Recognize a quadratic equation in both form and graphically. Page \pageref{les:quadratics_introduction}\\
+	\item[\arabic{lesson_factoring_GCF}] Find the greatest common factor (GCF) and factor it out of an expression. Page \pageref{les:factoring_GCF}\\
+	\item[\arabic{lesson_factoring_grouping}] Factor a tetranomial (four-term) expression by grouping. Page \pageref{les:factoring_grouping}\\
+	\item[\arabic{lesson_factoring_trinomials_a_is_1}] Factor a trinomial with a leading coefficient of one. Page \pageref{les:factoring_trinomials_a_is_1}\\
+	\item[\arabic{lesson_factoring_trinomials_a_neq_1}] Factor a trinomial with a leading coefficient of $a\neq 1$. Page \pageref{les:factoring_trinomials_a_neq_1}\\
+	\item[\arabic{lesson_solving_by_factoring}] Solve polynomial equations by factoring and using the Zero Factor Property. Page \pageref{les:solving_by_factoring}\\
+	\item[\arabic{lesson_square_roots}] Simplify and evaluate expressions involving square roots. Page \pageref{les:square_roots}\\
+	\item[\arabic{lesson_i_and_complex_numbers}] Simplify expressions involving complex numbers. Page \pageref{les:i_and_complex_numbers}\\
+	\item[\arabic{lesson_vertex_form_and_graphing}] Graph quadratic equations in both standard and vertex forms. Page \pageref{les:vertex_form_and_graphing}\\
+	\item[\arabic{lesson_solve_by_square_roots}] Solve quadratic equations of the form $ax^2+c=0$ by introducing a square root. Page \pageref{les:solve_by_square_roots}\\
+	\item[\arabic{lesson_extracting_square_roots}] Solve quadratic equations using the method of extracting square roots. Page \pageref{les:extracting_square_roots}\\
+	\item[\arabic{lesson_the_discriminant}] Use the discriminant to determine the number of real solutions to a quadratic equation. Page \pageref{les:the_discriminant}\\
+	\item[\arabic{lesson_the_quadratic_formula}] Solve quadratic equations using the Quadratic Formula. Page \pageref{les:the_quadratic_formula}\\
+	\item[\arabic{lesson_quadratic_inequalities}] Solve quadratic inequalities using a sign diagram. Page \pageref{les:quadratic_inequalities}\\
+	\item[\arabic{lesson_finding_domain_algebraically}] Find the domain of a function by algebraic methods. Page \pageref{les:finding_domain_algebraically}
+\newpage
+%\thispagestyle{empty}
+	\item[\arabic{lesson_solving_functions}] Solve functions using appropriate notation. Page \pageref{les:solving_functions}\\
+	\item[\arabic{lesson_function_arithmetic}] Add, subtract, multiply, and divide functions. Page \pageref{les:function_arithmetic}\\
+	\item[\arabic{lesson_composite_functions}] Construct, evaluate, and interpret composite functions. Page \pageref{les:composite_functions}\\
+	\item[\arabic{lesson_inverse_functions_definition_and_HLT}] Understand the definition of an inverse function and graphical implications.  Determine whether a function is invertible. Page \pageref{les:inverse_functions_definition_and_HLT}\\  
+	\item[\arabic{lesson_finding_an_inverse_function}] Find the inverse of a given function. Page \pageref{les:finding_an_inverse_function}\\
+	\item[36] Recognize and identify vertical and \slash or horizontal translations of a given function. Page \pageref{les:translations}\\
+	\item[37] Recognize and identify reflections over the $x-$ and \slash or $y-$axis of a given function. Page \pageref{les:reflections}\\
+	\item[38] Recognize and identify vertical or horizontal scalings of a given function. Page \pageref{les:scalings}\\
+	\item[39] Recognize and identify functions obtained by applying multiple transformations to a given function. Page \pageref{les:transformations_summary}\\
+	\item[\arabic{lesson_piecewise_functions}] Define, evaluate, and solve piecewise functions. Page \pageref{les:piecewise_functions}\\
+	\item[\arabic{lesson_functions_containing_absolute_values}] Graph a variety of functions that contain an absolute value. Page \pageref{les:functions_containing_absolute_values}\\
+	\item[\arabic{lesson_absolute_as_piecewise}] Interpret a function containing an absolute value as a piecewise-defined function. \mbox{Page \pageref{les:absolute_as_piecewise}}\\
+	\item[\arabic{lesson_polynomials_introduction}] Identify key features of and classify a polynomial by degree and number of nonzero terms. Page \pageref{les:polynomials_introduction}\\
+	\item[\arabic{lesson_sign_diagrams_polynomials}] Construct a sign diagram for a given polynomial expression. Page \pageref{les:sign_diagrams_polynomials}\\
+	\item[\arabic{lesson_factoring_summary}] Factor a general polynomial expression using one or more of factorization methods. Page \pageref{les:factoring_summary}
+\newpage
+	\item[\arabic{lesson_factoring_quadratic_type}] Recognize and factor a polynomial expression of quadratic type. Page \pageref{les:factoring_quadratic_type}\\
+	\item[\arabic{lesson_polynomial_division}] Apply polynomial division. Page \pageref{les:polynomial_division}\\
+	\item[\arabic{lesson_synthetic_division}] Apply synthetic division. Page \pageref{les:synthetic_division}\\
+%\thispagestyle{empty}
+	\item[\arabic{lesson_end_behavior_polynomials}] Determine the end behavior of the graph of a polynomial function. Page \pageref{les:end_behavior_polynomials}\\
+	\item[\arabic{lesson_local_behavior_polynomials}] Identify all real roots and their corresponding multiplicities for a polynomial function (that is easily factorable). Page \pageref{les:local_behavior_polynomials}\\
+	\item[\arabic{lesson_rational_root_theorem}] Apply the Rational Root Theorem to determine a set of possible rational roots for and a factorization of a given polynomial. Page \pageref{les:rational_root_theorem}\\
+	\item[\arabic{lesson_polynomials_graphing_summary}] Graph a polynomial function in its entirety. Page \pageref{les:polynomials_graphing_summary}\\
+	\item[\arabic{lesson_polynomial_inequalities}] Solve a polynomial inequality by constructing a sign diagram. Page \pageref{les:polynomial_inequalities}\\
+	\item[\arabic{lesson_rationals_introduction_and_terminology}] Define and identify key features of rational functions. Page \pageref{les:rationals_introduction_and_terminology}\\
+	\item[\arabic{lesson_sign_diagrams_rationals}] Solve rational inequalities by constructing a sign diagram. Page \pageref{les:sign_diagrams_rationals}\\
+	\item[\arabic{lesson_horizontal_asymptotes}] Identify a horizontal asymptote in the graph of a rational function. Page \pageref{les:horizontal_asymptotes}\\ 
+	\item[\arabic{lesson_slant_and_curvilinear_asymptotes}] Identify a slant or curvilinear asymptote in the graph of a rational function. Page \pageref{les:slant_and_curvilinear_asymptotes}\\
+	\item[\arabic{lesson_vertical_asymptotes}] Identify one or more vertical asymptotes in the graph of a rational function. Page \pageref{les:vertical_asymptotes}\\
+	\item[\arabic{lesson_holes}] Identify the precise location of one or more holes in the graph of a rational function. Page \pageref{les:holes}\\ 
+	\item[\arabic{lesson_rationals_graphing_summary}] Graph a rational function in its entirety. Page \pageref{les:rationals_graphing_summary}
+\end{enumerate}
+\newpage
+\end{document}

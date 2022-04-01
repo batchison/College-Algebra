@@ -1,0 +1,87 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+% Use the cc-by-nc-sa license for any content linked with Stitz and Zeager's text.  Otherwise, use the cc-by-sa license.
+%\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+\usepackage[type={CC},modifier={by-nc-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+\input{order}
+
+\begin{document}
+{\bf \large Lesson \arabic{lesson_rationals_introduction_and_terminology}: Rational Function Introduction and Terminology}\phantomsection\label{les:rationals_introduction_and_terminology}
+%\\ CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. 
+\\ CC attribute: \href{http://www.stitz-zeager.com}{\it{College Algebra}} by C. Stitz and J. Zeager. 
+\hfill \doclicenseImage[imagewidth=5em]\\
+\par
+{\bf Objective:} Define and Identify key features of rational functions.\\
+\par
+{\bf Students will be able to:}
+\begin{itemize}
+	\item Find the $y$-intercept of a rational function.
+	\item Find the $x$-intercept(s) of a rational function.
+	\item State the domain of a rational function.
+\end{itemize}
+{\bf Prerequisite Knowledge:}
+\begin{itemize}
+	\item Factor polynomials.
+	\item Evaluate functions.
+	\item Write the domain of a function.
+\end{itemize}
+\hrulefill
+
+{\bf Lesson:}
+\par
+{\bf I - Motivating Example(s):}\\
+\ \par
+%\begin{example} TODO: Always comment out the examples
+{\bf Example:}  $f(x)=\dfrac{(x-2)^2(x+3)}{2(x-6)(1-x)}$\\
+\ \par
+To find the $y-$intercept of the graph of $f$, we evaluate $f(0)$ below.
+$$f(0)=\dfrac{(0-2)^2(0+3)}{2(0-6)(1-0)}=\dfrac{(-2)^2(3)}{2(-6)(1)}=\dfrac{12}{-12}=-1$$
+Hence, the $y-$intercept of the graph of $f$ is $(0,-1)$.\\
+\ \par
+To identify the domain of a rational function $f(x)=\frac{p(x)}{q(x)}$, we must eliminate all real numbers $x$ which make the denominator equal to zero.  In other words, the domain of $f$ is the set of all $x$ such that $q(x)\neq 0$.\\
+\ \par
+The domain of $f$ is $x\neq 6$ or  $1$, or, in interval notation, $(-\infty,1)\cup(1,6)\cup(6,\infty)$.\\
+\ \par
+To find all possible $x-$intercepts for the graph of $f(x)=\frac{p(x)}{q(x)}$, we set the function equal to zero and solve for all possible $x$, keeping {\it only} those values that are also in our domain.\\
+\ \par
+The numerator has two zeros, $x=2$ and $-3$, that do not also make the denominator equal to zero. Written as coordinates, the x-intercepts are $(2,0)$ and $(-3, 0)$.
+\newpage
+{\bf II - Demo/Discussion Problems:}\\
+\ \par
+Find the domain, $x$-intercept(s), and $y$-intercept of each function.  Write your intercepts as coordinate pairs.
+\begin{enumerate}
+%\begin{multicols}{2}
+\item $f(x)=\dfrac{x^3-x^2-8x+12}{-2x^2+14x-12}$\\
+\item $g(x)=\dfrac{(x-2)^2(x+3)}{2(x-6)(1-x)}$\\
+\item $h(x)=\dfrac{3(x+4)(x-2)^2}{(x+3)^2(2x-3)}$\\
+\item $j(x)=\dfrac{-x^2-4x+45}{2x^3-5x^2-18x+45}$\\
+%\end{multicols}
+\end{enumerate}
+
+{\bf III - Practice Problems:}\\
+\ \par
+Find the domain, $x$-intercept(s), and $y$-intercept of each function.  Write your intercepts as coordinate pairs.
+\begin{enumerate}
+%\begin{multicols}{2}
+\item $f(x)=\dfrac{(x-5)(x-4)}{x+3}$\\
+\item $g(x)=\dfrac{x^2-4x}{x^2-4}$\\
+\item $h(x)=\dfrac{x^2+1}{x^3+3x^2-10x}$\\
+\item $j(x)=\dfrac{2x^2-x-10}{3x^2+x-10}$\\
+\item $k(x)=\dfrac{3x^2+x-10}{2x^2-x-10}$\\
+\item $m(x)=\dfrac{x^3-25x}{x^4-16x^2}$\\
+\item $n(x)=\dfrac{x(x-3)}{(2x-1)(x+5)}$\\
+%\end{multicols}
+\end{enumerate}
+\newpage
+\end{document}

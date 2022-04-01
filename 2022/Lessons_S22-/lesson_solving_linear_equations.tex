@@ -1,0 +1,171 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+\input{order}
+
+\begin{document}
+{\bf \large Lesson \arabic{lesson_solving_linear_equations}: Solving Linear Equations}\phantomsection\label{les:solving_linear_equations}\\
+CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. \hfill \doclicenseImage[imagewidth=5em]\\
+\par
+{\bf Objective:} Solve general linear equations with variables on both sides of the equation. \\
+\par
+{\bf Students will be able to:}
+\begin{itemize}
+	\item Solve and check the solutions to linear equations.
+\end{itemize}
+{\bf Prerequisite Knowledge:}
+\begin{itemize}
+	\item Adding, subtracting, and multiplying fractions.
+	\item Finding a least common multiple (LCM).
+	\item Applying the distributive property.
+	\item Checking solutions to equations.
+\end{itemize}
+\hrulefill
+
+{\bf Lesson:}
+\par
+{\bf I - Motivating Example(s):}\\
+\par
+We wish to solve the equation $$\dfrac{2}{3}x-2=\dfrac{3}{2}x+\dfrac{1}{6}.$$
+To do so, we will ``clear out'' all denominators in the equation by multiplying each term in the equation by a least common multiple of the denominators (LCM).  In this case, our LCM is 6.
+$$\textbf{6}\cdot \dfrac{2}{3}x-\textbf{6}\cdot 2=\textbf{6}\cdot \dfrac{3}{2}x+\textbf{6}\cdot \dfrac{1}{6}$$
+Cancel and reduce each term to eliminate all fractions.
+\begin{eqnarray*}
+\cancel{\textbf{6}}\cdot \dfrac{2}{\cancel{3}}x-\textbf{6}\cdot 2&=&\cancel{\textbf{6}}\cdot \dfrac{3}{\cancel{2}}x+\cancel{\textbf{6}}\cdot \dfrac{1}{\cancel{6}}\\
+\textbf{2}\cdot 2x-\textbf{6}\cdot 2&=&\textbf{3}\cdot 3x+\textbf{1}\cdot 1\\
+4x-12&=&9x+1
+\end{eqnarray*}
+Combine like terms and solve the resulting two-step equation for $x$.
+\begin{eqnarray*}
+4x-12&=&9x+1\\
+-12&=&5x+1\\
+-13&=&5x\\
+x&=&-\dfrac{13}{5}
+\end{eqnarray*}
+Check your answer by plugging it back into the {\bf original} equation and simplifying.
+\begin{eqnarray*}
+\dfrac{2}{3}\cdot\left(-\dfrac{13}{5}\right)-2&=&\dfrac{3}{2}\cdot\left(-\dfrac{13}{5}\right)+\dfrac{1}{6}\\
+-\dfrac{26}{15}-2&=&-\dfrac{39}{10}+\dfrac{1}{6}
+\end{eqnarray*}
+Multiply through by the LCM and simplify.
+\begin{eqnarray*}
+\textbf{30}\cdot \left(-\dfrac{26}{15}\right)-\textbf{30}\cdot 2&=&\textbf{30}\cdot \left(-\dfrac{39}{10}\right)+\textbf{30}\cdot \dfrac{1}{6}\\
+\cancel{\textbf{30}}\cdot \left(-\dfrac{26}{\cancel{15}}\right)-\textbf{30}\cdot 2&=&\cancel{\textbf{30}}\cdot \left(-\dfrac{39}{\cancel{10}}\right)+\cancel{\textbf{30}}\cdot \dfrac{1}{\cancel{6}}\\
+\textbf{2}\cdot \left(-26\right)-\textbf{30}\cdot 2&=&\textbf{3}\cdot \left(-39\right)+\textbf{5}\cdot 1\\
+-52-60&=&-117+5\\
+-112&=&-112 \ \checkmark
+\end{eqnarray*}
+Since the resulting equation is true, our solution is correct.\\
+\par
+{\bf II - Demo/Discussion Problems:}\\
+\par
+Solve each equation.  Check your answer.
+\begin{enumerate}
+	\item $\dfrac{3}{4}x-\dfrac{7}{2}=\dfrac{5}{6}$
+	\item $\dfrac{3}{2}\left(\dfrac{5}{9}x+\dfrac{4}{27}\right)=3$
+	\item $\dfrac{3}{4}x-\dfrac{1}{2}=\dfrac{1}{3}\left(\dfrac{3}{4}x+6\right)-\dfrac{7}{2}$
+\end{enumerate}
+{\bf III - Practice Problems:}\\
+\par
+Solve each equation.
+\begin{multicols}{2}
+  1) $2 - (- 3 a - 8) = 1$\\
+  2) $2 (- 3 n + 8) = - 20$\\
+  3) $- 5 (- 4 + 2 v) = - 50$\\
+  4) $2 - 8 (- 4 + 3 x) = 34$\\
+  5) $66 = 6 (6 + 5 x) $\\
+	6) $32 = 2 - 5 (- 4 n + 6)$\\
+  7) $0 = - 8 (p - 5)$\\
+  8) $- 55 = 8 + 7 (k - 5)$\\
+  9) $- 2 + 2 (8 x - 7) = - 16$\\
+  10) $- (3 - 5 n) = 12$\\
+  11) $- 21 x + 12 = - 6 - 3 x$\\
+  12) $- 3 n - 27 = - 27 - 3 n$\\
+  13) $- 1 - 7 m = - 8 m + 7$\\
+  14) $56 p - 48 = 6 p + 2$\\
+  15) $1 - 12 r = 29 - 8 r$\\
+  16) $4 + 3 x = - 12 x + 4$\\
+  17) $20 - 7 b = - 12 b + 30$\\
+  18) $- 16 n + 12 = 39 - 7 n$\\
+  19) $- 32 - 24 v = 34 - 2 v$\\
+  20) $17 - 2 x = 35 - 8 x$\\
+  21) $- 2 - 5 (2 - 4 m) = 33 + 5 m$\\
+  22) $- 25 - 7 x = 6 (2 x - 1)$\\
+  23) $- 4 n + 11 = 2 (1 - 8 n) + 3 n$\\
+  24) $- 7 (1 + b) = - 5 - 5 b$\\
+  25) $- 6 v - 29 = - 4 v - 5 (v + 1) $\\
+  26) $- 8 (8 r - 2) = 3 r + 16$\\
+  27) $2 (4 x - 4) = - 20 - 4 x$\\
+  28) $- 8 n - 19 = - 2 (8 n - 3) + 3 n$\\
+  29) $- a - 5 (8 a - 1) = 39 - 7 a$\\
+  30) $- 4 + 4 k = 4 (8 k - 8)$\\
+  31) $- 57 = - (- p + 1) + 2 (6 + 8 p)$\\
+  32) $16 = - 5 (1 - 6 x) + 3 (6 x + 7)$\\
+  33) $- 2 (m - 2) + 7 (m - 8) = - 67$\\
+  34) $7 = 4 (n - 7) + 5 (7 n + 7)$\\
+  35) $50 = 8 (7 + 7 r) - (4 r + 6)$\\
+  36) $- 8 (6 + 6 x) + 4 (- 3 + 6 x) = - 12$\\
+  37) $- 8 (n - 7) + 3 (3 n - 3) = 41$\\
+  38) $- 76 = 5 (1 + 3 b) + 3 (3 b - 3)$\\
+  39) $- 61 = - 5 (5 r - 4) + 4 (3 r - 4)$\\
+  40) $- 6 (x - 8) - 4 (x - 2) = - 4$\\
+  41) $- 2 (8 n - 4) = 8 (1 - n)$\\
+  42) $- 4 (1 + a) = 2 a - 8 (5 + 3 a) $\\
+  43) $- 3 (- 7 v + 3) + 8 v = 5 v - 4 (1 - 6 v) $\\
+  44) $- 6 (x - 3) + 5 = - 2 - 5 (x - 5)$\\
+  45) $- 7 (x - 2) = - 4 - 6 (x - 1)$\\
+  46) $- (n + 8) + n = - 8 n + 2 (4 n - 4)$\\
+  47) $- 6 (8 k + 4) =  8 (6 k + 3) + 12$\\
+  48) $- 5 (x + 7) = 4 (- 8 x - 2)$\\
+  49) $- 2 (1 - 7 p) = 8 (p - 7)$\\
+  50) $8 (- 8 n + 4) = 4 (- 7 n + 8)$
+\end{multicols}
+
+Solve each equation.
+
+\begin{multicols}{2}
+  51) $\frac{3}{5} (1 + p) = \frac{21}{20}$\\ \ \\
+  52) $- \frac{1}{2} = \frac{3}{2} k + \frac{3}{2}$\\ \ \\
+  53) $0 = - \frac{5}{4} (x - \frac{6}{5})$\\ \ \\
+  54) $\frac{3}{2} n - \frac{8}{3} = - \frac{29}{12}$\\ \ \\
+  55) $\frac{3}{4} - \frac{5}{4} m = \frac{113}{24}$\\ \ \\
+  56) $\frac{11}{4} + \frac{3}{4} r = \frac{163}{32}$\\ \ \\
+  57) $\frac{635}{72} = - \frac{5}{2} (- \frac{11}{4} + x)$\\ \ \\
+  58) $- \frac{16}{9} = - \frac{4}{3} (\frac{5}{3} + n)$\\ \ \\
+  59) $2 b + \frac{9}{5} = - \frac{11}{5}$\\ \ \\
+  60) $\frac{3}{2} - \frac{7}{4} v = - \frac{9}{8}$\\ \ \\
+  61) $\frac{3}{2} (\frac{7}{3} n + 1) = \frac{3}{2}$\\ \ \\
+  62) $\frac{41}{9} = \frac{5}{2} (x + \frac{2}{3}) - \frac{1}{3} x$\\ \ \\
+  63) $- a - \frac{5}{4} (- \frac{8}{3} a + 1) = - \frac{19}{4}$\\ \ \\
+  64) $\frac{1}{3} (- \frac{7}{4} k + 1) - \frac{10}{3} k = - \frac{13}{8}$\\ \ \\
+  65) $\frac{55}{6} = - \frac{5}{2} (\frac{3}{2} p - \frac{5}{3})$\\ \ \\
+  66)$- \frac{1}{2} (\frac{2}{3} x - \frac{3}{4}) - \frac{7}{2} x = -\frac{83}{24}$\\ \ \\
+  67) $\frac{16}{9} = - \frac{4}{3} (- \frac{4}{3} n - \frac{4}{3})$\\ \ \\
+  68) $\frac{2}{3} (m + \frac{9}{4}) - \frac{10}{3} = - \frac{53}{18}$\\ \ \\
+  69) $- \frac{5}{8} = \frac{5}{4} (r - \frac{3}{2})$\\ \ \\
+  70) $\frac{1}{12} = \frac{4}{3} x + \frac{5}{3} (x - \frac{7}{4})$\\ \ \\
+  71) $- \frac{11}{3} + \frac{3}{2} b = \frac{5}{2} (b - \frac{5}{3})$\\ \ \\
+  72) $\frac{7}{6} - \frac{4}{3} n = - \frac{3}{2} n + 2 (n + \frac{3}{2})$\\ \ \\
+  73) $- (- \frac{5}{2} x - \frac{3}{2}) = - \frac{3}{2} + x$\\ \ \\
+  74) $- \frac{149}{16} - \frac{11}{3} r \text{=} - \frac{7}{4} r -  \frac{5}{4} (- \frac{4}{3} r + 1)$\\ \ \\
+  75) $\frac{45}{16} + \frac{3}{2} n = \frac{7}{4} n - \frac{19}{16}$\\ \ \\
+  76) $- \frac{7}{2} (\frac{5}{3} a + \frac{1}{3}) = \frac{11}{4} a +\frac{25}{8}$\\ \ \\
+  77) $\frac{3}{2} (v + \frac{3}{2}) = - \frac{7}{4} v - \frac{19}{6}$\\ \ \\
+  78) $- \frac{8}{3} - \frac{1}{2} x = - \frac{4}{3} x - \frac{2}{3} (-\frac{13}{4} x + 1)$\\ \ \\
+  79) $\frac{47}{9} + \frac{3}{2} x = \frac{5}{3} (\frac{5}{2} x_{} + 1)$\\ \ \\
+  80) $\frac{1}{3} n + \frac{29}{6} = 2 (\frac{4}{3} n + \frac{2}{3})$ 
+\end{multicols}
+\newpage
+\ \newpage
+\end{document}

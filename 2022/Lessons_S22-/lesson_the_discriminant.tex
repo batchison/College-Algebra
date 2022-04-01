@@ -1,0 +1,136 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+% Use the cc-by-nc-sa license for any content linked with Stitz and Zeager's text.  Otherwise, use the cc-by-sa license.
+%\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+\usepackage[type={CC},modifier={by-nc-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+\input{order}
+
+\begin{document}
+{\bf \large Lesson \arabic{lesson_the_discriminant}: The Discriminant}\phantomsection\label{les:the_discriminant}
+%\\ CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. 
+\\ CC attribute: \href{http://www.stitz-zeager.com}{\it{College Algebra}} by C. Stitz and J. Zeager. 
+\hfill \doclicenseImage[imagewidth=5em]\\
+\par
+{\bf Objective:} Use the discriminant to determine the number of real solutions to a quadratic equation.\\
+\par
+{\bf Students will be able to:}
+\begin{itemize}
+	\item Find, simplify, and interpret the discriminant of a quadratic equation in standard form.
+\end{itemize}
+{\bf Prerequisite Knowledge:}
+\begin{itemize}
+	\item Identifying coefficients of a quadratic in standard form.
+	\item Order of operations.
+\end{itemize}
+\hrulefill
+
+{\bf Lesson:}\\
+\ \par
+The {\it discriminant} of a quadratic expression $ax^2+bx+c$ is defined as the real number $D=b^2-4ac$.  In the next lesson, we will see that the discriminant is one piece of the larger quadratic formula,
+$$x=\dfrac{-b\pm\sqrt{b^2-4ac}}{2a},$$
+which is used for identifying the roots of the equation $y=ax^2+bx+c$.
+Since the discriminant appears underneath of a square root in the quadratic formula, whether it is positive, negative, or zero will determine the number of real roots of a quadratic, and consequently the number of $x-$intercepts on its corresponding parabola.
+
+\begin{center}
+\begin{tikzpicture}[xscale=0.75,yscale=0.75]
+	\draw [<->](-9.5,0) -- coordinate (x axis mid) (-4.5,0) node[below right] {$x$};
+	\draw [<->](-2.5,0) -- coordinate (x axis mid) (2.5,0) node[below right] {$x$};
+	\draw [<->](4.5,0) -- coordinate (x axis mid) (9.5,0) node[below right] {$x$};
+	\draw [<->](-7,-1.5) -- coordinate (x axis mid) (-7,2.5) node[above right] {$y$};
+	\draw [<->](0,-1.5) -- coordinate (x axis mid) (0,2.5) node[above right] {$y$};
+	\draw [<->](7,-1.5) -- coordinate (x axis mid) (7,2.5) node[above right] {$y$};
+	\draw [<->] plot [domain=-0.4:1.9, samples=100] (\x,{1.7*(\x-0.75)^2});
+	\draw [<->] plot [domain=6.1:8.4, samples=100] (\x,{1.7*(\x-7.25)^2-1});
+	\draw [<->] plot [domain=-6.35:-8.65, samples=100] (\x,{1.7*(\x+7.5)^2+0.5});
+	\draw[fill] (0.75,0) circle (0.05);
+	\draw[fill] (8.017,0) circle (0.05);
+	\draw[fill] (6.483,0) circle (0.05);
+ \end{tikzpicture}
+\end{center}
+
+\begin{center}
+\begin{multicols}{3}
+Negative Discriminant\\
+$b^2-4ac<0$\\
+No Real Solutions\\
+Zero Discriminant\\
+$b^2-4ac=0$\\
+One Real Solution\\
+Positive Discriminant\\
+$b^2-4ac>0$\\
+Two Real Solutions\\
+\end{multicols}
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}[xscale=0.75,yscale=0.75]
+	\draw [<->](-9.5,0) -- coordinate (x axis mid) (-4.5,0) node[below right] {$x$};
+	\draw [<->](-2.5,0) -- coordinate (x axis mid) (2.5,0) node[below right] {$x$};
+	\draw [<->](4.5,0) -- coordinate (x axis mid) (9.5,0) node[below right] {$x$};
+	\draw [<->](-7,-2.5) -- coordinate (x axis mid) (-7,1.5) node[above right] {$y$};
+	\draw [<->](0,-2.5) -- coordinate (x axis mid) (0,1.5) node[above right] {$y$};
+	\draw [<->](7,-2.5) -- coordinate (x axis mid) (7,1.5) node[above right] {$y$};
+	\draw [<->] plot [domain=-0.4:1.9, samples=100] (\x,{-1.7*(\x-0.75)^2});
+	\draw [<->] plot [domain=6.1:8.4, samples=100] (\x,{-1.7*(\x-7.25)^2+1});
+	\draw [<->] plot [domain=-6.35:-8.65, samples=100] (\x,{-1.7*(\x+7.5)^2-0.5});
+	\draw[fill] (0.75,0) circle (0.05);
+	\draw[fill] (8.017,0) circle (0.05);
+	\draw[fill] (6.483,0) circle (0.05);
+ \end{tikzpicture}
+\end{center}
+  
+{\bf I - Motivating Example(s):}\\
+\ \par
+{\bf Example:}  Determine the number of real roots for the quadratic equation below.
+$$y=3x^2-5x+2$$
+\begin{eqnarray*}
+D & = & b^2-4ac\\
+  & = & (-5)^2-4(3)(2)\\
+	& = & 25-24\\
+	& = & 1
+\end{eqnarray*}
+Since $D>0,$ the given equation has two real roots.\\
+\ \par
+{\bf II - Demo/Discussion Problems:}\\
+\ \par
+Determine the number of real roots for each of the quadratic equations below.
+\begin{enumerate}
+	\item $y=-4x^2-15$
+	\item $y=3x^2-12x-15$
+	\item $y=2x^2+4x+2$
+	\item $y=10x^2+31x+24$
+	\item $y=x^2-4x+13$
+\end{enumerate}
+\ \par
+{\bf III - Practice Problems:}\\
+\ \par
+Determine the number of real roots for each of the quadratic equations below.
+\begin{multicols}{3}
+\begin{enumerate}
+  \item $y=x^2+6$
+  \item $y=x^2+2x-1$
+	\item $y=-3x^2-12x-5$
+  \item $y=3x^2+12x-1$
+  \item $y=-5x^2-40x$
+  \item $y=x^2-8x+15$
+  \item $y=x^2+4x-2$
+  \item $y=x^2+16x-2$
+  \item $y=4x^2+10x$
+	\item $y=5x^2-4x+1$
+	\item $y=-x^2+3x-9$
+	\item $y=x^2+6x+9$
+\end{enumerate}
+\end{multicols}
+\newpage
+\end{document}

@@ -1,0 +1,100 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+% Use the cc-by-nc-sa license for any content linked with Stitz and Zeager's text.  Otherwise, use the cc-by-sa license.
+%\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+\usepackage[type={CC},modifier={by-nc-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+\input{order}
+
+\begin{document}
+{\bf \large Lesson \arabic{lesson_absolute_as_piecewise}: Absolute-Value as a Piecewise Function}\phantomsection\label{les:absolute_as_piecewise}
+%\\ CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. 
+\\ CC attribute: \href{http://www.stitz-zeager.com}{\it{College Algebra}} by C. Stitz and J. Zeager. 
+\hfill \doclicenseImage[imagewidth=5em]\\
+\par
+{\bf Objective:} Interpret a function containing an absolute value as a piecewise-defined function.\\
+\par
+{\bf Students will be able to:}
+\begin{itemize}
+	\item Express an absolute value function as a piecewise function.
+\end{itemize}
+{\bf Prerequisite Knowledge:}
+\begin{itemize}
+	\item Evaluate and solve absolute value expressions.
+	\item Graphing piecewise functions.
+	\item Finding $x-$ and $y-$intercepts.
+\end{itemize}
+\hrulefill
+
+{\bf Lesson:}\\
+\ \par
+By definition, we know that \[ |x| =  \begin{cases}
+-x & \text{if~~} x < 0 \\
+~x & \text{if~~} x \geq 0
+\end{cases}.\] 
+
+If $m\neq 0$ and $b$ is a real number, we may generalize the definition above as follows.
+
+\begin{eqnarray*}
+|mx+b| &=&  \begin{cases} -(mx+b)  & \text{if~~} mx+b < 0  \\
+ mx+b~ & \text{if~~} mx+b \geq 0 \\ \end{cases}\\
+&=&\begin{cases} -mx-b & \text{if~~} mx+b < 0  \\ mx+b & \text{if~~} mx+b \geq 0 \\ \end{cases}.
+\end{eqnarray*}
+
+Notice that since we have never specified whether $m$ is positive or negative above, it would not be wise to attempt to simplify either inequality in our new definition.  Once we are given a value for $m$, as in our next example, we will be able to simplify our piecewise representation completely.\\
+\ \par
+{\bf I - Motivating Example(s):}\\
+\ \par
+{\bf Example:} Express $g(x) = |x-3|$ as a piecewise-defined function.\\
+\ \par 
+\[ g(x) = |x-3| =  \begin{cases} -(x-3)  & \text{if~~} x-3 < 0 \\ x-3 & \text{if~~} x-3 \geq 0 \\ \end{cases}\]
+
+Simplifying, we get
+
+\[ g(x) = \begin{cases} -x+3 & \text{if~~} x<3 \\ x-3 & \text{if~~} x \geq 3 \\ \end{cases}.\]
+
+Our piecewise answer above should begin to make sense, when one considers the graph of $g$ as a horizontal shift of $y=|x|$ to the right by 3 units.\\
+\ \par
+{\bf Example:} Express $h(x) = |x|-3$ as a piecewise-defined function.\\
+\ \par
+Since the variable within the absolute value remains unchanged, the domains for each piece in our resulting function will not change.  Instead, we need only subtract $3$ from each piece of our answer.  Thus, we get the following representation.
+\[ h(x) =\begin{cases} -x-3 & \text{if~~} x<0 \\ x-3  & \text{if~~} x \geq 0 \\ \end{cases}.\]
+
+Similarly, this answer again seems reasonable, as the graph of $h(x)=|x|-3$ represents a vertical shift of $y=|x|$ down by 3 units.\\
+\ \par
+{\bf II - Demo/Discussion Problems:}\\
+\ \par
+Express each function as a piecewise-defined function and identify any $x-$ and $y-$intercepts on its graph.  Determine the domain and range of of the function from its graph.  Use \Desmos \ to confirm your answers.
+\begin{enumerate}
+\item $r(x)=|x-10|$
+\item $s(x)=\dfrac{1}{2}|x-10|+5$
+\item $g(x)= |3x+1|$
+\item $h(x)= -2|3x+1|$
+\item $k(x)= 4-2|3x+1|$
+\end{enumerate}
+\ \par
+{\bf III - Practice Problems:}\\
+\ \par
+Express each function below as a piecewise-defined function.  Graph the function and use \Desmos \ to confirm your answers.
+\begin{multicols}{3}
+\begin{enumerate}
+	\item $f(x) = -|x|-7$
+	\item $g(x) = 4|x|+2$
+	\item $h(x) = 5|x-3|+6$
+	\item $k(x) = -2|x+1|+10$
+	\item $m(x) = |x-3|$
+	\item $n(x) = -4|x-1|+1$
+\end{enumerate}	
+\end{multicols}
+\newpage
+\end{document}

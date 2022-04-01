@@ -1,0 +1,336 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+% Use the cc-by-nc-sa license for any content linked with Stitz and Zeager's text.  Otherwise, use the cc-by-sa license.
+%\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+\usepackage[type={CC},modifier={by-nc-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+\input{order}
+
+\begin{document}
+{\bf \large Lesson \arabic{lesson_functions_and_relations}: Functions and Relations}\phantomsection\label{les:functions_and_relations}
+%\\ CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. 
+\\ CC attribute: \href{http://www.stitz-zeager.com}{\it{College Algebra}} by C. Stitz and J. Zeager. 
+\hfill \doclicenseImage[imagewidth=5em]\\
+\par
+{\bf Objective:} Define a relation and a function; determine if a relation is a function.\\
+\par
+{\bf Students will be able to:}
+\begin{itemize}
+	\item Apply the Vertical Line Test to a graph to determine whether a relation represents a function.
+	\item Determine whether a relation given as either a set, an equation, or a table of points represents a function.
+\end{itemize}
+{\bf Prerequisite Knowledge:}
+\begin{itemize}
+	\item Graph a set or table of points on the coordinate plane.
+	\item Isolate a variable in an equation.
+\end{itemize}
+\hrulefill
+
+{\bf Lesson:}\\
+\ \par
+A {\bf relation} $R$ is a set of points in the $xy$-plane.  A relation in which each $x$-coordinate is paired with exactly one $y$-coordinate is said to describe $y$ as a {\bf function} of $x$.  Relations which represent functions of $x$ will often be denoted by $f$, or $f(x)$, rather than $R$.  The set of all $x$-coordinates of the points in a function $f$ is called the {\bf domain} of $f$, and the set of all $y$-coordinates of the points in $f$ is called the {\bf range} of $f$.\\
+\ \par
+One major test that is used to determine whether or not a graph of a relation represents $y$ as a function of $x$ is known as the Vertical Line Test.  We will now state the Vertical Line Test as a mathematical theorem and then demonstrate its use.\\
+\ \par
+{\bf Vertical Line Test}: A set of points in the $xy$-plane represents $y$ as a function of $x$ if and only if no two points lie on the same vertical line.\\
+\ \par
+Alternatively stated, if a graph is known to represent $y$ as a function of $x$, then there can be no vertical line that intersects the graph in more than one point.  Conversely, if a known graph has the property that no vertical line intersects it in more than one point, then the given graph represents $y$ as a function of $x$.\\
+\ \par
+When we are presented with an equation, instead of a graph, we can still determine whether or not the equation for our relation represents $y$ as a function of $x$ by solving the equation for $y$ and carefully considering the result.  When solving for $y,$ the existence of the $\pm$ in our solution will cause our corresponding graph to fail the VLT.
+
+\newpage
+
+{\bf I - Motivating Example(s):}\\
+\ \par
+{\bf Example:} Use the Vertical Line Test to determine whether each of the following graphs represent $y$ as a function of $x$.
+
+\begin{center}
+\begin{multicols}{2}
+\begin{tikzpicture}[xscale=0.8,yscale=0.8]
+	\draw [<->](-4.25,0) -- coordinate (x axis mid) (4.25,0) node[below right] {$x$};
+	\draw [<->](0,-4.25) -- coordinate (y axis mid) (0,4.25) node[above right] {$y$};
+	\draw [<->] plot [domain=0.25:4, samples=100] (\x,{1/\x});
+	\draw [<->] plot [domain=4:0.25, samples=100] (\x,{-1/\x});
+%	\foreach \x in {1,...,4}
+%		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=north] {\scriptsize \x};
+%	\foreach \x in {-4,...,-1}
+%		\draw (\x,2pt) -- (\x,-2pt)	node[anchor=south] {\scriptsize \x};
+%	\foreach \y in {1,...,4}
+%		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=east] {\scriptsize \y}; 
+%	\foreach \y in {-4,...,-1}
+%		\draw (2pt,\y) -- (-2pt,\y)	node[anchor=west] {\scriptsize \y}; 
+	\draw (-3.75,-3) node[above] {\normalsize (a)};
+	\end{tikzpicture}
+
+\columnbreak
+
+\begin{tikzpicture}[xscale=0.4, yscale=0.8]
+  \draw [<->](-8.5,0) -- coordinate (x axis mid) (8.5,0) node[below right] {$x$};
+	\draw [<->](0,-4.25) -- coordinate (y axis mid) (0,4.25) node[above right] {$y$};
+	\draw [<->] plot [domain=8.2:0.2,samples=100] (\x,{log2(\x)});
+	\draw [<->] plot [domain=8.2:0.2,samples=100] (-\x,{log2(\x)});
+%	\foreach \x in {1,...,8}
+%	\draw (\x,1pt) -- (\x,-3pt) node[anchor=north] {\scriptsize \x};
+%	\foreach \y in {-3,...,-1}
+%	\draw (1pt,\y) -- (-3pt,\y) node[anchor=east] {\scriptsize \y}; 
+%	\foreach \y in {1,...,3}
+%	\draw (1pt,\y) -- (-3pt,\y) node[anchor=east] {\scriptsize \y}; 
+\draw (-7.5,-3) node[above] {\normalsize (b)};
+\end{tikzpicture}
+\end{multicols}
+\end{center}
+Graph (a) above fails the VLT, since any vertical line drawn in the right half-plane (where $x>0$) intersects the relation at two points.  Graph (b) passes the VLT, since no vertical line intersects the graph at more than one point.\\
+\ \par
+{\bf Example:} Determine whether the following equation represents $y$ as a function of $x$.
+$$x^2+y^2=9$$
+Solve the equation for $y$.
+  \begin{eqnarray*}
+    x^2+y^2=9~~~~~~~~~~~~  & & \text{Solve~for~} y\\
+    \underline{-\cancel{x^2}}~~~~~~~~~~\underline{-x^2}~~~~~~~~~  & & \text{Subtract~} x^2\\
+    y^2=9-x^2~~~~~  & & \\
+	  \sqrt{y^2}=\pm\sqrt{9-x^2}  & & \text{Introduce~a~square~root}\\
+		& & \text{~~~include a~} \pm \text{~on~right~side}\\
+	  y=\pm\sqrt{9-x^2}  & & y \text{~is~not~a~function~of~}x
+	\end{eqnarray*}
+Due to the $\pm$, we can conclude that the equation does \textit{not} represent $y$ as a function of $x$.
+\newpage
+
+{\bf II - Demo/Discussion Problems:}\\
+\ \par
+Determine whether each of the following relations represent $y$ as a function of $x$.  Use \Desmos \ to sketch a graph of each relation.
+\begin{center}
+\begin{multicols}{2}
+\begin{enumerate}
+\item $\{(1,1),(2,-3),(2,0),(0,3),(-2,1/2)\}$
+\item $\{(x,y)~|~x>3 \text{~and~} y\leq 2\}$
+\item $x^2=1-y^2$
+\item $x=y^2$
+\item $y=x^2$
+\item $y=3-2x$
+\end{enumerate}
+\end{multicols}
+\end{center}
+
+{\bf III - Practice Problems:}\\
+\ \par
+Determine if the following relations represent $y$ as a function of $x$ by making a table of values and graphing.  Explain your reasoning.  Use \Desmos \ to confirm your results.
+\begin{center}
+\begin{multicols}{3}
+\begin{enumerate}
+	\item $x=y^3$
+	\item $y=x$
+	\item $xy=1$
+	\item $y=(x-3)^2$
+	\item $x=(y-3)^2$
+	\item $y<2x-5$
+\end{enumerate}
+\end{multicols}
+\end{center}
+Circle the letter of each graph/table below that represents $y$ as a function of $x$.
+\begin{multicols}{2}
+\begin{tikzpicture}[domain=0:3.7, scale=0.7]
+    %\draw[very thin,color=gray] (-5,-3) grid (5,3);
+		\draw [<->](-4.5,0) -- coordinate (x axis mid) (4.5,0) node[below right] {$x$};
+		\draw [<->](0,-3.5) -- coordinate (y axis mid) (0,3.5) node[above right] {$y$};
+		\node at (-2,3) {A};
+			\foreach \x in {-4,...,-1}
+			\draw (\x,1pt) -- (\x,-3pt)
+			node[anchor=north] {\scriptsize \x};
+			\foreach \x in {1,...,4}
+			\draw (\x,1pt) -- (\x,-3pt)
+			node[anchor=north] {\scriptsize \x};
+			\foreach \y in {-3,...,-1}
+			\draw (1pt,\y) -- (-3pt,\y) 
+			node[anchor=west] {\scriptsize \y}; 
+			\foreach \y in {1,...,3}
+			\draw (1pt,\y) -- (-3pt,\y) 
+			node[anchor=east] {\scriptsize \y}; 
+    \draw[] (2,2) circle (0.125);
+		\draw[fill] (3,2) circle (0.125);
+		\draw[-] [ultra thick]  (2.1,2)--(2.9,2);
+    \draw[] (1,1) circle (0.125);
+		\draw[fill] (2,1) circle (0.125);
+		\draw[-] [ultra thick]  (1.1,1)--(1.9,1);
+    \draw[] (0,0) circle (0.125);
+		\draw[fill] (1,0) circle (0.125);
+		\draw[-] [ultra thick]  (0.1,0)--(0.9,0);
+    \draw[] (-1,-1) circle (0.125);
+		\draw[fill] (0,-1) circle (0.125);
+		\draw[-] [ultra thick]  (-0.9,-1)--(-0.1,-1);
+    \draw[] (-2,-2) circle (0.125);
+		\draw[fill] (-1,-2) circle (0.125);
+		\draw[-] [ultra thick]  (-1.9,-2)--(-1.1,-2);
+\end{tikzpicture}
+\hspace{1in}
+\begin{tikzpicture}[domain=0:3.7, scale=0.7]
+    %\draw[very thin,color=gray] (-5,-3) grid (5,3);
+		\draw [<->](-4.5,0) -- coordinate (x axis mid) (4.5,0) node[below right] {$x$};
+		\draw [<->](0,-3.5) -- coordinate (y axis mid) (0,3.5) node[above right] {$y$};
+		\node at (-2,3) {B};
+			\foreach \x in {-4,...,-1}
+			\draw (\x,1pt) -- (\x,-3pt)
+			node[anchor=north] {\scriptsize \x};
+			\foreach \x in {1,...,4}
+			\draw (\x,1pt) -- (\x,-3pt)
+			node[anchor=north] {\scriptsize \x};
+			\foreach \y in {-3,...,-1}
+			\draw (1pt,\y) -- (-3pt,\y) 
+			node[anchor=east] {\scriptsize \y}; 
+			\foreach \y in {1,...,3}
+			\draw (1pt,\y) -- (-3pt,\y) 
+			node[anchor=east] {\scriptsize \y}; 
+    \draw[->,domain=0:2]   plot ({\x^2},\x);
+		\draw[->,domain=0:2]   plot ({\x^2},-\x);
+%    \draw[->]   plot (\x,{sin(2*\x r)});
+%    \draw[->]   plot (-\x,{-sin(2*\x r)});
+\end{tikzpicture}
+\end{multicols}
+\vspace{0.25in}
+\begin{multicols}{2}
+\begin{tikzpicture}[domain=1.022:3.6, scale=0.7]
+    %\draw[very thin,color=gray] (-5,-3) grid (5,3);
+		\draw [<->](-4,0) -- coordinate (x axis mid) (4,0) node[below right] {$x$};
+		\draw [<->](0,-3.5) -- coordinate (y axis mid) (0,3.5) node[above right] {$y$};
+		\node at (-2,3) {C};
+			\foreach \x in {-3,...,-1}
+			\draw (\x,0.8pt) -- (\x,-0.8pt)
+			node[anchor=north] {\scriptsize \x};
+			\foreach \x in {1,...,3}
+			\draw (\x,0.8pt) -- (\x,-0.8pt)
+			node[anchor=north] {\scriptsize \x};
+			%\foreach \y in {-3,...,-1}
+			%\draw (1pt,\y) -- (-3pt,\y) 
+			%node[anchor=east] {\scriptsize \y}; 
+			\foreach \y in {1,...,3}
+			\draw (1pt,\y) -- (-3pt,\y) 
+			node[anchor=east] {\scriptsize \y}; 
+			\foreach \y in {-3,...,-1}
+			\draw (1pt,\y) -- (-3pt,\y) 
+			node[anchor=west] {\scriptsize \y}; 
+    \draw[->, domain=0:1.5]   plot (\x,{\x^2+1});
+    \draw[->, domain=0:1.5]   plot (-\x,{-\x^2-1)});
+		\draw[fill] (0,1) circle (0.13);
+		\draw[fill] (0,-1) circle (0.13);
+\end{tikzpicture}	
+\hspace{1.3in}
+\begin{tikzpicture}[domain=2:3.6, scale=0.8]
+    %\draw[very thin,color=gray] (-5,-3) grid (5,3);
+		\draw [<->](-4,0) -- coordinate (x axis mid) (4,0) node[below right] {$x$};
+		\draw [<->](0,-1) -- coordinate (y axis mid) (0,3.5) node[above right] {$y$};
+		\node at (-2,3) {D};
+			\foreach \x in {-3,...,-1}
+			\draw (\x,1pt) -- (\x,-3pt)
+			node[anchor=north] {\scriptsize \x};
+			\foreach \x in {1,...,3}
+			\draw (\x,1pt) -- (\x,-3pt)
+			node[anchor=north] {\scriptsize \x};
+			%\foreach \y in {-3,...,-1}
+			%\draw (1pt,\y) -- (-3pt,\y) 
+			%node[anchor=east] {\scriptsize \y}; 
+			\foreach \y in {1,...,3}
+			\draw (1pt,\y) -- (-3pt,\y) 
+			node[anchor=east] {\scriptsize \y}; 
+    \draw[->,domain=1:1.75]   plot (\x,{\x^2-1});
+    \draw[-,domain=0:1]   plot (\x,{-\x^2+1});
+    \draw[-,domain=0:1]   plot (-\x,{-\x^2+1});
+    \draw[->,domain=1:1.75]   plot (-\x,{\x^2-1});
+    %\draw[->]   plot (\x,{sqrt(\x-2)});
+    %\draw[->]   plot (-\x,{sqrt(\x-2)});
+		%\draw[fill] (2,0) circle (0.13);
+		%\draw[fill] (-2,0) circle (0.13);
+\end{tikzpicture}
+\end{multicols}
+\vspace{0.5in}
+E\hspace{1.5in} F\hspace{1.5in} G\hspace{1.5in} H 
+%\begin{center}
+\begin{multicols}{4}
+\begin{tabular}{r|r}
+$x$ & $y$\\
+\hline
+%&\\
+$3$ & $-3$\\
+%&\\
+$2$ & $-2$\\
+%&\\
+$1$ & $-1$\\
+%&\\
+$0$ & $0$\\
+%&\\
+$1$ & $1$\\
+%&\\
+$2$ & $2$\\
+%&\\
+$3$ & $3$
+\end{tabular}
+\hspace{1in}
+
+\begin{tabular}{r|r}
+$x$ & $y$\\
+\hline
+%&\\
+$-3$ & $3$\\
+%&\\
+$-2$ & $2$\\
+%&\\
+$-1$ & $1$\\
+%&\\
+$0$ & $0$\\
+%&\\
+$1$ & $1$\\
+%&\\
+$2$ & $2$\\
+%&\\
+$3$ & $3$
+\end{tabular}
+\hspace{1in}
+
+\begin{tabular}{r|r}
+$x$ & $y$\\
+\hline
+%&\\
+$-3$ & $0$\\
+%&\\
+$-2$ & $0$\\
+%&\\
+$-1$ & $0$\\
+%&\\
+$0$ & $0$\\
+%&\\
+$1$ & $0$\\
+%&\\
+$2$ & $0$\\
+%&\\
+$3$ & $0$
+\end{tabular}
+\hspace{1in}
+\begin{tabular}{r|c}
+$x$ & $y$\\
+\hline
+%&\\
+$3$ & $8$\\
+%&\\
+$2$ & $4$\\
+%&\\
+$1$ & $2$\\
+%&\\
+$0$ & $1$\\
+%&\\
+$-1$ & $1/2$\\
+%&\\
+$-2$ & $1/4$\\
+%&\\
+$-3$ & $1/8$
+\end{tabular}
+\end{multicols}
+\newpage
+\end{document}

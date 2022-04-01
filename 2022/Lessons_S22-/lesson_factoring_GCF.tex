@@ -1,0 +1,132 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+% Use the cc-by-nc-sa license for any content linked with Stitz and Zeager's text.  Otherwise, use the cc-by-sa license.
+\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+%\usepackage[type={CC},modifier={by-nc-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+\input{order}
+
+\begin{document}
+{\bf \large Lesson \arabic{lesson_factoring_GCF}: Identifying a Greatest Common Factor}\phantomsection\label{les:factoring_GCF}
+\\ CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. 
+%\\ CC attribute: \href{http://www.stitz-zeager.com}{\it{College Algebra}} by C. Stitz and J. Zeager. 
+\hfill \doclicenseImage[imagewidth=5em]\\
+\par
+{\bf Objective:} Find the greatest common factor (GCF) and factor it out of an expression.\\
+\par
+{\bf Students will be able to:}
+\begin{itemize}
+	\item Identify common factors between two or more terms.
+	\item Identify a greatest common factor.
+	\item Factor out a greatest common factor.
+\end{itemize}
+{\bf Prerequisite Knowledge:}
+\begin{itemize}
+	\item Multiplication properties of exponents.
+	\item Application of the distributive property.
+	\item Multiplication and division of algebraic expressions.
+\end{itemize}
+\hrulefill
+
+{\bf Lesson:}\\
+\ \par
+In working with polynomial expressions, there are many benefits to identifying both expanded and factored forms.  Specifically, we will use factored polynomials to help us solve equations, learn behaviors of graphs, and understand more complicated rational expressions.  Because so many concepts in algebra depend on being able to factor polynomials, it is critical that we establish strong factorization skills.\\
+\ \par
+In this first lesson on factoring, we will focus on identifying the greatest common factor or GCF of a polynomial.  When multiplying polynomials, we employ the distributive property, as demonstrated below.
+$$4 x^2 (2 x^2 - 3 x + 8) = 8 x^4 - 12 x^3 + 32 x$$
+Here, we will work with the same expression, but with a backwards approach, starting with the expanded form and obtaining one that is partially (or completely) factored.\\
+\ \par
+We will start with $8 x^2 - 12 x^3 + 32 x$ and try and work backwards to reach $4 x^2 (2 x - 3 x + 8)$.\\
+\ \par
+To do this we have to be able to first identify what the GCF of a
+polynomial is. To find a GCF of two or more integers, we must find the largest integer $d$ that divides nicely into each of the given integers.  Alternatively stated, $d$ should be the largest factor of each of the integers in our set.  When there are variables in our problem we can first find the GCF of the numbers, then we can identify any variables that appear in every term and factor them out, taking the smallest exponent in each case.\\
+\ \par
+{\bf I - Motivating Example(s):}\\
+
+{\bf Example:} Find the GCF of 15, 24, and 27.
+  \begin{eqnarray*}
+    \frac{15}{3} = 5,~~~ \frac{24}{3} = 8,~~~ \frac{27}{3} = 9 &  & \text{Each of the numbers can be divided by 3}\\
+    \text{GCF} \ = 3 &  & \text{Our solution}
+  \end{eqnarray*}
+
+{\bf Example:} Find the GCF of $24 x^4 y^2 z,$~~$18 x^2 y^4,$~and $12 x^3 y z^5$.
+  \begin{eqnarray*}
+    %\tmop{GCF} \tmop{of} 24 x^4 y^2 z, 18 x^2 y^4, \tmop{and} 12 x^3 y z^5 & 
+    %& \\
+    \frac{24}{6} = 4,~~~ \frac{18}{6} = 3,~~~ \frac{12}{6} = 2 &  & \text{Each number can be divided by 6}\\
+    x^2 y &  & x \text{and} \ y \ \text{appears in all three terms, taking}\\
+		& & ~~~\text{the lowest exponent for each variable}\\
+%		\tmop{using}   \tmop{lowest} \tmop{exponets}\\
+    \text{GCF} \ = 6 x^2 y &  & \text{Our solution}
+  \end{eqnarray*}
+
+{\bf II - Demo/Discussion Problems:}\\
+\ \par
+Identify and factor out the GCF from each of the given polynomial expressions.
+\begin{multicols}{2}
+\begin{enumerate}
+\item $4 x^2 - 20 x + 16$
+\item $25 x^4 - 15 x^3 + 20 x^2$
+\item $3 x^3 y^2 z + 5 x^4 y^3 z^5 - 4 x y^4$		
+\item $21 x^3 + 14 x^2 + 7 x$
+\item $12 x^5 y^2 - 6 x^4 y^4 + 8 x^3 y^5$
+\item $18 a^4 b^3 - 27 a^3 b^3 + 9 a^2 b^3$
+\end{enumerate}
+\end{multicols}
+
+{\bf III - Practice Problems:}\\
+\ \par
+Identify and factor out the GCF from each of the given polynomial expressions.
+\begin{multicols}{3}
+	\begin{enumerate}
+	\item $4 + 8 b^2$
+  \item $x - 5$
+  \item $45 x^2 - 25$
+  \item $-n - 2 n^2$
+  \item $56 - 35 p$
+  \item $50 x - 80 y$
+  \item $7 ab - 35 a^2 b$
+  \item $27 x^2 y^5 - 72 x^3 y^2$
+  \item $- 3 a^2 b + 6 a^3 b^2$
+  \item $8 x^3 y^2 + 4 x^3$
+  \item $- 5 x^2 - 5 x^3 - 15 x^4$
+  \item $- 32 n^9 + 32 n^6 + 40 n^5$
+  \item $20 x^4 - 30 x + 30$
+  \item $21 p^6 + 30 p^2 + 27$
+  \item $28 m^4 + 40 m^3 + 8$
+  \item $- 10 x^4 + 20 x^2 + 12 x$
+  \item $30 b^9 + 5 a b - 15 a^2$
+  \item $27 y^7 + 12 y^2 x + 9 y^2$
+\end{enumerate}
+ \end{multicols}
+\begin{multicols}{2}
+	\begin{enumerate}
+\setcounter{enumi}{18}
+  \item $- 48 a^2 b^2 - 56 a^3 b - 56 a^5 b$
+  \item $30 m^6 + 15 m n^2 - 25$
+  \item $20 x^8 y^2 z^2 + 15 x^5 y^2 z + 35 x^3 y^3 z$
+  \item $3 p + 12 q - 15 q^2 r^2$
+  \item $50 x^2 y + 10 y^2 + 70 x z^2$
+  \item $30 y^4 z^3 x^5 + 50 y^4 z^5 - 10 y^4 z^3 x$
+  \item $30 q p r - 5 q p + 5 q$
+  \item $28 b + 14 b^2 + 35 b^3 + 7 b^5$
+  \item $- 18 n^5 + 3 n^3 - 21 n + 3$
+  \item $30 a^8 + 6 a^5 + 27 a^3 + 21 a^2$
+  \item $- 40 x^{11} - 20 x^{12} + 50 x^{13} - 50 x^{14}$
+  \item $- 24 x^6 - 4 x^4 + 12 x^3 + 4 x^2$
+  \item $- 32 m n^8 + 4 m^6 n + 12 m n^4 + 16 m n$
+  \item $- 10 y^7 + 6 y^{10} - 4 y^{10} x - 8 y^8 x$
+\end{enumerate}
+\end{multicols}
+\newpage
+\end{document}

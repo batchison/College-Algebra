@@ -1,0 +1,91 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+% Use the cc-by-nc-sa license for any content linked with Stitz and Zeager's text.  Otherwise, use the cc-by-sa license.
+%\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+\usepackage[type={CC},modifier={by-nc-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+\input{order}
+
+\begin{document}
+{\bf \large Lesson \arabic{lesson_solve_by_square_roots}: Solve by Square Roots}\phantomsection\label{les:solve_by_square_roots}
+%\\ CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. 
+\\ CC attribute: \href{http://www.stitz-zeager.com}{\it{College Algebra}} by C. Stitz and J. Zeager. 
+\hfill \doclicenseImage[imagewidth=5em]\\
+\par
+{\bf Objective:} Solve quadratic equations of the form $ax^2+c=0$ by introducing a square root.\\
+\par
+{\bf Students will be able to:}
+\begin{itemize}
+	\item Solve equations by taking a square root.
+\end{itemize}
+{\bf Prerequisite Knowledge:}
+\begin{itemize}
+	\item Simplifying radicals.
+	\item Solving by isolating a quadratic term.
+	\item Complex numbers.
+\end{itemize}
+\hrulefill
+
+{\bf Lesson:}\\
+\ \par
+Up until now, when attempting to solve an equation such as $x^2-4=0$, we have had no choice but to factor the expression on the left and set each factor equal to zero.
+\begin{eqnarray*}
+	x^2-4 & = & 0\\
+	(x-2)(x+2) & = & 0\\
+	x & = &\pm 2
+\end{eqnarray*}
+In this lesson, we will look at solving the expression $ax^2+c=0,$ and instead will introduce a square root, when solving for $x$.  In our next lesson, we will refer to this method as {\it extracting square roots}.\\
+\ \par
+{\bf I - Motivating Example(s):}\\
+\ \par
+{\bf Example:} Solve the equation $x^2-4=0$ for all possible values of $x$.
+\begin{eqnarray*}
+x^2-4=0 & & \text{Isolate \ } x^2; \ \text{Add 4 to both sides.}\\
+x^2=4 & & \text{Introduce a square root, include a \ } \pm.\\
+\sqrt{x^2}=\pm\sqrt{4} & & \text{Simplify.}\\
+x=\pm 2 & & \text{Our~solution}
+\end{eqnarray*}
+The values $x=2$ and $x=-2$ are known as the {\it zeros} or {\it roots} of the equation $y=x^2-4$.
+\newpage
+{\bf II - Demo/Discussion Problems:}\\
+\ \par
+Solve each of the following equations for all possible $x$.  Classify each solution as either real or imaginary.
+\begin{enumerate}
+	\item $x^2-9=0$
+	\item $3x^2-20=x^2+20$
+	\item $x^2+16=0$
+	\item $x^3+16x=0$
+	\item $x^2+12=0$
+	\end{enumerate}
+\ \par
+{\bf III - Practice Problems:}\\
+\ \par
+Solve each of the following equations for all possible $x$.  Classify each solution as either real or imaginary.
+\begin{multicols}{4}
+\begin{enumerate}
+  \item $x^2-100=0$
+	\item $x^2+1=0$
+	\item $3x^2-48=0$
+	\item $x^2+81=0$
+	\item $x^2+20=0$
+	\item $3x^2-27=0$
+	\item $4x^3-32x=0$
+	\item $-5x^2=80$
+	\item $x^3=6x$
+	\item $10x^2-70=0$
+	\item $-5x^2=20$
+	\item $\frac{1}{4}x^3=100x$
+\end{enumerate}
+\end{multicols}
+\newpage
+\end{document}

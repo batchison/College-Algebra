@@ -1,0 +1,271 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+\input{order}
+
+\begin{document}
+{\bf \large Lesson \arabic{lesson_elimination}: Solving Systems of Equations by Addition/Elimination}\phantomsection\label{les:elimination}\\
+CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. \hfill \doclicenseImage[imagewidth=5em]\\
+\par
+{\bf Objective:} Solve linear systems by addition and elimination.\\
+\par
+{\bf Students will be able to:}
+\begin{itemize}
+	\item Solve linear systems by addition and elimination of one variable.
+	\item Write system solutions as ordered pairs in the form $(x,y)$.
+	\item Verify the accuracy of a solution by plugging it into each equation in the system.
+\end{itemize}
+{\bf Prerequisite Knowledge:}
+\begin{itemize}
+	\item Solving a linear equation.
+	\item Applying the distributive property.
+	\item Combining like terms.
+\end{itemize}
+\hrulefill
+
+{\bf Lesson:}
+\par
+{\bf I - Motivating Example(s):}\\
+\ \par
+We present the steps for solving a system of linear equations by addition/elimination alongside an example.
+\begin{center}
+\begin{tabular}{|l|l|}
+  \hline
+	& \\
+  \ \ \ \ Steps for Addition/Elmination & \begin{tabular}{l}
+    System: $\begin{cases}
+		2 x - 5 y = -13\\
+    -3y+4 = - 5x\end{cases}$
+	\end{tabular}\\
+  & \\
+  \hline
+  1. Line up the variables and constants. & \begin{tabular}{l}
+    Rearrange the second equation\\
+    $2 x - 5 y = - 13$\\
+    $5 x - 3 y = - 4$\\
+	\end{tabular}\\
+  \hline
+  2. Multiply to get opposites (use LCM). & $\begin{array}{l}
+ 
+    \text{First Equation: multiply by} \ - 5\\
+    - 5\cdot(2 x - 5 y) = (- 13)\cdot(- 5)\\
+    ~- 10 x + 25 y = 65\\
+ \\
+   \text{Second Equation: multiply by} \ 2\\
+    2\cdot (5 x - 3 y) = (- 4)\cdot 2\\
+    ~~10 x - 6 y = - 8\\
+  \end{array}$\\
+  \hline
+  3. Add equations to eliminate a variable.&  
+	
+	  $\begin{array}{l}
+ ~~~~~- 10 x + 25 y = 65~~~~~~\\
+ ~~~~~~\underline{~10 x~ -~ 6 y = - 8~~}\\
+~~~~~~~~~~~~~~~~19 y =57\\
+\end{array}$\\
+\hline
+\end{tabular}
+\begin{tabular}{|l|l|}
+  \hline
+	4. Solve for the remaining variable. & $\begin{array}{l}
+     ~~~~~~~~~~~~~~19y = 57\\
+    ~~~~~~~~~~~~~~~\overline{19} ~~~~ \overline{19}\\
+    ~~~~~~~~~~~~~~~~~y = 3
+  \end{array}$\\
+  \hline
+  5.~$\begin{array}{l}
+	\text{Plug back into either of the given equations}\\
+	\text{and solve.}
+	\end{array}$
+	
+& \begin{tabular}{l}
+    ~~~~~~$2 x - 5 (3) = - 13$\\
+    ~~~~~~~~$2 x - 15 = - 13$\\
+    ~~~~~~~~~~~~~$\underline{+ 15 ~+ 15}$\\
+		~~~~~~~~~~~~~~~$2 x = 2$\\
+    ~~~~~~~~~~~~~~~~$\overline{2}$ ~~ $\overline{2}$\\
+    ~~~~~~~~~~~~~~~~$x = 1$
+  \end{tabular}\\
+  \hline
+  \ \ \ Our solution, as a coordinate pair. & ~~~~~~~~~~~~$(x,y)=(1, 3)$ \ \ \ \ \ \ \ \\
+  \hline
+\end{tabular}
+\end{center}
+
+{\bf II - Demo/Discussion Problems:}\\
+\ \par
+Solve each of the following systems of linear equations by addition/elimination.
+\begin{multicols}{3}
+	\begin{enumerate}
+		\item $\begin{cases}
+					3x+6y=-9\\
+			    2x+9y=-26
+					\end{cases}$
+		\item $\begin{cases}
+					2x-5y=3\\
+					-6x+15y=-9
+					\end{cases}$
+		\item $\begin{cases}
+					4 x - 6 y = 8\\
+					6 x - 9 y = 15
+					\end{cases}$
+	\end{enumerate}
+\end{multicols}
+\ \par
+{\bf III - Practice Problems:}\\
+\ \par
+Solve each of the following systems of linear equations by addition/elimination.
+\begin{multicols}{3}
+	\begin{enumerate}
+  \item $\begin{cases}
+	4 x + 2 y = 0\\
+  - 4 x - 9 y = - 28
+  \end{cases}$
+  \item $\begin{cases}
+	- 6 x + 9 y = 3\\
+  6 x - 9 y = - 9
+  \end{cases}$ 
+  \item $\begin{cases}
+  - x - 5 y = 28\\
+  - x + 4 y = - 17
+  \end{cases}$
+  \item $\begin{cases}
+  10 x + 6 y = 24\\
+  - 6 x + y = 4
+  \end{cases}$
+  \item $\begin{cases}
+  - 7 x + 4 y = - 4\\
+  10 x - 8 y = - 8
+  \end{cases}$
+  \item $\begin{cases}
+  - 7 x - 3 y = 12\\
+  - 6 x - 5 y = 20
+  \end{cases}$
+  \item $\begin{cases}
+  9 x + 6 y = - 21\\
+  - 10 x - 9 y = 28
+  \end{cases}$
+  \item $\begin{cases}
+  - 8 x - 8 y = - 8\\
+  10 x + 9 y = 1
+  \end{cases}$
+  \item $\begin{cases}
+  0 = 9 x + 5 y\\
+  y = \frac{2}{7} x
+	\end{cases}$
+  \item $\begin{cases}
+  - 7 x + y = - 10\\
+  - 9 x - y = - 22
+  \end{cases}$
+  \item $\begin{cases}
+  5 x - 5 y = - 15\\
+  5 x - 5 y = - 15
+  \end{cases}$
+  \item $\begin{cases}
+  - 10 x - 5 y = 0\\
+  10 x +10 y=30
+  \end{cases}$
+  \item $\begin{cases}
+  x + 3 y = - 1\\
+  10 x + 6 y = - 10
+  \end{cases}$
+  \item $\begin{cases}
+  - 6 x + 4 y = 4\\
+  - 3 x - y = 26
+  \end{cases}$
+  \item $\begin{cases}
+  - 5 x + 4 y = 4\\
+  - 7 x - 10 y = - 10
+  \end{cases}$
+  \item $\begin{cases}
+  - 4 x - 5 y = 12\\
+  - 10 x + 6 y = 30
+  \end{cases}$
+  \item $\begin{cases}
+  - 7 x + 10 y = 13\\
+  4 x + 9 y = 22
+  \end{cases}$
+  \item $\begin{cases}
+  - 6 - 42 y = - 12 x\\
+	x - \frac{7}{2} y = \frac{1}{2} 
+  \end{cases}$
+  \item $\begin{cases}
+  - 9 x + 5 y = - 22\\
+  9 x - 5 y = 13
+  \end{cases}$
+  \item $\begin{cases}
+  4 x - 6 y = - 10\\
+  4 x - 6 y = - 14
+  \end{cases}$
+  \item $\begin{cases}
+  2 x - y = 5\\
+  5 x + 2 y = - 28
+  \end{cases}$
+  \item $\begin{cases}
+  2 x + 4 y = 24\\
+  4 x - 12 y = 8
+  \end{cases}$
+  \item $\begin{cases}
+  5 x + 10 y = 20\\
+  - 6 x - 5 y = - 3
+  \end{cases}$
+  \item $\begin{cases}
+  9 x - 2 y = - 18\\
+  5 x - 7 y = - 10
+  \end{cases}$
+  \item $\begin{cases}
+  - 7 x + 5 y = - 8\\
+  - 3 x - 3 y = 12
+  \end{cases}$
+  \item $\begin{cases}
+  9 y = 7 - x\\
+  - 18 y + 4 x = - 26
+	\end{cases}$
+  \item $\begin{cases}
+  - x - 2 y = - 7\\
+  x + 2 y = 7
+  \end{cases}$
+  \item $\begin{cases}
+  - 3 x + 3 y = - 12\\
+  - 3 x + 9 y = - 24
+  \end{cases}$
+  \item $\begin{cases}
+  - 5 x + 6 y = - 17\\
+  x - 2 y = 5
+  \end{cases}$
+  \item $\begin{cases}
+  - 6 x + 4 y = 12\\
+  12 x + 6 y = 18
+  \end{cases}$
+  \item $\begin{cases}
+  - 9 x - 5 y = - 19\\
+  3 x - 7 y = - 11
+  \end{cases}$
+  \item $\begin{cases}
+  3 x + 7 y = - 8\\
+  4 x + 6 y = - 4
+  \end{cases}$
+  \item $\begin{cases}
+  8 x + 7 y = - 24\\
+  6 x + 3 y = - 18
+  \end{cases}$
+  \item $\begin{cases}
+  21 = - 9 x + 12 y\\
+	\frac{4}{3} y + \frac{7}{3} x=-1
+  \end{cases}$
+	\end{enumerate}
+\end{multicols}
+\newpage
+\ \newpage
+\end{document}

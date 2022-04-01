@@ -1,0 +1,135 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+% Use the cc-by-nc-sa license for any content linked with Stitz and Zeager's text.  Otherwise, use the cc-by-sa license.
+%\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+\usepackage[type={CC},modifier={by-nc-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+\input{order}
+
+\begin{document}
+{\bf \large Lesson \arabic{lesson_polynomial_inequalities}: Polynomial Inequalities}\phantomsection\label{les:polynomial_inequalities}
+%\\ CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. 
+\\ CC attribute: \href{http://www.stitz-zeager.com}{\it{College Algebra}} by C. Stitz and J. Zeager. 
+\hfill \doclicenseImage[imagewidth=5em]\\
+\par
+{\bf Objective:}	Solve a polynomial inequality by constructing a sign diagram.\\
+\par
+{\bf Students will be able to:}
+\begin{itemize}
+	\item Identify the solution for a polynomial inequality using interval notation.
+\end{itemize}
+{\bf Prerequisite Knowledge:}
+\begin{itemize}
+	\item Sign diagrams.
+	\item Factoring.
+	\item Evaluating a function at a given value.
+	\item Interval notation.
+\end{itemize}
+\hrulefill
+
+{\bf Lesson:}\\
+{\bf I - Motivating Example(s):}\\
+\ \par
+{\bf Example:}  Solve the polynomial inequality
+$$x^4+6x^2-15x\leq x^4+2x^3-7x^2.$$
+Just as with quadratic inequalities, we begin by setting one side equal to zero.  This gives us $$2x^3-13x^2+15x\geq 0.$$
+In order to construct a sign diagram, we must find a factorization and identify the roots of the left-hand side of our inequality.
+$$2x^3-13x^2+15x=2x\left(x-\dfrac{3}{2}\right)(x-5)$$
+So the dividers in our diagram will be the roots $x=0,\frac{3}{2},$ and $5$.  Below is a chart for testing the intervals in our sign diagram, as well as the end result.
+
+\begin{center}
+\begin{tabular}{cccc}
+\underline{Interval} & \underline{Test Value} & \underline{Signs} & \underline{Result}\\
+$(-\infty,0)$ & $x=-1$ & $(-)(-)(-)$ & $-$\\
+$(0,\frac{3}{2})$ & $x=1$ & $(+)(-)(-)$ & $+$\\
+$(\frac{3}{2},5)$ & $x=3$ & $(+)(+)(-)$ & $-$\\
+$(5,\infty)$ &  $x=6$ & $(+)(+)(+)$ & $+$
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\draw [<->](-4.75,0) -- coordinate (x axis mid) (6.25,0) node[below right] {$x$};
+	\draw [-](-1,1) -- coordinate (y axis mid) (-1,-0.25) node[below] {$0$};
+	\draw [-](1,1) -- coordinate (y axis mid) (1,-0.25) node[below] {$\frac{3}{2}$};
+	\draw [-](4,1) -- coordinate (y axis mid) (4,-0.25) node[below] {$5$};
+	\draw (-3,-1) node {$x=-1$};
+	\draw (0,-1) node {$x=1$};
+	\draw (2.5,-1) node {$x=3$};
+	\draw (5,-1) node {$x=6$};
+	\draw (-3,0.5) node {$-$};
+	\draw (0,0.5) node {$+$};
+	\draw (2.5,0.5) node {$-$};
+	\draw (5,0.5) node {$+$};
+\end{tikzpicture}
+\end{center}
+
+So, using our diagram as an aide, we see that the solution to the inequality $$2x^3-13x^2+15x\geq 0,$$
+as well as our original inequality
+$$x^4+6x^2-15x\leq x^4+2x^3-7x^2,$$
+will be $$\left[0,\frac{3}{2}\right]\cup[5,\infty).$$
+
+\begin{multicols}{2}
+\begin{center}
+\begin{tikzpicture}[xscale=0.5,yscale=0.125]
+	\draw [<->](-4.5,0) -- coordinate (x axis mid) (8.5,0) node[below right] {$x$};
+	\draw [<->](0,-25) -- coordinate (y axis mid) (0,25) node[above right] {$y$};
+	\draw [<->] plot [domain=-0.769:5.461, samples=100] (\x,{2*\x*(\x-1.5)*(\x-5)});
+	\foreach \x in {1,...,8}
+		\draw (\x,1pt) -- (\x,-1pt)	node[anchor=north] {\scriptsize \x};
+	\foreach \x in {-4,...,-1}
+		\draw (\x,1pt) -- (\x,-1pt)	node[anchor=south] {\scriptsize \x};
+	\foreach \y in {5,10,...,20}
+		\draw (1pt,\y) -- (-1pt,\y)	node[anchor=east] {\scriptsize \y}; 
+	\foreach \y in {-20,-15,...,-5}
+		\draw (1pt,\y) -- (-1pt,\y)	node[anchor=west] {\scriptsize \y}; 
+\end{tikzpicture}
+\end{center}
+
+\columnbreak
+
+\ \par
+Since our given inequality was inclusive\\
+($\leq$ or $\geq$), we include the corresponding endpoints in our answer.\\
+\ \par
+We can verify that our answer is correct by comparing it to the graph of the function $$f(x)=2x^3-13x^2+15x,$$ which lies above (or on) the $x-$axis over the intervals in our answer.
+\end{multicols}
+\ \par
+{\bf II - Demo/Discussion Problems:}\\
+\ \par
+Solve each polynomial inequality below, expressing your answers using interval notation.  Use \Desmos \ to help confirm that each answer is correct.
+\begin{enumerate}
+ \item $x^3<4x^2$\\
+ \item $x^3-7x^2\leq 12x-84$\\
+ \item $(x - 1)^{2} \geq 4$\\
+ \item $2x^4>5x^2+3$
+\end{enumerate}
+\pagebreak
+{\bf III - Practice Problems:}\\
+\ \par
+Solve each polynomial inequality below, expressing your answers using interval notation.  Use \Desmos \ to help confirm that each answer is correct.
+\begin{multicols}{2}
+\begin{enumerate}
+ \item $x^4 + x^2 \geq 6$\\
+ \item $x^{4} - 9x^{2} \leq 4x - 12$\\
+ \item $4x^3 \geq 3x+1$\\
+ \item $x^4 \leq 16+4x-x^3$\\
+ \item $3x^2 + 2x < x^4$\\
+ \item $\dfrac{x^3+2 x^2}{2} < x+2$\\
+ \item $\dfrac{x^3+20x}{8} \geq x^2 + 2$\\
+ \item $19x^{2} + 20 > 2x^{3} + 49x $
+\end{enumerate}
+\end{multicols}
+\newpage
+\ \newpage
+\end{document}

@@ -1,0 +1,153 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,left=1in,bottom=1in,right=1in,headsep=2pt]{geometry}	
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{chapterfolder,docmute,setspace}
+\usepackage{cancel,multicol,tikz,verbatim,framed,polynom,enumitem}
+\usepackage[colorlinks, hyperindex, plainpages=false, linkcolor=blue, urlcolor=blue, pdfpagelabels]{hyperref}
+% Use the cc-by-nc-sa license for any content linked with Stitz and Zeager's text.  Otherwise, use the cc-by-sa license.
+\usepackage[type={CC},modifier={by-sa},version={4.0},]{doclicense}
+%\usepackage[type={CC},modifier={by-nc-sa},version={4.0},]{doclicense}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newcommand{\Desmos}{\href{https://www.desmos.com/}{Desmos}}
+\setlength{\parindent}{0em}
+\setlist{itemsep=0em}
+\setlength{\parskip}{0.1em}
+\input{order}
+
+\begin{document}
+{\bf \large Lesson \arabic{lesson_inequalities_containing_absolute_values}: Inequalities Containing Absolute Values}\phantomsection\label{les:inequalities_containing_absolute_values}
+\\ CC attribute: \href{http://www.wallace.ccfaculty.org/book/book.html}{\it{Beginning and Intermediate Algebra}} by T. Wallace. 
+%\\ CC attribute: \href{http://www.stitz-zeager.com}{\it{College Algebra}} by C. Stitz and J. Zeager. 
+\hfill \doclicenseImage[imagewidth=5em]\\
+\par
+{\bf Objective:} Solve, graph, and give interval notation to the solution of an inequality containing absolute values.\\
+\par
+{\bf Students will be able to:}
+\begin{itemize}
+	\item Recognize and correctly interpret the two cases for inequalities containing absolute values.
+	\item Represent the solution to an inequality containing absolute values using the three notations (algebraically, graphically, and using interval notation).
+\end{itemize}
+{\bf Prerequisite Knowledge:}
+\begin{itemize}
+	\item Solving linear inequalities.
+	\item Solving compound inequalities.
+	\item Graphing on a number line.
+	\item Interval notation, including unions and intersections.
+\end{itemize}
+\hrulefill
+
+{\bf Lesson:}\\
+\ \par
+When an inequality contains an absolute value we will have to remove the absolute value in order to graph the solution or provide interval notation. The way we remove the absolute value depends on the direction of the inequality symbol.\\
+\ \par
+Consider $|x| < 2$.\\
+\ \par
+Absolute value is defined as the distance from zero. Another way to read this inequality would be the distance that the variable $x$ is from zero is less than 2. So on a number line we will shade all points that are less than 2 units away from zero.
+\begin{center}
+\begin{tikzpicture}[xscale=0.7,yscale=0.7]
+	\draw [<->](-6.25,2) -- coordinate (x axis mid) (6.25,2) node[right] {$x$};
+	\draw [-,line width=0.8mm](-2,2) -- coordinate (x axis mid) (2,2);
+	\draw (2,2) node {{\bf )}};
+	\draw (-2,2) node {{\bf (}};
+	\draw [-](0,2.25) -- coordinate (y axis mid) (0,1.75) node[below] {$0$};
+	\draw (-2,1.25) node {$-2$};
+	%\draw (0,1.25) node {$0$};
+	\draw (2,1.25) node {$2$};
+	\draw (0,0) node {Interval Notation: $(-2,2)$};
+\end{tikzpicture}
+\end{center}
+
+This graph looks just like the graphs of a double inequality.  When an absolute value is {\it less than} a number we will remove the
+absolute value by changing the problem to a double inequality, with the negative value on the left and the positive value on the right. So $|x| < 2$ becomes $- 2 < x < 2,$ as the previous graph illustrates.\\
+\ \par
+Alternatively, let's consider $|x| > 2$.\\
+\ \par
+Another way to read this inequality would be the distance that $x$ is from zero is greater than 2. So on the number line we shade all points that are {\it more than} 2 units away from zero.%\pp
+
+\begin{center}
+\begin{tikzpicture}[xscale=0.7,yscale=0.7]
+	\draw [<->](-6.25,2) -- coordinate (x axis mid) (6.25,2) node[right] {$x$};
+	\draw [->,line width=0.8mm](2,2) -- coordinate (x axis mid) (6.25,2);
+	\draw [<-,line width=0.8mm](-6.25,2) -- coordinate (x axis mid) (-2,2);
+	\draw (2,2) node {{\bf (}};
+	\draw (-2,2) node {{\bf )}};
+	\draw [-](0,2.25) -- coordinate (y axis mid) (0,1.75) node[below] {$0$};
+	\draw (-2,1.25) node {$-2$};
+	\draw (2,1.25) node {$2$};
+	\draw (0,0) node {Interval Notation: $(-\infty,-2)\cup(2,\infty)$};
+\end{tikzpicture}
+\end{center}
+
+This graph looks just like the graph of an OR inequality.  When an absolute value is {\it greater than} a number we will remove the
+absolute value by changing the problem to an OR inequality, the first inequality looking just like the problem with no absolute value, the second
+flipping the inequality symbol and changing the value to a negative. So $|x| >
+2$ becomes $x > 2$ OR $x < - 2$, as the graph above illustrates.\\
+\ \par
+For all absolute value inequalities we can also express our answers in interval notation which is done the same way as for compound
+inequalities.\\
+\ \par
+As with an equation, our first step to solving an inequality containing an absolute value will be to isolate the absolute value. Next we will
+remove the absolute value by either changing to a double inequality if the absolute value is less than a number, or changing to an OR inequality if the absolute value is greater than a number. Then we solve the newly created compound inequality.\\
+\ \par
+%{\bf I - Motivating Example(s):}\\
+%\ \par
+%{\bf Example:}\\
+%\ \par
+{\bf II - Demo/Discussion Problems:}\\
+\ \par
+Solve each of the given inequalities. Graph each solution on a real number line and provide the corresponding interval notation.
+\begin{enumerate}
+	\item $|4x - 5| \geq 6$
+	\item $- 4 - 3 |x| \leq - 16$
+	\item $9 - 2 |4x + 1| > 3$
+	\item $12 + 4 |6x - 1| < 4$
+	\item $5 - 6 |x + 7| \leq 17$
+\end{enumerate}
+\newpage
+{\bf III - Practice Problems:}\\
+\ \par
+Solve each of the given inequalities. Graph each solution on a real number line and provide the corresponding interval notation.
+\begin{enumerate}
+\begin{multicols}{2}
+  \item $| x | < 3$
+  \item $| x | \leq 8$
+  \item $| 2 x| < 6$
+  \item $| x + 3| < 4$
+  \item $| x - 2| < 6$
+  \item $|x - 8| < 12$
+  \item $|x - 7| < 3$
+  \item $|x + 3| \leq 4$
+  \item $|3x - 2| < 9$
+  \item $|2x + 5| < 9$
+  \item $1 + 2 |x - 1| \leq 9$
+  \item $10 - 3 |x - 2| \geq 4$
+  \item $6 - |2x - 5| \geq 3$
+  \item $|x| > 5$
+  \item $|3x| > 5$
+  \item $| x - 4| > 5$
+  \item $| x - 3| \geq 3$
+  \item $| 2 x - 4| > 6$
+  \item $| 3 x - 5| \geq 3$
+  \item $3 - |2 - x| < 1$
+  \item $4 + 3 |x - 1| \geq 10$
+  \item $3 - 2 |3x - 1| \geq - 7$
+  \item $3 - 2 |x - 5| \leq - 15$
+  \item $4 - 6| 6 + 3 x| \leq - 5$
+  \item $- 2 - 3 |4 - 2 x| \geq - 8$
+  \item $- 3 - 2 |4x - 5| \geq 1$
+  \item $4 - 5| 2 x + 7| < - 1$
+  \item $- 2 + 3 |5 - x| \leq 4$
+  \item $3 - 2 |4x - 5| \geq 1$
+  \item $- 2 - 3| 3 x + 5| \geq - 5$
+  \item $- 5 - 2 |3x - 6| < - 8$
+  \item $6 - 3 |1 - 4 x| < - 3$
+  \item $4 - 4| - 2 x + 6| > - 4$
+  \item $- 3 - 4| 2 x + 5| \geq - 7$
+  \item $| - 10 + x | \geq 8$
+\end{multicols}
+\end{enumerate}
+\newpage
+\ \newpage
+\end{document}
